@@ -30,6 +30,10 @@ namespace FFY.IdentityConfig
         {
             var manager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
 
+            //TODO: Remove when view form is fixed
+            user.FirstName = "Test";
+            user.LastName = "Test";
+
             var result = manager.Create(user, password);
 
             return result;

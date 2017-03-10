@@ -5,8 +5,11 @@ namespace FFY.Models
 {
     public class Product
     {
+        private ICollection<User> raters;
+
         public Product()
         {
+            this.raters = new HashSet<User>();
         }
 
         public Product(string name,
@@ -66,6 +69,17 @@ namespace FFY.Models
         [Range(0, 10000)]
         public int RatingCount { get; set; }
 
+        public virtual ICollection<User> Raters
+        {
+            get
+            {
+                return this.raters;
+            }
+            set
+            {
+                this.raters = value;
+            }
+        }
         [Required]
         [MinLength(3)]
         [MaxLength(1000)]

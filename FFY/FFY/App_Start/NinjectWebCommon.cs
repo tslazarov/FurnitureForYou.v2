@@ -10,6 +10,7 @@ namespace FFY.Web.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
+    using NinjectModules;
 
     public static class NinjectWebCommon 
     {

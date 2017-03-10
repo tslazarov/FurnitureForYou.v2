@@ -10,10 +10,13 @@ namespace FFY.Models
     public class User : IdentityUser
     {
         private ICollection<Order> orders;
+        private ICollection<Product> ratedProducts;
 
         public User()
         {
             this.Orders = new HashSet<Order>();
+            this.ratedProducts = new HashSet<Product>();
+
         }
 
         public User(string username,
@@ -26,7 +29,6 @@ namespace FFY.Models
             this.FirstName = firstName;
             this.LastName = lastName;
             this.Email = email;
-            this.UserRole = userRole;
         }
 
         [Required]
@@ -44,11 +46,6 @@ namespace FFY.Models
         [MaxLength(30)]
         public string LastName { get; set; }
 
-        [Required]
-        [MinLength(2)]
-        [MaxLength(30)]
-        public string UserRole { get; set; }
-
         public virtual ICollection<Order> Orders
         {
             get
@@ -58,6 +55,18 @@ namespace FFY.Models
             set
             {
                 this.orders = value;
+            }
+        }
+
+        public virtual ICollection<Product> RatedProducts
+        {
+            get
+            {
+                return this.ratedProducts;
+            }
+            set
+            {
+                this.ratedProducts = value;
             }
         }
 

@@ -61,6 +61,7 @@
     <Compile Include="Contacts\IGenericRepository.cs" />
     <Compile Include="Contacts\IUnitOfWork.cs" />
     <Compile Include="FFYContext.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
