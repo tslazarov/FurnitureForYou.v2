@@ -29,10 +29,6 @@ namespace FFY.Models
             this.UserRole = userRole;
         }
 
-        //TODO: Remove possibly
-        //[Key]
-        //public int Id { get; set; }
-
         [Required]
         [MinLength(3)]
         [MaxLength(30)]
@@ -66,18 +62,5 @@ namespace FFY.Models
         }
 
         public virtual ShoppingCart ShoppingCart { get; set; }
-
-        public ClaimsIdentity GenerateUserIdentity(UserManager<User> manager)
-        {
-            // note the authenticationtype must match the one defined in cookieauthenticationoptions.authenticationtype
-            var useridentity = manager.CreateIdentity(this, DefaultAuthenticationTypes.ApplicationCookie);
-            // add custom user claims here
-            return useridentity;
-        }
-
-        public Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
-        {
-            return Task.FromResult(GenerateUserIdentity(manager));
-        }
     }
 }
