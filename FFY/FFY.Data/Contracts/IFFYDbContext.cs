@@ -4,7 +4,7 @@ using System.Data.Entity.Infrastructure;
 
 namespace FFY.Data.Contracts
 {
-    public interface IFFYContext
+    public interface IFFYDbContext
     {
         IDbSet<Address> Addresses { get; set; }
 

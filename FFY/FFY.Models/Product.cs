@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using FFY.Models.Contracts;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace FFY.Models
 {
-    public class Product
+    public class Product : IDeletableEntity
     {
         private ICollection<User> raters;
 

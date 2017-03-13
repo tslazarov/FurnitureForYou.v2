@@ -8,8 +8,8 @@ namespace FFY.Web.App_Start
     {
         public static void Initialize()
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<FFYContext, Configuration>());
-            FFYContext.Create().Database.Initialize(true);
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<FFYDbContext, Configuration>());
+            FFYDbContext.Create().Database.Initialize(true);
         }
     }
 }

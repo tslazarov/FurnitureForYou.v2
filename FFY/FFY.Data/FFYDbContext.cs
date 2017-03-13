@@ -6,9 +6,9 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace FFY.Data
 {
-    public class FFYContext : IdentityDbContext<User>, IFFYContext
+    public class FFYDbContext : IdentityDbContext<User>, IFFYDbContext
     {
-        public FFYContext() : base("FurnitureForYou")
+        public FFYDbContext() : base("FurnitureForYou")
         {
         }
 
@@ -28,9 +28,9 @@ namespace FFY.Data
 
         public virtual IDbSet<Room> Rooms { get; set; }
 
-        public static FFYContext Create()
+        public static FFYDbContext Create()
         {
-            return new FFYContext();
+            return new FFYDbContext();
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -45,7 +45,7 @@ namespace FFY.Data
             base.OnModelCreating(modelBuilder);
         }
 
-        IDbSet<T> IFFYContext.Set<T>()
+        IDbSet<T> IFFYDbContext.Set<T>()
         {
             return base.Set<T>();
         }
