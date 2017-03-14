@@ -26,39 +26,39 @@ namespace FFY.Data
             IEfRepository<User> usersRepository,
             IDeletableEfRepository<Product> productsRepository)
         {
-            Guard.WhenArgument<IFFYDbContext>(dbContext, "Database context cannot be null")
+            Guard.WhenArgument<IFFYDbContext>(dbContext, "Database context cannot be null.")
                 .IsNull()
                 .Throw();
 
-            Guard.WhenArgument<IEfRepository<Address>>(addressesRepository, "Addresses repository cannot be null")
+            Guard.WhenArgument<IEfRepository<Address>>(addressesRepository, "Addresses repository cannot be null.")
                 .IsNull()
                 .Throw();
 
-            Guard.WhenArgument<IEfRepository<Category>>(categoriesRepository, "Categories repository cannot be null")
+            Guard.WhenArgument<IEfRepository<Category>>(categoriesRepository, "Categories repository cannot be null.")
                 .IsNull()
                 .Throw();
 
-            Guard.WhenArgument<IEfRepository<Contact>>(contactsRepository, "Contacts repository cannot be null")
+            Guard.WhenArgument<IEfRepository<Contact>>(contactsRepository, "Contacts repository cannot be null.")
                 .IsNull()
                 .Throw();
 
-            Guard.WhenArgument<IEfRepository<Order>>(ordersRepository, "Orders repository cannot be null")
+            Guard.WhenArgument<IEfRepository<Order>>(ordersRepository, "Orders repository cannot be null.")
                 .IsNull()
                 .Throw();
 
-            Guard.WhenArgument<IEfRepository<Room>>(roomsRepository, "Rooms repository cannot be null")
+            Guard.WhenArgument<IEfRepository<Room>>(roomsRepository, "Rooms repository cannot be null.")
                 .IsNull()
                 .Throw();
 
-            Guard.WhenArgument<IEfRepository<ShoppingCart>>(shoppingCartsRepository, "Shopping carts repository cannot be null")
+            Guard.WhenArgument<IEfRepository<ShoppingCart>>(shoppingCartsRepository, "Shopping carts repository cannot be null.")
                 .IsNull()
                 .Throw();
 
-            Guard.WhenArgument<IEfRepository<User>>(usersRepository, "Users repository cannot be null")
+            Guard.WhenArgument<IEfRepository<User>>(usersRepository, "Users repository cannot be null.")
                 .IsNull()
                 .Throw();
 
-            Guard.WhenArgument<IDeletableEfRepository<Product>>(productsRepository, "Products repository cannot be null")
+            Guard.WhenArgument<IDeletableEfRepository<Product>>(productsRepository, "Products repository cannot be null.")
                 .IsNull()
                 .Throw();
 

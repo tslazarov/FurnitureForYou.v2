@@ -65,6 +65,8 @@
     <Compile Include="Data\EfRepositoryTests\All.cs" />
     <Compile Include="Data\EfRepositoryTests\Constructor.cs" />
     <Compile Include="Data\EfRepositoryTests\GetById.cs" />
+    <Compile Include="Data\FFYDataTests\Constructor.cs" />
+    <Compile Include="Data\FFYDataTests\SaveChanges.cs" />
     <Compile Include="Data\MockedModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
