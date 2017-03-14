@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\DeletableEfRepositoryTests\AllWithoutDeleted.cs" />
     <Compile Include="Data\EfRepositoryTests\All.cs" />
     <Compile Include="Data\EfRepositoryTests\Constructor.cs" />
     <Compile Include="Data\EfRepositoryTests\GetById.cs" />
@@ -79,6 +80,10 @@
     <ProjectReference Include="..\FFY.Data\FFY.Data.csproj">
       <Project>{a32c80ed-b5a0-415d-92ab-9f906070f406}</Project>
       <Name>FFY.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FFY.Models\FFY.Models.csproj">
+      <Project>{4c6e1ed4-f80b-4312-b899-c78d7e70f121}</Project>
+      <Name>FFY.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

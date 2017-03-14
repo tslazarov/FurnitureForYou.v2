@@ -26,9 +26,9 @@ namespace FFY.UnitTests.Data.EfRepositoryTests
             var efRepository = new EfRepository<MockedModel>(mockedContext.Object);
 
             // Act
-            var all = efRepository.All(); 
+            var all = efRepository.All();
 
-            // Act and Assert
+            // Assert
             Assert.AreSame(mockedDbSet.Object, all);
         }
     }

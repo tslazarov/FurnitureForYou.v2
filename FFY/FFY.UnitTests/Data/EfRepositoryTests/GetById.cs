@@ -31,7 +31,7 @@ namespace FFY.UnitTests.Data.EfRepositoryTests
             // Act
             var entity = efRepository.GetById(id);
 
-            // Act and Assert
+            // Assert
             mockedDbSet.Verify(s => s.Find(id), Times.Once);
         }
 
@@ -54,7 +54,7 @@ namespace FFY.UnitTests.Data.EfRepositoryTests
             // Act
             var entity = efRepository.GetById(id);
 
-            // Act and Assert
+            // Assert
             Assert.AreSame(mockedModel, entity);
         }
     }
