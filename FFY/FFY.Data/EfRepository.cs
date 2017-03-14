@@ -14,7 +14,7 @@ namespace FFY.Data
 
         public EfRepository(IFFYDbContext dbContext)
         {
-            Guard.WhenArgument<IFFYDbContext>(dbContext, "Database context cannot be null")
+            Guard.WhenArgument<IFFYDbContext>(dbContext, "Database context cannot be null.")
                 .IsNull()
                 .Throw();
 
@@ -26,6 +26,7 @@ namespace FFY.Data
         {
             return this.dbSet;
         }
+
         public T GetById(object id)
         {
             return this.dbSet.Find(id);
