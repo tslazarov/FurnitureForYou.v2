@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFY.Models", "FFY.Models\FF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFY.IdentityConfig", "FFY.IdentityConfig\FFY.IdentityConfig.csproj", "{183847E9-EC47-4A89-B499-746692289D21}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFY.UnitTests", "FFY.UnitTests\FFY.UnitTests.csproj", "{FE980832-C6C1-4962-83E2-1E19FD30D560}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{183847E9-EC47-4A89-B499-746692289D21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{183847E9-EC47-4A89-B499-746692289D21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{183847E9-EC47-4A89-B499-746692289D21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE980832-C6C1-4962-83E2-1E19FD30D560}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE980832-C6C1-4962-83E2-1E19FD30D560}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE980832-C6C1-4962-83E2-1E19FD30D560}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE980832-C6C1-4962-83E2-1E19FD30D560}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
