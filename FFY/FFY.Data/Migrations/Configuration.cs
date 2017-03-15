@@ -12,9 +12,12 @@ namespace FFY.Data.Migrations
 
         protected override void Seed(FFY.Data.FFYDbContext context)
         {
-            context.Roles.Add(new IdentityRole("User"));
-            context.Roles.Add(new IdentityRole("Administrator"));
-            context.Roles.Add(new IdentityRole("Moderator"));
+            context.Roles.AddOrUpdate(
+                p => p.Name,
+                new IdentityRole("Administrator"),
+                new IdentityRole("Moderator"),
+                new IdentityRole("User")
+                );
         }
     }
 }
