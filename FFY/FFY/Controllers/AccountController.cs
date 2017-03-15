@@ -15,8 +15,6 @@ namespace FFY.Web.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        private const string XsrfKey = "XsrfId";
-
         private readonly IAuthenticationProvider authenticationProvider;
         private readonly IUserFactory userFactory;
         private readonly IShoppingCartFactory shoppingCartFactory;
@@ -39,6 +37,10 @@ namespace FFY.Web.Controllers
                 .IsNull()
                 .Throw();
 
+            Guard.WhenArgument<IShoppingCartFactory>(shoppingCartFactory, "Shopping cart factory cannot be null.")
+                .IsNull()
+                .Throw();
+
             Guard.WhenArgument<IShoppingCartsService>(shoppingCartsService, "Shopping carts service cannot be null.")
                 .IsNull()
                 .Throw();
@@ -51,10 +53,10 @@ namespace FFY.Web.Controllers
 
         // GET: /Account/Login
         [AllowAnonymous]
-        public ActionResult Login(string returnUrl)
+        public ViewResult Login(string returnUrl)
         {
-            ViewBag.ReturnUrl = returnUrl;
-            return View();
+            this.ViewBag.ReturnUrl = returnUrl;
+            return this.View();
         }
 
         // POST: /Account/Login
@@ -63,7 +65,7 @@ namespace FFY.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel model, string returnUrl)
         {
-            if (!ModelState.IsValid)
+            if (!this.ModelState.IsValid)
             {
                 return this.View(model);
             }
@@ -87,7 +89,7 @@ namespace FFY.Web.Controllers
 
         // GET: /Account/Register
         [AllowAnonymous]
-        public ActionResult Register()
+        public ViewResult Register()
         {
             return this.View();
         }
@@ -98,7 +100,7 @@ namespace FFY.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterViewModel model)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var user = this.userFactory.CreateUser(model.Email, model.FirstName, model.LastName, model.Email);
                 var result = this.authenticationProvider.CreateUser(user, model.Password);
@@ -114,7 +116,7 @@ namespace FFY.Web.Controllers
                     return RedirectToAction("Index", "Home");
                 }
 
-                AddErrors(result);
+                this.AddErrors(result);
             }
 
             return this.View(model);
@@ -127,7 +129,7 @@ namespace FFY.Web.Controllers
         {
             this.authenticationProvider.SignOut();
 
-            return RedirectToAction("Index", "Home");
+            return this.RedirectToAction("Index", "Home");
         }
 
         protected override void Dispose(bool disposing)
@@ -139,7 +141,7 @@ namespace FFY.Web.Controllers
         {
             foreach (var error in result.Errors)
             {
-                ModelState.AddModelError("", error);
+                this.ModelState.AddModelError("", error);
             }
         }
     }

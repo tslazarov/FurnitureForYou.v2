@@ -42,6 +42,9 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="Moq, Version=4.7.1.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <HintPath>..\packages\Moq.4.7.1\lib\net45\Moq.dll</HintPath>
       <Private>True</Private>
@@ -53,6 +56,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -71,6 +76,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ShoppingCartsServiceTests\AssignShoppingCart.cs" />
     <Compile Include="Services\ShoppingCartsServiceTests\Constructor.cs" />
+    <Compile Include="Web\AccountControllerTests\Constructor.cs" />
+    <Compile Include="Web\AccountControllerTests\LoginGet.cs" />
+    <Compile Include="Web\AccountControllerTests\LoginPost.cs" />
+    <Compile Include="Web\AccountControllerTests\LogOutGet.cs" />
+    <Compile Include="Web\AccountControllerTests\RegisterGet.cs" />
+    <Compile Include="Web\AccountControllerTests\RegisterPost.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -85,6 +96,10 @@
       <Project>{a32c80ed-b5a0-415d-92ab-9f906070f406}</Project>
       <Name>FFY.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FFY.IdentityConfig\FFY.IdentityConfig.csproj">
+      <Project>{183847e9-ec47-4a89-b499-746692289d21}</Project>
+      <Name>FFY.IdentityConfig</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FFY.Models\FFY.Models.csproj">
       <Project>{4c6e1ed4-f80b-4312-b899-c78d7e70f121}</Project>
       <Name>FFY.Models</Name>
@@ -92,6 +107,10 @@
     <ProjectReference Include="..\FFY.Services\FFY.Services.csproj">
       <Project>{201e87d0-550e-48da-a4c9-d881485e3984}</Project>
       <Name>FFY.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FFY\FFY.Web.csproj">
+      <Project>{191bca53-540f-4abb-af95-f8b44cbe9ef8}</Project>
+      <Name>FFY.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
