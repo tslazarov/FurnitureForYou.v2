@@ -64,6 +64,7 @@ namespace FFY.Web.App_Start
         {
             kernel.Load(new IdentityNinjectModule());
             kernel.Load(new DataNinjectModule());
+            kernel.Load(new ServicesNinjectModule());
         }        
     }
 }

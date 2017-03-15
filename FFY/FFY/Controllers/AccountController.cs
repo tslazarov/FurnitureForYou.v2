@@ -8,6 +8,7 @@ using FFY.Data.Factories;
 using Bytes2you.Validation;
 using FFY.Web.Models.Account;
 using FFY.Data.Contracts;
+using FFY.Services.Contracts;
 
 namespace FFY.Web.Controllers
 {
@@ -19,7 +20,7 @@ namespace FFY.Web.Controllers
         private readonly IAuthenticationProvider authenticationProvider;
         private readonly IUserFactory userFactory;
         private readonly IShoppingCartFactory shoppingCartFactory;
-        private readonly IFFYData data;
+        private readonly IShoppingCartsService shoppingCartsService;
 
         public AccountController()
         {
@@ -28,18 +29,24 @@ namespace FFY.Web.Controllers
         public AccountController(IAuthenticationProvider provider, 
             IUserFactory userFactory,
             IShoppingCartFactory shoppingCartFactory,
-            IFFYData data)
+            IShoppingCartsService shoppingCartsService)
         {
             Guard.WhenArgument<IAuthenticationProvider>(provider, "Authentication provider cannot be null.")
                 .IsNull()
                 .Throw();
 
-            Guard.WhenArgument<IUserFactory>(userFactory, "User factory cannot be null.");
+            Guard.WhenArgument<IUserFactory>(userFactory, "User factory cannot be null.")
+                .IsNull()
+                .Throw();
+
+            Guard.WhenArgument<IShoppingCartsService>(shoppingCartsService, "Shopping carts service cannot be null.")
+                .IsNull()
+                .Throw();
 
             this.authenticationProvider = provider;
             this.userFactory = userFactory;
             this.shoppingCartFactory = shoppingCartFactory;
-            this.data = data;
+            this.shoppingCartsService = shoppingCartsService;
         }
 
         // GET: /Account/Login
@@ -100,8 +107,7 @@ namespace FFY.Web.Controllers
                 {
                     var shoppingCart = this.shoppingCartFactory.CreateShoppingCart(user.Id, user);
 
-                    this.data.ShoppingCartsRepository.Add(shoppingCart);
-                    this.data.SaveChanges();
+                    this.shoppingCartsService.AssignShoppingCart(shoppingCart);
 
                     this.authenticationProvider.SignIn(user, isPersistent:false, rememberBrowser:false);
                     

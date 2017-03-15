@@ -227,6 +227,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\NinjectModules\DataNinjectModule.cs" />
     <Compile Include="App_Start\NinjectModules\IdentityNinjectModule.cs" />
+    <Compile Include="App_Start\NinjectModules\ServicesNinjectModule.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
@@ -317,6 +318,10 @@
     <ProjectReference Include="..\FFY.Models\FFY.Models.csproj">
       <Project>{4c6e1ed4-f80b-4312-b899-c78d7e70f121}</Project>
       <Name>FFY.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FFY.Services\FFY.Services.csproj">
+      <Project>{201e87d0-550e-48da-a4c9-d881485e3984}</Project>
+      <Name>FFY.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
