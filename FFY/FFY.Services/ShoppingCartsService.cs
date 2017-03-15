@@ -25,6 +25,10 @@ namespace FFY.Services
 
         public void AssignShoppingCart(ShoppingCart shoppingCart)
         {
+            Guard.WhenArgument<ShoppingCart>(shoppingCart, "Shopping cart cannot be null.")
+                .IsNull()
+                .Throw();
+
             this.data.ShoppingCartsRepository.Add(shoppingCart);
             this.data.SaveChanges();
         }
