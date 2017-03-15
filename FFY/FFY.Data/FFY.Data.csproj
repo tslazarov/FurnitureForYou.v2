@@ -61,12 +61,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assembly\IDataAssembly.cs" />
     <Compile Include="Contracts\IDeletableEfRepository.cs" />
     <Compile Include="Contracts\IFFYData.cs" />
     <Compile Include="Contracts\IFFYDbContext.cs" />
     <Compile Include="Contracts\IEfRepository.cs" />
     <Compile Include="DeletableEfRepository.cs" />
     <Compile Include="EfRepository.cs" />
+    <Compile Include="Factories\IShoppingCartFactory.cs" />
+    <Compile Include="Factories\IUserFactory.cs" />
     <Compile Include="FFYData.cs" />
     <Compile Include="FFYDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />

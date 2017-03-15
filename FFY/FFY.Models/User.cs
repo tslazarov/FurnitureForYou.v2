@@ -22,8 +22,7 @@ namespace FFY.Models
         public User(string username,
             string firstName,
             string lastName,
-            string email,
-            string userRole) : this()
+            string email) : this()
         {
             this.UserName = username;
             this.FirstName = firstName;

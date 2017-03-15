@@ -10,13 +10,11 @@ namespace FFY.Models
 {
     public class ShoppingCart
     {
-        private ICollection<CartProduct> temporaryCartProducts;
-        private ICollection<CartProduct> permanentCartProducts;
+        private ICollection<CartProduct> cartProducts;
 
         public ShoppingCart()
         {
-            this.TemporaryProducts = new HashSet<CartProduct>();
-            this.PermamentProducts = new HashSet<CartProduct>();
+            this.CartProducts = new HashSet<CartProduct>();
         }
 
         public ShoppingCart(string userId, User user, decimal total = 0) : this()
@@ -34,27 +32,15 @@ namespace FFY.Models
 
         public decimal Total { get; set; }
 
-        public virtual ICollection<CartProduct> TemporaryProducts
+        public virtual ICollection<CartProduct> CartProducts
         {
             get
             {
-                return this.temporaryCartProducts;
+                return this.cartProducts;
             }
             set
             {
-                this.temporaryCartProducts = value;
-            }
-        }
-
-        public virtual ICollection<CartProduct> PermamentProducts
-        {
-            get
-            {
-                return this.permanentCartProducts;
-            }
-            set
-            {
-                this.permanentCartProducts = value;
+                this.cartProducts = value;
             }
         }
     }

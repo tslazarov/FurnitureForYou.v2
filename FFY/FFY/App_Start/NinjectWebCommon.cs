@@ -63,6 +63,7 @@ namespace FFY.Web.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Load(new IdentityNinjectModule());
+            kernel.Load(new DataNinjectModule());
         }        
     }
 }

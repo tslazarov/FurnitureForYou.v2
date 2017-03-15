@@ -1,41 +1,47 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
+﻿using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using FFY.Web.Models;
-using FFY.IdentityConfig;
 using FFY.IdentityConfig.Contracts;
-using FFY.Models;
+using FFY.Data.Factories;
+using Bytes2you.Validation;
+using FFY.Web.Models.Account;
+using FFY.Data.Contracts;
 
 namespace FFY.Web.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
+        private const string XsrfKey = "XsrfId";
 
         private readonly IAuthenticationProvider authenticationProvider;
+        private readonly IUserFactory userFactory;
+        private readonly IShoppingCartFactory shoppingCartFactory;
+        private readonly IFFYData data;
 
         public AccountController()
         {
         }
 
-        public AccountController(IAuthenticationProvider provider)
+        public AccountController(IAuthenticationProvider provider, 
+            IUserFactory userFactory,
+            IShoppingCartFactory shoppingCartFactory,
+            IFFYData data)
         {
-            if (provider == null)
-            {
-                throw new ArgumentNullException("Authentication provider cannot be null.");
-            }
+            Guard.WhenArgument<IAuthenticationProvider>(provider, "Authentication provider cannot be null.")
+                .IsNull()
+                .Throw();
+
+            Guard.WhenArgument<IUserFactory>(userFactory, "User factory cannot be null.");
 
             this.authenticationProvider = provider;
+            this.userFactory = userFactory;
+            this.shoppingCartFactory = shoppingCartFactory;
+            this.data = data;
         }
 
-        //
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
@@ -44,7 +50,6 @@ namespace FFY.Web.Controllers
             return View();
         }
 
-        //
         // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]
@@ -53,34 +58,33 @@ namespace FFY.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return this.View(model);
             }
 
-            // This doesn't count login failures towards account lockout
-            // To enable password failures to trigger account lockout, change to shouldLockout: true
+            returnUrl = string.IsNullOrEmpty(returnUrl) ? "/Home/Index" : returnUrl;
+
             var result = this.authenticationProvider.SignInWithPassword(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    return this.Redirect(returnUrl);
                 case SignInStatus.LockedOut:
-                    return View("Lockout");
+                    return this.View("Lockout");
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
-                    return View(model);
+                    ModelState.AddModelError("", "Email or password is incorrect.");
+                    return this.View(model);
             }
         }
 
-        //
         // GET: /Account/Register
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            return this.View();
         }
 
-        //
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
@@ -89,10 +93,16 @@ namespace FFY.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new User { UserName = model.Email, Email = model.Email };
+                var user = this.userFactory.CreateUser(model.Email, model.FirstName, model.LastName, model.Email);
                 var result = this.authenticationProvider.CreateUser(user, model.Password);
+
                 if (result.Succeeded)
                 {
+                    var shoppingCart = this.shoppingCartFactory.CreateShoppingCart(user.Id, user);
+
+                    this.data.ShoppingCartsRepository.Add(shoppingCart);
+                    this.data.SaveChanges();
+
                     this.authenticationProvider.SignIn(user, isPersistent:false, rememberBrowser:false);
                     
                     return RedirectToAction("Index", "Home");
@@ -101,35 +111,22 @@ namespace FFY.Web.Controllers
                 AddErrors(result);
             }
 
-            // If we got this far, something failed, redisplay form
-            return View(model);
+            return this.View(model);
         }
 
-        //
-        // POST: /Account/LogOff
+        // POST: /Account/LogOut
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult LogOff()
+        public ActionResult LogOut()
         {
             this.authenticationProvider.SignOut();
+
             return RedirectToAction("Index", "Home");
         }
 
         protected override void Dispose(bool disposing)
         {
             base.Dispose(disposing);
-        }
-
-        #region Helpers
-        // Used for XSRF protection when adding external logins
-        private const string XsrfKey = "XsrfId";
-
-        private IAuthenticationManager AuthenticationManager
-        {
-            get
-            {
-                return HttpContext.GetOwinContext().Authentication;
-            }
         }
 
         private void AddErrors(IdentityResult result)
@@ -139,44 +136,5 @@ namespace FFY.Web.Controllers
                 ModelState.AddModelError("", error);
             }
         }
-
-        private ActionResult RedirectToLocal(string returnUrl)
-        {
-            if (Url.IsLocalUrl(returnUrl))
-            {
-                return Redirect(returnUrl);
-            }
-            return RedirectToAction("Index", "Home");
-        }
-
-        internal class ChallengeResult : HttpUnauthorizedResult
-        {
-            public ChallengeResult(string provider, string redirectUri)
-                : this(provider, redirectUri, null)
-            {
-            }
-
-            public ChallengeResult(string provider, string redirectUri, string userId)
-            {
-                LoginProvider = provider;
-                RedirectUri = redirectUri;
-                UserId = userId;
-            }
-
-            public string LoginProvider { get; set; }
-            public string RedirectUri { get; set; }
-            public string UserId { get; set; }
-
-            public override void ExecuteResult(ControllerContext context)
-            {
-                var properties = new AuthenticationProperties { RedirectUri = RedirectUri };
-                if (UserId != null)
-                {
-                    properties.Dictionary[XsrfKey] = UserId;
-                }
-                context.HttpContext.GetOwinContext().Authentication.Challenge(properties, LoginProvider);
-            }
-        }
-        #endregion
     }
 }

@@ -3,11 +3,18 @@ using FFY.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using FFY.IdentityConfig.Contracts;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace FFY.IdentityConfig
 {
     public class HttpContextAuthenticationProvider : IAuthenticationProvider
     {
+
+        public HttpContextAuthenticationProvider()
+        {
+
+        }
+
         public bool IsAuthenticated
         {
             get
@@ -16,25 +23,16 @@ namespace FFY.IdentityConfig
             }
         }
 
-        public IdentityResult CreateUser(string email, string password)
-        {
-            var user = new User { Email = email, UserName = email };
-            var manager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
-
-            var result = manager.Create(user, password);
-
-            return result;
-        }
-
         public IdentityResult CreateUser(User user, string password)
         {
             var manager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
 
-            //TODO: Remove when view form is fixed
-            user.FirstName = "Test";
-            user.LastName = "Test";
-
             var result = manager.Create(user, password);
+
+            if(result.Succeeded)
+            {
+                manager.AddToRole(user.Id, "User");
+            }
 
             return result;
         }
