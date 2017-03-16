@@ -26,7 +26,7 @@ namespace FFY.Services
 
         public void AddContact(Contact contact)
         {
-            Guard.WhenArgument<Contact>(contact, "Contact cannot be null")
+            Guard.WhenArgument<Contact>(contact, "Contact cannot be null.")
                 .IsNull()
                 .Throw();
 

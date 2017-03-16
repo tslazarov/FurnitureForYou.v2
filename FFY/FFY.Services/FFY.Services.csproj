@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assembly\IServicesAssembly.cs" />
+    <Compile Include="ContactsService.cs" />
+    <Compile Include="Contracts\IContactsService.cs" />
     <Compile Include="Contracts\IShoppingCartsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShoppingCartsService.cs" />
