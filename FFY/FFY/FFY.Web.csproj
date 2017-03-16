@@ -239,9 +239,12 @@
     <Compile Include="Areas\Profile\Controllers\InformationController.cs" />
     <Compile Include="Areas\Profile\Controllers\ShoppingCartController.cs" />
     <Compile Include="Areas\Profile\ProfileAreaRegistration.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Custom\Attributes\SecurityAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Custom\Results\TransferResult.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -317,6 +320,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Shared\_AdministrationPartial.cshtml" />
+    <Content Include="Views\Error\Unauthorized.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
