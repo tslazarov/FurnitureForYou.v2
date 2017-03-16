@@ -23,6 +23,7 @@ namespace FFY.Web.App_Start.NinjectModules
             this.Rebind<IFFYDbContext>().To<FFYDbContext>().InRequestScope();
             this.Bind<IUserFactory>().ToFactory();
             this.Bind<IShoppingCartFactory>().ToFactory();
+            this.Bind<IContactFactory>().ToFactory();
         }
     }
 }

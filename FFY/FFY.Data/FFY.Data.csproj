@@ -68,6 +68,7 @@
     <Compile Include="Contracts\IEfRepository.cs" />
     <Compile Include="DeletableEfRepository.cs" />
     <Compile Include="EfRepository.cs" />
+    <Compile Include="Factories\IContactFactory.cs" />
     <Compile Include="Factories\IShoppingCartFactory.cs" />
     <Compile Include="Factories\IUserFactory.cs" />
     <Compile Include="FFYData.cs" />
