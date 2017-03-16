@@ -250,6 +250,7 @@
     </Compile>
     <Compile Include="Models\Account\LoginViewModel.cs" />
     <Compile Include="Models\Account\RegisterViewModel.cs" />
+    <Compile Include="Areas\Administration\Models\ProductManagement\RoomPartialViewModel.cs" />
     <Compile Include="Models\Contact\ContactViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -279,6 +280,7 @@
     <Content Include="Areas\Profile\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Profile\Views\ShoppingCart\Index.cshtml" />
     <Content Include="Areas\Profile\Views\Information\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\ProductManagement\RoomPartial.cshtml" />
     <None Include="Properties\PublishProfiles\furnitureforyou - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\furnitureforyou - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
@@ -324,7 +326,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Administration\Models\" />
     <Folder Include="Areas\Profile\Models\" />
   </ItemGroup>
   <ItemGroup>
