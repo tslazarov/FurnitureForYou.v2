@@ -22,3 +22,8 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.cart-container {
+    padding-bottom: 5px !important;
+    padding-top: 5px !important;
+}

@@ -4,12 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace FFY.Web.Areas.Administration.Controllers
+namespace FFY.Web.Areas.Profile.Controllers
 {
-    [Authorize(Roles = "Administrator, Moderator")]
-    public class ProductManagementController : Controller
+    [Authorize]
+    public class ShoppingCartController : Controller
     {
-        // GET: Administration/ProductManagement
+        // GET: Profile/ShoppingCart
         public ViewResult Index()
         {
             return this.View();

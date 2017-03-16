@@ -113,7 +113,7 @@ namespace FFY.Web.Controllers
 
                     this.authenticationProvider.SignIn(user, isPersistent:false, rememberBrowser:false);
                     
-                    return RedirectToAction("Index", "Home");
+                    return this.RedirectToAction("Index", "Home", new { area = "" });
                 }
 
                 this.AddErrors(result);
@@ -129,7 +129,7 @@ namespace FFY.Web.Controllers
         {
             this.authenticationProvider.SignOut();
 
-            return this.RedirectToAction("Index", "Home");
+            return this.RedirectToAction("Index", "Home", new { area = "" });
         }
 
         protected override void Dispose(bool disposing)

@@ -236,6 +236,9 @@
     <Compile Include="Areas\Administration\Controllers\OrderManagementController.cs" />
     <Compile Include="Areas\Administration\Controllers\ProductManagementController.cs" />
     <Compile Include="Areas\Administration\Controllers\UserManagementController.cs" />
+    <Compile Include="Areas\Profile\Controllers\InformationController.cs" />
+    <Compile Include="Areas\Profile\Controllers\ShoppingCartController.cs" />
+    <Compile Include="Areas\Profile\ProfileAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -268,6 +271,11 @@
     <Content Include="Areas\Administration\Views\ContactManagement\Index.cshtml" />
     <Content Include="Areas\Administration\Views\OrderManagement\Index.cshtml" />
     <Content Include="Areas\Administration\Views\UserManagement\Index.cshtml" />
+    <Content Include="Areas\Profile\Views\web.config" />
+    <Content Include="Areas\Profile\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Profile\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Profile\Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Areas\Profile\Views\Information\Index.cshtml" />
     <None Include="Properties\PublishProfiles\furnitureforyou - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\furnitureforyou - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
@@ -313,6 +321,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Models\" />
+    <Folder Include="Areas\Profile\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

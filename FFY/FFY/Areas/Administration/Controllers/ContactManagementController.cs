@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace FFY.Web.Areas.Administration.Controllers
 {
+    [Authorize(Roles = "Administrator, Moderator")]
     public class ContactManagementController : Controller
     {
         // GET: Administration/ContactManagement
