@@ -231,6 +231,11 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
+    <Compile Include="Areas\Administration\Controllers\ContactManagementController.cs" />
+    <Compile Include="Areas\Administration\Controllers\OrderManagementController.cs" />
+    <Compile Include="Areas\Administration\Controllers\ProductManagementController.cs" />
+    <Compile Include="Areas\Administration\Controllers\UserManagementController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -257,6 +262,12 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Areas\Administration\Views\web.config" />
+    <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Administration\Views\ProductManagement\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\ContactManagement\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\OrderManagement\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\UserManagement\Index.cshtml" />
     <None Include="Properties\PublishProfiles\furnitureforyou - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\furnitureforyou - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
@@ -301,6 +312,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Administration\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
