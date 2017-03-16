@@ -44,9 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddressesService.cs" />
     <Compile Include="Assembly\IServicesAssembly.cs" />
     <Compile Include="CategoriesService.cs" />
     <Compile Include="ContactsService.cs" />
+    <Compile Include="Contracts\IAddressesService.cs" />
     <Compile Include="Contracts\ICategoriesService.cs" />
     <Compile Include="Contracts\IContactsService.cs" />
     <Compile Include="Contracts\IProductsService.cs" />

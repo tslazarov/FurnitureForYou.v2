@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace FFY.Services.Contracts
 {
-    public interface ICategoriesService
+    public interface IAddressesService
     {
-        void AddCategory(Category category);
-
-
+        void AddAddress(Address address);
     }
 }
