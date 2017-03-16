@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FFY.UnitTests.Services.ContactsServiceTests
+namespace FFY.UnitTests.Services.RoomsServiceTests
 {
     [TestFixture]
     public class Constructor
@@ -18,7 +18,7 @@ namespace FFY.UnitTests.Services.ContactsServiceTests
         {
             // Arrange, Act and Assert
             Assert.Throws<ArgumentNullException>(() =>
-                new ContactsService(null));
+                new RoomsService(null));
         }
 
         [Test]
@@ -29,7 +29,7 @@ namespace FFY.UnitTests.Services.ContactsServiceTests
 
             // Act and Assert
             var exception = Assert.Throws<ArgumentNullException>(() =>
-                new ContactsService(null));
+                new RoomsService(null));
             StringAssert.Contains(expectedExMessage, exception.Message);
         }
 
@@ -41,7 +41,7 @@ namespace FFY.UnitTests.Services.ContactsServiceTests
 
             // Act and Assert
             Assert.DoesNotThrow(() =>
-                new ContactsService(mockedData.Object));
+                new RoomsService(mockedData.Object));
         }
     }
 }
