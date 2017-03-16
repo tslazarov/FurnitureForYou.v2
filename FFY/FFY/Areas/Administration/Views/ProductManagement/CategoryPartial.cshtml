@@ -1,10 +1,10 @@
 ﻿@using FFY.Web.Areas.Administration.Models.ProductManagement
-@model RoomPartialViewModel
+@model CategoryPartialViewModel
 
 <div class="row">
     <div class="col-md-8">
         <section id="loginForm">
-            @using (Html.BeginForm("addRoom", "productManagement", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal", role = "form" }))
+            @using (Html.BeginForm("addCategory", "productManagement", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
                 <hr />

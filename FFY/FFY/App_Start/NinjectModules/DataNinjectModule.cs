@@ -25,6 +25,7 @@ namespace FFY.Web.App_Start.NinjectModules
             this.Bind<IShoppingCartFactory>().ToFactory();
             this.Bind<IContactFactory>().ToFactory();
             this.Bind<IRoomFactory>().ToFactory();
+            this.Bind<ICategoryFactory>().ToFactory();
         }
     }
 }
