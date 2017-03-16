@@ -9,36 +9,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FFY.UnitTests.Services.ContactsServiceTests
+namespace FFY.UnitTests.Services.ProductsServiceTests
 {
     [TestFixture]
-    public class AddContactTests
+    public class AddProduct
     {
         [Test]
-        public void ShouldThrowArgumentNullException_WhenNullContactIsPassed()
+        public void ShouldThrowArgumentNullException_WhenNullProductIsPassed()
         {
             // Arrange
             var mockedData = new Mock<IFFYData>();
 
-            var contactsService = new ContactsService(mockedData.Object);
+            var productsService = new ProductsService(mockedData.Object);
 
             // Act and Assert
-            Assert.Throws<ArgumentNullException>(() => contactsService.AddContact(null));
+            Assert.Throws<ArgumentNullException>(() => productsService.AddProduct(null));
         }
 
         [Test]
-        public void ShouldThrowArgumentNullExceptionWithCorrectMessage_WhenNullContactIsPassed()
+        public void ShouldThrowArgumentNullExceptionWithCorrectMessage_WhenNullProductIsPassed()
         {
             // Arrange
-            var expectedExMessage = "Contact cannot be null.";
+            var expectedExMessage = "Product cannot be null.";
 
             var mockedData = new Mock<IFFYData>();
 
-            var contactsService = new ContactsService(mockedData.Object);
+            var productsService = new ProductsService(mockedData.Object);
 
             // Act and Assert
             var exception = Assert.Throws<ArgumentNullException>(() =>
-                contactsService.AddContact(null));
+                productsService.AddProduct(null));
             StringAssert.Contains(expectedExMessage, exception.Message);
         }
 
@@ -46,35 +46,35 @@ namespace FFY.UnitTests.Services.ContactsServiceTests
         public void ShouldCallAddMethodOfDataContactRepository()
         {
             // Arrange
-            var mockedContact = new Mock<Contact>();
+            var mockedProduct = new Mock<Product>();
             var mockedData = new Mock<IFFYData>();
-            mockedData.Setup(d => d.ContactsRepository.Add(It.IsAny<Contact>()))
+            mockedData.Setup(d => d.ProductsRepository.Add(It.IsAny<Product>()))
                 .Verifiable();
 
-            var contactsService = new ContactsService(mockedData.Object);
+            var productsService = new ProductsService(mockedData.Object);
 
             // Act
-            contactsService.AddContact(mockedContact.Object);
+            productsService.AddProduct(mockedProduct.Object);
 
             // Assert
             mockedData.Verify(d =>
-                d.ContactsRepository.Add(mockedContact.Object), Times.Once);
+                d.ProductsRepository.Add(mockedProduct.Object), Times.Once);
         }
 
         [Test]
         public void ShouldCallSaveChangesMethodOfData()
         {
             // Arrange
-            var mockedContact = new Mock<Contact>();
+            var mockedProduct = new Mock<Product>();
             var mockedData = new Mock<IFFYData>();
-            mockedData.Setup(d => d.ContactsRepository.Add(It.IsAny<Contact>()))
+            mockedData.Setup(d => d.ProductsRepository.Add(It.IsAny<Product>()))
                 .Verifiable();
             mockedData.Setup(d => d.SaveChanges()).Verifiable();
 
-            var contactsService = new ContactsService(mockedData.Object);
+            var productsService = new ProductsService(mockedData.Object);
 
             // Act
-            contactsService.AddContact(mockedContact.Object);
+            productsService.AddProduct(mockedProduct.Object);
 
             // Assert
             mockedData.Verify(d =>
