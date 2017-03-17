@@ -10,5 +10,7 @@ namespace FFY.Services.Contracts
     public interface IProductsService
     {
         void AddProduct(Product product);
+
+        Product GetProductById(int id);
     }
 }

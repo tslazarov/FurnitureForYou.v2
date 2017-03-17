@@ -84,6 +84,7 @@
     <Compile Include="Services\ContactsServiceTests\Constructor.cs" />
     <Compile Include="Services\ProductsServiceTests\AddProduct.cs" />
     <Compile Include="Services\ProductsServiceTests\Constructor.cs" />
+    <Compile Include="Services\ProductsServiceTests\GetProductById.cs" />
     <Compile Include="Services\RoomsServiceTests\AddRoom.cs" />
     <Compile Include="Services\RoomsServiceTests\Constructor.cs" />
     <Compile Include="Services\RoomsServiceTests\GetRoomById.cs" />

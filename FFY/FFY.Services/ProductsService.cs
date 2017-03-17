@@ -32,5 +32,10 @@ namespace FFY.Services
             this.data.ProductsRepository.Add(product);
             this.data.SaveChanges();
         }
+
+        public Product GetProductById(int id)
+        {
+            return this.data.ProductsRepository.GetById(id);
+        }
     }
 }
