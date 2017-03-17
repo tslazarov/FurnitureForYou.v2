@@ -82,7 +82,7 @@ namespace FFY.Web.Areas.Administration.Controllers
             return this.View();
         }
 
-        // GET: Administration/AddProduct
+        // GET: Administration/ProductAddition
         public ViewResult ProductAddition()
         {
             this.ViewBag.Rooms = this.roomsService.GetRooms();
@@ -91,6 +91,7 @@ namespace FFY.Web.Areas.Administration.Controllers
             return this.View();
         }
 
+        // POST: Administration/AddProduct
         [HttpPost]
         public ActionResult AddProduct(ProductAdditionViewModel model)
         {
@@ -122,16 +123,16 @@ namespace FFY.Web.Areas.Administration.Controllers
             {
                 this.productsService.AddProduct(product);
 
-                return this.RedirectToAction("Index", "Home", new { area = "" });
+                return this.RedirectToAction("productAddition", "productManagement", new { area = "administration" });
             }
             catch (Exception)
             {
-                // this.ErrorMessage.Text = ExistingCategoryErrorMessage;
+                this.ModelState.AddModelError("", "Problem occured during product addition.");
+                return this.View("productAddition", model);
             }
-
-            return this.RedirectToAction("Index", "Home", new { area = "" });
         }
 
+        // POST: Administration/AddRoom
         [HttpPost]
         public ActionResult AddRoom(RoomPartialViewModel model)
         {
@@ -148,16 +149,16 @@ namespace FFY.Web.Areas.Administration.Controllers
             {
                 this.roomsService.AddRoom(room);
 
-                return this.RedirectToAction("Index", "Home", new { area = "" });
+                return this.RedirectToAction("productAddition", "productManagement", new { area = "administration" });
             }
             catch (Exception)
             {
-                // this.ErrorMessage.Text = ExistingCategoryErrorMessage;
             }
 
-            return this.RedirectToAction("Index", "Home", new { area = "" });
+            return this.RedirectToAction("productAddition", "productManagement", new { area = "administration" });
         }
 
+        // POST: Administration/AddCategory
         [HttpPost]
         public ActionResult AddCategory(CategoryPartialViewModel model)
         {
@@ -174,14 +175,13 @@ namespace FFY.Web.Areas.Administration.Controllers
             {
                 this.categoriesService.AddCategory(category);
 
-                return this.RedirectToAction("Index", "Home", new { area = "" });
+                this.RedirectToAction("productAddition", "productManagement", new { area = "administration" });
             }
             catch (Exception)
             {
-                // this.ErrorMessage.Text = ExistingCategoryErrorMessage;
             }
 
-            return this.RedirectToAction("Index", "Home", new { area = "" });
+            return this.RedirectToAction("productAddition", "productManagement", new { area = "administration" });
         }
     }
 }
