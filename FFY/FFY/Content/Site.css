@@ -4,6 +4,10 @@
     background: url("./sources/background.jpg");    
 }
 
+h1, h2, h3, h4, h5, h6 {
+    margin: 0px !important;
+}
+
 /* General */
 .body-content {
     margin-top: 20px;
@@ -40,9 +44,39 @@ footer{
     padding-top: 5px !important;
 }
 
-/* Product addition page */
-.flex-container {
+/* Detailed product */
+.img-center{
+    margin-left: auto;
+    margin-right: auto;
 }
+
+.product-detail-title {
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.product-detail-title-sub {
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: normal;
+    margin-bottom: 10px;
+    color: #B1B1B3;
+}
+
+.product-detail-price {
+    font-size: 36px;
+    line-height: 30px;
+    color: #000;
+    float: left;
+    width: 100%;
+    font-weight: bold;
+    letter-spacing: -1.5px;
+    margin: 3px 0 8px 0;
+}
+
+/* Product addition page */
 
 #product-addition-form {
     max-width: 650px; 

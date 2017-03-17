@@ -243,6 +243,7 @@
     <Compile Include="Areas\Profile\Controllers\ShoppingCartController.cs" />
     <Compile Include="Areas\Profile\ProfileAreaRegistration.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\FurnitureController.cs" />
     <Compile Include="Custom\Attributes\SecurityAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
@@ -255,6 +256,7 @@
     <Compile Include="Models\Account\RegisterViewModel.cs" />
     <Compile Include="Areas\Administration\Models\ProductManagement\RoomPartialViewModel.cs" />
     <Compile Include="Models\Contact\ContactViewModel.cs" />
+    <Compile Include="Models\Furniture\DetailedProductViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -328,6 +330,7 @@
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Shared\_AdministrationPartial.cshtml" />
     <Content Include="Views\Error\Unauthorized.cshtml" />
+    <Content Include="Views\Furniture\Product.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

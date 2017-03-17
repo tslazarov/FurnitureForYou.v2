@@ -18,10 +18,10 @@ namespace FFY.Web.Areas.Administration.Controllers
     {
         private const string DefaultRoomImageFileName = "default-room-image";
         private const string DefaultCategoryImageFileName = "default-category-image";
+        private const string DefaultProductImageFileName = "default-product-image";
         private const string DefaultRoomFolderName = "rooms";
         private const string DefaultCategoryFolderName = "categories";
-        private const string ExistingRoomErrorMessage = "Room addition was unsuccessful. The room may already exist";
-        private const string ExistingCategoryErrorMessage = "Room addition was unsuccessful. The room may already exist";
+        private const string DefaultProductFolderName = "products";
 
         private readonly IImageUploader imageUploader;
         private readonly IProductFactory productFactory;
@@ -97,8 +97,8 @@ namespace FFY.Web.Areas.Administration.Controllers
         {
             var file = Request.Files[0];
 
-            string imageFileName = DefaultRoomImageFileName;
-            string folderName = DefaultRoomFolderName;
+            string imageFileName = DefaultProductImageFileName;
+            string folderName = DefaultProductFolderName;
 
             model.ImagePath = this.imageUploader.Upload(file, Server, imageFileName, folderName);
 
