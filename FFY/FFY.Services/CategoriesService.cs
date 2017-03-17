@@ -33,5 +33,15 @@ namespace FFY.Services
             this.data.CategoriesRepository.Add(category);
             this.data.SaveChanges();
         }
+
+        public Category GetCategoryById(int id)
+        {
+            return this.data.CategoriesRepository.GetById(id);
+        }
+
+        public IEnumerable<Category> GetCategories()
+        {
+            return this.data.CategoriesRepository.All().ToList();
+        }
     }
 }

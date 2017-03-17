@@ -33,5 +33,15 @@ namespace FFY.Services
             this.data.RoomsRepository.Add(room);
             this.data.SaveChanges();
         }
+
+        public Room GetRoomById(int id)
+        {
+            return this.data.RoomsRepository.GetById(id);
+        }
+
+        public IEnumerable<Room> GetRooms()
+        {
+            return this.data.RoomsRepository.All().ToList();
+        }
     }
 }

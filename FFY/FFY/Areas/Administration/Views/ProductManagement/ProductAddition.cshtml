@@ -5,7 +5,7 @@
 
 <div class="row">
     <section id="productAdditionForm">
-        @using (Html.BeginForm("productAddition", "productManagement", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal", role = "form" }))
+        @using (Html.BeginForm("addProduct", "productManagement", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal", role = "form" }))
         {
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -47,14 +47,14 @@
             <div class="form-group">
                 @Html.LabelFor(m => m.Room, new { @class = "col-md-2 control-label" })
                 <div class="col-md-10">
-                    @Html.DropDownListFor(m => m.Room, (SelectList)ViewBag.Rooms, new { @class = "form-control" })
+                    @Html.DropDownListFor(m => m.RoomId, new SelectList(ViewBag.Rooms, "Id", "Name", 1), new { @class = "form-control" })
                     @Html.ValidationMessageFor(m => m.Room, "", new { @class = "text-danger" })
                 </div>
             </div>
             <div class="form-group">
                 @Html.LabelFor(m => m.Category, new { @class = "col-md-2 control-label" })
                 <div class="col-md-10">
-                    @Html.DropDownListFor(m => m.Category, (SelectList)ViewBag.Categories, new { @class = "form-control" })
+                    @Html.DropDownListFor(m => m.CategoryId, new SelectList(ViewBag.Categories, "Id", "Name", 1), new { @class = "form-control" })
                     @Html.ValidationMessageFor(m => m.Category, "", new { @class = "text-danger" })
                 </div>
             </div>

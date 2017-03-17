@@ -25,6 +25,13 @@ namespace FFY.Web.Areas.Administration.Models.ProductManagement
         [Display(Name = "Discount percentage")]
         public int DiscountPercentage { get; set; }
 
+        public decimal DiscountedPrice {
+            get
+            {
+                return this.Price - (this.Price * (this.DiscountPercentage / 100.0M));
+            }
+        }
+
         [Required]
         [Range(0, 10000, ErrorMessage = "{0} should be a number between 0 and 10000")]
         [Display(Name = "Quantity")]
@@ -35,9 +42,13 @@ namespace FFY.Web.Areas.Administration.Models.ProductManagement
         [Display(Name = "Description")]
         public string Description { get; set; }
 
+        public int RoomId { get; set; }
+
         [Required]
         [Display(Name = "Room")]
         public Room Room { get; set; }
+
+        public int CategoryId { get; set; }
 
         [Required]
         [Display(Name = "Category")]

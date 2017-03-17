@@ -11,6 +11,9 @@ namespace FFY.Services.Contracts
     {
         void AddCategory(Category category);
 
+        Category GetCategoryById(int id);
+
+        IEnumerable<Category> GetCategories();
 
     }
 }

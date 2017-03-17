@@ -1,5 +1,6 @@
 ﻿using Bytes2you.Validation;
 using FFY.Data.Factories;
+using FFY.Models;
 using FFY.Services.Contracts;
 using FFY.Services.Utilities;
 using FFY.Web.Areas.Administration.Models.ProductManagement;
@@ -23,18 +24,30 @@ namespace FFY.Web.Areas.Administration.Controllers
         private const string ExistingCategoryErrorMessage = "Room addition was unsuccessful. The room may already exist";
 
         private readonly IImageUploader imageUploader;
+        private readonly IProductFactory productFactory;
+        private readonly IProductsService productsService;
         private readonly IRoomFactory roomFactory;
         private readonly IRoomsService roomsService;
         private readonly ICategoryFactory categoryFactory;
         private readonly ICategoriesService categoriesService;
 
         public ProductManagementController(IImageUploader imageUploader,
+            IProductFactory productFactory,
+            IProductsService productsService,
             IRoomFactory roomFactory,
             IRoomsService roomsService,
             ICategoryFactory categoryFactory,
             ICategoriesService categoriesService)
         {
             Guard.WhenArgument<IImageUploader>(imageUploader, "Image uploader cannot be null.")
+                .IsNull()
+                .Throw();
+
+            Guard.WhenArgument<IProductFactory>(productFactory, "Product factory cannot be null.")
+                .IsNull()
+                .Throw();
+
+            Guard.WhenArgument<IProductsService>(productsService, "Products service cannot be null.")
                 .IsNull()
                 .Throw();
 
@@ -55,6 +68,8 @@ namespace FFY.Web.Areas.Administration.Controllers
                 .Throw();
 
             this.imageUploader = imageUploader;
+            this.productFactory = productFactory;
+            this.productsService = productsService;
             this.roomFactory = roomFactory;
             this.roomsService = roomsService;
             this.categoryFactory = categoryFactory;
@@ -70,9 +85,51 @@ namespace FFY.Web.Areas.Administration.Controllers
         // GET: Administration/AddProduct
         public ViewResult ProductAddition()
         {
-            // this.ViewBag.Rooms = this.roomsService.GetRooms();
-            // this.ViewBag.Categories = this.categoriesService.GetCategories();
+            this.ViewBag.Rooms = this.roomsService.GetRooms();
+            this.ViewBag.Categories = this.categoriesService.GetCategories();
+
             return this.View();
+        }
+
+        [HttpPost]
+        public ActionResult AddProduct(ProductAdditionViewModel model)
+        {
+            var file = Request.Files[0];
+
+            string imageFileName = DefaultRoomImageFileName;
+            string folderName = DefaultRoomFolderName;
+
+            model.ImagePath = this.imageUploader.Upload(file, Server, imageFileName, folderName);
+
+            model.Room = this.roomsService.GetRoomById(model.RoomId);
+            model.Category = this.categoriesService.GetCategoryById(model.CategoryId);
+
+            var product = this.productFactory.CreateProduct(model.Name,
+                model.Quantity,
+                model.Price,
+                model.DiscountedPrice,
+                model.DiscountPercentage,
+                model.DiscountPercentage > 0 ? true : false,
+                model.Description,
+                model.Category.Id,
+                model.Category,
+                model.Room.Id,
+                model.Room,
+                model.ImagePath,
+                false);
+
+            try
+            {
+                this.productsService.AddProduct(product);
+
+                return this.RedirectToAction("Index", "Home", new { area = "" });
+            }
+            catch (Exception)
+            {
+                // this.ErrorMessage.Text = ExistingCategoryErrorMessage;
+            }
+
+            return this.RedirectToAction("Index", "Home", new { area = "" });
         }
 
         [HttpPost]
