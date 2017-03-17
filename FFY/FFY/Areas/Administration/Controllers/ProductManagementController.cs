@@ -67,6 +67,14 @@ namespace FFY.Web.Areas.Administration.Controllers
             return this.View();
         }
 
+        // GET: Administration/AddProduct
+        public ViewResult ProductAddition()
+        {
+            // this.ViewBag.Rooms = this.roomsService.GetRooms();
+            // this.ViewBag.Categories = this.categoriesService.GetCategories();
+            return this.View();
+        }
+
         [HttpPost]
         public ActionResult AddRoom(RoomPartialViewModel model)
         {
