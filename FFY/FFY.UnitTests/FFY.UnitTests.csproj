@@ -78,12 +78,16 @@
     <Compile Include="Services\AddressesServiceTests\Constructor.cs" />
     <Compile Include="Services\CategoriesServiceTests\AddCategory.cs" />
     <Compile Include="Services\CategoriesServiceTests\Constructor.cs" />
+    <Compile Include="Services\CategoriesServiceTests\GetCategories.cs" />
+    <Compile Include="Services\CategoriesServiceTests\GetCategoryById.cs" />
     <Compile Include="Services\ContactsServiceTests\AddContact.cs" />
     <Compile Include="Services\ContactsServiceTests\Constructor.cs" />
     <Compile Include="Services\ProductsServiceTests\AddProduct.cs" />
     <Compile Include="Services\ProductsServiceTests\Constructor.cs" />
     <Compile Include="Services\RoomsServiceTests\AddRoom.cs" />
     <Compile Include="Services\RoomsServiceTests\Constructor.cs" />
+    <Compile Include="Services\RoomsServiceTests\GetRoomById.cs" />
+    <Compile Include="Services\RoomsServiceTests\GetRooms.cs" />
     <Compile Include="Services\ShoppingCartsServiceTests\AssignShoppingCart.cs" />
     <Compile Include="Services\ShoppingCartsServiceTests\Constructor.cs" />
     <Compile Include="Web\AccountControllerTests\Constructor.cs" />
