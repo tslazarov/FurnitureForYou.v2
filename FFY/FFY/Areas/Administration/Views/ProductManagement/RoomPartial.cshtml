@@ -1,33 +1,32 @@
 ﻿@using FFY.Web.Areas.Administration.Models.ProductManagement
 @model RoomPartialViewModel
 
-<div class="row">
-    <div class="col-md-8">
-        <section id="roomAdditionForm">
-            @using (Html.BeginForm("addRoom", "productManagement", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal", role = "form" }))
-            {
-                <hr />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="MainContent_Image" class="col-md-offset-2 col-md-3 btn btn-default">Browse</label>
-                    <input type="file" name="file" class="form-control">
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Create" class="btn btn-default" />
-                    </div>
-                </div>
-            }
-        </section>
-    </div>
-</div>
+<section id="room-addition-form" class="addition-form">
+    @using (Html.BeginForm("addRoom", "productManagement", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal", role = "form" }))
+    {
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.Name, new { @class = "col-sm-3 control-label" })
+            <div class="col-sm-9">
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-9">
+                <label for="room-image" class="btn btn-default browse-image">Browse</label>
+                <input type="file" id="room-image" name="file" class="form-control hidden">
+            </div>
+        </div>
+        <hr />
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-9">
+                <input type="submit" value="Create" class="btn btn-primary btn-block" />
+            </div>
+        </div>
+    }
+</section>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

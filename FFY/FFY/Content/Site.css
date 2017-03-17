@@ -1,29 +1,100 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background: url("./sources/background.jpg");    
 }
 
-/* Set padding to keep content from hitting the edges */
+/* General */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    margin-top: 20px;
+    padding-top: 20px;
+    background-color: #FFFFFF;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
 .dl-horizontal dt {
     white-space: normal;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
+hr {
+    border-top: 1px solid #FAFAFA !important;
+}
+
 input,
 select,
 textarea {
     max-width: 280px;
 }
 
+textarea {
+    resize: none;
+}
+
+footer{
+    text-align: center;
+}
+
+/* Navigation */
+
 .cart-container {
     padding-bottom: 5px !important;
     padding-top: 5px !important;
+}
+
+/* Product addition page */
+.flex-container {
+}
+
+#product-addition-form {
+    max-width: 650px; 
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.addition-form {
+    max-width: 650px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #FAFAFA;
+    padding-bottom: 10px;
+}
+
+#room-addition-form {
+    display:none;
+    position: absolute;
+    left:0;
+    right:0;
+}
+
+#category-addition-form {
+    display:none;
+    position: absolute;
+    left:0;
+    right:0;    
+}
+
+.addition-dummy {
+    min-height: 245px;
+    display: none;
+}
+
+.browse-image {
+    width: 100%;
+    max-width: 280px;
+}
+
+@media (max-width: 767px) {
+    #room-addition-form {
+        padding: 0px 15px;
+    }
+    .addition-dummy {
+        min-height: 270px;
+    }
+
+    #category-addition-form {
+        padding: 0px 15px;
+    }
+
+    #product-addition-form {
+        padding: 0px 15px;
+    }
 }
