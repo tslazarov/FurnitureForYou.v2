@@ -79,7 +79,7 @@ namespace FFY.Services
                 .Throw();
 
             return this.data.ShoppingCartsRepository.GetById(cartId)
-                .CartProducts.Count();
+                .CartProducts.Where(cp => cp.IsInCart).Count();
         }
     }
 }
