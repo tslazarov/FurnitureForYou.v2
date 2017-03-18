@@ -92,7 +92,8 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
             int quantity = 2;
             var dummyProduct = new Product();
             var cartProduct = new CartProduct() {
-                Product = dummyProduct
+                Product = dummyProduct,
+                IsInCart = true
             };
             var cartProducts = new List<CartProduct>()
             {
@@ -137,7 +138,8 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
             var dummyProduct = new Product();
             var cartProduct = new CartProduct()
             {
-                Product = dummyProduct
+                Product = dummyProduct,
+                IsInCart = true
             };
             var cartProducts = new List<CartProduct>()
             {
@@ -185,13 +187,31 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
             };
             var cartProduct = new CartProduct()
             {
-                Product = dummyProduct
+                Product = dummyProduct,
+                IsInCart = true
             };
             var cartProducts = new List<CartProduct>()
             {
-                new CartProduct() { ProductId = 1, Product = dummyProduct, Quantity = quantity },
-                new CartProduct() { ProductId = 2, Product = dummyProduct },
-                new CartProduct() { ProductId = 3, Product = dummyProduct, Quantity = quantity }
+                new CartProduct()
+                {
+                    ProductId = 1,
+                    Product = dummyProduct,
+                    Quantity = quantity,
+                    IsInCart = true
+                },
+                new CartProduct() {
+                    ProductId = 2,
+                    Product = dummyProduct,
+                    Quantity = 0,
+                    IsInCart = true
+                },
+                new CartProduct()
+                {
+                    ProductId = 3,
+                    Product = dummyProduct,
+                    Quantity = quantity,
+                    IsInCart = true
+                },
             };
             var mockedData = new Mock<IFFYData>();
             mockedData.Setup(d =>
@@ -229,11 +249,12 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
             decimal discountedPrice = 10M;
             var dummyProduct = new Product()
             {
-                DiscountedPrice = discountedPrice
+                DiscountedPrice = discountedPrice,
             };
             var cartProduct = new CartProduct()
             {
-                Product = dummyProduct
+                Product = dummyProduct,
+                IsInCart = true
             };
             var cartProducts = new List<CartProduct>()
             {
@@ -280,7 +301,8 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
             };
             var cartProduct = new CartProduct()
             {
-                Product = dummyProduct
+                Product = dummyProduct,
+                IsInCart = true
             };
             var cartProducts = new List<CartProduct>()
             {

@@ -51,7 +51,8 @@ namespace FFY.Services
                 .IsNull()
                 .Throw();
 
-            var cartProduct = shoppingCart.CartProducts.FirstOrDefault(p => p.ProductId == product.Id);
+            var cartProduct = shoppingCart.CartProducts.FirstOrDefault(p => 
+                p.ProductId == product.Id && p.IsInCart);
 
             if(cartProduct == null)
             {
@@ -65,8 +66,9 @@ namespace FFY.Services
 
             cartProduct.Total = cartProduct.Quantity * cartProduct.Product.DiscountedPrice;
 
-            shoppingCart.Total = shoppingCart.CartProducts.Sum(p =>
-            (p.Product.DiscountedPrice * p.Quantity));
+            shoppingCart.Total = shoppingCart.CartProducts
+                .Where(p => p.IsInCart)
+                .Sum(p => (p.Product.DiscountedPrice * p.Quantity));
 
             this.data.ShoppingCartsRepository.Update(shoppingCart);
             this.data.SaveChanges();
@@ -82,14 +84,17 @@ namespace FFY.Services
                 .IsNull()
                 .Throw();
 
-            var cartProduct = shoppingCart.CartProducts.FirstOrDefault(p => p.ProductId == product.Id);
+            var cartProduct = shoppingCart.CartProducts.FirstOrDefault(p => 
+                p.ProductId == product.Id && p.IsInCart);
 
             if (cartProduct != null)
             {
                 shoppingCart.CartProducts.Remove(cartProduct);
             }
 
-            shoppingCart.Total = shoppingCart.CartProducts.Sum(p =>
+            shoppingCart.Total = shoppingCart.CartProducts
+                .Where(p => p.IsInCart)
+                .Sum(p =>
             (p.Product.DiscountedPrice * p.Quantity));
 
             this.data.ShoppingCartsRepository.Update(shoppingCart);
