@@ -1,4 +1,5 @@
 ﻿using FFY.Data.Contracts;
+using FFY.Data.Factories;
 using FFY.Models;
 using FFY.Services;
 using Moq;
@@ -15,8 +16,10 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
         {
             // Arrange
             var mockedData = new Mock<IFFYData>();
+            var mockedCartProductFactory = new Mock<ICartProductFactory>();
 
-            var shoppingCartsService = new ShoppingCartsService(mockedData.Object);
+            var shoppingCartsService = new ShoppingCartsService(mockedData.Object,
+                mockedCartProductFactory.Object);
 
             // Act and Assert
             Assert.Throws<ArgumentNullException>(() =>
@@ -29,8 +32,10 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
             // Arrange
             var expectedExMessage = "Shopping cart cannot be null.";
             var mockedData = new Mock<IFFYData>();
+            var mockedCartProductFactory = new Mock<ICartProductFactory>();
 
-            var shoppingCartsService = new ShoppingCartsService(mockedData.Object);
+            var shoppingCartsService = new ShoppingCartsService(mockedData.Object,
+                mockedCartProductFactory.Object);
 
             // Act and Assert
             var exception = Assert.Throws<ArgumentNullException>(() =>
@@ -46,8 +51,10 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
             var mockedData = new Mock<IFFYData>();
             mockedData.Setup(d => d.ShoppingCartsRepository.Add(It.IsAny<ShoppingCart>()))
                 .Verifiable();
+            var mockedCartProductFactory = new Mock<ICartProductFactory>();
 
-            var shoppingCartsService = new ShoppingCartsService(mockedData.Object);
+            var shoppingCartsService = new ShoppingCartsService(mockedData.Object,
+                mockedCartProductFactory.Object);
 
             // Act
             shoppingCartsService.AssignShoppingCart(mockedShoppingCart.Object);
@@ -66,8 +73,10 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
             mockedData.Setup(d => d.ShoppingCartsRepository.Add(It.IsAny<ShoppingCart>()))
                 .Verifiable();
             mockedData.Setup(d => d.SaveChanges()).Verifiable();
+            var mockedCartProductFactory = new Mock<ICartProductFactory>();
 
-            var shoppingCartsService = new ShoppingCartsService(mockedData.Object);
+            var shoppingCartsService = new ShoppingCartsService(mockedData.Object,
+                mockedCartProductFactory.Object);
 
             // Act
             shoppingCartsService.AssignShoppingCart(mockedShoppingCart.Object);

@@ -13,6 +13,7 @@ namespace FFY.Data
         private readonly IEfRepository<Order> ordersRepository;
         private readonly IEfRepository<Room> roomsRepository;
         private readonly IEfRepository<ShoppingCart> shoppingCartsRepository;
+        private readonly IEfRepository<CartProduct> cartProductsRepository;
         private readonly IEfRepository<User> usersRepository;
         private readonly IDeletableEfRepository<Product> productsRepository;
 
@@ -23,6 +24,7 @@ namespace FFY.Data
             IEfRepository<Order> ordersRepository,
             IEfRepository<Room> roomsRepository,
             IEfRepository<ShoppingCart> shoppingCartsRepository,
+            IEfRepository<CartProduct> cartProductsRepository,
             IEfRepository<User> usersRepository,
             IDeletableEfRepository<Product> productsRepository)
         {
@@ -54,6 +56,10 @@ namespace FFY.Data
                 .IsNull()
                 .Throw();
 
+            Guard.WhenArgument<IEfRepository<CartProduct>>(cartProductsRepository, "Cart products repository cannot be null.")
+                .IsNull()
+                .Throw();
+
             Guard.WhenArgument<IEfRepository<User>>(usersRepository, "Users repository cannot be null.")
                 .IsNull()
                 .Throw();
@@ -69,6 +75,7 @@ namespace FFY.Data
             this.ordersRepository = ordersRepository;
             this.roomsRepository = roomsRepository;
             this.shoppingCartsRepository = shoppingCartsRepository;
+            this.cartProductsRepository = cartProductsRepository;
             this.usersRepository = usersRepository;
             this.productsRepository = productsRepository;
         }
@@ -118,6 +125,14 @@ namespace FFY.Data
             get
             {
                 return this.shoppingCartsRepository;
+            }
+        }
+
+        public IEfRepository<CartProduct> CartProductsRepository
+        {
+            get
+            {
+                return this.cartProductsRepository;
             }
         }
 

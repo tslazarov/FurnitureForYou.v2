@@ -26,6 +26,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
             var mockedOrdersRepository = new Mock<IEfRepository<Order>>();
             var mockedRoomsRepository = new Mock<IEfRepository<Room>>();
             var mockedShoppingCartsRepository = new Mock<IEfRepository<ShoppingCart>>();
+            var mockedCartProductsRepository = new Mock<IEfRepository<CartProduct>>();
             var mockedUsersRepository = new Mock<IEfRepository<User>>();
             var mockedProductsRepository = new Mock<IDeletableEfRepository<Product>>();
 
@@ -36,6 +37,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
                 mockedOrdersRepository.Object,
                 mockedRoomsRepository.Object,
                 mockedShoppingCartsRepository.Object,
+                mockedCartProductsRepository.Object,
                 mockedUsersRepository.Object,
                 mockedProductsRepository.Object
             );

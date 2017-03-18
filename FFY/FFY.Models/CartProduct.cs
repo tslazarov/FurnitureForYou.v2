@@ -9,10 +9,13 @@ namespace FFY.Models
 
         }
 
-        public CartProduct(int quantity, Product product) : this()
+        public CartProduct(int quantity, 
+            Product product,
+            bool isInCart = true) : this()
         {
             this.Quantity = quantity;
             this.Product = product;
+            this.IsInCart = isInCart;
         }
 
         public CartProduct(int quantity,
@@ -36,5 +39,7 @@ namespace FFY.Models
         public int? ProductId { get; set; }
 
         public virtual Product Product { get; set; }
+
+        public bool IsInCart { get; set; }
     }
 }

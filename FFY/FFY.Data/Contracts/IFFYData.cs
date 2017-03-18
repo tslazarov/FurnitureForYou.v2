@@ -21,6 +21,8 @@ namespace FFY.Data.Contracts
 
         IEfRepository<ShoppingCart> ShoppingCartsRepository { get; }
 
+        IEfRepository<CartProduct> CartProductsRepository { get; }
+
         IEfRepository<User> UsersRepository { get; }
 
         IDeletableEfRepository<Product> ProductsRepository { get; }
