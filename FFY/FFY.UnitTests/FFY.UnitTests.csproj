@@ -91,6 +91,10 @@
     <Compile Include="Services\RoomsServiceTests\GetRooms.cs" />
     <Compile Include="Services\ShoppingCartsServiceTests\AssignShoppingCart.cs" />
     <Compile Include="Services\ShoppingCartsServiceTests\Constructor.cs" />
+    <Compile Include="Services\UsersServiceTests\AddProductToFavorites.cs" />
+    <Compile Include="Services\UsersServiceTests\Constructor.cs" />
+    <Compile Include="Services\UsersServiceTests\GetUserById.cs" />
+    <Compile Include="Services\UsersServiceTests\RemoveProductFromFavorites.cs" />
     <Compile Include="Web\AccountControllerTests\Constructor.cs" />
     <Compile Include="Web\AccountControllerTests\LoginGet.cs" />
     <Compile Include="Web\AccountControllerTests\LoginPost.cs" />
