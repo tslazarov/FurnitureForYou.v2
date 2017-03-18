@@ -7,14 +7,87 @@
         </div>
         <div class="col-md-5">
             <h1 class="product-detail-title">@Model.Product.Name</h1>
-            <h2 class="product-detail-title-sub">@Model.Product.Category.Name</h2>
+            <h2 class="product-detail-title-sub">@Model.Product.Category.Name.ToUpper()</h2>
             <div class="product-detail-price">
                 @Model.Product.DiscountedPrice
             </div>
             <div class="product-detail-description">
                 @Model.Product.Description
             </div>
+            <div class="product-detail-add-cart">
+                @using (Html.BeginForm("addShoppingCart", "furniture", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <div class="col-md-5">
+                            @Html.TextBoxFor(m => m.Quantity, new { @type = "number", @class = "form-control" }) 
+                        </div>
+                        <div class="col-md-6">
+                            <input type="submit" value="Add to Shopping Cart" class="btn btn-default btn-block" />
+                        </div>
+                        <div class="col-md-12">
+                            @Html.ValidationMessageFor(m => m.Quantity, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="product-detail-add-cart">
+                @using (Html.BeginForm("addShoppingCart", "furniture", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.HiddenFor(m => m.GivenRating, new { id="rating" })
+                    <div class="form-group">
+                        <div class="col-md-5 star-rating">
+                            <img id="1-empty" src="~/Content/sources/empty-star.png" class="star"/>
+                            <img id="1-full" src="~/Content/sources/full-star.png" class="star hidden"/>
+                            <img id="2-empty" src="~/Content/sources/empty-star.png" class="star"/>
+                            <img id="2-full" src="~/Content/sources/full-star.png" class="star hidden"/>
+                            <img id="3-empty" src="~/Content/sources/empty-star.png" class="star"/>
+                            <img id="3-full" src="~/Content/sources/full-star.png" class="star hidden" />
+                            <img id="4-empty" src="~/Content/sources/empty-star.png" class="star" />
+                            <img id="4-full" src="~/Content/sources/full-star.png" class="star hidden" />
+                            <img id="5-empty" src="~/Content/sources/empty-star.png" class="star" />
+                            <img id="5-full" src="~/Content/sources/full-star.png" class="star hidden" />
+                        </div>
+                        <div class="col-md-6">
+                            <input type="submit" value="Rate Product" class="btn btn-primary btn-block" />
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="product-detail-add-cart">
+                @using (Html.BeginForm("addShoppingCart", "furniture", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    <div class="form-group">
+                        <div class="col-md-offset-5 col-md-6">
+                            <input type="submit" value="Add to Favorites" class="btn btn-danger btn-block" />
+                        </div>
+                    </div>
+                }
+            </div>
+
         </div>
     </div>
 </section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".star").click(function () {
+                var id = Number(event.target.id[0]);
+
+                for (var i = 1; i <= id; i += 1) {
+                    $("#" + i + "-empty").addClass("hidden");
+                    $("#" + i + "-full").removeClass("hidden");
+                }
+                for (var i = id + 1; i <= 5; i += 1) {
+                    $("#" + i + "-empty").removeClass("hidden");
+                    $("#" + i + "-full").addClass("hidden");
+                }
+
+                $("#rating").val(id);
+            });
+        });
+    </script>
+}
 

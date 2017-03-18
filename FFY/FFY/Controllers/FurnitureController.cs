@@ -26,8 +26,11 @@ namespace FFY.Web.Controllers
         public ActionResult Product(int? id, DetailedProductViewModel model)
         {
             model.Product = this.productsService.GetProductById(id.Value);
+            model.Quantity = 2;
 
-            if(model.Product == null)
+            this.ModelState.Clear();
+
+            if (model.Product == null)
             {
                 // 404
             }

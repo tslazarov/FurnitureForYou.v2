@@ -25,7 +25,8 @@ hr {
 
 input,
 select,
-textarea {
+textarea,
+.btn{
     max-width: 280px;
 }
 
@@ -51,9 +52,8 @@ footer{
 }
 
 .product-detail-title {
-    font-size: 24px;
+    font-size: 30px;
     line-height: 30px;
-    font-weight: bold;
     margin-bottom: 4px;
 }
 
@@ -68,12 +68,24 @@ footer{
 .product-detail-price {
     font-size: 36px;
     line-height: 30px;
-    color: #000;
+    color: #52658F;
     float: left;
     width: 100%;
     font-weight: bold;
     letter-spacing: -1.5px;
-    margin: 3px 0 8px 0;
+    margin: 15px 0 20px 0;
+}
+
+.product-detail-description {
+    min-height: 150px;
+}
+
+.star {
+    margin: 6px 3px;
+}
+
+.star-rating:hover {
+    cursor: pointer;
 }
 
 /* Product addition page */
