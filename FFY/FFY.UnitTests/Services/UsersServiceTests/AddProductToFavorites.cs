@@ -80,9 +80,12 @@ namespace FFY.UnitTests.Services.UsersServiceTests
             // Arrange
             var mockedData = new Mock<IFFYData>();
             mockedData.Setup(d => d.UsersRepository.Update(It.IsAny<User>()));
+            mockedData.Setup(d => d.ProductsRepository.Update(It.IsAny<Product>()));
+
             var mockedUser = new Mock<User>();
             mockedUser.Setup(u => u.FavoritedProducts).Returns(new List<Product>());
             var mockedProduct = new Mock<Product>();
+            mockedProduct.Setup(u => u.Favoriters).Returns(new List<User>());
 
             var usersService = new UsersService(mockedData.Object);
 
@@ -95,14 +98,40 @@ namespace FFY.UnitTests.Services.UsersServiceTests
         }
 
         [Test]
+        public void ShouldAddUserToProductFavoritersCollection()
+        {
+            // Arrange
+            var mockedData = new Mock<IFFYData>();
+            mockedData.Setup(d => d.UsersRepository.Update(It.IsAny<User>()));
+            mockedData.Setup(d => d.ProductsRepository.Update(It.IsAny<Product>()));
+
+            var mockedUser = new Mock<User>();
+            mockedUser.Setup(u => u.FavoritedProducts).Returns(new List<Product>());
+            var mockedProduct = new Mock<Product>();
+            mockedProduct.Setup(u => u.Favoriters).Returns(new List<User>());
+
+            var usersService = new UsersService(mockedData.Object);
+
+            // Act
+            usersService.AddProductToFavorites(mockedUser.Object, mockedProduct.Object);
+
+            // Assert
+            Assert.AreEqual(1, mockedProduct.Object.Favoriters.Count);
+            Assert.AreSame(mockedUser.Object, mockedProduct.Object.Favoriters.First());
+        }
+
+        [Test]
         public void ShouldCallUpdateMethodOfDataUsersRepository()
         {
             // Arrange
             var mockedData = new Mock<IFFYData>();
             mockedData.Setup(d => d.UsersRepository.Update(It.IsAny<User>())).Verifiable();
+            mockedData.Setup(d => d.ProductsRepository.Update(It.IsAny<Product>()));
+
             var mockedUser = new Mock<User>();
             mockedUser.Setup(u => u.FavoritedProducts).Returns(new List<Product>());
             var mockedProduct = new Mock<Product>();
+            mockedProduct.Setup(u => u.Favoriters).Returns(new List<User>());
 
             var usersService = new UsersService(mockedData.Object);
 
@@ -114,15 +143,40 @@ namespace FFY.UnitTests.Services.UsersServiceTests
         }
 
         [Test]
+        public void ShouldCallUpdateMethodOfDataProductsRepository()
+        {
+            // Arrange
+            var mockedData = new Mock<IFFYData>();
+            mockedData.Setup(d => d.UsersRepository.Update(It.IsAny<User>()));
+            mockedData.Setup(d => d.ProductsRepository.Update(It.IsAny<Product>())).Verifiable();
+
+            var mockedUser = new Mock<User>();
+            mockedUser.Setup(u => u.FavoritedProducts).Returns(new List<Product>());
+            var mockedProduct = new Mock<Product>();
+            mockedProduct.Setup(u => u.Favoriters).Returns(new List<User>());
+
+            var usersService = new UsersService(mockedData.Object);
+
+            // Act
+            usersService.AddProductToFavorites(mockedUser.Object, mockedProduct.Object);
+
+            // Assert
+            mockedData.Verify(d => d.ProductsRepository.Update(mockedProduct.Object), Times.Once);
+        }
+
+        [Test]
         public void ShouldCallSaveChangesMethodOfData()
         {
             // Arrange
             var mockedData = new Mock<IFFYData>();
-            mockedData.Setup(d => d.UsersRepository.Update(It.IsAny<User>())).Verifiable();
+            mockedData.Setup(d => d.UsersRepository.Update(It.IsAny<User>()));
+            mockedData.Setup(d => d.ProductsRepository.Update(It.IsAny<Product>()));
             mockedData.Setup(d => d.SaveChanges()).Verifiable();
+
             var mockedUser = new Mock<User>();
             mockedUser.Setup(u => u.FavoritedProducts).Returns(new List<Product>());
             var mockedProduct = new Mock<Product>();
+            mockedProduct.Setup(u => u.Favoriters).Returns(new List<User>());
 
             var usersService = new UsersService(mockedData.Object);
 

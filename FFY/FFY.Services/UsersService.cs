@@ -35,8 +35,10 @@ namespace FFY.Services
                 .Throw();
 
             user.FavoritedProducts.Add(product);
+            product.Favoriters.Add(user);
 
             this.data.UsersRepository.Update(user);
+            this.data.ProductsRepository.Update(product);
             this.data.SaveChanges();
         }
 
@@ -51,8 +53,10 @@ namespace FFY.Services
                 .Throw();
 
             user.FavoritedProducts.Remove(product);
+            product.Favoriters.Remove(user);
 
             this.data.UsersRepository.Update(user);
+            this.data.ProductsRepository.Update(product);
             this.data.SaveChanges();
         }
 

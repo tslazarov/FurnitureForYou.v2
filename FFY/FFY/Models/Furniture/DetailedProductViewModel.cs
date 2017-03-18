@@ -9,6 +9,11 @@ namespace FFY.Web.Models.Furniture
 {
     public class DetailedProductViewModel
     {
+        public DetailedProductViewModel()
+        {
+            this.Product = new Product();
+        }
+
         public Product Product { get; set; }
 
         [Range(1, 100, ErrorMessage = "{0} should be a number between 0 and 100")]

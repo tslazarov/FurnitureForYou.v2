@@ -1,0 +1,32 @@
+﻿@using FFY.Web.Models.Furniture
+@using Microsoft.AspNet.Identity;
+
+@model DetailedProductViewModel
+
+<div class="product-detail-add-cart">
+    @if (Model.Product.Favoriters.Any(u => u.Id == this.User.Identity.GetUserId()))
+    {
+        using (Html.BeginForm("removeFavorites", "furniture", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.HiddenFor(m => m.Product.Id)
+            <div class="form-group">
+                <div class="col-md-offset-5 col-md-6">
+                    <input type="submit" value="Remove from Favorites" class="btn btn-warning btn-block" />
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        using (Html.BeginForm("addFavorites", "furniture", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.HiddenFor(m => m.Product.Id)
+            <div class="form-group">
+                <div class="col-md-offset-5 col-md-6">
+                    <input type="submit" value="Add to Favorites" class="btn btn-danger btn-block" />
+                </div>
+            </div>
+        }
+    }
+</div>
+
