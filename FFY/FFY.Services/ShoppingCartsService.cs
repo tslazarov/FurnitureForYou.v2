@@ -72,6 +72,30 @@ namespace FFY.Services
             this.data.SaveChanges();
         }
 
+        public void Remove(ShoppingCart shoppingCart, Product product)
+        {
+            Guard.WhenArgument<ShoppingCart>(shoppingCart, "Shopping cart cannot be null.")
+                .IsNull()
+                .Throw();
+
+            Guard.WhenArgument<Product>(product, "Product cannot be null.")
+                .IsNull()
+                .Throw();
+
+            var cartProduct = shoppingCart.CartProducts.FirstOrDefault(p => p.ProductId == product.Id);
+
+            if (cartProduct != null)
+            {
+                shoppingCart.CartProducts.Remove(cartProduct);
+            }
+
+            shoppingCart.Total = shoppingCart.CartProducts.Sum(p =>
+            (p.Product.DiscountedPrice * p.Quantity));
+
+            this.data.ShoppingCartsRepository.Update(shoppingCart);
+            this.data.SaveChanges();
+        }
+
         public int CartProductsCount(string cartId)
         {
             Guard.WhenArgument<string>(cartId, "Shopping cart id cannot be null.")

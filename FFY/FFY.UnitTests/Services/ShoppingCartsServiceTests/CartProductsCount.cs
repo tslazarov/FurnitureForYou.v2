@@ -15,11 +15,11 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
     [TestFixture]
     public class CartProductsCount
     {
-        [TestCase("")]
-        [TestCase(null)]
-        public void ShouldThrowArgumentException_WhenNullOrEmptyCartIdIsPassed(string cartId)
+        [Test]
+        public void ShouldThrowArgumentException_WhenEmptyCartIdIsPassed()
         {
             // Arrange
+            var cartId = "";
             var mockedData = new Mock<IFFYData>();
             var mockedCartProductFactory = new Mock<ICartProductFactory>();
 
@@ -31,11 +31,11 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
                 shoppingCartsService.CartProductsCount(cartId));
         }
 
-        [TestCase("")]
-        [TestCase(null)]
-        public void ShouldThrowArgumentExceptionWithCorrectMessage_WhenNullOrEmptyCartIdIsPassed(string cartId)
+        [Test]
+        public void ShouldThrowArgumentExceptionWithCorrectMessage_WhenEmptyCartIdIsPassed()
         {
             // Arrange
+            var cartId = "";
             var expectedExMessage = "Shopping cart id cannot be null.";
             var mockedData = new Mock<IFFYData>();
             var mockedCartProductFactory = new Mock<ICartProductFactory>();
@@ -50,18 +50,56 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
         }
 
         [Test]
+        public void ShouldThrowArgumentNullException_WhenNullCartIdIsPassed()
+        {
+            // Arrange
+            string cartId = null;
+            var mockedData = new Mock<IFFYData>();
+            var mockedCartProductFactory = new Mock<ICartProductFactory>();
+
+            var shoppingCartsService = new ShoppingCartsService(mockedData.Object,
+                mockedCartProductFactory.Object);
+
+            // Act and Assert
+            Assert.Throws<ArgumentNullException>(() =>
+                shoppingCartsService.CartProductsCount(cartId));
+        }
+
+        [Test]
+        public void ShouldThrowArgumentNullExceptionWithCorrectMessage_WhenNullCartIdIsPassed()
+        {
+            // Arrange
+            string cartId = null;
+            var expectedExMessage = "Shopping cart id cannot be null.";
+            var mockedData = new Mock<IFFYData>();
+            var mockedCartProductFactory = new Mock<ICartProductFactory>();
+
+            var shoppingCartsService = new ShoppingCartsService(mockedData.Object,
+                mockedCartProductFactory.Object);
+
+            // Act and Assert
+            var exception = Assert.Throws<ArgumentNullException>(() =>
+                shoppingCartsService.CartProductsCount(cartId));
+            StringAssert.Contains(expectedExMessage, exception.Message);
+        }
+
+        [Test]
         public void ShouldCallGetByIdMethodOfDataShoppingCartRepository()
         {
             // Arrange
             var cartId = "42";
+            var shoppingCart = new ShoppingCart();
             var mockedData = new Mock<IFFYData>();
             mockedData.Setup(d =>
                 d.ShoppingCartsRepository.GetById(It.IsAny<string>()))
-                .Returns(new ShoppingCart())
+                .Returns(shoppingCart)
                 .Verifiable();
             var mockedCartProductFactory = new Mock<ICartProductFactory>();
             var shoppingCartsService = new ShoppingCartsService(mockedData.Object,
                 mockedCartProductFactory.Object);
+
+            // Act
+            shoppingCartsService.CartProductsCount(cartId);
 
             // Act and Assert
             mockedData.Verify(d =>
