@@ -20,8 +20,8 @@ namespace FFY.Web.Models.Furniture
         [Display(Name = "Quantity")]
         public int Quantity { get; set; }
 
-        [Range(1, 100, ErrorMessage = "{0} should be a number between 0 and 100")]
-        [Display(Name = "Quantity")]
+        [Range(1, 5, ErrorMessage = "{0} should be a number between 0 and 100")]
+        [Display(Name = "Rating")]
         public int GivenRating { get; set; }
     }
 }

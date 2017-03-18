@@ -80,6 +80,24 @@ footer{
     min-height: 150px;
 }
 
+.product-detail-additional {
+    padding-bottom: 10px;
+}
+
+.product-detail-status img, .product-detail-rating img {
+    margin-right: 5px;
+}
+
+.available {
+    text-transform: uppercase;
+    color: #39B54A;
+}
+
+.unavailable {
+    text-transform: uppercase;
+    color: #DF382C;
+}
+
 .star {
     margin: 6px 3px;
 }

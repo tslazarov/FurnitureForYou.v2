@@ -3,7 +3,7 @@
 
 @model DetailedProductViewModel
 
-<div class="product-detail-add-cart">
+<div class="product-detail-add-favorite">
     @if (Model.Product.Favoriters.Any(u => u.Id == this.User.Identity.GetUserId()))
     {
         using (Html.BeginForm("removeFavorites", "furniture", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))

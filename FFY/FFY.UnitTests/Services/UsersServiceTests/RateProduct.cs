@@ -77,7 +77,9 @@ namespace FFY.UnitTests.Services.UsersServiceTests
         }
 
         [TestCase(3, 20, 6)]
-        public void ShouldUpdateProductRatingInformation(int rating, decimal currentRating, int ratingCount)
+        [TestCase(4, 40, 9)]
+        [TestCase(1, 20, 9)]
+        public void ShouldUpdateProductRatingInformation(int givenRating, decimal currentRating, int ratingCount)
         {
             // Arrange
 
@@ -95,8 +97,8 @@ namespace FFY.UnitTests.Services.UsersServiceTests
            var usersService = new UsersService(mockedData.Object);
 
             // Act
-            usersService.RateProduct(mockedUser.Object, product, rating);
-            var expectedRating = (currentRating * ratingCount + rating) / (ratingCount + 1);
+            usersService.RateProduct(mockedUser.Object, product, givenRating);
+            var expectedRating = (currentRating * ratingCount + givenRating) / (ratingCount + 1);
             var expectedRatingCount = ratingCount + 1;
 
             // Assert

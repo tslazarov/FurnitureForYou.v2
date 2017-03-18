@@ -36,6 +36,7 @@ namespace FFY.Web.Controllers
         {
             model.Product = this.productsService.GetProductById(id.Value);
             model.Quantity = 1;
+            model.GivenRating = 1;
 
             this.ModelState.Clear();
 
@@ -47,7 +48,22 @@ namespace FFY.Web.Controllers
             return this.View(model);
         }
 
-        // GET: Furniture/AddFavorites
+        // POST: Furniture/Rate
+        [HttpPost]
+        public ActionResult Rate(DetailedProductViewModel model)
+        {
+            if (!this.User.Identity.IsAuthenticated)
+            {
+                return this.RedirectToAction("login", "account", new { returnUrl = $"/furniture/product/{model.Product.Id}" });
+            }
+
+            var user = this.usersService.GetUserById(this.User.Identity.GetUserId());
+            var product = this.productsService.GetProductById(model.Product.Id);
+
+            this.usersService.RateProduct(user, product, model.GivenRating);
+
+            return this.RedirectToAction("product", "furniture", new { id = model.Product.Id });
+        }
 
         // POST: Furniture/AddFavorites
         [HttpPost]

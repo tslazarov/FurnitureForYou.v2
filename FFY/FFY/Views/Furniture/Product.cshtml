@@ -15,47 +15,69 @@
             <div class="product-detail-description">
                 @Model.Product.Description
             </div>
-            <div class="product-detail-add-cart">
-                @using (Html.BeginForm("addShoppingCart", "furniture", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                {
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <div class="form-group">
-                        <div class="col-md-5">
-                            @Html.TextBoxFor(m => m.Quantity, new { @type = "number", @class = "form-control" }) 
-                        </div>
-                        <div class="col-md-6">
-                            <input type="submit" value="Add to Shopping Cart" class="btn btn-default btn-block" />
-                        </div>
-                        <div class="col-md-12">
-                            @Html.ValidationMessageFor(m => m.Quantity, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                }
+            <div class="product-detail-additional">
+                <div class="product-detail-rating col-md-5">
+                    <span>
+                        <img src="~/Content/sources/rating-icon.png" /> @string.Format("{0:0.0}", Model.Product.Rating) / 5.0
+                    </span>
+                </div>
+                <div class="product-detail-status col-md-5">
+                    @if (Model.Product.Quantity > 0)
+                    {
+                        <span class="available">
+                            <img src="~/Content/sources/available-icon.png" /> Available
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="unavailable">
+                            <img src="~/Content/sources/unavailable-icon.png" /> Unavailable
+                        </span>
+                    }
+                </div>
             </div>
+            <hr />
             <div class="product-detail-add-cart">
-                @using (Html.BeginForm("addShoppingCart", "furniture", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                @if (this.Model.Product.Quantity < 0)
                 {
-                    @Html.HiddenFor(m => m.GivenRating, new { id="rating" })
-                    <div class="form-group">
-                        <div class="col-md-5 star-rating">
-                            <img id="1-empty" src="~/Content/sources/empty-star.png" class="star"/>
-                            <img id="1-full" src="~/Content/sources/full-star.png" class="star hidden"/>
-                            <img id="2-empty" src="~/Content/sources/empty-star.png" class="star"/>
-                            <img id="2-full" src="~/Content/sources/full-star.png" class="star hidden"/>
-                            <img id="3-empty" src="~/Content/sources/empty-star.png" class="star"/>
-                            <img id="3-full" src="~/Content/sources/full-star.png" class="star hidden" />
-                            <img id="4-empty" src="~/Content/sources/empty-star.png" class="star" />
-                            <img id="4-full" src="~/Content/sources/full-star.png" class="star hidden" />
-                            <img id="5-empty" src="~/Content/sources/empty-star.png" class="star" />
-                            <img id="5-full" src="~/Content/sources/full-star.png" class="star hidden" />
+                    using (Html.BeginForm("addShoppingCart", "furniture", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <div class="col-md-5">
+                                @Html.TextBoxFor(m => m.Quantity, new { @type = "number", @class = "form-control", disabled = "disabled" })
+                            </div>
+                            <div class="col-md-6">
+                                <input type="submit" value="Add to Shopping Cart" class="btn btn-default btn-block disabled" />
+                            </div>
+                            <div class="col-md-12">
+                                @Html.ValidationMessageFor(m => m.Quantity, "", new { @class = "text-danger" })
+                            </div>
                         </div>
-                        <div class="col-md-6">
-                            <input type="submit" value="Rate Product" class="btn btn-primary btn-block" />
-                        </div>
-                    </div>
+                    }
                 }
+                else
+                {
+                    using (Html.BeginForm("addShoppingCart", "furniture", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <div class="col-md-5">
+                                @Html.TextBoxFor(m => m.Quantity, new { @type = "number", @class = "form-control" })
+                            </div>
+                            <div class="col-md-6">
+                                <input type="submit" value="Add to Shopping Cart" class="btn btn-default btn-block" />
+                            </div>
+                            <div class="col-md-12">
+                                @Html.ValidationMessageFor(m => m.Quantity, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    }
+                }
+
             </div>
-            @Html.Partial("FavoritePartial", Model);
+            @Html.Partial("RatingPartial", Model)
+            @Html.Partial("FavoritePartial", Model)
         </div>
     </div>
 </section>
@@ -63,22 +85,22 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     <script type="text/javascript">
-        $(document).ready(function () {
-            $(".star").click(function () {
-                var id = Number(event.target.id[0]);
+            $(document).ready(function () {
+                $(".star").click(function () {
+                    var id = Number(event.target.id[0]);
 
-                for (var i = 1; i <= id; i += 1) {
-                    $("#" + i + "-empty").addClass("hidden");
-                    $("#" + i + "-full").removeClass("hidden");
-                }
-                for (var i = id + 1; i <= 5; i += 1) {
-                    $("#" + i + "-empty").removeClass("hidden");
-                    $("#" + i + "-full").addClass("hidden");
-                }
+                    for (var i = 1; i <= id; i += 1) {
+                        $("#" + i + "-empty").addClass("hidden");
+                        $("#" + i + "-full").removeClass("hidden");
+                    }
+                    for (var i = id + 1; i <= 5; i += 1) {
+                        $("#" + i + "-empty").removeClass("hidden");
+                        $("#" + i + "-full").addClass("hidden");
+                    }
 
-                $("#rating").val(id);
+                    $("#rating").val(id);
+                });
             });
-        });
     </script>
 }
 

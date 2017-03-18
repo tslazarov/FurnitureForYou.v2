@@ -336,6 +336,7 @@
     <Content Include="Views\Error\Unauthorized.cshtml" />
     <Content Include="Views\Furniture\Product.cshtml" />
     <Content Include="Views\Furniture\FavoritePartial.cshtml" />
+    <Content Include="Views\Furniture\RatingPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
