@@ -11,11 +11,13 @@ namespace FFY.Models
     {
         private ICollection<Order> orders;
         private ICollection<Product> ratedProducts;
+        private ICollection<Product> favoritedProducts;
 
         public User()
         {
             this.Orders = new HashSet<Order>();
             this.ratedProducts = new HashSet<Product>();
+            this.favoritedProducts = new HashSet<Product>();
 
         }
 
@@ -66,6 +68,18 @@ namespace FFY.Models
             set
             {
                 this.ratedProducts = value;
+            }
+        }
+
+        public virtual ICollection<Product> FavoritedProducts
+        {
+            get
+            {
+                return this.favoritedProducts;
+            }
+            set
+            {
+                this.favoritedProducts = value;
             }
         }
 

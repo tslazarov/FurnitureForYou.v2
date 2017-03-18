@@ -7,10 +7,12 @@ namespace FFY.Models
     public class Product : IDeletableEntity
     {
         private ICollection<User> raters;
+        private ICollection<User> favoriters;
 
         public Product()
         {
             this.raters = new HashSet<User>();
+            this.favoriters = new HashSet<User>();
         }
 
         public Product(string name,
@@ -81,6 +83,19 @@ namespace FFY.Models
                 this.raters = value;
             }
         }
+
+        public virtual ICollection<User> Favoriters
+        {
+            get
+            {
+                return this.favoriters;
+            }
+            set
+            {
+                this.favoriters = value;
+            }
+        }
+
         [Required]
         [MinLength(3)]
         [MaxLength(1000)]
