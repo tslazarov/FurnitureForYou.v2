@@ -1,0 +1,46 @@
+﻿@using FFY.Web.Models.Furniture
+@using Microsoft.AspNet.Identity;
+
+@model DetailedProductViewModel
+<div class="product-detail-add-cart">
+    @if (this.Model.Product.Quantity < 0)
+    {
+        using (Html.BeginForm("addShoppingCart", "furniture", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.HiddenFor(m => m.Product.Id)
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <div class="col-md-5">
+                    @Html.TextBoxFor(m => m.Quantity, new { @type = "number", @class = "form-control", disabled = "disabled" })
+                </div>
+                <div class="col-md-6">
+                    <input type="submit" value="Add to Shopping Cart" class="btn btn-default btn-block disabled" />
+                </div>
+                <div class="col-md-12">
+                    @Html.ValidationMessageFor(m => m.Quantity, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        using (Html.BeginForm("addShoppingCart", "furniture", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.HiddenFor(m => m.Product.Id)
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <div class="col-md-5">
+                    @Html.TextBoxFor(m => m.Quantity, new { @type = "number", @class = "form-control" })
+                </div>
+                <div class="col-md-6">
+                    <input type="submit" value="Add to Shopping Cart" class="btn btn-default btn-block" />
+                </div>
+                <div class="col-md-12">
+                    @Html.ValidationMessageFor(m => m.Quantity, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+    }
+
+</div>
+

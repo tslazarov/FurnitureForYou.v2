@@ -103,8 +103,6 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
             var mockedData = new Mock<IFFYData>();
             mockedData.Setup(d => 
                 d.ShoppingCartsRepository.Update(It.IsAny<ShoppingCart>()));
-            mockedData.Setup(d => 
-                d.CartProductsRepository.Update(It.IsAny<CartProduct>()));
             mockedData.Setup(d => d.SaveChanges());
             var mockedCartProductFactory = new Mock<ICartProductFactory>();
             mockedCartProductFactory.Setup(cpf =>
@@ -150,8 +148,6 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
             var mockedData = new Mock<IFFYData>();
             mockedData.Setup(d =>
                 d.ShoppingCartsRepository.Update(It.IsAny<ShoppingCart>()));
-            mockedData.Setup(d =>
-                d.CartProductsRepository.Update(It.IsAny<CartProduct>()));
             mockedData.Setup(d => d.SaveChanges());
             var mockedCartProductFactory = new Mock<ICartProductFactory>();
             mockedCartProductFactory.Setup(cpf =>
@@ -200,8 +196,6 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
             var mockedData = new Mock<IFFYData>();
             mockedData.Setup(d =>
                 d.ShoppingCartsRepository.Update(It.IsAny<ShoppingCart>()));
-            mockedData.Setup(d =>
-                d.CartProductsRepository.Update(It.IsAny<CartProduct>()));
             mockedData.Setup(d => d.SaveChanges());
             var mockedCartProductFactory = new Mock<ICartProductFactory>();
             mockedCartProductFactory.Setup(cpf =>
@@ -250,8 +244,6 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
             var mockedData = new Mock<IFFYData>();
             mockedData.Setup(d =>
                 d.ShoppingCartsRepository.Update(It.IsAny<ShoppingCart>())).Verifiable();
-            mockedData.Setup(d =>
-                d.CartProductsRepository.Update(It.IsAny<CartProduct>()));
             mockedData.Setup(d => d.SaveChanges());
             var mockedCartProductFactory = new Mock<ICartProductFactory>();
             mockedCartProductFactory.Setup(cpf =>
@@ -273,55 +265,6 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
             // Assert
             mockedData.Verify(d => 
                 d.ShoppingCartsRepository.Update(shoppingCart), Times.Once);
-        }
-
-        [TestCase(-1)]
-        public void ShouldCallUpdateMethodOfDataCartProductsRepository_WhenProductWithIdIsFoundInTheShoppingCart(
-            int id)
-        {
-            // Arrange
-            int quantity = 2;
-            decimal discountedPrice = 10M;
-            var dummyProduct = new Product()
-            {
-                DiscountedPrice = discountedPrice
-            };
-            var cartProduct = new CartProduct()
-            {
-                Product = dummyProduct
-            };
-            var cartProducts = new List<CartProduct>()
-            {
-                new CartProduct() { ProductId = 1, Product = dummyProduct },
-                new CartProduct() { ProductId = 2, Product = dummyProduct },
-                new CartProduct() { ProductId = 3, Product = dummyProduct }
-            };
-            var mockedData = new Mock<IFFYData>();
-            mockedData.Setup(d =>
-                d.ShoppingCartsRepository.Update(It.IsAny<ShoppingCart>()));
-            mockedData.Setup(d =>
-                d.CartProductsRepository.Update(It.IsAny<CartProduct>())).Verifiable();
-            mockedData.Setup(d => d.SaveChanges());
-            var mockedCartProductFactory = new Mock<ICartProductFactory>();
-            mockedCartProductFactory.Setup(cpf =>
-                cpf.CreateCartProduct(It.IsAny<int>(),
-                    It.IsAny<Product>(),
-                    It.IsAny<bool>()
-                ))
-                .Returns(cartProduct);
-            var product = new Product() { Id = id };
-            var shoppingCart = new ShoppingCart();
-            shoppingCart.CartProducts = cartProducts;
-
-            var shoppingCartsService = new ShoppingCartsService(mockedData.Object,
-                mockedCartProductFactory.Object);
-
-            // Act
-            shoppingCartsService.Add(shoppingCart, product, quantity);
-
-            // Assert
-            mockedData.Verify(d =>
-                d.CartProductsRepository.Update(cartProduct), Times.Once);
         }
 
         [TestCase(1)]
@@ -348,8 +291,6 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
             var mockedData = new Mock<IFFYData>();
             mockedData.Setup(d =>
                 d.ShoppingCartsRepository.Update(It.IsAny<ShoppingCart>()));
-            mockedData.Setup(d =>
-                d.CartProductsRepository.Update(It.IsAny<CartProduct>()));
             mockedData.Setup(d => d.SaveChanges()).Verifiable();
             var mockedCartProductFactory = new Mock<ICartProductFactory>();
             mockedCartProductFactory.Setup(cpf =>

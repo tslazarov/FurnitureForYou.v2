@@ -69,8 +69,17 @@ namespace FFY.Services
             (p.Product.DiscountedPrice * p.Quantity));
 
             this.data.ShoppingCartsRepository.Update(shoppingCart);
-            this.data.CartProductsRepository.Update(cartProduct);
             this.data.SaveChanges();
+        }
+
+        public int CartProductsCount(string cartId)
+        {
+            Guard.WhenArgument<string>(cartId, "Shopping cart id cannot be null.")
+                .IsNullOrEmpty()
+                .Throw();
+
+            return this.data.ShoppingCartsRepository.GetById(cartId)
+                .CartProducts.Count();
         }
     }
 }

@@ -12,5 +12,7 @@ namespace FFY.Services.Contracts
         void AssignShoppingCart(ShoppingCart shoppingCart);
 
         void Add(ShoppingCart shoppingCart, Product product, int quantity);
+
+        int CartProductsCount(string cartId);
     }
 }

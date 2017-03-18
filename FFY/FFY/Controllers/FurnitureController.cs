@@ -14,12 +14,18 @@ namespace FFY.Web.Controllers
     public class FurnitureController : Controller
     {
         private readonly IUsersService usersService;
+        private readonly IShoppingCartsService shoppingCartsService;
         private readonly IProductsService productsService;
 
         public FurnitureController(IUsersService usersService,
+            IShoppingCartsService shoppingCartsService,
             IProductsService productsService)
         {
             Guard.WhenArgument<IUsersService>(usersService, "Users service cannot be null.")
+                .IsNull()
+                .Throw();
+
+            Guard.WhenArgument<IShoppingCartsService>(shoppingCartsService, "Shopping carts service cannot be null.")
                 .IsNull()
                 .Throw();
 
@@ -28,6 +34,7 @@ namespace FFY.Web.Controllers
                 .Throw();
 
             this.usersService = usersService;
+            this.shoppingCartsService = shoppingCartsService;
             this.productsService = productsService;
         }
 
@@ -46,6 +53,28 @@ namespace FFY.Web.Controllers
             }
 
             return this.View(model);
+        }
+
+        // POST: Furniture/AddShoppingCart
+        [HttpPost]
+        public ActionResult AddShoppingCart(DetailedProductViewModel model)
+        {
+            if (!this.User.Identity.IsAuthenticated)
+            {
+                return this.RedirectToAction("login", "account", new { returnUrl = $"/furniture/product/{model.Product.Id}" });
+            }
+
+            var user = this.usersService.GetUserById(this.User.Identity.GetUserId());
+            var product = this.productsService.GetProductById(model.Product.Id);
+            var shoppingCart = user.ShoppingCart;
+
+            this.shoppingCartsService.Add(shoppingCart, product, model.Quantity);
+            var cartCount = this.shoppingCartsService.CartProductsCount(shoppingCart.UserId);
+
+            this.HttpContext.Cache.Insert($"cart-count-{user.Id}", cartCount);
+
+            return this.RedirectToAction("product", "furniture", new { id = model.Product.Id });
+
         }
 
         // POST: Furniture/Rate
