@@ -14,5 +14,7 @@ namespace FFY.Services.Contracts
         void AddProductToFavorites(User user, Product product);
 
         void RemoveProductFromFavorites(User user, Product product);
+
+        void RateProduct(User user, Product product, int rating);
     }
 }

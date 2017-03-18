@@ -23,7 +23,6 @@ namespace FFY.Services
             this.data = data;
         }
 
-
         public void AddProductToFavorites(User user, Product product)
         {
             Guard.WhenArgument<User>(user, "User cannot be null.")
@@ -54,6 +53,27 @@ namespace FFY.Services
 
             user.FavoritedProducts.Remove(product);
             product.Favoriters.Remove(user);
+
+            this.data.UsersRepository.Update(user);
+            this.data.ProductsRepository.Update(product);
+            this.data.SaveChanges();
+        }
+
+        public void RateProduct(User user, Product product, int rating)
+        {
+            Guard.WhenArgument<User>(user, "User cannot be null.")
+                .IsNull()
+                .Throw();
+
+            Guard.WhenArgument<Product>(product, "Product cannot be null.")
+                .IsNull()
+                .Throw();
+
+            product.Rating = (product.Rating * product.RatingCount + rating) / (product.RatingCount + 1);
+            product.RatingCount += 1;
+
+            user.RatedProducts.Add(product);
+            product.Raters.Add(user);
 
             this.data.UsersRepository.Update(user);
             this.data.ProductsRepository.Update(product);
