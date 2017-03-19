@@ -103,7 +103,7 @@
     <Compile Include="Web\AccountControllerTests\Constructor.cs" />
     <Compile Include="Web\AccountControllerTests\LoginGet.cs" />
     <Compile Include="Web\AccountControllerTests\LoginPost.cs" />
-    <Compile Include="Web\AccountControllerTests\LogOutGet.cs" />
+    <Compile Include="Web\AccountControllerTests\LogOutPost.cs" />
     <Compile Include="Web\AccountControllerTests\RegisterGet.cs" />
     <Compile Include="Web\AccountControllerTests\RegisterPost.cs" />
   </ItemGroup>
@@ -127,6 +127,10 @@
     <ProjectReference Include="..\FFY.Models\FFY.Models.csproj">
       <Project>{4c6e1ed4-f80b-4312-b899-c78d7e70f121}</Project>
       <Name>FFY.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FFY.Providers\FFY.Providers.csproj">
+      <Project>{6885748d-93d5-410f-b746-696ebc6c5dd8}</Project>
+      <Name>FFY.Providers</Name>
     </ProjectReference>
     <ProjectReference Include="..\FFY.Services\FFY.Services.csproj">
       <Project>{201e87d0-550e-48da-a4c9-d881485e3984}</Project>

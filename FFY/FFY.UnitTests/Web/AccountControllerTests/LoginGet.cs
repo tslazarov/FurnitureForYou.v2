@@ -1,14 +1,9 @@
 ﻿using FFY.Data.Factories;
-using FFY.IdentityConfig.Contracts;
+using FFY.Providers.Contracts;
 using FFY.Services.Contracts;
 using FFY.Web.Controllers;
 using Moq;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace FFY.UnitTests.Web.AccountControllerTests
@@ -21,15 +16,17 @@ namespace FFY.UnitTests.Web.AccountControllerTests
         {
             // Arrange
             var returnUrl = "/Home/Index";
-            var mockedAuthenticationProvider = new Mock<IAuthenticationProvider>();
+            var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
+            var mockedAuthenticationProvider = new Mock<IHttpContextAuthenticationProvider>();
             var mockedUserFactory = new Mock<IUserFactory>();
             var mockedShoppingCartFactory = new Mock<IShoppingCartFactory>();
             var mockedShoppingCartsService = new Mock<IShoppingCartsService>();
 
-            var accountController = new AccountController(mockedAuthenticationProvider.Object,
-                    mockedUserFactory.Object,
-                    mockedShoppingCartFactory.Object,
-                    mockedShoppingCartsService.Object);
+            var accountController = new AccountController(mockedRouteDataProvider.Object,
+                mockedAuthenticationProvider.Object,
+                mockedUserFactory.Object,
+                mockedShoppingCartFactory.Object,
+                mockedShoppingCartsService.Object);
 
             // Act
             var result = accountController.Login(returnUrl);
@@ -43,15 +40,17 @@ namespace FFY.UnitTests.Web.AccountControllerTests
         {
             // Arrange
             var returnUrl = "/Home/Index";
-            var mockedAuthenticationProvider = new Mock<IAuthenticationProvider>();
+            var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
+            var mockedAuthenticationProvider = new Mock<IHttpContextAuthenticationProvider>();
             var mockedUserFactory = new Mock<IUserFactory>();
             var mockedShoppingCartFactory = new Mock<IShoppingCartFactory>();
             var mockedShoppingCartsService = new Mock<IShoppingCartsService>();
 
-            var accountController = new AccountController(mockedAuthenticationProvider.Object,
-                    mockedUserFactory.Object,
-                    mockedShoppingCartFactory.Object,
-                    mockedShoppingCartsService.Object);
+            var accountController = new AccountController(mockedRouteDataProvider.Object,
+                mockedAuthenticationProvider.Object,
+                mockedUserFactory.Object,
+                mockedShoppingCartFactory.Object,
+                mockedShoppingCartsService.Object);
 
             // Act
             var result = accountController.Login(returnUrl);

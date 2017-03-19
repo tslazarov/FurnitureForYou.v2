@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FFY.IdentityConfig.Contracts
+namespace FFY.Providers.Contracts
 {
-    public interface IAuthenticationProvider
+    public interface IHttpContextAuthenticationProvider
     {
         bool IsAuthenticated { get; }
 

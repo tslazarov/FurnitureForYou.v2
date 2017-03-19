@@ -2,12 +2,12 @@
 using FFY.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
-using FFY.IdentityConfig.Contracts;
-using Microsoft.AspNet.Identity.EntityFramework;
+using FFY.Providers.Contracts;
+using FFY.IdentityConfig;
 
-namespace FFY.IdentityConfig
+namespace FFY.Providers
 {
-    public class HttpContextAuthenticationProvider : IAuthenticationProvider
+    public class HttpContextAuthenticationProvider : IHttpContextAuthenticationProvider
     {
 
         public HttpContextAuthenticationProvider()

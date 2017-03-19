@@ -1,7 +1,9 @@
 ﻿using Bytes2you.Validation;
 using FFY.Data.Factories;
 using FFY.Models;
+using FFY.Providers.Contracts;
 using FFY.Services.Contracts;
+using FFY.Web.Custom.Attributes;
 using FFY.Web.Models.Contact;
 using System;
 using System.Collections.Generic;
@@ -11,14 +13,21 @@ using System.Web.Mvc;
 
 namespace FFY.Web.Controllers
 {
+    [Localize]
     public class ContactController : Controller
     {
+        private readonly IDateTimeProvider dateProvider;
         private readonly IContactFactory contactFactory;
         private readonly IContactsService contactsService;
 
-        public ContactController(IContactFactory contactFactory,
+        public ContactController(IDateTimeProvider dateProvider,
+            IContactFactory contactFactory,
             IContactsService contactsService)
         {
+            Guard.WhenArgument<IDateTimeProvider>(dateProvider, "Date provider cannot be null.")
+                .IsNull()
+                .Throw();
+
             Guard.WhenArgument<IContactFactory>(contactFactory, "Contact factory cannot be null.")
                 .IsNull()
                 .Throw();
@@ -41,7 +50,7 @@ namespace FFY.Web.Controllers
         [HttpPost]
         public ActionResult Index(ContactViewModel model)
         {
-            model.SendOn = DateTime.Now;
+            model.SendOn = this.dateProvider.GetCurrentTime();
             model.StatusType = ContactStatusType.NotProcessed;
 
             if (this.ModelState.IsValid)

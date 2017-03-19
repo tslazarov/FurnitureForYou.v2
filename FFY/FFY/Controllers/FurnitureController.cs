@@ -1,6 +1,7 @@
 ﻿using Bytes2you.Validation;
 using FFY.Models;
 using FFY.Services.Contracts;
+using FFY.Web.Custom.Attributes;
 using FFY.Web.Models.Furniture;
 using Microsoft.AspNet.Identity;
 using System;
@@ -11,6 +12,7 @@ using System.Web.Mvc;
 
 namespace FFY.Web.Controllers
 {
+    [Localize]
     public class FurnitureController : Controller
     {
         private readonly IUsersService usersService;

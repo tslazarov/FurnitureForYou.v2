@@ -3,19 +3,22 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using FFY.IdentityConfig.Contracts;
 using FFY.Data.Factories;
 using Bytes2you.Validation;
 using FFY.Web.Models.Account;
 using FFY.Data.Contracts;
 using FFY.Services.Contracts;
+using FFY.Providers.Contracts;
+using FFY.Web.Custom.Attributes;
 
 namespace FFY.Web.Controllers
 {
     [Authorize]
+    [Localize]
     public class AccountController : Controller
     {
-        private readonly IAuthenticationProvider authenticationProvider;
+        private readonly IRouteDataProvider routeDataProvider;
+        private readonly IHttpContextAuthenticationProvider authenticationProvider;
         private readonly IUserFactory userFactory;
         private readonly IShoppingCartFactory shoppingCartFactory;
         private readonly IShoppingCartsService shoppingCartsService;
@@ -24,12 +27,17 @@ namespace FFY.Web.Controllers
         {
         }
 
-        public AccountController(IAuthenticationProvider provider, 
+        public AccountController(IRouteDataProvider routeDataProvider,
+            IHttpContextAuthenticationProvider authenticationProvider, 
             IUserFactory userFactory,
             IShoppingCartFactory shoppingCartFactory,
             IShoppingCartsService shoppingCartsService)
         {
-            Guard.WhenArgument<IAuthenticationProvider>(provider, "Authentication provider cannot be null.")
+            Guard.WhenArgument<IRouteDataProvider>(routeDataProvider, "Route data provider cannot be null.")
+                .IsNull()
+                .Throw();
+
+            Guard.WhenArgument<IHttpContextAuthenticationProvider>(authenticationProvider, "Authentication provider cannot be null.")
                 .IsNull()
                 .Throw();
 
@@ -45,7 +53,8 @@ namespace FFY.Web.Controllers
                 .IsNull()
                 .Throw();
 
-            this.authenticationProvider = provider;
+            this.routeDataProvider = routeDataProvider;
+            this.authenticationProvider = authenticationProvider;
             this.userFactory = userFactory;
             this.shoppingCartFactory = shoppingCartFactory;
             this.shoppingCartsService = shoppingCartsService;
@@ -70,7 +79,10 @@ namespace FFY.Web.Controllers
                 return this.View(model);
             }
 
-            returnUrl = string.IsNullOrEmpty(returnUrl) ? "/Home/Index" : returnUrl;
+            var routeData = this.routeDataProvider.GetRouteData(this);
+
+            returnUrl = string.IsNullOrEmpty(returnUrl) ? 
+                $"/{routeData.Values["language"].ToString()}" : $"/{routeData.Values["language"].ToString()}{returnUrl}";
 
             var result = this.authenticationProvider.SignInWithPassword(model.Email, model.Password, model.RememberMe, shouldLockout: false);
 
@@ -104,6 +116,7 @@ namespace FFY.Web.Controllers
             {
                 var user = this.userFactory.CreateUser(model.Email, model.FirstName, model.LastName, model.Email);
                 var result = this.authenticationProvider.CreateUser(user, model.Password);
+                var routeData = this.routeDataProvider.GetRouteData(this);
 
                 if (result.Succeeded)
                 {
@@ -113,7 +126,7 @@ namespace FFY.Web.Controllers
 
                     this.authenticationProvider.SignIn(user, isPersistent:false, rememberBrowser:false);
                     
-                    return this.RedirectToAction("Index", "Home", new { area = "" });
+                    return this.RedirectToAction("Index", "Home", new { area = "", language = routeData.Values["language"].ToString() });
                 }
 
                 this.AddErrors(result);
@@ -127,9 +140,10 @@ namespace FFY.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOut()
         {
+            var routeData = this.routeDataProvider.GetRouteData(this);
             this.authenticationProvider.SignOut();
 
-            return this.RedirectToAction("Index", "Home", new { area = "" });
+            return this.RedirectToAction("Index", "Home", new { area = "", language = routeData.Values["language"].ToString() });
         }
 
         protected override void Dispose(bool disposing)

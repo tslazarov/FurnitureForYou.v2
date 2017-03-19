@@ -21,9 +21,11 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "index", "home", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("Furniture", "about", "home", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("Contact", "index", "contact", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink(FFY.Web.Resources.Language.Home, "index", "home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink(FFY.Web.Resources.Language.Furniture, "about", "home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink(FFY.Web.Resources.Language.Contact, "index", "contact", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("EN", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { area = "", language = "en" }, null)</li>
+                    <li>@Html.ActionLink("BG", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { area = "", language = "bg" }, null)</li>
                 </ul>
                 @Html.Partial("_AdministrationPartial")
                 @Html.Partial("_LoginPartial")

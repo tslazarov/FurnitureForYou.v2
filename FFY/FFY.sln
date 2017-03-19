@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFY.UnitTests", "FFY.UnitTe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFY.Services", "FFY.Services\FFY.Services.csproj", "{201E87D0-550E-48DA-A4C9-D881485E3984}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFY.Providers", "FFY.Providers\FFY.Providers.csproj", "{6885748D-93D5-410F-B746-696EBC6C5DD8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{201E87D0-550E-48DA-A4C9-D881485E3984}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{201E87D0-550E-48DA-A4C9-D881485E3984}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{201E87D0-550E-48DA-A4C9-D881485E3984}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6885748D-93D5-410F-B746-696EBC6C5DD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6885748D-93D5-410F-B746-696EBC6C5DD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6885748D-93D5-410F-B746-696EBC6C5DD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6885748D-93D5-410F-B746-696EBC6C5DD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
