@@ -128,5 +128,14 @@ namespace FFY.Services
             return this.data.ShoppingCartsRepository.GetById(cartId)
                 .CartProducts.Where(cp => cp.IsInCart).Count();
         }
+
+        public ShoppingCart GetShoppingCartById(string cartId)
+        {
+            Guard.WhenArgument<string>(cartId, "Shopping cart id cannot be null.")
+                .IsNullOrEmpty()
+                .Throw();
+
+            return this.data.ShoppingCartsRepository.GetById(cartId);
+        }
     }
 }

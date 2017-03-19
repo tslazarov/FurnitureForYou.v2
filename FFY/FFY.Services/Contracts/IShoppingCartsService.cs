@@ -18,5 +18,7 @@ namespace FFY.Services.Contracts
         void Clear(ShoppingCart shoppingCart);
 
         int CartProductsCount(string cartId);
+
+        ShoppingCart GetShoppingCartById(string cartId);
     }
 }
