@@ -1,5 +1,6 @@
 ﻿using Bytes2you.Validation;
 using FFY.Models;
+using FFY.Providers.Contracts;
 using FFY.Services.Contracts;
 using FFY.Web.Custom.Attributes;
 using FFY.Web.Models.Furniture;
@@ -15,14 +16,20 @@ namespace FFY.Web.Controllers
     [Localize]
     public class FurnitureController : Controller
     {
+        private readonly IHttpContextProvider contextProvider;
         private readonly IUsersService usersService;
         private readonly IShoppingCartsService shoppingCartsService;
         private readonly IProductsService productsService;
 
-        public FurnitureController(IUsersService usersService,
+        public FurnitureController(IHttpContextProvider contextProvider,
+            IUsersService usersService,
             IShoppingCartsService shoppingCartsService,
             IProductsService productsService)
         {
+            Guard.WhenArgument<IHttpContextProvider>(contextProvider, "Contect provider cannot be null.")
+                .IsNull()
+                .Throw();
+
             Guard.WhenArgument<IUsersService>(usersService, "Users service cannot be null.")
                 .IsNull()
                 .Throw();
@@ -35,6 +42,7 @@ namespace FFY.Web.Controllers
                 .IsNull()
                 .Throw();
 
+            this.contextProvider = contextProvider;
             this.usersService = usersService;
             this.shoppingCartsService = shoppingCartsService;
             this.productsService = productsService;
@@ -73,7 +81,7 @@ namespace FFY.Web.Controllers
             this.shoppingCartsService.Add(shoppingCart, product, model.Quantity);
             var cartCount = this.shoppingCartsService.CartProductsCount(shoppingCart.UserId);
 
-            this.HttpContext.Cache.Insert($"cart-count-{user.Id}", cartCount);
+            this.contextProvider.GetHttpContext(this).Cache.Insert($"cart-count-{user.Id}", cartCount);
 
             return this.RedirectToAction("product", "furniture", new { id = model.Product.Id });
 
@@ -110,6 +118,8 @@ namespace FFY.Web.Controllers
 
             this.usersService.AddProductToFavorites(user, product);
 
+            this.contextProvider.GetHttpContext(this).Cache.Insert($"favorites-count-{user.Id}", user.FavoritedProducts.Count + 1);
+
             return this.RedirectToAction("product", "furniture", new { id = model.Product.Id });
         }
 
@@ -127,6 +137,8 @@ namespace FFY.Web.Controllers
             var product = this.productsService.GetProductById(model.Product.Id);
 
             this.usersService.RemoveProductFromFavorites(user, product);
+
+            this.contextProvider.GetHttpContext(this).Cache.Insert($"favorites-count-{user.Id}", user.FavoritedProducts.Count - 1);
 
             return this.RedirectToAction("product", "furniture", new { id = model.Product.Id });
         }

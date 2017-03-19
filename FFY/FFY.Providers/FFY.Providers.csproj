@@ -120,8 +120,10 @@
   <ItemGroup>
     <Compile Include="Assembly\IProvidersAssembly.cs" />
     <Compile Include="Contracts\IHttpContextAuthenticationProvider.cs" />
+    <Compile Include="Contracts\IHttpContextProvider.cs" />
     <Compile Include="Contracts\IRouteDataProvider.cs" />
-    <Compile Include="Contracts\RouteDataProvider.cs" />
+    <Compile Include="HttpContextProvider.cs" />
+    <Compile Include="RouteDataProvider.cs" />
     <Compile Include="DateTimeProvider.cs" />
     <Compile Include="Contracts\IDateTimeProvider.cs" />
     <Compile Include="HttpContextAuthenticationProvider.cs" />
