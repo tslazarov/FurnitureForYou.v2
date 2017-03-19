@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Furniture For You</title>
+    <title>Furniture For You</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -24,8 +24,10 @@
                     <li>@Html.ActionLink(FFY.Web.Resources.Language.Home, "index", "home", new { area = "" }, null)</li>
                     <li>@Html.ActionLink(FFY.Web.Resources.Language.Furniture, "about", "home", new { area = "" }, null)</li>
                     <li>@Html.ActionLink(FFY.Web.Resources.Language.Contact, "index", "contact", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("EN", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { area = "", language = "en" }, null)</li>
-                    <li>@Html.ActionLink("BG", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { area = "", language = "bg" }, null)</li>
+                    <li>@Html.ActionLink(FFY.Web.Resources.Language.En, ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), 
+                       new { language = "en", id = ViewContext.RouteData.Values["id"] == null ? "" : ViewContext.RouteData.Values["id"].ToString() }, null)</li>
+                    <li>@Html.ActionLink(FFY.Web.Resources.Language.Bg, ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), 
+                       new { language = "bg", id = ViewContext.RouteData.Values["id"] == null ? "" : ViewContext.RouteData.Values["id"].ToString() }, null)</li>
                 </ul>
                 @Html.Partial("_AdministrationPartial")
                 @Html.Partial("_LoginPartial")

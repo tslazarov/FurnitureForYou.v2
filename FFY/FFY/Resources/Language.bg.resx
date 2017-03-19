@@ -117,13 +117,85 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddProduct" xml:space="preserve">
+    <value>Добави нов продукт</value>
+  </data>
+  <data name="Administration" xml:space="preserve">
+    <value>Администрация</value>
+  </data>
+  <data name="Available" xml:space="preserve">
+    <value>Налично</value>
+  </data>
+  <data name="Bg" xml:space="preserve">
+    <value>БГ</value>
+  </data>
+  <data name="Browse" xml:space="preserve">
+    <value>Търси</value>
+  </data>
   <data name="Contact" xml:space="preserve">
     <value>Контакт</value>
+  </data>
+  <data name="ContactAction" xml:space="preserve">
+    <value>Изпрати</value>
+  </data>
+  <data name="ContactsManagement" xml:space="preserve">
+    <value>Управление на Контакти</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Създай</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>лв</value>
+  </data>
+  <data name="En" xml:space="preserve">
+    <value>АНГЛ</value>
+  </data>
+  <data name="FavoritesAdd" xml:space="preserve">
+    <value>Добави в любими</value>
+  </data>
+  <data name="FavoritesRemove" xml:space="preserve">
+    <value>Премахни от любими</value>
   </data>
   <data name="Furniture" xml:space="preserve">
     <value>Мебели</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Начало</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Вход</value>
+  </data>
+  <data name="LoginAction" xml:space="preserve">
+    <value>Влез</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Изход</value>
+  </data>
+  <data name="OrdersManagement" xml:space="preserve">
+    <value>Управление на Поръчки</value>
+  </data>
+  <data name="ProductsManagement" xml:space="preserve">
+    <value>Управление на Продукти</value>
+  </data>
+  <data name="Rate" xml:space="preserve">
+    <value>Оцени</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Регистрация</value>
+  </data>
+  <data name="RegisterAction" xml:space="preserve">
+    <value>Регистрирай се</value>
+  </data>
+  <data name="RegisterNewUser" xml:space="preserve">
+    <value>Регистрирай се като нов потребител</value>
+  </data>
+  <data name="ShoppingCartAdd" xml:space="preserve">
+    <value>Добави в количката</value>
+  </data>
+  <data name="Unavailable" xml:space="preserve">
+    <value>Неналично</value>
+  </data>
+  <data name="UsersManagement" xml:space="preserve">
+    <value>Управление на Потребители</value>
   </data>
 </root>

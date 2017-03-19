@@ -61,11 +61,119 @@ namespace FFY.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add new product.
+        /// </summary>
+        public static string AddProduct {
+            get {
+                return ResourceManager.GetString("AddProduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Administration.
+        /// </summary>
+        public static string Administration {
+            get {
+                return ResourceManager.GetString("Administration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Available.
+        /// </summary>
+        public static string Available {
+            get {
+                return ResourceManager.GetString("Available", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BG.
+        /// </summary>
+        public static string Bg {
+            get {
+                return ResourceManager.GetString("Bg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Browse.
+        /// </summary>
+        public static string Browse {
+            get {
+                return ResourceManager.GetString("Browse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contact.
         /// </summary>
         public static string Contact {
             get {
                 return ResourceManager.GetString("Contact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Send.
+        /// </summary>
+        public static string ContactAction {
+            get {
+                return ResourceManager.GetString("ContactAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contacts Management.
+        /// </summary>
+        public static string ContactsManagement {
+            get {
+                return ResourceManager.GetString("ContactsManagement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create.
+        /// </summary>
+        public static string Create {
+            get {
+                return ResourceManager.GetString("Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to lv.
+        /// </summary>
+        public static string Currency {
+            get {
+                return ResourceManager.GetString("Currency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EN.
+        /// </summary>
+        public static string En {
+            get {
+                return ResourceManager.GetString("En", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add to favorites.
+        /// </summary>
+        public static string FavoritesAdd {
+            get {
+                return ResourceManager.GetString("FavoritesAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove from favorites.
+        /// </summary>
+        public static string FavoritesRemove {
+            get {
+                return ResourceManager.GetString("FavoritesRemove", resourceCulture);
             }
         }
         
@@ -84,6 +192,114 @@ namespace FFY.Web.Resources {
         public static string Home {
             get {
                 return ResourceManager.GetString("Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        public static string Login {
+            get {
+                return ResourceManager.GetString("Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Log in.
+        /// </summary>
+        public static string LoginAction {
+            get {
+                return ResourceManager.GetString("LoginAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Logout.
+        /// </summary>
+        public static string Logout {
+            get {
+                return ResourceManager.GetString("Logout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Orders Management.
+        /// </summary>
+        public static string OrdersManagement {
+            get {
+                return ResourceManager.GetString("OrdersManagement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Products Management.
+        /// </summary>
+        public static string ProductsManagement {
+            get {
+                return ResourceManager.GetString("ProductsManagement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rate.
+        /// </summary>
+        public static string Rate {
+            get {
+                return ResourceManager.GetString("Rate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Register.
+        /// </summary>
+        public static string Register {
+            get {
+                return ResourceManager.GetString("Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Register.
+        /// </summary>
+        public static string RegisterAction {
+            get {
+                return ResourceManager.GetString("RegisterAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Register as a new user.
+        /// </summary>
+        public static string RegisterNewUser {
+            get {
+                return ResourceManager.GetString("RegisterNewUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add to shopping cart.
+        /// </summary>
+        public static string ShoppingCartAdd {
+            get {
+                return ResourceManager.GetString("ShoppingCartAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unavailable.
+        /// </summary>
+        public static string Unavailable {
+            get {
+                return ResourceManager.GetString("Unavailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Users Management.
+        /// </summary>
+        public static string UsersManagement {
+            get {
+                return ResourceManager.GetString("UsersManagement", resourceCulture);
             }
         }
     }

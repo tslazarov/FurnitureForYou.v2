@@ -4,7 +4,7 @@
 }
 
 <h2>Product Index</h2>
-@Html.ActionLink("Add new product", "productAddition", "productManagement", new { area = "administration" }, null);
+@Html.ActionLink(@FFY.Web.Resources.Language.AddProduct, "productAddition", "productManagement", new { area = "administration" }, null);
 
 @Html.Partial("RoomPartial")
 @Html.Partial("CategoryPartial")

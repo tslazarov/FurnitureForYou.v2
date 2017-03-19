@@ -297,7 +297,6 @@
     <Content Include="Areas\Administration\Views\UserManagement\Index.cshtml" />
     <Content Include="Areas\Profile\Views\web.config" />
     <Content Include="Areas\Profile\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Profile\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Profile\Views\ShoppingCart\Index.cshtml" />
     <Content Include="Areas\Profile\Views\Information\Index.cshtml" />
     <Content Include="Areas\Administration\Views\ProductManagement\RoomPartial.cshtml" />
@@ -334,12 +333,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
@@ -353,7 +346,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Profile\Models\" />
-    <Folder Include="Views\Language\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

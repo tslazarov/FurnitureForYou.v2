@@ -7,7 +7,7 @@
         @using (Html.BeginForm("addProduct", "productManagement", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal", role = "form" }))
         {
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div style="order: 1" class="form-group">
+            <div class="form-group">
                 @Html.LabelFor(m => m.Name, new { @class = "col-md-3 control-label" })
                 <div class="col-md-9">
                     @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
@@ -49,7 +49,7 @@
                     @Html.ValidationMessageFor(m => m.Room, "", new { @class = "text-danger" })
                 </div>
                 <div class="col-md-1">
-                    <a id="add-room">Add</a>
+                    <a id="add-room">+</a>
                 </div>
             </div>
             <div id="room-addition-dummy" class="addition-dummy"></div>
@@ -60,20 +60,20 @@
                     @Html.ValidationMessageFor(m => m.Category, "", new { @class = "text-danger" })
                 </div>
                 <div class="col-md-1">
-                    <a id="add-category">Add</a>
+                    <a id="add-category">+</a>
                 </div>
             </div>
             <div id="category-addition-dummy" class="addition-dummy"></div>
             <div class="form-group">
                 <div class="col-md-offset-3 col-md-9">
-                    <label for="product-image" class="btn btn-default browse-image">Browse</label>
+                    <label for="product-image" class="btn btn-default browse-image">@FFY.Web.Resources.Language.Browse</label>
                     <input type="file" id="product-image" name="file" class="form-control hidden">
                 </div>
             </div>
             <hr />
             <div class="form-group">
                 <div class="col-md-offset-3 col-md-9">
-                    <input type="submit" value="Create" class="btn btn-primary btn-block" />
+                    <input type="submit" value="@FFY.Web.Resources.Language.Create" class="btn btn-primary btn-block" />
                 </div>
             </div>
         }

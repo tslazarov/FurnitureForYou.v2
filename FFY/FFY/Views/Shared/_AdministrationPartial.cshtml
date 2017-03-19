@@ -2,15 +2,15 @@
 {
     <ul class="nav navbar-nav">
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Administration<span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">@FFY.Web.Resources.Language.Administration<span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
                 @if (this.User.IsInRole("Administrator"))
                 {
-                    <li>@Html.ActionLink("User Management", "index", "userManagement", new { area = "administration" }, null)</li>
+                    <li>@Html.ActionLink(@FFY.Web.Resources.Language.UsersManagement, "index", "userManagement", new { area = "administration" }, null)</li>
                 }
-                <li>@Html.ActionLink("Product Management", "index", "productManagement", new { area = "administration"}, null)</li>
-                <li>@Html.ActionLink("Order Management", "index", "orderManagement", new { area = "administration" }, null)</li>
-                <li>@Html.ActionLink("Contact Management", "index", "contactManagement", new { area = "administration" }, null)</li>
+                <li>@Html.ActionLink(@FFY.Web.Resources.Language.ProductsManagement, "index", "productManagement", new { area = "administration"}, null)</li>
+                <li>@Html.ActionLink(@FFY.Web.Resources.Language.OrdersManagement, "index", "orderManagement", new { area = "administration" }, null)</li>
+                <li>@Html.ActionLink(@FFY.Web.Resources.Language.ContactsManagement, "index", "contactManagement", new { area = "administration" }, null)</li>
             </ul>
         </li>
     </ul>

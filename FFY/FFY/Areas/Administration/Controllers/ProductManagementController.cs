@@ -13,6 +13,7 @@ using System.Web.Mvc;
 
 namespace FFY.Web.Areas.Administration.Controllers
 {
+    [Localize]
     [Security(Roles = "Administrator, Moderator", RedirectUrl = "~/error/unauthorized")]
     public class ProductManagementController : Controller
     {

@@ -8,20 +8,19 @@
 
     <ul class="nav navbar-nav navbar-right">
         <li>
-            <a href="@Url.Action("index", "shoppingCart", new { area = "profile" }, null)" class="cart-container" title="Shopping cart">
+            <a href="@Url.Action("index", "shoppingCart", new { area = "profile" }, null)" class="cart-container">
                 @this.Cache.Get($"cart-count-{User.Identity.GetUserId()}")
                 <img alt="Shopping cart" src="@Url.Content("~/Content/sources/cart.png")">
             </a>
         </li>  
         <li>@Html.ActionLink(User.Identity.GetUserName(), "index", "information", new { area = "profile" }, null)</li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log out</a></li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">@FFY.Web.Resources.Language.Logout</a></li>
      </ul>
      }
 }
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "register", "account", new { area = "" }, new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "login", "account", new { area= "" }, new { id = "loginLink" })</li>
+        <li>@Html.ActionLink(FFY.Web.Resources.Language.Login, "login", "account", new { area= "" }, new { id = "loginLink" })</li>
     </ul>
 }

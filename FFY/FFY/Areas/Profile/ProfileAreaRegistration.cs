@@ -16,8 +16,8 @@ namespace FFY.Web.Areas.Profile
         {
             context.MapRoute(
                 "Profile_default",
-                "profile/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                "{language}/profile/{controller}/{action}/{id}",
+                new { action = "Index", id = UrlParameter.Optional, language = "en" }
             );
         }
     }
