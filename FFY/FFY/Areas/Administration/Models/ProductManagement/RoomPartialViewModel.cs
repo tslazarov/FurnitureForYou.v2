@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FFY.Web.Resources;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -8,12 +9,11 @@ namespace FFY.Web.Areas.Administration.Models.ProductManagement
 {
     public class RoomPartialViewModel
     {
-        [Required]
-        [Display(Name = "Name")]
+        [Required(ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "RoomNameRequired")]
+        [Display(Name = "RoomName", ResourceType = typeof(Language))]
         public string Name { get; set; }
 
-        [Required]
-        [Display(Name = "ImagePath")]
+        [Display(Name = "RoomImage", ResourceType = typeof(Language))]
         public string ImagePath { get; set; }
     }
 }

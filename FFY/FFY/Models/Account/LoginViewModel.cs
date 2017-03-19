@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FFY.Web.Resources;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -8,17 +9,17 @@ namespace FFY.Web.Models.Account
 {
     public class LoginViewModel
     {
-        [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
+        [Required(ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "EmailRequired")]
+        [Display(Name = "Email", ResourceType = typeof(Language))]
+        [EmailAddress(ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "EmailValidation")]
         public string Email { get; set; }
 
-        [Required]
-        [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Required(ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "PasswordRequired")]
+        [DataType(DataType.Password, ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "PasswordValidation")]
+        [Display(Name = "Password", ResourceType = typeof(Language))]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "RememberMe", ResourceType = typeof(Language))]
         public bool RememberMe { get; set; }
     }
 }

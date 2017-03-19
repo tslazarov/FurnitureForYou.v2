@@ -10,6 +10,7 @@ using FFY.Data.Contracts;
 using FFY.Services.Contracts;
 using FFY.Providers.Contracts;
 using FFY.Web.Custom.Attributes;
+using FFY.Web.Resources;
 
 namespace FFY.Web.Controllers
 {
@@ -94,7 +95,7 @@ namespace FFY.Web.Controllers
                     return this.View("Lockout");
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Email or password is incorrect.");
+                    ModelState.AddModelError("", Language.InvalidLogin);
                     return this.View(model);
             }
         }

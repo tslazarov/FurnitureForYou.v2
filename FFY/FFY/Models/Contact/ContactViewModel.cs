@@ -1,4 +1,5 @@
 ﻿using FFY.Models;
+using FFY.Web.Resources;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,28 +10,26 @@ namespace FFY.Web.Models.Contact
 {
     public class ContactViewModel
     {
-        [Required]
-        [EmailAddress]
-        [Display(Name = "Email")]
+        [Required(ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "EmailRequired")]
+        [Display(Name = "Email", ResourceType = typeof(Language))]
+        [EmailAddress(ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "EmailValidation")]
         public string Email { get; set; }
 
-        [Required]
-        [StringLength(30, ErrorMessage = "{0} should be at least {2} characters long.", MinimumLength = 2)]
-        [Display(Name = "Title")]
+        [Required(ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "TitleRequired")]
+        [StringLength(30, ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "TitleValidation", MinimumLength = 2)]
+        [Display(Name = "Title", ResourceType = typeof(Language))]
         public string Title { get; set; }
 
-        [Required]
-        [StringLength(30, ErrorMessage = "{0} should be at least {2} characters long.", MinimumLength = 2)]
-        [Display(Name = "Content")]
+        [Required(ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "ContentRequired")]
+        [StringLength(500, ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "ContentValidation", MinimumLength = 10)]
+        [Display(Name = "Content", ResourceType = typeof(Language))]
         public string Content { get; set; }
 
         [Required]
         [DataType(DataType.DateTime)]
-        [Display(Name = "Send on")]
         public DateTime SendOn { get; set; }
 
         [Required]
-        [Display(Name = "Status type")]
         public ContactStatusType StatusType { get; set; }
     }
 }

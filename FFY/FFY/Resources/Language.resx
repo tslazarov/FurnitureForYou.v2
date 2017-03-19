@@ -119,83 +119,322 @@
   </resheader>
   <data name="AddProduct" xml:space="preserve">
     <value>Add new product</value>
+    <comment>ProductManagementIndexView</comment>
   </data>
   <data name="Administration" xml:space="preserve">
     <value>Administration</value>
+    <comment>Navigation</comment>
   </data>
   <data name="Available" xml:space="preserve">
     <value>Available</value>
+    <comment>ProductView</comment>
   </data>
   <data name="Bg" xml:space="preserve">
     <value>BG</value>
+    <comment>Language</comment>
   </data>
   <data name="Browse" xml:space="preserve">
     <value>Browse</value>
+    <comment>ProductAdditionView</comment>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Category</value>
+    <comment>ProductAdditionViewModel</comment>
+  </data>
+  <data name="CategoryImage" xml:space="preserve">
+    <value>Image</value>
+    <comment>CategoryViewModel</comment>
+  </data>
+  <data name="CategoryName" xml:space="preserve">
+    <value>Category name</value>
+    <comment>CategoryViewModel</comment>
+  </data>
+  <data name="CategoryNameRequired" xml:space="preserve">
+    <value>Category name is required</value>
+    <comment>CategoryViewModel</comment>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirm password</value>
+    <comment>RegisterViewModel</comment>
+  </data>
+  <data name="ConfirmPasswordCompare" xml:space="preserve">
+    <value>Confirm password does not match the password</value>
+    <comment>RegisterViewModel</comment>
+  </data>
+  <data name="ConfirmPasswordRequired" xml:space="preserve">
+    <value>Confirm password is required</value>
+    <comment>RegisterViewModel</comment>
+  </data>
+  <data name="ConfirmPasswordValidation" xml:space="preserve">
+    <value>Confirm password does not match the required format</value>
+    <comment>RegisterViewModel</comment>
   </data>
   <data name="Contact" xml:space="preserve">
     <value>Contact</value>
+    <comment>Navigation</comment>
   </data>
   <data name="ContactAction" xml:space="preserve">
     <value>Send</value>
+    <comment>ContactView</comment>
   </data>
   <data name="ContactsManagement" xml:space="preserve">
     <value>Contacts Management</value>
+    <comment>Navigation</comment>
+  </data>
+  <data name="Content" xml:space="preserve">
+    <value>Content</value>
+    <comment>ContactViewModel</comment>
+  </data>
+  <data name="ContentRequired" xml:space="preserve">
+    <value>Content is required</value>
+    <comment>ContactViewModel</comment>
+  </data>
+  <data name="ContentValidation" xml:space="preserve">
+    <value>Content should be between 10 and 500 characters</value>
+    <comment>ContactViewModel</comment>
   </data>
   <data name="Create" xml:space="preserve">
     <value>Create</value>
+    <comment>ProductAdditionView</comment>
   </data>
   <data name="Currency" xml:space="preserve">
     <value>lv</value>
+    <comment>ProductView</comment>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+    <comment>ProductAdditionViewModel</comment>
+  </data>
+  <data name="DescriptionRequired" xml:space="preserve">
+    <value>Description is required</value>
+    <comment>ProductAdditionViewModel</comment>
+  </data>
+  <data name="DescriptionValidation" xml:space="preserve">
+    <value>Description should be between 10 and 500 characters</value>
+    <comment>ProductAdditionViewModel</comment>
+  </data>
+  <data name="DiscountPercentage" xml:space="preserve">
+    <value>Discount percentage</value>
+    <comment>ProductAdditionViewModel</comment>
+  </data>
+  <data name="DiscountPercentageRequired" xml:space="preserve">
+    <value>Discount percentage is required</value>
+    <comment>ProductAdditionViewModel</comment>
+  </data>
+  <data name="DiscountPercentageValidation" xml:space="preserve">
+    <value>Discount percentage should be between 0 and 100</value>
+    <comment>ProductAdditionViewModel</comment>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+    <comment>LoginViewModel</comment>
+  </data>
+  <data name="EmailRequired" xml:space="preserve">
+    <value>Email is required</value>
+    <comment>LoginViewModel</comment>
+  </data>
+  <data name="EmailValidation" xml:space="preserve">
+    <value>Email does not match the required format</value>
+    <comment>LoginViewModel</comment>
   </data>
   <data name="En" xml:space="preserve">
     <value>EN</value>
+    <comment>Language</comment>
   </data>
   <data name="FavoritesAdd" xml:space="preserve">
     <value>Add to favorites</value>
+    <comment>ProductView</comment>
   </data>
   <data name="FavoritesRemove" xml:space="preserve">
     <value>Remove from favorites</value>
+    <comment>ProductView</comment>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>First name</value>
+    <comment>RegisterViewModel</comment>
+  </data>
+  <data name="FirstNameRequired" xml:space="preserve">
+    <value>First name is requried</value>
+    <comment>RegisterViewModel</comment>
+  </data>
+  <data name="FirstNameValidation" xml:space="preserve">
+    <value>First name should be between 2 and 30 characters</value>
+    <comment>RegisterViewModel</comment>
   </data>
   <data name="Furniture" xml:space="preserve">
     <value>Furniture</value>
+    <comment>Navigation</comment>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
+    <comment>Navigation</comment>
+  </data>
+  <data name="InvalidLogin" xml:space="preserve">
+    <value>Invalid email or password</value>
+    <comment>LoginViewModel</comment>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Last name</value>
+    <comment>RegisterViewModel</comment>
+  </data>
+  <data name="LastNameRequired" xml:space="preserve">
+    <value>Last name is required</value>
+    <comment>RegisterViewModel</comment>
+  </data>
+  <data name="LastNameValidation" xml:space="preserve">
+    <value>Last name should be between 2 and 30 characters</value>
+    <comment>RegisterViewModel</comment>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Login</value>
+    <comment>LoginVIew</comment>
   </data>
   <data name="LoginAction" xml:space="preserve">
     <value>Log in</value>
+    <comment>LoginView</comment>
   </data>
   <data name="Logout" xml:space="preserve">
     <value>Logout</value>
+    <comment>Navigation</comment>
   </data>
   <data name="OrdersManagement" xml:space="preserve">
     <value>Orders Management</value>
+    <comment>Navigation</comment>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+    <comment>LoginViewModel</comment>
+  </data>
+  <data name="PasswordLengthValidation" xml:space="preserve">
+    <value>Password should be between 6 and 30 characters</value>
+    <comment>RegisterViewModel</comment>
+  </data>
+  <data name="PasswordRequired" xml:space="preserve">
+    <value>Password is required</value>
+    <comment>LoginViewModel</comment>
+  </data>
+  <data name="PasswordValidation" xml:space="preserve">
+    <value>Password does not match the required format</value>
+    <comment>LoginViewModel</comment>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Price</value>
+    <comment>ProductAdditionViewModel</comment>
+  </data>
+  <data name="PriceRangeValidation" xml:space="preserve">
+    <value>Price should be between 0 and 100000</value>
+    <comment>ProductAdditionViewModel</comment>
+  </data>
+  <data name="PriceRequired" xml:space="preserve">
+    <value>Price is required</value>
+    <comment>ProductAdditionViewModel</comment>
+  </data>
+  <data name="PriceValidation" xml:space="preserve">
+    <value>Price does not match the required currency format</value>
+    <comment>ProductAdditionViewModel</comment>
+  </data>
+  <data name="ProductImage" xml:space="preserve">
+    <value>Image</value>
+    <comment>ProductAdditionViewModel</comment>
+  </data>
+  <data name="ProductName" xml:space="preserve">
+    <value>Name</value>
+    <comment>ProductAdditionViewModel</comment>
+  </data>
+  <data name="ProductNameRequired" xml:space="preserve">
+    <value>Product name is required</value>
+    <comment>ProductAdditionViewModel</comment>
+  </data>
+  <data name="ProductNameValidation" xml:space="preserve">
+    <value>Product name should be between 2 and 30 characters</value>
+    <comment>ProductAdditionViewModel</comment>
+  </data>
+  <data name="ProductQuantity" xml:space="preserve">
+    <value>Quantity should be a number between 1 and 100</value>
+    <comment>ProductViewModel</comment>
+  </data>
+  <data name="ProductQuantityRequired" xml:space="preserve">
+    <value>Quantity is required</value>
+    <comment>ProductViewModel</comment>
+  </data>
+  <data name="ProductRating" xml:space="preserve">
+    <value>Rating should be a number between 1 and 5</value>
+    <comment>ProductViewModel</comment>
   </data>
   <data name="ProductsManagement" xml:space="preserve">
     <value>Products Management</value>
+    <comment>Navigation</comment>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Quantity</value>
+    <comment>ProductAdditionViewModel</comment>
+  </data>
+  <data name="QuantityRequired" xml:space="preserve">
+    <value>Quantity is required</value>
+    <comment>ProductAdditionViewModel</comment>
+  </data>
+  <data name="QuantityValidation" xml:space="preserve">
+    <value>Quantity should be between 0 and 10000</value>
+    <comment>ProductAdditionViewModel</comment>
   </data>
   <data name="Rate" xml:space="preserve">
     <value>Rate</value>
+    <comment>ProductView</comment>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Register</value>
+    <comment>RegisterView</comment>
   </data>
   <data name="RegisterAction" xml:space="preserve">
     <value>Register</value>
+    <comment>RegisterView</comment>
   </data>
   <data name="RegisterNewUser" xml:space="preserve">
     <value>Register as a new user</value>
+    <comment>LoginView</comment>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Remember me</value>
+    <comment>LoginViewModel</comment>
+  </data>
+  <data name="Room" xml:space="preserve">
+    <value>Room</value>
+    <comment>ProductAdditionViewModel</comment>
+  </data>
+  <data name="RoomImage" xml:space="preserve">
+    <value>Image</value>
+    <comment>RoomViewModel</comment>
+  </data>
+  <data name="RoomName" xml:space="preserve">
+    <value>Room name</value>
+    <comment>RoomViewModel</comment>
+  </data>
+  <data name="RoomNameRequired" xml:space="preserve">
+    <value>Room name is required</value>
+    <comment>RoomViewModel</comment>
   </data>
   <data name="ShoppingCartAdd" xml:space="preserve">
     <value>Add to shopping cart</value>
+    <comment>ProductView</comment>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
+    <comment>ContactViewModel</comment>
+  </data>
+  <data name="TitleRequired" xml:space="preserve">
+    <value>Title is required</value>
+    <comment>ContactViewModel</comment>
+  </data>
+  <data name="TitleValidation" xml:space="preserve">
+    <value>Title should be between 2 and 30 characters</value>
+    <comment>ContactViewModel</comment>
   </data>
   <data name="Unavailable" xml:space="preserve">
     <value>Unavailable</value>
+    <comment>ProductView</comment>
   </data>
   <data name="UsersManagement" xml:space="preserve">
     <value>Users Management</value>
+    <comment>Navigation</comment>
   </data>
 </root>

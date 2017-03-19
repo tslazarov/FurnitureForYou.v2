@@ -1,4 +1,5 @@
 ﻿using FFY.Models;
+using FFY.Web.Resources;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,20 +10,20 @@ namespace FFY.Web.Areas.Administration.Models.ProductManagement
 {
     public class ProductAdditionViewModel
     {
-        [Required]
-        [StringLength(30, ErrorMessage = "{0} should be at least {2} characters long.", MinimumLength = 2)]
-        [Display(Name = "Name")]
+        [Required(ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "ProductNameRequired")]
+        [StringLength(30, ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "ProductNameValidation", MinimumLength = 2)]
+        [Display(Name = "ProductName", ResourceType = typeof(Language))]
         public string Name { get; set; }
 
-        [Required]
-        [DataType(DataType.Currency)]
-        [Range(0, 100000, ErrorMessage = "{0} should be a number between 0 and 100000")]
-        [Display(Name = "Price")]
+        [Required(ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "PriceRequired")]
+        [DataType(DataType.Currency, ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "PriceValidation")]
+        [Range(0, 100000, ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "PriceRangeValidation")]
+        [Display(Name = "Price", ResourceType = typeof(Language))]
         public int Price { get; set; }
 
-        [Required]
-        [Range(0, 100, ErrorMessage = "{0} should be a number between 0 and 100.")]
-        [Display(Name = "Discount percentage")]
+        [Required(ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "DiscountPercentageRequired")]
+        [Range(0, 100, ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "DiscountPercentageValidation")]
+        [Display(Name = "DiscountPercentage", ResourceType = typeof(Language))]
         public int DiscountPercentage { get; set; }
 
         public decimal DiscountedPrice {
@@ -32,30 +33,29 @@ namespace FFY.Web.Areas.Administration.Models.ProductManagement
             }
         }
 
-        [Required]
-        [Range(0, 10000, ErrorMessage = "{0} should be a number between 0 and 10000")]
-        [Display(Name = "Quantity")]
+        [Required(ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "QuantityRequired")]
+        [Range(0, 10000, ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "QuantityValidation")]
+        [Display(Name = "Quantity", ResourceType = typeof(Language))]
         public int Quantity { get; set; }
 
-        [Required]
-        [StringLength(2000, ErrorMessage = "{0} should be at least {2} characters long.", MinimumLength = 2)]
-        [Display(Name = "Description")]
+        [Required(ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "DescriptionRequired")]
+        [StringLength(500, ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "DescriptionValidation", MinimumLength = 10)]
+        [Display(Name = "Description", ResourceType = typeof(Language))]
         public string Description { get; set; }
 
         public int RoomId { get; set; }
 
         [Required]
-        [Display(Name = "Room")]
+        [Display(Name = "Room", ResourceType = typeof(Language))]
         public Room Room { get; set; }
 
         public int CategoryId { get; set; }
 
         [Required]
-        [Display(Name = "Category")]
+        [Display(Name = "Category", ResourceType = typeof(Language))]
         public Category Category { get; set; }
 
-        [Required]
-        [Display(Name = "ImagePath")]
+        [Display(Name = "ProductImage", ResourceType = typeof(Language))]
         public string ImagePath { get; set; }
     }
 }

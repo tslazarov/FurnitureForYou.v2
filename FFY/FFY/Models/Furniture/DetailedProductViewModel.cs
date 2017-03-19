@@ -1,4 +1,5 @@
 ﻿using FFY.Models;
+using FFY.Web.Resources;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -16,12 +17,11 @@ namespace FFY.Web.Models.Furniture
 
         public Product Product { get; set; }
 
-        [Range(1, 100, ErrorMessage = "{0} should be a number between 0 and 100")]
-        [Display(Name = "Quantity")]
+        [Required(ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "ProductQuantityRequired")]
+        [Range(1, 100, ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "ProductQuantity")]
         public int Quantity { get; set; }
 
-        [Range(1, 5, ErrorMessage = "{0} should be a number between 0 and 100")]
-        [Display(Name = "Rating")]
+        [Range(1, 5, ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "ProductRating")]
         public int GivenRating { get; set; }
     }
 }
