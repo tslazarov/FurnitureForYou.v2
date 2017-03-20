@@ -1,5 +1,6 @@
 ﻿using System.Web;
 using System.Web.Mvc;
+using System.Linq;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -107,7 +108,7 @@ namespace FFY.Web.Controllers
                     var user = this.usersService.GetUserByEmail(model.Email);
 
                     this.contextProvider.InsertInCache(this, $"favorites-count-{user.Id}", user.FavoritedProducts.Count);
-                    this.contextProvider.InsertInCache(this, $"cart-count-{user.Id}", user.ShoppingCart.CartProducts.Count);
+                    this.contextProvider.InsertInCache(this, $"cart-count-{user.Id}", user.ShoppingCart.CartProducts.Where(p => p.IsInCart).Count());
 
                     return this.Redirect(returnUrl);
                 case SignInStatus.LockedOut:

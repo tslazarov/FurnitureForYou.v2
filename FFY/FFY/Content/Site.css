@@ -217,6 +217,19 @@ footer{
     font-size: 22px;
 }
 
+.shopping-cart-remove-item:hover {
+    cursor: pointer;
+}
+
+.empty-shopping-cart{
+    padding-top: 20px;
+    text-align: center;
+}
+
+.purchase-button {
+    min-width: 150px;
+}
+
 @media (max-width: 767px) {
     .sc-product {
         text-align: center;

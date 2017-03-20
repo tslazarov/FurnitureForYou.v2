@@ -365,6 +365,10 @@
     <value>Управление на Продукти</value>
     <comment>Navigation</comment>
   </data>
+  <data name="Purchase" xml:space="preserve">
+    <value>Поръчай</value>
+    <comment>ShoppingCartView</comment>
+  </data>
   <data name="Quantity" xml:space="preserve">
     <value>Количество</value>
     <comment>ProductAdditionViewModel</comment>
@@ -416,6 +420,30 @@
   <data name="ShoppingCartAdd" xml:space="preserve">
     <value>Добави в количката</value>
     <comment>ProductView</comment>
+  </data>
+  <data name="ShoppingCartEmpty" xml:space="preserve">
+    <value>Вашата пазарска количка е празна</value>
+    <comment>ShoppingCartView</comment>
+  </data>
+  <data name="ShoppingCartProduct" xml:space="preserve">
+    <value>Артикул</value>
+    <comment>ShoppingCartView</comment>
+  </data>
+  <data name="ShoppingCartQuantity" xml:space="preserve">
+    <value>Количество</value>
+    <comment>ShoppingCartView</comment>
+  </data>
+  <data name="ShoppingCartSinglePrice" xml:space="preserve">
+    <value>Единична цена</value>
+    <comment>ShoppingCartView</comment>
+  </data>
+  <data name="ShoppingCartTotalPrice" xml:space="preserve">
+    <value>Крайна цена</value>
+    <comment>ShoppingCartView</comment>
+  </data>
+  <data name="ShoppingCartYour" xml:space="preserve">
+    <value>Вашата пазарска количка</value>
+    <comment>ShoppingCartView</comment>
   </data>
   <data name="Title" xml:space="preserve">
     <value>Заглавие</value>

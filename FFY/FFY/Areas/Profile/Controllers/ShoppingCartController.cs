@@ -60,7 +60,7 @@ namespace FFY.Web.Areas.Profile.Controllers
 
             this.shoppingCartsService.Remove(shoppingCart, cartProduct);
 
-            this.contextProvider.InsertInCache(this, $"cart-count-{cartId}", shoppingCart.CartProducts.Count);
+            this.contextProvider.InsertInCache(this, $"cart-count-{cartId}", shoppingCart.CartProducts.Where(p => p.IsInCart).Count());
 
             return this.RedirectToAction("index", "shoppingCart");
         }

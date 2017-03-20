@@ -619,6 +619,15 @@ namespace FFY.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Purchase.
+        /// </summary>
+        public static string Purchase {
+            get {
+                return ResourceManager.GetString("Purchase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Quantity.
         /// </summary>
         public static string Quantity {
@@ -732,6 +741,60 @@ namespace FFY.Web.Resources {
         public static string ShoppingCartAdd {
             get {
                 return ResourceManager.GetString("ShoppingCartAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your shopping cart is empty.
+        /// </summary>
+        public static string ShoppingCartEmpty {
+            get {
+                return ResourceManager.GetString("ShoppingCartEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product.
+        /// </summary>
+        public static string ShoppingCartProduct {
+            get {
+                return ResourceManager.GetString("ShoppingCartProduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quantity.
+        /// </summary>
+        public static string ShoppingCartQuantity {
+            get {
+                return ResourceManager.GetString("ShoppingCartQuantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Single price.
+        /// </summary>
+        public static string ShoppingCartSinglePrice {
+            get {
+                return ResourceManager.GetString("ShoppingCartSinglePrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total price.
+        /// </summary>
+        public static string ShoppingCartTotalPrice {
+            get {
+                return ResourceManager.GetString("ShoppingCartTotalPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your shopping cart.
+        /// </summary>
+        public static string ShoppingCartYour {
+            get {
+                return ResourceManager.GetString("ShoppingCartYour", resourceCulture);
             }
         }
         

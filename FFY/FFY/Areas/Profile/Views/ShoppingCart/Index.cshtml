@@ -1,53 +1,62 @@
 ﻿@using FFY.Web.Areas.Profile.Models
 @model ShoppingCartViewModel
 
-<h2>Your shopping cart</h2>
+<h2>@FFY.Web.Resources.Language.ShoppingCartYour</h2>
 <div class="shopping-cart-list">
     <div class="row shopping-cart-list-head">
         <div class="col-sm-5 sc-product">
-            Product
+            @FFY.Web.Resources.Language.ShoppingCartProduct
         </div>
         <div class="col-sm-2 sc-single-price">
-            Single price
+            @FFY.Web.Resources.Language.ShoppingCartSinglePrice
         </div>
         <div class="col-sm-2 sc-quantity">
-            Quantity
+            @FFY.Web.Resources.Language.ShoppingCartQuantity
         </div>
         <div class="col-sm-2 sc-total-price">
-            Total Price
+            @FFY.Web.Resources.Language.ShoppingCartTotalPrice
         </div>
     </div>
     <div class="shopping-cart-list-items">
-        @foreach (var product in Model.ShoppingCart.CartProducts)
+        @if (Model.ShoppingCart.Total > 0)
         {
-           <div class="row shopping-cart-list-item">
-               <div class="col-sm-5 sc-product">
-                   <div class="col-sm-4 col-md-3 col-lg-2">
-                       <img class="img-responsive" src="~/Images/products/@product.Product.ImagePath" />
-                   </div>
-                   <div class="col-sm-8 col-md-9 col-lg-10">
-                       @product.Product.Name
-                   </div>
-               </div>
-               <div class="col-sm-2 sc-single-price">
-                   @product.Product.DiscountedPrice
-               </div>
-               <div class="col-sm-2 sc-quantity">
-                   @product.Quantity
-               </div>
-               <div class="col-sm-2 sc-total-price">
-                   @product.Total
-               </div>
-               <div class="col-sm-1">
-                   <img id="@product.Id" src="~/Content/sources/cart-icon.png" alt="X" class="shopping-cart-remove-item"/>
-               </div>
-           </div>
+            foreach (var product in Model.ShoppingCart.CartProducts.Where(p => p.IsInCart))
+            {
+                <div class="row shopping-cart-list-item">
+                    <div class="col-sm-5 sc-product">
+                        <div class="col-sm-4 col-md-3 col-lg-2">
+                            <img class="img-responsive" src="~/Images/products/@product.Product.ImagePath" />
+                        </div>
+                        <div class="col-sm-8 col-md-9 col-lg-10">
+                            @product.Product.Name
+                        </div>
+                    </div>
+                    <div class="col-sm-2 sc-single-price">
+                        @product.Product.DiscountedPrice @FFY.Web.Resources.Language.Currency
+                    </div>
+                    <div class="col-sm-2 sc-quantity">
+                        @product.Quantity
+                    </div>
+                    <div class="col-sm-2 sc-total-price">
+                        @product.Total @FFY.Web.Resources.Language.Currency
+                    </div>
+                    <div class="col-sm-1">
+                        <img id="@product.Id" src="~/Content/sources/remove-icon.png" alt="X" class="shopping-cart-remove-item" />
+                    </div>
+                </div>
+            }
+            <div class="row shopping-cart-list-foot">
+                <div class="col-sm-offset-9 col-sm-2 sc-total">
+                    @Model.ShoppingCart.Total @FFY.Web.Resources.Language.Currency
+                </div>
+            </div>
+            @Html.ActionLink(FFY.Web.Resources.Language.Purchase, "Order", "shoppingCart", new { cartId = Model.ShoppingCart.UserId }, new { @class="btn btn-primary purchase-button" });
         }
-    </div>
-    <div class="row shopping-cart-list-foot">
-        <div class="col-sm-offset-9 col-sm-2 sc-total">
-            @Model.ShoppingCart.Total
-        </div>
+
+        else
+        {
+            <h2 class="empty-shopping-cart">@FFY.Web.Resources.Language.ShoppingCartEmpty</h2>
+        }
     </div>
     @using (Html.BeginForm("removeCartItem", "shoppingCart", new { CartId = Model.ShoppingCart.UserId }, FormMethod.Post, new { id= "remove-cart-item-form" }))
     {
