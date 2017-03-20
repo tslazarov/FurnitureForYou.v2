@@ -1,5 +1,68 @@
 ﻿@using FFY.Web.Areas.Profile.Models
 @model ShoppingCartViewModel
 
-<h2>@Model.ShoppingCart.Total</h2>
+<h2>Your shopping cart</h2>
+<div class="shopping-cart-list">
+    <div class="row shopping-cart-list-head">
+        <div class="col-sm-5 sc-product">
+            Product
+        </div>
+        <div class="col-sm-2 sc-single-price">
+            Single price
+        </div>
+        <div class="col-sm-2 sc-quantity">
+            Quantity
+        </div>
+        <div class="col-sm-2 sc-total-price">
+            Total Price
+        </div>
+    </div>
+    <div class="shopping-cart-list-items">
+        @foreach (var product in Model.ShoppingCart.CartProducts)
+        {
+           <div class="row shopping-cart-list-item">
+               <div class="col-sm-5 sc-product">
+                   <div class="col-sm-4 col-md-3 col-lg-2">
+                       <img class="img-responsive" src="~/Images/products/@product.Product.ImagePath" />
+                   </div>
+                   <div class="col-sm-8 col-md-9 col-lg-10">
+                       @product.Product.Name
+                   </div>
+               </div>
+               <div class="col-sm-2 sc-single-price">
+                   @product.Product.DiscountedPrice
+               </div>
+               <div class="col-sm-2 sc-quantity">
+                   @product.Quantity
+               </div>
+               <div class="col-sm-2 sc-total-price">
+                   @product.Total
+               </div>
+               <div class="col-sm-1">
+                   <img id="@product.Id" src="~/Content/sources/cart-icon.png" alt="X" class="shopping-cart-remove-item"/>
+               </div>
+           </div>
+        }
+    </div>
+    <div class="row shopping-cart-list-foot">
+        <div class="col-sm-offset-9 col-sm-2 sc-total">
+            @Model.ShoppingCart.Total
+        </div>
+    </div>
+    @using (Html.BeginForm("removeCartItem", "shoppingCart", new { CartId = Model.ShoppingCart.UserId }, FormMethod.Post, new { id= "remove-cart-item-form" }))
+    {
+        @Html.Hidden("cartProductId", "", new { id = "removed-cart-product-id" })
+    }
+</div>
 
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+            $(document).ready(function () {
+                $(".shopping-cart-remove-item").click(function () {
+                    $("#removed-cart-product-id").val(event.target.id);
+                    $("#remove-cart-item-form").submit();
+                });
+            });
+    </script>
+}

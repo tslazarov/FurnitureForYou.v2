@@ -74,22 +74,22 @@ namespace FFY.Services
             this.data.SaveChanges();
         }
 
-        public void Remove(ShoppingCart shoppingCart, Product product)
+        public void Remove(ShoppingCart shoppingCart, CartProduct cartProduct)
         {
             Guard.WhenArgument<ShoppingCart>(shoppingCart, "Shopping cart cannot be null.")
                 .IsNull()
                 .Throw();
 
-            Guard.WhenArgument<Product>(product, "Product cannot be null.")
+            Guard.WhenArgument<CartProduct>(cartProduct, "Cart product cannot be null.")
                 .IsNull()
                 .Throw();
 
-            var cartProduct = shoppingCart.CartProducts.FirstOrDefault(p => 
-                p.ProductId == product.Id && p.IsInCart);
+            var foundCartProduct = shoppingCart.CartProducts.FirstOrDefault(p => 
+                p.Id == cartProduct.Id && p.IsInCart);
 
-            if (cartProduct != null)
+            if (foundCartProduct != null)
             {
-                shoppingCart.CartProducts.Remove(cartProduct);
+                shoppingCart.CartProducts.Remove(foundCartProduct);
             }
 
             shoppingCart.Total = shoppingCart.CartProducts

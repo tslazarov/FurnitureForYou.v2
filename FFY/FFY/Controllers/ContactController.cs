@@ -36,6 +36,7 @@ namespace FFY.Web.Controllers
                 .IsNull()
                 .Throw();
 
+            this.dateProvider = dateProvider;
             this.contactFactory = contactFactory;
             this.contactsService = contactsService;
         }

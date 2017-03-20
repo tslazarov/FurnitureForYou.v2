@@ -21,14 +21,14 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
             // Arrange
             var mockedData = new Mock<IFFYData>();
             var mockedCartProductFactory = new Mock<ICartProductFactory>();
-            var mockedProduct = new Mock<Product>();
+            var mockedCartProduct = new Mock<CartProduct>();
 
             var shoppingCartsService = new ShoppingCartsService(mockedData.Object,
                 mockedCartProductFactory.Object);
 
             // Act and Assert
             Assert.Throws<ArgumentNullException>(() =>
-                shoppingCartsService.Remove(null, mockedProduct.Object));
+                shoppingCartsService.Remove(null, mockedCartProduct.Object));
         }
 
         [Test]
@@ -38,14 +38,14 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
             var expectedExMessage = "Shopping cart cannot be null.";
             var mockedData = new Mock<IFFYData>();
             var mockedCartProductFactory = new Mock<ICartProductFactory>();
-            var mockedProduct = new Mock<Product>();
+            var mockedCartProduct = new Mock<CartProduct>();
 
             var shoppingCartsService = new ShoppingCartsService(mockedData.Object,
                 mockedCartProductFactory.Object);
 
             // Act and Assert
             var exception = Assert.Throws<ArgumentNullException>(() =>
-                shoppingCartsService.Remove(null, mockedProduct.Object));
+                shoppingCartsService.Remove(null, mockedCartProduct.Object));
             StringAssert.Contains(expectedExMessage, exception.Message);
         }
 
@@ -69,7 +69,7 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
         public void ShouldThrowArgumentNullExceptionWithCorrectMessage_WhenNullProductIsPassed()
         {
             // Arrange
-            var expectedExMessage = "Product cannot be null.";
+            var expectedExMessage = "Cart product cannot be null.";
             var mockedData = new Mock<IFFYData>();
             var mockedCartProductFactory = new Mock<ICartProductFactory>();
             var mockedShoppingCart = new Mock<ShoppingCart>();
@@ -97,9 +97,9 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
             };
             var cartProducts = new List<CartProduct>()
             {
-                new CartProduct() { ProductId = 1, Product = dummyProduct, IsInCart = true },
-                new CartProduct() { ProductId = 2, Product = dummyProduct, IsInCart = true },
-                new CartProduct() { ProductId = 3, Product = dummyProduct, IsInCart = true }
+                new CartProduct() { Id = 1, Product = dummyProduct, IsInCart = true },
+                new CartProduct() { Id = 2, Product = dummyProduct, IsInCart = true },
+                new CartProduct() { Id = 3, Product = dummyProduct, IsInCart = true }
             };
             var mockedData = new Mock<IFFYData>();
             mockedData.Setup(d =>
@@ -107,7 +107,7 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
             mockedData.Setup(d => d.SaveChanges());
             var mockedCartProductFactory = new Mock<ICartProductFactory>();
 
-            var product = new Product() { Id = id };
+            var passedCartProduct = new CartProduct() { Id = id };
             var shoppingCart = new ShoppingCart();
             shoppingCart.CartProducts = cartProducts;
 
@@ -116,7 +116,7 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
 
             // Act
             var before = shoppingCart.CartProducts.Count;
-            shoppingCartsService.Remove(shoppingCart, product);
+            shoppingCartsService.Remove(shoppingCart, passedCartProduct);
             var after = shoppingCart.CartProducts.Count;
 
             // Assert
@@ -144,20 +144,20 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
             {
                 new CartProduct()
                 {
-                    ProductId = 1,
+                    Id = 1,
                     Product = dummyProduct,
                     Quantity = quantity,
                     IsInCart = true
                 },
                 new CartProduct() {
-                    ProductId = 2,
+                    Id = 2,
                     Product = dummyProduct,
                     Quantity = 0,
                     IsInCart = true
                 },
                 new CartProduct()
                 {
-                    ProductId = 3,
+                    Id = 3,
                     Product = dummyProduct,
                     Quantity = quantity,
                     IsInCart = true
@@ -169,7 +169,7 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
             mockedData.Setup(d => d.SaveChanges());
             var mockedCartProductFactory = new Mock<ICartProductFactory>();
 
-            var product = new Product() { Id = id };
+            var passedCartProduct = new CartProduct() { Id = id };
             var shoppingCart = new ShoppingCart();
             shoppingCart.CartProducts = cartProducts;
 
@@ -177,7 +177,7 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
                 mockedCartProductFactory.Object);
 
             // Act
-            shoppingCartsService.Remove(shoppingCart, product);
+            shoppingCartsService.Remove(shoppingCart, passedCartProduct);
 
             // Assert
             // The cart contains three products, but one of them have quantity set to 0
@@ -212,7 +212,7 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
             mockedData.Setup(d => d.SaveChanges());
             var mockedCartProductFactory = new Mock<ICartProductFactory>();
 
-            var product = new Product() { Id = id };
+            var passedCartProduct = new CartProduct() { Id = id };
             var shoppingCart = new ShoppingCart();
             shoppingCart.CartProducts = cartProducts;
 
@@ -220,7 +220,7 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
                 mockedCartProductFactory.Object);
 
             // Act
-            shoppingCartsService.Remove(shoppingCart, product);
+            shoppingCartsService.Remove(shoppingCart, passedCartProduct);
 
             // Assert
             mockedData.Verify(d =>
@@ -254,7 +254,7 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
             mockedData.Setup(d => d.SaveChanges()).Verifiable();
             var mockedCartProductFactory = new Mock<ICartProductFactory>();
 
-            var product = new Product() { Id = id };
+            var passedCartProduct = new CartProduct() { Id = id };
             var shoppingCart = new ShoppingCart();
             shoppingCart.CartProducts = cartProducts;
 
@@ -262,7 +262,7 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
                 mockedCartProductFactory.Object);
 
             // Act
-            shoppingCartsService.Remove(shoppingCart, product);
+            shoppingCartsService.Remove(shoppingCart, passedCartProduct);
 
             // Assert
             mockedData.Verify(d => d.SaveChanges(), Times.Once);

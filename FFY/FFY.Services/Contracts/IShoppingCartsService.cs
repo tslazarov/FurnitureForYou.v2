@@ -13,7 +13,7 @@ namespace FFY.Services.Contracts
 
         void Add(ShoppingCart shoppingCart, Product product, int quantity);
 
-        void Remove(ShoppingCart shoppingCart, Product product);
+        void Remove(ShoppingCart shoppingCart, CartProduct cProduct);
 
         void Clear(ShoppingCart shoppingCart);
 
