@@ -18,22 +18,30 @@ namespace FFY.Web.Controllers
     [Localize]
     public class AccountController : Controller
     {
+        private readonly IHttpContextProvider contextProvider;
         private readonly IRouteDataProvider routeDataProvider;
         private readonly IHttpContextAuthenticationProvider authenticationProvider;
         private readonly IUserFactory userFactory;
         private readonly IShoppingCartFactory shoppingCartFactory;
         private readonly IShoppingCartsService shoppingCartsService;
+        private readonly IUsersService usersService;
 
         public AccountController()
         {
         }
 
-        public AccountController(IRouteDataProvider routeDataProvider,
+        public AccountController(IHttpContextProvider contextProvider,
+            IRouteDataProvider routeDataProvider,
             IHttpContextAuthenticationProvider authenticationProvider, 
             IUserFactory userFactory,
             IShoppingCartFactory shoppingCartFactory,
-            IShoppingCartsService shoppingCartsService)
+            IShoppingCartsService shoppingCartsService,
+            IUsersService usersService)
         {
+            Guard.WhenArgument<IHttpContextProvider>(contextProvider, "Context provider cannot be null.")
+                .IsNull()
+                .Throw();
+
             Guard.WhenArgument<IRouteDataProvider>(routeDataProvider, "Route data provider cannot be null.")
                 .IsNull()
                 .Throw();
@@ -54,11 +62,17 @@ namespace FFY.Web.Controllers
                 .IsNull()
                 .Throw();
 
+            Guard.WhenArgument<IUsersService>(usersService, "Users service cannot be null.")
+                .IsNull()
+                .Throw();
+
+            this.contextProvider = contextProvider;
             this.routeDataProvider = routeDataProvider;
             this.authenticationProvider = authenticationProvider;
             this.userFactory = userFactory;
             this.shoppingCartFactory = shoppingCartFactory;
             this.shoppingCartsService = shoppingCartsService;
+            this.usersService = usersService;
         }
 
         // GET: /Account/Login
@@ -90,6 +104,11 @@ namespace FFY.Web.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    var user = this.usersService.GetUserByEmail(model.Email);
+
+                    this.contextProvider.InsertInCache(this, $"favorites-count-{user.Id}", user.FavoritedProducts.Count);
+                    this.contextProvider.InsertInCache(this, $"cart-count-{user.Id}", user.ShoppingCart.CartProducts.Count);
+
                     return this.Redirect(returnUrl);
                 case SignInStatus.LockedOut:
                     return this.View("Lockout");
@@ -126,7 +145,7 @@ namespace FFY.Web.Controllers
                     this.shoppingCartsService.AssignShoppingCart(shoppingCart);
 
                     this.authenticationProvider.SignIn(user, isPersistent:false, rememberBrowser:false);
-                    
+
                     return this.RedirectToAction("Index", "Home", new { area = "", language = routeData.Values["language"].ToString() });
                 }
 

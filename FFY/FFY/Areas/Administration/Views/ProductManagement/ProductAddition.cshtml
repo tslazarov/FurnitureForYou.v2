@@ -44,23 +44,25 @@
             </div>
             <div class="form-group">
                 @Html.LabelFor(m => m.Room, new { @class = "col-md-3 control-label" })
-                <div class="col-md-8">
+                <div class="col-md-6">
                     @Html.DropDownListFor(m => m.RoomId, new SelectList(ViewBag.Rooms, "Id", "Name", 1), new { @class = "form-control" })
                     @Html.ValidationMessageFor(m => m.Room, "", new { @class = "text-danger" })
                 </div>
                 <div class="col-md-1">
-                    <a id="add-room">+</a>
+                    <img id="add-room-show" class="control-label" src="~/Content/sources/show-icon.png" alt="+" />
+                    <img id="add-room-hide" class="control-label hidden" src="~/Content/sources/hide-icon.png" alt="+" />
                 </div>
             </div>
             <div id="room-addition-dummy" class="addition-dummy"></div>
             <div class="form-group">
                 @Html.LabelFor(m => m.Category, new { @class = "col-md-3 control-label" })
-                <div class="col-md-8">
+                <div class="col-md-6">
                     @Html.DropDownListFor(m => m.CategoryId, new SelectList(ViewBag.Categories, "Id", "Name", 1), new { @class = "form-control" })
                     @Html.ValidationMessageFor(m => m.Category, "", new { @class = "text-danger" })
                 </div>
                 <div class="col-md-1">
-                    <a id="add-category">+</a>
+                    <img id="add-category-show" class="control-label" src="~/Content/sources/show-icon.png" alt="+" />
+                    <img id="add-category-hide" class="control-label hidden" src="~/Content/sources/hide-icon.png" alt="+" />
                 </div>
             </div>
             <div id="category-addition-dummy" class="addition-dummy"></div>
@@ -93,35 +95,65 @@
             var DefaultCategoryTop;
             var UndefaultCategoryTop;
 
-            $("#add-room").click(function () {
+            $("#add-room-show").click(function () {
                 
-                update();
+                updatePosition();
 
-                $("#room-addition-dummy").toggle(500, "linear");
-                $("#room-addition-form").toggle(500, "linear", function ()  {
+                $("#room-addition-dummy").slideDown(300, "linear");
+                $("#room-addition-form").slideDown(300, "linear", function ()  {
                     if ($("#room-addition-form").css("display") == "none") {
                         $("#category-addition-form").css("top", DefaultCategoryTop);
                     } else {
                         $("#category-addition-form").css("top", UndefaultCategoryTop);
                     }
                 });
+
+                $("#add-room-show").toggleClass("hidden");
+                $("#add-room-hide").toggleClass("hidden");
             });
 
-            $("#add-category").click(function () {
+            $("#add-room-hide").click(function () {
 
-                update();
+                updatePosition();
 
-                if ($("#room-addition-form").css("display") == "none") {
-                    $("#category-addition-form").css("top", DefaultCategoryTop);
-                } else {
-                    $("#category-addition-form").css("top", UndefaultCategoryTop);
-                }
+                $("#room-addition-dummy").slideUp(300);
+                $("#room-addition-form").slideUp(300, function () {
+                    if ($("#room-addition-form").css("display") == "none") {
+                        $("#category-addition-form").css("top", DefaultCategoryTop);
+                    } else {
+                        $("#category-addition-form").css("top", UndefaultCategoryTop);
+                    }
+                });
 
-                $("#category-addition-form").toggle(500, "linear");
-                $("#category-addition-dummy").toggle(500, "linear");
+                $("#add-room-show").toggleClass("hidden");
+                $("#add-room-hide").toggleClass("hidden");
             });
 
-            function update() {
+            $("#add-category-show").click(function () {
+
+                updatePosition();
+                updateRoomPosition();
+
+                $("#category-addition-form").slideDown(300);
+                $("#category-addition-dummy").slideDown(300);
+
+                $("#add-category-show").toggleClass("hidden");
+                $("#add-category-hide").toggleClass("hidden");
+            });
+
+            $("#add-category-hide").click(function () {
+
+                updatePosition();
+                updateRoomPosition();
+
+                $("#category-addition-form").slideUp(300);
+                $("#category-addition-dummy").slideUp(300);
+
+                $("#add-category-show").toggleClass("hidden");
+                $("#add-category-hide").toggleClass("hidden");
+            });
+
+            function updatePosition() {
                 if (window.matchMedia('(max-width: 767px)').matches) {
                     DefaultRoomTop = "635px";
                     DefaultCategoryTop = "735px";
@@ -135,6 +167,14 @@
                 $("#room-addition-form").css("top", DefaultRoomTop);
 
                 if ($("#category-addition-form").css("display") == "none") {
+                    $("#category-addition-form").css("top", DefaultCategoryTop);
+                } else {
+                    $("#category-addition-form").css("top", UndefaultCategoryTop);
+                }
+            }
+
+            function updateRoomPosition() {
+                if ($("#room-addition-form").css("display") == "none") {
                     $("#category-addition-form").css("top", DefaultCategoryTop);
                 } else {
                     $("#category-addition-form").css("top", UndefaultCategoryTop);

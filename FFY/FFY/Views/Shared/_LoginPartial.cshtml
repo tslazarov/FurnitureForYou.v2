@@ -8,6 +8,12 @@
 
     <ul class="nav navbar-nav navbar-right">
         <li>
+            <a href="@Url.Action("index", "favorites", new { area = "profile" }, null)" class="cart-container">
+                @this.Cache.Get($"favorites-count-{User.Identity.GetUserId()}")
+                <img alt="Shopping cart" src="@Url.Content("~/Content/sources/favorites.png")">
+            </a>
+        </li>  
+        <li>
             <a href="@Url.Action("index", "shoppingCart", new { area = "profile" }, null)" class="cart-container">
                 @this.Cache.Get($"cart-count-{User.Identity.GetUserId()}")
                 <img alt="Shopping cart" src="@Url.Content("~/Content/sources/cart.png")">

@@ -11,6 +11,8 @@ namespace FFY.Services.Contracts
     {
         User GetUserById(string id);
 
+        User GetUserByEmail(string email);
+
         void AddProductToFavorites(User user, Product product);
 
         void RemoveProductFromFavorites(User user, Product product);

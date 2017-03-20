@@ -15,5 +15,10 @@ namespace FFY.Providers
         {
             return controller.HttpContext;
         }
+
+        public void InsertInCache(Controller controller, string key, object value)
+        {
+            this.GetHttpContext(controller).Cache.Insert(key, value);
+        }
     }
 }

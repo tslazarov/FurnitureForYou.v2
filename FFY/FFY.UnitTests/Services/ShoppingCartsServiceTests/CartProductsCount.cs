@@ -36,7 +36,7 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
         {
             // Arrange
             var cartId = "";
-            var expectedExMessage = "Shopping cart id cannot be null.";
+            var expectedExMessage = "Shopping cart id cannot be null or empty.";
             var mockedData = new Mock<IFFYData>();
             var mockedCartProductFactory = new Mock<ICartProductFactory>();
 
@@ -70,7 +70,7 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
         {
             // Arrange
             string cartId = null;
-            var expectedExMessage = "Shopping cart id cannot be null.";
+            var expectedExMessage = "Shopping cart id cannot be null or empty.";
             var mockedData = new Mock<IFFYData>();
             var mockedCartProductFactory = new Mock<ICartProductFactory>();
 

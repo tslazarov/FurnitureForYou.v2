@@ -12,106 +12,106 @@ using System.Threading.Tasks;
 namespace FFY.UnitTests.Services.UsersServiceTests
 {
     [TestFixture]
-    public class GetUserById
+    public class GetUserByEmail
     {
         [Test]
-        public void ShouldThrowArgumentException_WhenEmptyUserIdIsPassed()
+        public void ShouldThrowArgumentException_WhenEmptyUserEmailIsPassed()
         {
             // Arrange
-            var id = "";
+            var email = "";
             var mockedData = new Mock<IFFYData>();
 
             var usersService = new UsersService(mockedData.Object);
 
             // Act and Assert
             Assert.Throws<ArgumentException>(() =>
-                usersService.GetUserById(id));
+                usersService.GetUserByEmail(email));
         }
 
         [Test]
-        public void ShouldThrowArgumentExceptionWithCorrectMessage_WhenEmptyUserIdIsPassed()
+        public void ShouldThrowArgumentExceptionWithCorrectMessage_WhenEmptyUserEmailIsPassed()
         {
             // Arrange
-            var id = "";
-            var expectedExMessage = "User id cannot be null or empty.";
+            var email = "";
+            var expectedExMessage = "User email cannot be null or empty.";
             var mockedData = new Mock<IFFYData>();
 
             var usersService = new UsersService(mockedData.Object);
 
             // Act and Assert
             var exception = Assert.Throws<ArgumentException>(() =>
-                usersService.GetUserById(id));
+                usersService.GetUserByEmail(email));
             StringAssert.Contains(expectedExMessage, exception.Message);
         }
 
         [Test]
-        public void ShouldThrowArgumentNullException_WhenNullUserIdIsPassed()
+        public void ShouldThrowArgumentNullException_WhenNullUserEmailIsPassed()
         {
             // Arrange
-            string id = null;
+            string email = null;
             var mockedData = new Mock<IFFYData>();
 
             var usersService = new UsersService(mockedData.Object);
 
             // Act and Assert
             Assert.Throws<ArgumentNullException>(() =>
-                usersService.GetUserById(id));
+                usersService.GetUserByEmail(email));
         }
 
         [Test]
         public void ShouldThrowArgumentNullExceptionWithCorrectMessage_WhenNullUserEmailIsPassed()
         {
             // Arrange
-            string id = null;
-            var expectedExMessage = "User id cannot be null or empty.";
+            string email = null;
+            var expectedExMessage = "User email cannot be null or empty.";
             var mockedData = new Mock<IFFYData>();
 
             var usersService = new UsersService(mockedData.Object);
 
             // Act and Assert
             var exception = Assert.Throws<ArgumentNullException>(() =>
-                usersService.GetUserById(id));
+                usersService.GetUserByEmail(email));
             StringAssert.Contains(expectedExMessage, exception.Message);
         }
 
-        [TestCase("1")]
-        [TestCase("2")]
-        public void ShouldCallGetByIdMethodOfDataUsersRepository(string id)
+        [TestCase("elon@tesla.com")]
+        [TestCase("elon@spacex.com")]
+        public void ShouldCallAllMethodOfDataUsersRepository(string email)
         {
             // Arrange
-            var user = new User() { Id = id };
+            var user = new User() { UserName = email };
             var mockedData = new Mock<IFFYData>();
-            mockedData.Setup(d => d.UsersRepository.GetById(It.IsAny<int>()))
-                .Returns(user)
+            mockedData.Setup(d => d.UsersRepository.All())
+                .Returns(new List<User> { user }.AsQueryable())
                 .Verifiable();
 
             var usersService = new UsersService(mockedData.Object);
 
             // Act
-            usersService.GetUserById(id);
+            usersService.GetUserByEmail(email);
 
             // Assert
-            mockedData.Verify(d => d.UsersRepository.GetById(id), Times.Once);
+            mockedData.Verify(d => d.UsersRepository.All(), Times.Once);
         }
 
-        [TestCase("1")]
-        [TestCase("2")]
-        public void ShouldReturnCorrectUser(string id)
+        [TestCase("elon@tesla.com")]
+        [TestCase("elon@spacex.com")]
+        public void ShouldReturnCorrectUserBasedOnEmailPassedInFirstQuery(string email)
         {
             // Arrange
-            var user = new User() { Id = id };
+            var user = new User() { UserName = email };
             var mockedData = new Mock<IFFYData>();
-            mockedData.Setup(d => d.UsersRepository.GetById(It.IsAny<string>()))
-                .Returns(user)
+            mockedData.Setup(d => d.UsersRepository.All())
+                .Returns(new List<User> { user }.AsQueryable())
                 .Verifiable();
 
             var usersService = new UsersService(mockedData.Object);
 
             // Act
-            var result = usersService.GetUserById(id);
+            var result = usersService.GetUserByEmail(email);
 
             // Assert
-            Assert.AreEqual(user, result);
+            Assert.AreSame(user, result);
         }
     }
 }

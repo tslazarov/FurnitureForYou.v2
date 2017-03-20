@@ -19,6 +19,7 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             var routeData = new RouteData();
             routeData.Values.Add("language", "en");
 
+            var mockedContextProvider = new Mock<IHttpContextProvider>();
             var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
             mockedRouteDataProvider.Setup(rdp => rdp.GetRouteData(It.IsAny<Controller>()))
                 .Returns(routeData);
@@ -27,12 +28,15 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             var mockedUserFactory = new Mock<IUserFactory>();
             var mockedShoppingCartFactory = new Mock<IShoppingCartFactory>();
             var mockedShoppingCartsService = new Mock<IShoppingCartsService>();
+            var mockedUsersService = new Mock<IUsersService>();
 
-            var accountController = new AccountController(mockedRouteDataProvider.Object,
+            var accountController = new AccountController(mockedContextProvider.Object,
+                mockedRouteDataProvider.Object,
                 mockedAuthenticationProvider.Object,
                 mockedUserFactory.Object,
                 mockedShoppingCartFactory.Object,
-                mockedShoppingCartsService.Object);
+                mockedShoppingCartsService.Object,
+                mockedUsersService.Object);
 
             // Act
             var result = accountController.LogOut();
@@ -48,6 +52,7 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             var routeData = new RouteData();
             routeData.Values.Add("language", "en");
 
+            var mockedContextProvider = new Mock<IHttpContextProvider>();
             var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
             mockedRouteDataProvider.Setup(rdp => rdp.GetRouteData(It.IsAny<Controller>()))
                 .Returns(routeData)
@@ -57,12 +62,15 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             var mockedUserFactory = new Mock<IUserFactory>();
             var mockedShoppingCartFactory = new Mock<IShoppingCartFactory>();
             var mockedShoppingCartsService = new Mock<IShoppingCartsService>();
+            var mockedUsersService = new Mock<IUsersService>();
 
-            var accountController = new AccountController(mockedRouteDataProvider.Object,
+            var accountController = new AccountController(mockedContextProvider.Object,
+                mockedRouteDataProvider.Object,
                 mockedAuthenticationProvider.Object,
                 mockedUserFactory.Object,
                 mockedShoppingCartFactory.Object,
-                mockedShoppingCartsService.Object);
+                mockedShoppingCartsService.Object,
+                mockedUsersService.Object);
 
             // Act
             var result = accountController.LogOut();
@@ -79,6 +87,7 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             var routeData = new RouteData();
             routeData.Values.Add("language", "en");
 
+            var mockedContextProvider = new Mock<IHttpContextProvider>();
             var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
             mockedRouteDataProvider.Setup(rdp => rdp.GetRouteData(It.IsAny<Controller>()))
                 .Returns(routeData);
@@ -86,12 +95,15 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             var mockedUserFactory = new Mock<IUserFactory>();
             var mockedShoppingCartFactory = new Mock<IShoppingCartFactory>();
             var mockedShoppingCartsService = new Mock<IShoppingCartsService>();
+            var mockedUsersService = new Mock<IUsersService>();
 
-            var accountController = new AccountController(mockedRouteDataProvider.Object,
+            var accountController = new AccountController(mockedContextProvider.Object,
+                mockedRouteDataProvider.Object,
                 mockedAuthenticationProvider.Object,
                 mockedUserFactory.Object,
                 mockedShoppingCartFactory.Object,
-                mockedShoppingCartsService.Object);
+                mockedShoppingCartsService.Object,
+                mockedUsersService.Object);
 
             // Act
             var result = accountController.LogOut() as RedirectToRouteResult;

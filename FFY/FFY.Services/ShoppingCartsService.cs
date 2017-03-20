@@ -121,7 +121,7 @@ namespace FFY.Services
 
         public int CartProductsCount(string cartId)
         {
-            Guard.WhenArgument<string>(cartId, "Shopping cart id cannot be null.")
+            Guard.WhenArgument<string>(cartId, "Shopping cart id cannot be null or empty.")
                 .IsNullOrEmpty()
                 .Throw();
 
@@ -131,7 +131,7 @@ namespace FFY.Services
 
         public ShoppingCart GetShoppingCartById(string cartId)
         {
-            Guard.WhenArgument<string>(cartId, "Shopping cart id cannot be null.")
+            Guard.WhenArgument<string>(cartId, "Shopping cart id cannot be null or empty.")
                 .IsNullOrEmpty()
                 .Throw();
 

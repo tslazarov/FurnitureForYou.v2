@@ -119,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assembly\IProvidersAssembly.cs" />
+    <Compile Include="Contracts\ICache.cs" />
     <Compile Include="Contracts\IHttpContextAuthenticationProvider.cs" />
     <Compile Include="Contracts\IHttpContextProvider.cs" />
     <Compile Include="Contracts\IRouteDataProvider.cs" />

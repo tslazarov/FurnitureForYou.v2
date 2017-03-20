@@ -146,6 +146,13 @@ footer{
     max-width: 280px;
 }
 
+#add-room-show:hover,
+#add-room-hide:hover, 
+#add-category-show:hover,
+#add-category-hide:hover {
+    cursor: pointer;
+}
+
 @media (max-width: 767px) {
     #room-addition-form {
         padding: 0px 15px;

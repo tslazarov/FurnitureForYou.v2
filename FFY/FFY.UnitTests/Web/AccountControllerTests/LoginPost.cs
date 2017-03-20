@@ -1,4 +1,5 @@
 ﻿using FFY.Data.Factories;
+using FFY.Models;
 using FFY.Providers.Contracts;
 using FFY.Services.Contracts;
 using FFY.Web.Controllers;
@@ -6,6 +7,10 @@ using FFY.Web.Models.Account;
 using Microsoft.AspNet.Identity.Owin;
 using Moq;
 using NUnit.Framework;
+using System;
+using System.Collections.Generic;
+using System.Web;
+using System.Web.Caching;
 using System.Web.Mvc;
 using System.Web.Routing;
 
@@ -30,6 +35,7 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             var routeData = new RouteData();
             routeData.Values.Add("language", "en");
 
+            var mockedContextProvider = new Mock<IHttpContextProvider>();
             var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
             mockedRouteDataProvider.Setup(rdp => rdp.GetRouteData(It.IsAny<Controller>()))
                 .Returns(routeData);
@@ -37,12 +43,15 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             var mockedUserFactory = new Mock<IUserFactory>();
             var mockedShoppingCartFactory = new Mock<IShoppingCartFactory>();
             var mockedShoppingCartsService = new Mock<IShoppingCartsService>();
+            var mockedUsersService = new Mock<IUsersService>();
 
-            var accountController = new AccountController(mockedRouteDataProvider.Object,
+            var accountController = new AccountController(mockedContextProvider.Object,
+                mockedRouteDataProvider.Object,
                 mockedAuthenticationProvider.Object,
                 mockedUserFactory.Object,
                 mockedShoppingCartFactory.Object,
-                mockedShoppingCartsService.Object);
+                mockedShoppingCartsService.Object,
+                mockedUsersService.Object);
             accountController.ModelState.AddModelError("key", "message"); 
 
             // Act
@@ -66,9 +75,18 @@ namespace FFY.UnitTests.Web.AccountControllerTests
                 Password = password,
                 RememberMe = rememberMe
             };
+            var user = new User()
+            {
+                ShoppingCart = new ShoppingCart() { CartProducts = new List<CartProduct>() },
+                FavoritedProducts = new List<Product>()
+            };
             var routeData = new RouteData();
             routeData.Values.Add("language", "en");
 
+            var mockedContextProvider = new Mock<IHttpContextProvider>();
+            mockedContextProvider.Setup(c => c.InsertInCache(It.IsAny<Controller>(),
+                It.IsAny<string>(),
+                It.IsAny<object>()));
             var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
             mockedRouteDataProvider.Setup(rdp => rdp.GetRouteData(It.IsAny<Controller>()))
                 .Returns(routeData)
@@ -81,12 +99,17 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             var mockedUserFactory = new Mock<IUserFactory>();
             var mockedShoppingCartFactory = new Mock<IShoppingCartFactory>();
             var mockedShoppingCartsService = new Mock<IShoppingCartsService>();
+            var mockedUsersService = new Mock<IUsersService>();
+            mockedUsersService.Setup(us => us.GetUserByEmail(It.IsAny<string>()))
+                .Returns(user);
 
-            var accountController = new AccountController(mockedRouteDataProvider.Object,
+            var accountController = new AccountController(mockedContextProvider.Object,
+                mockedRouteDataProvider.Object,
                 mockedAuthenticationProvider.Object,
                 mockedUserFactory.Object,
                 mockedShoppingCartFactory.Object,
-                mockedShoppingCartsService.Object);
+                mockedShoppingCartsService.Object,
+                mockedUsersService.Object);
 
             // Act
             var result = accountController.Login(loginModel, returnUrl);
@@ -110,9 +133,18 @@ namespace FFY.UnitTests.Web.AccountControllerTests
                 Password = password,
                 RememberMe = rememberMe
             };
+            var user = new User()
+            {
+                ShoppingCart = new ShoppingCart() { CartProducts = new List<CartProduct>() },
+                FavoritedProducts = new List<Product>()
+            };
             var routeData = new RouteData();
             routeData.Values.Add("language", "en");
 
+            var mockedContextProvider = new Mock<IHttpContextProvider>();
+            mockedContextProvider.Setup(c => c.InsertInCache(It.IsAny<Controller>(),
+                It.IsAny<string>(),
+                It.IsAny<object>()));
             var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
             mockedRouteDataProvider.Setup(rdp => rdp.GetRouteData(It.IsAny<Controller>()))
                 .Returns(routeData);
@@ -125,13 +157,18 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             var mockedUserFactory = new Mock<IUserFactory>();
             var mockedShoppingCartFactory = new Mock<IShoppingCartFactory>();
             var mockedShoppingCartsService = new Mock<IShoppingCartsService>();
+            var mockedUsersService = new Mock<IUsersService>();
+            mockedUsersService.Setup(us => us.GetUserByEmail(It.IsAny<string>()))
+                .Returns(user);
 
-            var accountController = new AccountController(mockedRouteDataProvider.Object,
+            var accountController = new AccountController(mockedContextProvider.Object,
+                mockedRouteDataProvider.Object,
                 mockedAuthenticationProvider.Object,
                 mockedUserFactory.Object,
                 mockedShoppingCartFactory.Object,
-                mockedShoppingCartsService.Object);
-            
+                mockedShoppingCartsService.Object,
+                mockedUsersService.Object);
+
             // Act
             var result = accountController.Login(loginModel, returnUrl);
 
@@ -155,9 +192,18 @@ namespace FFY.UnitTests.Web.AccountControllerTests
                 Password = password,
                 RememberMe = rememberMe
             };
+            var user = new User()
+            {
+                ShoppingCart = new ShoppingCart() { CartProducts = new List<CartProduct>() },
+                FavoritedProducts = new List<Product>()
+            };
             var routeData = new RouteData();
             routeData.Values.Add("language", "en");
 
+            var mockedContextProvider = new Mock<IHttpContextProvider>();
+            mockedContextProvider.Setup(c => c.InsertInCache(It.IsAny<Controller>(),
+                It.IsAny<string>(),
+                It.IsAny<object>()));
             var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
             mockedRouteDataProvider.Setup(rdp => rdp.GetRouteData(It.IsAny<Controller>()))
                 .Returns(routeData);
@@ -170,13 +216,18 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             var mockedUserFactory = new Mock<IUserFactory>();
             var mockedShoppingCartFactory = new Mock<IShoppingCartFactory>();
             var mockedShoppingCartsService = new Mock<IShoppingCartsService>();
+            var mockedUsersService = new Mock<IUsersService>();
+            mockedUsersService.Setup(us => us.GetUserByEmail(It.IsAny<string>()))
+                .Returns(user);
 
-            var accountController = new AccountController(mockedRouteDataProvider.Object,
+            var accountController = new AccountController(mockedContextProvider.Object,
+                mockedRouteDataProvider.Object,
                 mockedAuthenticationProvider.Object,
                 mockedUserFactory.Object,
                 mockedShoppingCartFactory.Object,
-                mockedShoppingCartsService.Object);
-            
+                mockedShoppingCartsService.Object,
+                mockedUsersService.Object);
+
             // Act
             var result = accountController.Login(loginModel, returnUrl) as RedirectResult;
 
@@ -199,9 +250,18 @@ namespace FFY.UnitTests.Web.AccountControllerTests
                 Password = password,
                 RememberMe = rememberMe
             };
+            var user = new User()
+            {
+                ShoppingCart = new ShoppingCart() { CartProducts = new List<CartProduct>() },
+                FavoritedProducts = new List<Product>()
+            };
             var routeData = new RouteData();
             routeData.Values.Add("language", "en");
 
+            var mockedContextProvider = new Mock<IHttpContextProvider>();
+            mockedContextProvider.Setup(c => c.InsertInCache(It.IsAny<Controller>(),
+                It.IsAny<string>(),
+                It.IsAny<object>()));
             var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
             mockedRouteDataProvider.Setup(rdp => rdp.GetRouteData(It.IsAny<Controller>()))
                 .Returns(routeData);
@@ -214,13 +274,18 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             var mockedUserFactory = new Mock<IUserFactory>();
             var mockedShoppingCartFactory = new Mock<IShoppingCartFactory>();
             var mockedShoppingCartsService = new Mock<IShoppingCartsService>();
+            var mockedUsersService = new Mock<IUsersService>();
+            mockedUsersService.Setup(us => us.GetUserByEmail(It.IsAny<string>()))
+                .Returns(user);
 
-            var accountController = new AccountController(mockedRouteDataProvider.Object,
+            var accountController = new AccountController(mockedContextProvider.Object,
+                mockedRouteDataProvider.Object,
                 mockedAuthenticationProvider.Object,
                 mockedUserFactory.Object,
                 mockedShoppingCartFactory.Object,
-                mockedShoppingCartsService.Object);
-            
+                mockedShoppingCartsService.Object,
+                mockedUsersService.Object);
+
             // Act
             var result = accountController.Login(loginModel, returnUrl) as RedirectResult;
 
@@ -242,9 +307,18 @@ namespace FFY.UnitTests.Web.AccountControllerTests
                 Password = password,
                 RememberMe = rememberMe
             };
+            var user = new User()
+            {
+                ShoppingCart = new ShoppingCart() { CartProducts = new List<CartProduct>() },
+                FavoritedProducts = new List<Product>()
+            };
             var routeData = new RouteData();
             routeData.Values.Add("language", "en");
 
+            var mockedContextProvider = new Mock<IHttpContextProvider>();
+            mockedContextProvider.Setup(c => c.InsertInCache(It.IsAny<Controller>(),
+                It.IsAny<string>(),
+                It.IsAny<object>()));
             var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
             mockedRouteDataProvider.Setup(rdp => rdp.GetRouteData(It.IsAny<Controller>()))
                 .Returns(routeData);
@@ -257,13 +331,18 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             var mockedUserFactory = new Mock<IUserFactory>();
             var mockedShoppingCartFactory = new Mock<IShoppingCartFactory>();
             var mockedShoppingCartsService = new Mock<IShoppingCartsService>();
+            var mockedUsersService = new Mock<IUsersService>();
+            mockedUsersService.Setup(us => us.GetUserByEmail(It.IsAny<string>()))
+                .Returns(user);
 
-            var accountController = new AccountController(mockedRouteDataProvider.Object,
+            var accountController = new AccountController(mockedContextProvider.Object,
+                mockedRouteDataProvider.Object,
                 mockedAuthenticationProvider.Object,
                 mockedUserFactory.Object,
                 mockedShoppingCartFactory.Object,
-                mockedShoppingCartsService.Object);
-            
+                mockedShoppingCartsService.Object,
+                mockedUsersService.Object);
+
             // Act
             var result = accountController.Login(loginModel, returnUrl) as ViewResult;
 
@@ -284,9 +363,15 @@ namespace FFY.UnitTests.Web.AccountControllerTests
                 Password = password,
                 RememberMe = rememberMe
             };
+            var user = new User()
+            {
+                ShoppingCart = new ShoppingCart() { CartProducts = new List<CartProduct>() },
+                FavoritedProducts = new List<Product>()
+            };
             var routeData = new RouteData();
             routeData.Values.Add("language", "en");
 
+            var mockedContextProvider = new Mock<IHttpContextProvider>();
             var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
             mockedRouteDataProvider.Setup(rdp => rdp.GetRouteData(It.IsAny<Controller>()))
                 .Returns(routeData);
@@ -299,13 +384,18 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             var mockedUserFactory = new Mock<IUserFactory>();
             var mockedShoppingCartFactory = new Mock<IShoppingCartFactory>();
             var mockedShoppingCartsService = new Mock<IShoppingCartsService>();
+            var mockedUsersService = new Mock<IUsersService>();
+            mockedUsersService.Setup(us => us.GetUserByEmail(It.IsAny<string>()))
+                .Returns(user);
 
-            var accountController = new AccountController(mockedRouteDataProvider.Object,
+            var accountController = new AccountController(mockedContextProvider.Object,
+                mockedRouteDataProvider.Object,
                 mockedAuthenticationProvider.Object,
                 mockedUserFactory.Object,
                 mockedShoppingCartFactory.Object,
-                mockedShoppingCartsService.Object);
-            
+                mockedShoppingCartsService.Object,
+                mockedUsersService.Object);
+
             // Act
             var result = accountController.Login(loginModel, returnUrl);
 
@@ -326,9 +416,18 @@ namespace FFY.UnitTests.Web.AccountControllerTests
                 Password = password,
                 RememberMe = rememberMe
             };
+            var user = new User()
+            {
+                ShoppingCart = new ShoppingCart() { CartProducts = new List<CartProduct>() },
+                FavoritedProducts = new List<Product>()
+            };
             var routeData = new RouteData();
             routeData.Values.Add("language", "en");
 
+            var mockedContextProvider = new Mock<IHttpContextProvider>();
+            mockedContextProvider.Setup(c => c.InsertInCache(It.IsAny<Controller>(),
+                It.IsAny<string>(),
+                It.IsAny<object>()));
             var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
             mockedRouteDataProvider.Setup(rdp => rdp.GetRouteData(It.IsAny<Controller>()))
                 .Returns(routeData);
@@ -341,13 +440,18 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             var mockedUserFactory = new Mock<IUserFactory>();
             var mockedShoppingCartFactory = new Mock<IShoppingCartFactory>();
             var mockedShoppingCartsService = new Mock<IShoppingCartsService>();
+            var mockedUsersService = new Mock<IUsersService>();
+            mockedUsersService.Setup(us => us.GetUserByEmail(It.IsAny<string>()))
+                .Returns(user);
 
-            var accountController = new AccountController(mockedRouteDataProvider.Object,
+            var accountController = new AccountController(mockedContextProvider.Object,
+                mockedRouteDataProvider.Object,
                 mockedAuthenticationProvider.Object,
                 mockedUserFactory.Object,
                 mockedShoppingCartFactory.Object,
-                mockedShoppingCartsService.Object);
-            
+                mockedShoppingCartsService.Object,
+                mockedUsersService.Object);
+
             // Act
             var result = accountController.Login(loginModel, returnUrl) as ViewResult;
 

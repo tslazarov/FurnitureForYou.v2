@@ -82,7 +82,20 @@ namespace FFY.Services
 
         public User GetUserById(string id)
         {
+            Guard.WhenArgument<string>(id, "User id cannot be null or empty.")
+                .IsNullOrEmpty()
+                .Throw();
+
             return this.data.UsersRepository.GetById(id);
+        }
+
+        public User GetUserByEmail(string email)
+        {
+            Guard.WhenArgument<string>(email, "User email cannot be null or empty.")
+                .IsNullOrEmpty()
+                .Throw();
+
+            return this.data.UsersRepository.All().FirstOrDefault(u => u.UserName == email);
         }
     }
 }

@@ -26,7 +26,7 @@ namespace FFY.Web.Controllers
             IShoppingCartsService shoppingCartsService,
             IProductsService productsService)
         {
-            Guard.WhenArgument<IHttpContextProvider>(contextProvider, "Contect provider cannot be null.")
+            Guard.WhenArgument<IHttpContextProvider>(contextProvider, "Context provider cannot be null.")
                 .IsNull()
                 .Throw();
 
@@ -81,7 +81,7 @@ namespace FFY.Web.Controllers
             this.shoppingCartsService.Add(shoppingCart, product, model.Quantity);
             var cartCount = this.shoppingCartsService.CartProductsCount(shoppingCart.UserId);
 
-            this.contextProvider.GetHttpContext(this).Cache.Insert($"cart-count-{user.Id}", cartCount);
+            this.contextProvider.InsertInCache(this, $"cart-count-{user.Id}", cartCount);
 
             return this.RedirectToAction("product", "furniture", new { id = model.Product.Id });
 
@@ -118,7 +118,7 @@ namespace FFY.Web.Controllers
 
             this.usersService.AddProductToFavorites(user, product);
 
-            this.contextProvider.GetHttpContext(this).Cache.Insert($"favorites-count-{user.Id}", user.FavoritedProducts.Count + 1);
+            this.contextProvider.InsertInCache(this, $"favorites-count-{user.Id}", user.FavoritedProducts.Count);
 
             return this.RedirectToAction("product", "furniture", new { id = model.Product.Id });
         }
@@ -138,7 +138,7 @@ namespace FFY.Web.Controllers
 
             this.usersService.RemoveProductFromFavorites(user, product);
 
-            this.contextProvider.GetHttpContext(this).Cache.Insert($"favorites-count-{user.Id}", user.FavoritedProducts.Count - 1);
+            this.contextProvider.InsertInCache(this, $"favorites-count-{user.Id}", user.FavoritedProducts.Count);
 
             return this.RedirectToAction("product", "furniture", new { id = model.Product.Id });
         }
