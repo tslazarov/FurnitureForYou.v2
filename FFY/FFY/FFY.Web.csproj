@@ -247,12 +247,14 @@
     <Compile Include="Areas\Administration\Controllers\ContactManagementController.cs" />
     <Compile Include="Areas\Administration\Controllers\OrderManagementController.cs" />
     <Compile Include="Areas\Administration\Controllers\ProductManagementController.cs" />
+    <Compile Include="Areas\Administration\Controllers\SupportChatController.cs" />
     <Compile Include="Areas\Administration\Controllers\UserManagementController.cs" />
     <Compile Include="Areas\Administration\Models\ProductManagement\CategoryPartialViewModel.cs" />
     <Compile Include="Areas\Administration\Models\ProductManagement\ProductAdditionViewModel.cs" />
     <Compile Include="Areas\Administration\Models\ProductManagement\ProductViewModel.cs" />
     <Compile Include="Areas\Profile\Controllers\InformationController.cs" />
     <Compile Include="Areas\Profile\Controllers\ShoppingCartController.cs" />
+    <Compile Include="Areas\Profile\Controllers\SupportChatClientController.cs" />
     <Compile Include="Areas\Profile\Models\ShoppingCartViewModel.cs" />
     <Compile Include="Areas\Profile\ProfileAreaRegistration.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -310,6 +312,8 @@
     <Content Include="Areas\Administration\Views\ProductManagement\RoomPartial.cshtml" />
     <Content Include="Areas\Administration\Views\ProductManagement\CategoryPartial.cshtml" />
     <Content Include="Areas\Administration\Views\ProductManagement\ProductAddition.cshtml" />
+    <Content Include="Areas\Administration\Views\SupportChat\Index.cshtml" />
+    <Content Include="Areas\Profile\Views\SupportChatClient\Index.cshtml" />
     <None Include="Properties\PublishProfiles\furnitureforyou - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\furnitureforyou - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
@@ -352,7 +356,6 @@
     <Content Include="Views\Furniture\FavoritePartial.cshtml" />
     <Content Include="Views\Furniture\RatingPartial.cshtml" />
     <Content Include="Views\Furniture\ShoppingCartPartial.cshtml" />
-    <Content Include="Views\Shared\SupportChatPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
