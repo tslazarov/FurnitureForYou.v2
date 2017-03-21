@@ -4,6 +4,11 @@
     background: url("./sources/background.jpg");    
 }
 
+.clear-body {
+    padding: 0px;
+    background: none;
+}
+
 h1, h2, h3, h4, h5, h6 {
     margin: 0px !important;
 }
@@ -43,6 +48,95 @@ footer{
 .cart-container {
     padding-bottom: 5px !important;
     padding-top: 5px !important;
+}
+
+/* Client chat */
+
+#support-chat-link,
+#support-chat-shower {
+    position: fixed;
+    bottom: 0;
+    right: 8vw;
+    width: 200px;
+    padding-left: 15px;
+    line-height: 35px;
+    background-color: #EEEEEE;
+    border: 1px medium #52658F;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+#support-chat-link:hover,
+#support-chat-shower:hover {
+    background-color: #52658F;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+#support-chat-wrapper {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 8vw;
+    padding: 0px;
+}
+
+#support-chat-frame {
+    margin: 0;
+    height: 260px;
+    border-top: 0px;
+    border-left: 2px;
+    border-right: 2px;
+    border-bottom: 0px;
+    border-color: #EEEEEE;
+    border-style: solid;
+    background-color: #FFFFFF;
+}
+
+#support-chat-header {
+    background-color: #52658F;
+    color: #FFFFFF;
+    padding-left: 15px;
+    line-height: 35px;
+    font-size: 16px;
+    border-top: 2px;
+    border-left: 2px;
+    border-right: 2px;
+    border-bottom: 0px;
+    border-color: #EEEEEE;
+    border-style: solid;
+}
+
+#support-chat-header:hover {
+    cursor: pointer;
+}
+
+.chat-container {
+    margin-top: 10px;
+    width: auto;
+    height: 215px;
+    overflow: auto;
+}
+
+.chat-container ul {
+    list-style: none;
+    padding-left: 15px;
+}
+
+#message {
+    width: 300px;
+    border: 0;
+    line-height: 30px;
+    margin-left: 15px;
+}
+
+#message:focus {
+    outline: none;
+}
+
+.chat-message-container {
+    border-top: 1px solid #EEEEEE;
+    width: auto;
 }
 
 /* Detailed product */

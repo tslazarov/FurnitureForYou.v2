@@ -356,6 +356,7 @@
     <Content Include="Views\Furniture\FavoritePartial.cshtml" />
     <Content Include="Views\Furniture\RatingPartial.cshtml" />
     <Content Include="Views\Furniture\ShoppingCartPartial.cshtml" />
+    <Content Include="Views\Shared\ClientChatLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -36,8 +36,22 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        <iframe name="ifr"></iframe>
-        @Html.ActionLink("join", "index", "supportChatClient", new { area = "profile" }, new { target = "ifr" })
+
+        @if (!User.IsInRole("Administrator") && !User.IsInRole("Moderator"))
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                <div id="support-chat-wrapper">
+                    <div id="support-chat-header">
+                        Support
+                    </div>
+                    <iframe id="support-chat-frame" name="support-chat"></iframe>
+                </div>
+                @Html.ActionLink("Support", "index", "supportChatClient", new { area = "profile" }, new { id="support-chat-link", target = "support-chat" })
+                <div id="support-chat-shower" class="hidden">Support</div>
+            }
+
+        }
         <hr />
         <footer>
             <p>&copy; Telerik Academy 2016/2017 ASP.NET MVC Project</p>
@@ -46,6 +60,22 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    <script type="text/javascript">
+        $("#support-chat-link").click(function () {
+            $("#support-chat-link").toggleClass("hidden");
+            $("#support-chat-wrapper").toggle(300);
+        });
+
+        $("#support-chat-shower").click(function () {
+            $("#support-chat-shower").toggleClass("hidden");
+            $("#support-chat-wrapper").toggle(300);
+        });
+
+        $("#support-chat-header").click(function () {
+            $("#support-chat-wrapper").toggle(300);
+            $("#support-chat-shower").toggleClass("hidden");
+        });
+    </script>
 
     @RenderSection("scripts", required: false)
 </body>
