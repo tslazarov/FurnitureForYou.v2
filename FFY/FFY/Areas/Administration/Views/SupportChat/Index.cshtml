@@ -1,26 +1,45 @@
-﻿<div class="container">
+﻿@using FFY.Web.Areas.Administration.Models.SupportChat
+@model SupportChatViewModel
+
+<div class="container">
     <div class="admin-chat-container">
         <div class="col-md-8">
             <div class="admin-message-container">
                 <ul id="discussion"></ul>
             </div>
             <div class="admin-message-inputs">
-                <input type="text" placeholder="Send to" id="receiver" />
-                <input type="text" placeholder="Send message" id="message" />
+                <input type="text" placeholder="@FFY.Web.Resources.Language.SendTo" id="receiver" />
+                <input type="text" placeholder="@FFY.Web.Resources.Language.SendMessage" id="message" />
                 <input type="hidden" id="sender" />
             </div>
         </div>
         <div class="col-md-4">
             <div class="admin-support-container">
-                <h4>Support staff</h4>
+                <h4>@FFY.Web.Resources.Language.SupportStaff</h4>
                 <div class="admin-support-list">
-                    <ul id="support-staff"></ul>
+                    <ul id="support-staff">
+                        @foreach(var user in Model.ConnectedUsers)
+                        {
+                            if(user.Role == "Support")
+                            {
+                                <li>@user.Email</li>
+                            }
+                        }
+                    </ul>
                 </div>
             </div>
             <div class="admin-client-container">
-                <h4>Clients</h4>
+                <h4>@FFY.Web.Resources.Language.Clients</h4>
                 <div class="admin-client-list">
-                    <ul id="clients"></ul>
+                    <ul id="clients">
+                        @foreach (var user in Model.ConnectedUsers)
+                        {
+                            if (user.Role == "Client")
+                            {
+                                <li>@user.Email</li>
+                            }
+                        }
+                    </ul>
                 </div>
             </div="admin--container">
         </div>
@@ -42,11 +61,12 @@
                 var encodedReceiver = $('<div />').text(receiver).html();
                 var encodedMsg = $('<div />').text(message).html();
 
-                var senderElement = '<div class="col-md-6"><strong>' + encodedSender + '</strong></div>';
-                var receiverElement = '<div class="col-md-4"><strong>' + encodedReceiver + '</strong></div>';
-                var messageElement = '<br /><div class="col-md-12">' + encodedMsg + '</div>';
+                var senderElement = '<div class="col-md-5"><strong>' + encodedSender + '</strong></div>';
+                var receiverElement = '<div class="col-md-5"><strong>' + encodedReceiver + '</strong></div>';
+                var messageElement = '<div class="col-md-12">' + encodedMsg + '</div>';
+                var chatArrowElement = '<div class="col-md-2"><img src="/Content/sources/chat-arrow.png"/></div>'
 
-                $('#discussion').append('<li>' + senderElement + receiverElement + messageElement +'</li>');
+                $('#discussion').append('<li>' + senderElement + chatArrowElement + receiverElement + messageElement +'</li>');
             };
 
             chat.client.connectSupport = function (name) {

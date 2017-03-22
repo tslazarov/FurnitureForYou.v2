@@ -13,6 +13,8 @@ namespace FFY.Services.Contracts
 
         void RemoveChatUser(ChatUser user);
 
+        IEnumerable<ChatUser> GetChatUsers();
+
         ChatUser GetChatUserByEmail(string email);
 
     }

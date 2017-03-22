@@ -43,6 +43,11 @@ namespace FFY.Services
             this.data.ChatUsersRepository.ConnectionDelete(user);
         }
 
+        public IEnumerable<ChatUser> GetChatUsers()
+        {
+            return this.data.ChatUsersRepository.All();
+        }
+
         public ChatUser GetChatUserByEmail(string email)
         {
             Guard.WhenArgument<string>(email, "Chat user email cannot be null or empty.")

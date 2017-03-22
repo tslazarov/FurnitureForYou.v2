@@ -43,12 +43,12 @@
             {
                 <div id="support-chat-wrapper">
                     <div id="support-chat-header">
-                        Support
+                        @FFY.Web.Resources.Language.Support
                     </div>
                     <iframe id="support-chat-frame" name="support-chat"></iframe>
                 </div>
-                @Html.ActionLink("Support", "index", "supportChatClient", new { area = "profile" }, new { id="support-chat-link", target = "support-chat" })
-                <div id="support-chat-shower" class="hidden">Support</div>
+                @Html.ActionLink(FFY.Web.Resources.Language.Support, "index", "supportChatClient", new { area = "profile" }, new { id="support-chat-link", target = "support-chat" })
+                <div id="support-chat-shower" class="hidden">@FFY.Web.Resources.Language.Support</div>
             }
 
         }

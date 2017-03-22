@@ -142,6 +142,15 @@ namespace FFY.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Clients.
+        /// </summary>
+        public static string Clients {
+            get {
+                return ResourceManager.GetString("Clients", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Confirm password.
         /// </summary>
         public static string ConfirmPassword {
@@ -736,6 +745,24 @@ namespace FFY.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Send message.
+        /// </summary>
+        public static string SendMessage {
+            get {
+                return ResourceManager.GetString("SendMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Send to.
+        /// </summary>
+        public static string SendTo {
+            get {
+                return ResourceManager.GetString("SendTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add to shopping cart.
         /// </summary>
         public static string ShoppingCartAdd {
@@ -795,6 +822,33 @@ namespace FFY.Web.Resources {
         public static string ShoppingCartYour {
             get {
                 return ResourceManager.GetString("ShoppingCartYour", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Support.
+        /// </summary>
+        public static string Support {
+            get {
+                return ResourceManager.GetString("Support", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Support Management.
+        /// </summary>
+        public static string SupportChat {
+            get {
+                return ResourceManager.GetString("SupportChat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Support staff.
+        /// </summary>
+        public static string SupportStaff {
+            get {
+                return ResourceManager.GetString("SupportStaff", resourceCulture);
             }
         }
         

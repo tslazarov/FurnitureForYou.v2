@@ -253,6 +253,7 @@
     <Compile Include="Areas\Administration\Models\ProductManagement\CategoryPartialViewModel.cs" />
     <Compile Include="Areas\Administration\Models\ProductManagement\ProductAdditionViewModel.cs" />
     <Compile Include="Areas\Administration\Models\ProductManagement\ProductViewModel.cs" />
+    <Compile Include="Areas\Administration\Models\SupportChat\SupportChatViewModel.cs" />
     <Compile Include="Areas\Profile\Controllers\InformationController.cs" />
     <Compile Include="Areas\Profile\Controllers\ShoppingCartController.cs" />
     <Compile Include="Areas\Profile\Controllers\SupportChatClientController.cs" />

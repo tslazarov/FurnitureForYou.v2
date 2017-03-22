@@ -153,6 +153,10 @@
     <value>Category name is required</value>
     <comment>CategoryViewModel</comment>
   </data>
+  <data name="Clients" xml:space="preserve">
+    <value>Clients</value>
+    <comment>SupportChatView</comment>
+  </data>
   <data name="ConfirmPassword" xml:space="preserve">
     <value>Confirm password</value>
     <comment>RegisterViewModel</comment>
@@ -417,6 +421,14 @@
     <value>Room name is required</value>
     <comment>RoomViewModel</comment>
   </data>
+  <data name="SendMessage" xml:space="preserve">
+    <value>Send message</value>
+    <comment>SupportChatVIew</comment>
+  </data>
+  <data name="SendTo" xml:space="preserve">
+    <value>Send to</value>
+    <comment>SupportChatView</comment>
+  </data>
   <data name="ShoppingCartAdd" xml:space="preserve">
     <value>Add to shopping cart</value>
     <comment>ProductView</comment>
@@ -444,6 +456,18 @@
   <data name="ShoppingCartYour" xml:space="preserve">
     <value>Your shopping cart</value>
     <comment>ShoppingCartView</comment>
+  </data>
+  <data name="Support" xml:space="preserve">
+    <value>Support</value>
+    <comment>SupportChatFrame</comment>
+  </data>
+  <data name="SupportChat" xml:space="preserve">
+    <value>Support Management</value>
+    <comment>Navigation</comment>
+  </data>
+  <data name="SupportStaff" xml:space="preserve">
+    <value>Support staff</value>
+    <comment>SupportChatView</comment>
   </data>
   <data name="Title" xml:space="preserve">
     <value>Title</value>

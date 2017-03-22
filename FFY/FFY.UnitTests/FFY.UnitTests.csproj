@@ -85,6 +85,7 @@
     <Compile Include="Services\ChatUsersServiceTests\AddChatUser.cs" />
     <Compile Include="Services\ChatUsersServiceTests\Constructor.cs" />
     <Compile Include="Services\ChatUsersServiceTests\GetChatUserByEmail.cs" />
+    <Compile Include="Services\ChatUsersServiceTests\GetChatUsers.cs" />
     <Compile Include="Services\ChatUsersServiceTests\RemoveChatUser.cs" />
     <Compile Include="Services\ContactsServiceTests\AddContact.cs" />
     <Compile Include="Services\ContactsServiceTests\Constructor.cs" />
