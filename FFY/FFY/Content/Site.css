@@ -123,20 +123,109 @@ footer{
     padding-left: 15px;
 }
 
-#message {
+.chat-message-container #message {
     width: 300px;
     border: 0;
     line-height: 30px;
     margin-left: 15px;
 }
 
-#message:focus {
+.chat-message-container #message:focus {
     outline: none;
 }
 
 .chat-message-container {
     border-top: 1px solid #EEEEEE;
     width: auto;
+}
+
+/* Admin chat */
+.admin-chat-container {
+    min-height: 500px;
+    max-width: 800px; 
+    margin-right: auto;
+    margin-left: auto;
+    border: 2px solid #EEEEEE;
+}
+
+.admin-message-container {
+    margin-top: 15px;
+    overflow: auto;
+    height: 405px;
+    border: 2px solid #EEEEEE;
+    padding-top: 10px;
+}
+
+.admin-message-container ul {
+    list-style: none;
+    padding-left: 15px;
+}
+
+.admin-message-inputs {
+    border-top: 0px;
+    border-bottom: 2px;
+    border-left: 2px;
+    border-right: 2px;
+    border-style: solid;
+    border-color: #EEEEEE;
+    width: 100%;
+}
+
+.admin-message-inputs #message,
+.admin-message-inputs #receiver {
+    width: 300px;
+    border: 0;
+    line-height: 30px;
+    margin-left: 15px;
+}
+
+.admin-message-inputs #message:focus,
+.admin-message-inputs #receiver:focus {
+    outline: none;
+}
+
+.admin-support-container {
+    height: 200px;
+    border: 2px solid #EEEEEE;
+    padding-left: 10px;
+    margin-top: 15px;
+    padding-top: 10px;
+}
+
+.admin-client-container {
+    height: 255px;
+    border: 2px solid #EEEEEE;
+    padding-left: 10px;
+    margin-top: 15px;
+    padding-top: 10px;
+}
+
+.admin-support-container h4,
+.admin-client-container h4 {
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+.admin-client-list {
+    overflow: auto;
+    height: 210px;
+}
+
+.admin-support-list {
+    overflow: auto;
+    height: 155px;
+}
+
+.admin-client-container ul,
+.admin-support-container ul {
+    list-style: none;
+    padding: 0px;
+}
+
+.admin-client-container li:hover,
+.admin-support-container li:hover {
+    cursor: pointer;
+    color: #52658F;
 }
 
 /* Detailed product */

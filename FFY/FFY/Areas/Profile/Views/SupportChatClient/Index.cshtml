@@ -19,30 +19,26 @@
     <script src="~/signalr/hubs"></script>
     <script type="text/javascript">
         $(function () {
-            // Declare a proxy to reference the hub.
             var chat = $.connection.supportChatHub;
             console.log('connect');
 
-            // Create a function that the hub can call to broadcast messages.
             chat.client.addMessage = function (name, message) {
                 console.log('add');
-                // Html encode display name and message.
+
                 var encodedName = $('<div />').attr("class", "client-sender").text(name).html();
                 var encodedMsg = $('<div />').attr("class", "client-message").text(message).html();
-                // Add the message to the page.
+
                 $('#discussion').append('<li><strong>' + encodedName
                     + '</strong><br />' + encodedMsg + '</li>');
             };
             $('#sender').val("@this.User.Identity.Name");
             $('#message').focus();
 
-            // Start the connection.
             $.connection.hub.start().done(function () {
+
                 $('#message').keypress(function (e) {
                     if (e.which == 13) {
-                        // Call the Send method on the hub.
                         chat.server.sendMessage($('#sender').val(), $('#receiver').val(), $('#message').val());
-                        // Clear text box and reset focus for next comment.
                         $('#message').val('').focus();
                     }
                 })
