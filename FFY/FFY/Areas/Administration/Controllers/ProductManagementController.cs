@@ -94,6 +94,7 @@ namespace FFY.Web.Areas.Administration.Controllers
 
         // POST: Administration/AddProduct
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult AddProduct(ProductAdditionViewModel model)
         {
             var file = Request.Files[0];
@@ -135,6 +136,7 @@ namespace FFY.Web.Areas.Administration.Controllers
 
         // POST: Administration/AddRoom
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult AddRoom(RoomPartialViewModel model)
         {
             var file = Request.Files[0];
@@ -161,6 +163,7 @@ namespace FFY.Web.Areas.Administration.Controllers
 
         // POST: Administration/AddCategory
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult AddCategory(CategoryPartialViewModel model)
         {
             var file = Request.Files[0];

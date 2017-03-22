@@ -49,6 +49,7 @@ namespace FFY.Web.Controllers
 
         // POST: Contact
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Index(ContactViewModel model)
         {
             model.SendOn = this.dateProvider.GetCurrentTime();

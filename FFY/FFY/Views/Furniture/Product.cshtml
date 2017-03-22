@@ -13,7 +13,7 @@
                 @Model.Product.DiscountedPrice @FFY.Web.Resources.Language.Currency
             </div>
             <div class="product-detail-description">
-                @Model.Product.Description
+                @Html.Raw(Model.Product.Description)
             </div>
             <div class="product-detail-additional">
                 <div class="product-detail-rating col-md-5">

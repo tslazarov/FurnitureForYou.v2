@@ -8,6 +8,7 @@
     {
         using (Html.BeginForm("removeFavorites", "furniture", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
         {
+            @Html.AntiForgeryToken()
             @Html.HiddenFor(m => m.Product.Id)
             <div class="form-group">
                 <div class="col-md-offset-5 col-md-6">
@@ -20,6 +21,7 @@
     {
         using (Html.BeginForm("addFavorites", "furniture", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
         {
+            @Html.AntiForgeryToken()
             @Html.HiddenFor(m => m.Product.Id)
             <div class="form-group">
                 <div class="col-md-offset-5 col-md-6">

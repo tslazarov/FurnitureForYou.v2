@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace FFY.Web.Areas.Administration.Models.ProductManagement
 {
@@ -41,6 +42,7 @@ namespace FFY.Web.Areas.Administration.Models.ProductManagement
         [Required(ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "DescriptionRequired")]
         [StringLength(500, ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "DescriptionValidation", MinimumLength = 10)]
         [Display(Name = "Description", ResourceType = typeof(Language))]
+        [AllowHtml]
         public string Description { get; set; }
 
         public int RoomId { get; set; }

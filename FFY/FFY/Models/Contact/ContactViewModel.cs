@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace FFY.Web.Models.Contact
 {
@@ -23,6 +24,7 @@ namespace FFY.Web.Models.Contact
         [Required(ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "ContentRequired")]
         [StringLength(500, ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "ContentValidation", MinimumLength = 10)]
         [Display(Name = "Content", ResourceType = typeof(Language))]
+        [AllowHtml]
         public string Content { get; set; }
 
         [Required]

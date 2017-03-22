@@ -4,6 +4,7 @@
 <section id="category-addition-form" class="addition-form">
     @using (Html.BeginForm("addCategory", "productManagement", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal", role = "form" }))
     {
+        @Html.AntiForgeryToken()
         <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">

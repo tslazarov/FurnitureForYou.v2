@@ -115,6 +115,7 @@
     <Compile Include="Web\AccountControllerTests\LogOutPost.cs" />
     <Compile Include="Web\AccountControllerTests\RegisterGet.cs" />
     <Compile Include="Web\AccountControllerTests\RegisterPost.cs" />
+    <Compile Include="Web\ContactControllerTests\Constructor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

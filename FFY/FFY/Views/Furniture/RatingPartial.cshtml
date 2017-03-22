@@ -3,11 +3,12 @@
 
 @model DetailedProductViewModel
 <div class="product-detail-rate">
-    @if (!this.User.Identity.IsAuthenticated || 
+    @if (!this.User.Identity.IsAuthenticated ||
          !this.Model.Product.Raters.Any(u => u.Id == this.User.Identity.GetUserId()))
     {
         using (Html.BeginForm("rate", "furniture", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
         {
+            @Html.AntiForgeryToken()
             @Html.HiddenFor(m => m.Product.Id)
             @Html.HiddenFor(m => m.GivenRating, new { id = "rating" })
             <div class="form-group">

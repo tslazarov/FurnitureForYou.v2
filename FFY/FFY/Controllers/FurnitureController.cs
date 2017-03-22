@@ -51,6 +51,11 @@ namespace FFY.Web.Controllers
         // GET: Furniture/Product
         public ActionResult Product(int? id, DetailedProductViewModel model)
         {
+            if(id == null)
+            {
+                // 404
+            }
+
             model.Product = this.productsService.GetProductById(id.Value);
             model.Quantity = 1;
             model.GivenRating = 1;
@@ -67,6 +72,7 @@ namespace FFY.Web.Controllers
 
         // POST: Furniture/AddShoppingCart
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult AddShoppingCart(DetailedProductViewModel model)
         {
             if (!this.User.Identity.IsAuthenticated)
@@ -89,6 +95,7 @@ namespace FFY.Web.Controllers
 
         // POST: Furniture/Rate
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Rate(DetailedProductViewModel model)
         {
             if (!this.User.Identity.IsAuthenticated)
@@ -106,6 +113,7 @@ namespace FFY.Web.Controllers
 
         // POST: Furniture/AddFavorites
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult AddFavorites(DetailedProductViewModel model)
         {
             if (!this.User.Identity.IsAuthenticated)
@@ -125,6 +133,7 @@ namespace FFY.Web.Controllers
 
         // POST: Furniture/RemoveFavorites
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult RemoveFavorites(DetailedProductViewModel model)
         {
 
