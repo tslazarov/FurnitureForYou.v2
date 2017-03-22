@@ -18,8 +18,5 @@ namespace FFY.Web.Models.Account
         [DataType(DataType.Password, ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "PasswordValidation")]
         [Display(Name = "Password", ResourceType = typeof(Language))]
         public string Password { get; set; }
-
-        [Display(Name = "RememberMe", ResourceType = typeof(Language))]
-        public bool RememberMe { get; set; }
     }
 }

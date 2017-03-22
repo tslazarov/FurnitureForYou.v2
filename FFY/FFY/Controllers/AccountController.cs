@@ -100,7 +100,7 @@ namespace FFY.Web.Controllers
             returnUrl = string.IsNullOrEmpty(returnUrl) ? 
                 $"/{routeData.Values["language"].ToString()}" : $"/{routeData.Values["language"].ToString()}{returnUrl}";
 
-            var result = this.authenticationProvider.SignInWithPassword(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var result = this.authenticationProvider.SignInWithPassword(model.Email, model.Password, false, shouldLockout: false);
 
             switch (result)
             {

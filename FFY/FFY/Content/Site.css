@@ -43,11 +43,42 @@ footer{
     text-align: center;
 }
 
+.validation-summary-errors ul {
+    list-style: none;
+    font-size: 16px;
+    text-align: center;
+    line-height: 30px;
+    padding: 0px;
+}
+
 /* Navigation */
 
 .cart-container {
     padding-bottom: 5px !important;
     padding-top: 5px !important;
+}
+
+/* Login page */
+.login-container {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login-container h2 {
+    text-align: center;
+}
+
+#login-form {
+    padding: 0px 30px;
+}
+
+.login-container .checkbox input[type=checkbox]{
+    margin-left: 0px;
+}
+
+.login-container a:hover {
+    text-decoration: none;
 }
 
 /* Client chat */
@@ -292,7 +323,7 @@ footer{
 /* Product addition page */
 
 #product-addition-form {
-    max-width: 650px; 
+    max-width: 550px; 
     margin-right: auto;
     margin-left: auto;
 }

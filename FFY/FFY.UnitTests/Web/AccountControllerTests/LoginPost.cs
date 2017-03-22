@@ -19,18 +19,16 @@ namespace FFY.UnitTests.Web.AccountControllerTests
     [TestFixture]
     public class LoginPost
     {
-        [TestCase("elon@tesla.com", "password", true)]
-        [TestCase("elon@spacex.com", "drowssap", false)]
+        [TestCase("elon@tesla.com", "password")]
+        [TestCase("elon@spacex.com", "drowssap")]
         public void ShouldReturnViewWithModel_WhenModelStateOfControllerIsNotValid(string email, 
-            string password, 
-            bool rememberMe)
+            string password)
         {
             // Arrange
             var loginModel = new LoginViewModel()
             {
                 Email = email,
-                Password = password,
-                RememberMe = rememberMe
+                Password = password
             };
             var routeData = new RouteData();
             routeData.Values.Add("language", "en");
@@ -61,19 +59,17 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             Assert.AreSame(loginModel, result.Model);
         }
 
-        [TestCase("elon@tesla.com", "password", true, "home")]
-        [TestCase("elon@spacex.com", "drowssap", false, "nothome")]
+        [TestCase("elon@tesla.com", "password", "home")]
+        [TestCase("elon@spacex.com", "drowssap", "nothome")]
         public void ShouldCallGetRouteDataMethodOfRouteDataProvider_WhenModelStateOfControllerIsValid(string email,
             string password,
-            bool rememberMe,
             string returnUrl)
         {
             // Arrange
             var loginModel = new LoginViewModel()
             {
                 Email = email,
-                Password = password,
-                RememberMe = rememberMe
+                Password = password
             };
             var user = new User()
             {
@@ -119,19 +115,17 @@ namespace FFY.UnitTests.Web.AccountControllerTests
                 rdp.GetRouteData(accountController), Times.Once);
         }
 
-        [TestCase("elon@tesla.com", "password", true, "home")]
-        [TestCase("elon@spacex.com", "drowssap", false, "nothome")]
+        [TestCase("elon@tesla.com", "password", "home")]
+        [TestCase("elon@spacex.com", "drowssap", "nothome")]
         public void ShouldCallSignInWithPasswordOfAuthenticationProvider_WhenModelStateOfControllerIsValid(string email, 
-            string password, 
-            bool rememberMe, 
+            string password,  
             string returnUrl)
         {
             // Arrange
             var loginModel = new LoginViewModel()
             {
                 Email = email,
-                Password = password,
-                RememberMe = rememberMe
+                Password = password
             };
             var user = new User()
             {
@@ -174,14 +168,13 @@ namespace FFY.UnitTests.Web.AccountControllerTests
 
             // Assert
             mockedAuthenticationProvider.Verify(ap => 
-                ap.SignInWithPassword(email, password, rememberMe, It.IsAny<bool>()), Times.Once);
+                ap.SignInWithPassword(email, password, false, It.IsAny<bool>()), Times.Once);
         }
 
-        [TestCase("elon@tesla.com", "password", true, "/home", "/en/home")]
-        [TestCase("elon@spacex.com", "drowssap", false, "/nothome", "/en/nothome")]
+        [TestCase("elon@tesla.com", "password", "/home", "/en/home")]
+        [TestCase("elon@spacex.com", "drowssap", "/nothome", "/en/nothome")]
         public void ShouldReturnRedirectResultWithReturnUrl_WhenResultFromSignInWithPasswordIsSuccess(string email, 
             string password, 
-            bool rememberMe, 
             string returnUrl,
             string expectedUrl)
         {
@@ -189,8 +182,7 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             var loginModel = new LoginViewModel()
             {
                 Email = email,
-                Password = password,
-                RememberMe = rememberMe
+                Password = password
             };
             var user = new User()
             {
@@ -235,11 +227,10 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             Assert.AreEqual(expectedUrl, result.Url);
         }
 
-        [TestCase("elon@tesla.com", "password", true, null)]
-        [TestCase("elon@spacex.com", "drowssap", false, "")]
+        [TestCase("elon@tesla.com", "password", null)]
+        [TestCase("elon@spacex.com", "drowssap", "")]
         public void ShouldReturnRedirectResultWithDefaultUrl_WhenResultFromSignInWithPasswordIsSuccessAndReturnUrlIsNullOrEmpty(string email, 
             string password, 
-            bool rememberMe, 
             string returnUrl)
         {
             // Arrange
@@ -247,8 +238,7 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             var loginModel = new LoginViewModel()
             {
                 Email = email,
-                Password = password,
-                RememberMe = rememberMe
+                Password = password
             };
             var user = new User()
             {
@@ -293,10 +283,9 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             Assert.AreEqual(expectedUrl, result.Url);
         }
 
-        [TestCase("elon@tesla.com", "password", true, "home")]
+        [TestCase("elon@tesla.com", "password", "home")]
         public void ShouldReturnViewResultWithLockoutName_WhenResultFromSignInWithPasswordIsLockout(string email,
             string password,
-            bool rememberMe,
             string returnUrl)
         {
             // Arrange
@@ -304,8 +293,7 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             var loginModel = new LoginViewModel()
             {
                 Email = email,
-                Password = password,
-                RememberMe = rememberMe
+                Password = password
             };
             var user = new User()
             {
@@ -350,18 +338,16 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             Assert.AreEqual(expectedLockOutName, result.ViewName);
         }
 
-        [TestCase("elon@tesla.com", "password", true, "home")]
+        [TestCase("elon@tesla.com", "password", "home")]
         public void ShouldAddModelError_WhenResultFromSignInWithPasswordIsFailure(string email,
             string password,
-            bool rememberMe,
             string returnUrl)
         {
             // Arrange
             var loginModel = new LoginViewModel()
             {
                 Email = email,
-                Password = password,
-                RememberMe = rememberMe
+                Password = password
             };
             var user = new User()
             {
@@ -403,18 +389,16 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             Assert.IsFalse(accountController.ModelState.IsValid);
         }
 
-        [TestCase("elon@tesla.com", "password", true, "home")]
+        [TestCase("elon@tesla.com", "password", "home")]
         public void ShouldReturnViewResultWithModel_WhenResultFromSignInWithPasswordIsFailure(string email,
            string password,
-           bool rememberMe,
            string returnUrl)
         {
             // Arrange
             var loginModel = new LoginViewModel()
             {
                 Email = email,
-                Password = password,
-                RememberMe = rememberMe
+                Password = password
             };
             var user = new User()
             {
