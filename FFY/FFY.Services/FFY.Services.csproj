@@ -48,8 +48,10 @@
     <Compile Include="AddressesService.cs" />
     <Compile Include="Assembly\IServicesAssembly.cs" />
     <Compile Include="CategoriesService.cs" />
+    <Compile Include="ChatUsersService.cs" />
     <Compile Include="ContactsService.cs" />
-    <Compile Include="Contracts\CartProductsService.cs" />
+    <Compile Include="Contracts\IChatUsersService.cs" />
+    <Compile Include="CartProductsService.cs" />
     <Compile Include="Contracts\IAddressesService.cs" />
     <Compile Include="Contracts\ICartProductsService.cs" />
     <Compile Include="Contracts\ICategoriesService.cs" />

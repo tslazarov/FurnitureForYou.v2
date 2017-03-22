@@ -59,7 +59,7 @@ namespace FFY.UnitTests.Services.UsersServiceTests
         }
 
         [Test]
-        public void ShouldThrowArgumentNullExceptionWithCorrectMessage_WhenNullUserEmailIsPassed()
+        public void ShouldThrowArgumentNullExceptionWithCorrectMessage_WhenNullUserIdIsPassed()
         {
             // Arrange
             string id = null;

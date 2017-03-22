@@ -70,6 +70,7 @@
     <Compile Include="EfRepository.cs" />
     <Compile Include="Factories\ICartProductFactory.cs" />
     <Compile Include="Factories\ICategoryFactory.cs" />
+    <Compile Include="Factories\IChatUserFactory.cs" />
     <Compile Include="Factories\IContactFactory.cs" />
     <Compile Include="Factories\IProductFactory.cs" />
     <Compile Include="Factories\IRoomFactory.cs" />

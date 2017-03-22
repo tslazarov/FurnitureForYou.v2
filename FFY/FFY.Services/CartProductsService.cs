@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 using FFY.Models;
 using FFY.Data.Contracts;
 using Bytes2you.Validation;
+using FFY.Services.Contracts;
 
-namespace FFY.Services.Contracts
+namespace FFY.Services
 {
     public class CartProductsService : ICartProductsService
     {

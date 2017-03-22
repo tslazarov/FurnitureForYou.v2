@@ -9,6 +9,16 @@ namespace FFY.Models
 {
     public class ChatUser
     {
+        public ChatUser()
+        {
+
+        }
+        public ChatUser(string email, string role) : this()
+        {
+            this.Email = email;
+            this.Role = role;
+        }
+
         [Key]
         public int Id { get; set; }
 

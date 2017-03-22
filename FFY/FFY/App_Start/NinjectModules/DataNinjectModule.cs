@@ -28,6 +28,7 @@ namespace FFY.Web.App_Start.NinjectModules
             this.Bind<IRoomFactory>().ToFactory();
             this.Bind<ICategoryFactory>().ToFactory();
             this.Bind<ICartProductFactory>().ToFactory();
+            this.Bind<IChatUserFactory>().ToFactory();
         }
     }
 }
