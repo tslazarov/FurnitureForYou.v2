@@ -25,6 +25,8 @@ namespace FFY.Data.Contracts
 
         IEfRepository<User> UsersRepository { get; }
 
+        IEfRepository<ChatUser> ChatUsersRepository { get; }
+
         IDeletableEfRepository<Product> ProductsRepository { get; }
 
         void SaveChanges();

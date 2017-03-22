@@ -15,6 +15,7 @@ namespace FFY.Data
         private readonly IEfRepository<ShoppingCart> shoppingCartsRepository;
         private readonly IEfRepository<CartProduct> cartProductsRepository;
         private readonly IEfRepository<User> usersRepository;
+        private readonly IEfRepository<ChatUser> chatUsersRepository;
         private readonly IDeletableEfRepository<Product> productsRepository;
 
         public FFYData(IFFYDbContext dbContext,
@@ -26,6 +27,7 @@ namespace FFY.Data
             IEfRepository<ShoppingCart> shoppingCartsRepository,
             IEfRepository<CartProduct> cartProductsRepository,
             IEfRepository<User> usersRepository,
+            IEfRepository<ChatUser> chatUsersRepository,
             IDeletableEfRepository<Product> productsRepository)
         {
             Guard.WhenArgument<IFFYDbContext>(dbContext, "Database context cannot be null.")
@@ -64,6 +66,10 @@ namespace FFY.Data
                 .IsNull()
                 .Throw();
 
+            Guard.WhenArgument<IEfRepository<ChatUser>>(chatUsersRepository, "Chat users repository cannot be null.")
+                .IsNull()
+                .Throw();
+
             Guard.WhenArgument<IDeletableEfRepository<Product>>(productsRepository, "Products repository cannot be null.")
                 .IsNull()
                 .Throw();
@@ -77,6 +83,7 @@ namespace FFY.Data
             this.shoppingCartsRepository = shoppingCartsRepository;
             this.cartProductsRepository = cartProductsRepository;
             this.usersRepository = usersRepository;
+            this.chatUsersRepository = chatUsersRepository;
             this.productsRepository = productsRepository;
         }
 
@@ -141,6 +148,14 @@ namespace FFY.Data
             get
             {
                 return this.usersRepository;
+            }
+        }
+
+        public IEfRepository<ChatUser> ChatUsersRepository
+        {
+            get
+            {
+                return this.chatUsersRepository;
             }
         }
 

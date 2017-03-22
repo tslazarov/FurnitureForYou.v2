@@ -22,6 +22,8 @@ namespace FFY.Data.Contracts
 
         IDbSet<Room> Rooms { get; set; }
 
+        IDbSet<ChatUser> ChatUsers { get; set; }
+
         IDbSet<T> Set<T>() where T : class;
 
         DbEntityEntry<T> Entry<T>(T entity) where T : class;

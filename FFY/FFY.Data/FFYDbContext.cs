@@ -28,6 +28,8 @@ namespace FFY.Data
 
         public virtual IDbSet<Room> Rooms { get; set; }
 
+        public virtual IDbSet<ChatUser> ChatUsers { get; set; }
+
         public static FFYDbContext Create()
         {
             return new FFYDbContext();

@@ -26,6 +26,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
             var mockedShoppingCartsRepository = new Mock<IEfRepository<ShoppingCart>>();
             var mockedCartProductsRepository = new Mock<IEfRepository<CartProduct>>();
             var mockedUsersRepository = new Mock<IEfRepository<User>>();
+            var mockedChatUsersRepository = new Mock<IEfRepository<ChatUser>>();
             var mockedProductsRepository = new Mock<IDeletableEfRepository<Product>>();
 
             // Act and Assert
@@ -39,6 +40,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
                     mockedShoppingCartsRepository.Object,
                     mockedCartProductsRepository.Object,
                     mockedUsersRepository.Object,
+                    mockedChatUsersRepository.Object,
                     mockedProductsRepository.Object
                 ));
         }
@@ -57,6 +59,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
             var mockedShoppingCartsRepository = new Mock<IEfRepository<ShoppingCart>>();
             var mockedCartProductsRepository = new Mock<IEfRepository<CartProduct>>();
             var mockedUsersRepository = new Mock<IEfRepository<User>>();
+            var mockedChatUsersRepository = new Mock<IEfRepository<ChatUser>>();
             var mockedProductsRepository = new Mock<IDeletableEfRepository<Product>>();
 
             // Act and Assert
@@ -70,6 +73,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
                         mockedShoppingCartsRepository.Object,
                         mockedCartProductsRepository.Object,
                         mockedUsersRepository.Object,
+                        mockedChatUsersRepository.Object,
                         mockedProductsRepository.Object
                     ));
             StringAssert.Contains(expectedExMessage, exception.Message);
@@ -87,6 +91,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
             var mockedShoppingCartsRepository = new Mock<IEfRepository<ShoppingCart>>();
             var mockedCartProductsRepository = new Mock<IEfRepository<CartProduct>>();
             var mockedUsersRepository = new Mock<IEfRepository<User>>();
+            var mockedChatUsersRepository = new Mock<IEfRepository<ChatUser>>();
             var mockedProductsRepository = new Mock<IDeletableEfRepository<Product>>();
 
             // Act and Assert
@@ -100,6 +105,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
                     mockedShoppingCartsRepository.Object,
                     mockedCartProductsRepository.Object,
                     mockedUsersRepository.Object,
+                    mockedChatUsersRepository.Object,
                     mockedProductsRepository.Object
                 ));
         }
@@ -118,6 +124,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
             var mockedShoppingCartsRepository = new Mock<IEfRepository<ShoppingCart>>();
             var mockedCartProductsRepository = new Mock<IEfRepository<CartProduct>>();
             var mockedUsersRepository = new Mock<IEfRepository<User>>();
+            var mockedChatUsersRepository = new Mock<IEfRepository<ChatUser>>();
             var mockedProductsRepository = new Mock<IDeletableEfRepository<Product>>();
 
             // Act and Assert
@@ -131,6 +138,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
                         mockedShoppingCartsRepository.Object,
                         mockedCartProductsRepository.Object,
                         mockedUsersRepository.Object,
+                        mockedChatUsersRepository.Object,
                         mockedProductsRepository.Object
                     ));
             StringAssert.Contains(expectedExMessage, exception.Message);
@@ -148,6 +156,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
             var mockedShoppingCartsRepository = new Mock<IEfRepository<ShoppingCart>>();
             var mockedCartProductsRepository = new Mock<IEfRepository<CartProduct>>();
             var mockedUsersRepository = new Mock<IEfRepository<User>>();
+            var mockedChatUsersRepository = new Mock<IEfRepository<ChatUser>>();
             var mockedProductsRepository = new Mock<IDeletableEfRepository<Product>>();
 
             // Act and Assert
@@ -161,6 +170,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
                     mockedShoppingCartsRepository.Object,
                     mockedCartProductsRepository.Object,
                     mockedUsersRepository.Object,
+                    mockedChatUsersRepository.Object,
                     mockedProductsRepository.Object
                 ));
         }
@@ -179,6 +189,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
             var mockedShoppingCartsRepository = new Mock<IEfRepository<ShoppingCart>>();
             var mockedCartProductsRepository = new Mock<IEfRepository<CartProduct>>();
             var mockedUsersRepository = new Mock<IEfRepository<User>>();
+            var mockedChatUsersRepository = new Mock<IEfRepository<ChatUser>>();
             var mockedProductsRepository = new Mock<IDeletableEfRepository<Product>>();
 
             // Act and Assert
@@ -192,6 +203,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
                         mockedShoppingCartsRepository.Object,
                         mockedCartProductsRepository.Object,
                         mockedUsersRepository.Object,
+                        mockedChatUsersRepository.Object,
                         mockedProductsRepository.Object
                     ));
             StringAssert.Contains(expectedExMessage, exception.Message);
@@ -209,6 +221,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
             var mockedShoppingCartsRepository = new Mock<IEfRepository<ShoppingCart>>();
             var mockedCartProductsRepository = new Mock<IEfRepository<CartProduct>>();
             var mockedUsersRepository = new Mock<IEfRepository<User>>();
+            var mockedChatUsersRepository = new Mock<IEfRepository<ChatUser>>();
             var mockedProductsRepository = new Mock<IDeletableEfRepository<Product>>();
 
             // Act and Assert
@@ -222,6 +235,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
                     mockedShoppingCartsRepository.Object,
                     mockedCartProductsRepository.Object,
                     mockedUsersRepository.Object,
+                    mockedChatUsersRepository.Object,
                     mockedProductsRepository.Object
                 ));
         }
@@ -240,6 +254,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
             var mockedShoppingCartsRepository = new Mock<IEfRepository<ShoppingCart>>();
             var mockedCartProductsRepository = new Mock<IEfRepository<CartProduct>>();
             var mockedUsersRepository = new Mock<IEfRepository<User>>();
+            var mockedChatUsersRepository = new Mock<IEfRepository<ChatUser>>();
             var mockedProductsRepository = new Mock<IDeletableEfRepository<Product>>();
 
             // Act and Assert
@@ -253,6 +268,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
                         mockedShoppingCartsRepository.Object,
                         mockedCartProductsRepository.Object,
                         mockedUsersRepository.Object,
+                        mockedChatUsersRepository.Object,
                         mockedProductsRepository.Object
                     ));
             StringAssert.Contains(expectedExMessage, exception.Message);
@@ -270,6 +286,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
             var mockedShoppingCartsRepository = new Mock<IEfRepository<ShoppingCart>>();
             var mockedCartProductsRepository = new Mock<IEfRepository<CartProduct>>();
             var mockedUsersRepository = new Mock<IEfRepository<User>>();
+            var mockedChatUsersRepository = new Mock<IEfRepository<ChatUser>>();
             var mockedProductsRepository = new Mock<IDeletableEfRepository<Product>>();
 
             // Act and Assert
@@ -283,6 +300,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
                     mockedShoppingCartsRepository.Object,
                     mockedCartProductsRepository.Object,
                     mockedUsersRepository.Object,
+                    mockedChatUsersRepository.Object,
                     mockedProductsRepository.Object
                 ));
         }
@@ -301,6 +319,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
             var mockedShoppingCartsRepository = new Mock<IEfRepository<ShoppingCart>>();
             var mockedCartProductsRepository = new Mock<IEfRepository<CartProduct>>();
             var mockedUsersRepository = new Mock<IEfRepository<User>>();
+            var mockedChatUsersRepository = new Mock<IEfRepository<ChatUser>>();
             var mockedProductsRepository = new Mock<IDeletableEfRepository<Product>>();
 
             // Act and Assert
@@ -314,6 +333,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
                         mockedShoppingCartsRepository.Object,
                         mockedCartProductsRepository.Object,
                         mockedUsersRepository.Object,
+                        mockedChatUsersRepository.Object,
                         mockedProductsRepository.Object
                     ));
             StringAssert.Contains(expectedExMessage, exception.Message);
@@ -331,6 +351,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
             var mockedShoppingCartsRepository = new Mock<IEfRepository<ShoppingCart>>();
             var mockedCartProductsRepository = new Mock<IEfRepository<CartProduct>>();
             var mockedUsersRepository = new Mock<IEfRepository<User>>();
+            var mockedChatUsersRepository = new Mock<IEfRepository<ChatUser>>();
             var mockedProductsRepository = new Mock<IDeletableEfRepository<Product>>();
 
             // Act and Assert
@@ -344,6 +365,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
                     mockedShoppingCartsRepository.Object,
                     mockedCartProductsRepository.Object,
                     mockedUsersRepository.Object,
+                    mockedChatUsersRepository.Object,
                     mockedProductsRepository.Object
                 ));
         }
@@ -362,6 +384,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
             var mockedShoppingCartsRepository = new Mock<IEfRepository<ShoppingCart>>();
             var mockedCartProductsRepository = new Mock<IEfRepository<CartProduct>>();
             var mockedUsersRepository = new Mock<IEfRepository<User>>();
+            var mockedChatUsersRepository = new Mock<IEfRepository<ChatUser>>();
             var mockedProductsRepository = new Mock<IDeletableEfRepository<Product>>();
 
             // Act and Assert
@@ -375,6 +398,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
                         mockedShoppingCartsRepository.Object,
                         mockedCartProductsRepository.Object,
                         mockedUsersRepository.Object,
+                        mockedChatUsersRepository.Object,
                         mockedProductsRepository.Object
                     ));
             StringAssert.Contains(expectedExMessage, exception.Message);
@@ -392,6 +416,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
             var mockedRoomsRepository = new Mock<IEfRepository<Room>>();
             var mockedCartProductsRepository = new Mock<IEfRepository<CartProduct>>();
             var mockedUsersRepository = new Mock<IEfRepository<User>>();
+            var mockedChatUsersRepository = new Mock<IEfRepository<ChatUser>>();
             var mockedProductsRepository = new Mock<IDeletableEfRepository<Product>>();
 
             // Act and Assert
@@ -405,6 +430,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
                     null,
                     mockedCartProductsRepository.Object,
                     mockedUsersRepository.Object,
+                    mockedChatUsersRepository.Object,
                     mockedProductsRepository.Object
                 ));
         }
@@ -423,6 +449,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
             var mockedRoomsRepository = new Mock<IEfRepository<Room>>();
             var mockedCartProductsRepository = new Mock<IEfRepository<CartProduct>>();
             var mockedUsersRepository = new Mock<IEfRepository<User>>();
+            var mockedChatUsersRepository = new Mock<IEfRepository<ChatUser>>();
             var mockedProductsRepository = new Mock<IDeletableEfRepository<Product>>();
 
             // Act and Assert
@@ -436,6 +463,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
                         null,
                         mockedCartProductsRepository.Object,
                         mockedUsersRepository.Object,
+                        mockedChatUsersRepository.Object,
                         mockedProductsRepository.Object
                     ));
             StringAssert.Contains(expectedExMessage, exception.Message);
@@ -453,6 +481,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
             var mockedRoomsRepository = new Mock<IEfRepository<Room>>();
             var mockedShoppingCartsRepository = new Mock<IEfRepository<ShoppingCart>>();
             var mockedUsersRepository = new Mock<IEfRepository<User>>();
+            var mockedChatUsersRepository = new Mock<IEfRepository<ChatUser>>();
             var mockedProductsRepository = new Mock<IDeletableEfRepository<Product>>();
 
             // Act and Assert
@@ -466,6 +495,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
                     mockedShoppingCartsRepository.Object,
                     null,
                     mockedUsersRepository.Object,
+                    mockedChatUsersRepository.Object,
                     mockedProductsRepository.Object
                 ));
         }
@@ -484,6 +514,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
             var mockedRoomsRepository = new Mock<IEfRepository<Room>>();
             var mockedShoppingCartsRepository = new Mock<IEfRepository<ShoppingCart>>();
             var mockedUsersRepository = new Mock<IEfRepository<User>>();
+            var mockedChatUsersRepository = new Mock<IEfRepository<ChatUser>>();
             var mockedProductsRepository = new Mock<IDeletableEfRepository<Product>>();
 
             // Act and Assert
@@ -497,6 +528,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
                         mockedShoppingCartsRepository.Object,
                         null,
                         mockedUsersRepository.Object,
+                        mockedChatUsersRepository.Object,
                         mockedProductsRepository.Object
                     ));
             StringAssert.Contains(expectedExMessage, exception.Message);
@@ -514,6 +546,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
             var mockedRoomsRepository = new Mock<IEfRepository<Room>>();
             var mockedShoppingCartsRepository = new Mock<IEfRepository<ShoppingCart>>();
             var mockedCartProductsRepository = new Mock<IEfRepository<CartProduct>>();
+            var mockedChatUsersRepository = new Mock<IEfRepository<ChatUser>>();
             var mockedProductsRepository = new Mock<IDeletableEfRepository<Product>>();
 
             // Act and Assert
@@ -527,6 +560,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
                     mockedShoppingCartsRepository.Object,
                     mockedCartProductsRepository.Object,
                     null,
+                    mockedChatUsersRepository.Object,
                     mockedProductsRepository.Object
                 ));
         }
@@ -545,6 +579,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
             var mockedRoomsRepository = new Mock<IEfRepository<Room>>();
             var mockedShoppingCartsRepository = new Mock<IEfRepository<ShoppingCart>>();
             var mockedCartProductsRepository = new Mock<IEfRepository<CartProduct>>();
+            var mockedChatUsersRepository = new Mock<IEfRepository<ChatUser>>();
             var mockedProductsRepository = new Mock<IDeletableEfRepository<Product>>();
 
             // Act and Assert
@@ -558,6 +593,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
                         mockedShoppingCartsRepository.Object,
                         mockedCartProductsRepository.Object,
                         null,
+                        mockedChatUsersRepository.Object,
                         mockedProductsRepository.Object
                     ));
             StringAssert.Contains(expectedExMessage, exception.Message);
@@ -575,6 +611,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
             var mockedShoppingCartsRepository = new Mock<IEfRepository<ShoppingCart>>();
             var mockedCartProductsRepository = new Mock<IEfRepository<CartProduct>>();
             var mockedUsersRepository = new Mock<IEfRepository<User>>();
+            var mockedChatUsersRepository = new Mock<IEfRepository<ChatUser>>();
 
             // Act and Assert
             Assert.Throws<ArgumentNullException>(() =>
@@ -587,6 +624,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
                     mockedShoppingCartsRepository.Object,
                     mockedCartProductsRepository.Object,
                     mockedUsersRepository.Object,
+                    mockedChatUsersRepository.Object,
                     null
                 ));
         }
@@ -606,6 +644,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
             var mockedShoppingCartsRepository = new Mock<IEfRepository<ShoppingCart>>();
             var mockedCartProductsRepository = new Mock<IEfRepository<CartProduct>>();
             var mockedUsersRepository = new Mock<IEfRepository<User>>();
+            var mockedChatUsersRepository = new Mock<IEfRepository<ChatUser>>();
 
             // Act and Assert
             var exception = Assert.Throws<ArgumentNullException>(() =>
@@ -618,8 +657,74 @@ namespace FFY.UnitTests.Data.FFYDataTests
                         mockedShoppingCartsRepository.Object,
                         mockedCartProductsRepository.Object,
                         mockedUsersRepository.Object,
+                        mockedChatUsersRepository.Object,
                         null
                     ));
+            StringAssert.Contains(expectedExMessage, exception.Message);
+        }
+
+        [Test]
+        public void ShouldThrowArgumentNullException_WhenNullChatUsersRepositoryIsPassed()
+        {
+            // Arrange
+            var mockedDbContext = new Mock<IFFYDbContext>();
+            var mockedAddressesRepository = new Mock<IEfRepository<Address>>();
+            var mockedCategoriesRepository = new Mock<IEfRepository<Category>>();
+            var mockedContactsRepository = new Mock<IEfRepository<Contact>>();
+            var mockedOrdersRepository = new Mock<IEfRepository<Order>>();
+            var mockedRoomsRepository = new Mock<IEfRepository<Room>>();
+            var mockedShoppingCartsRepository = new Mock<IEfRepository<ShoppingCart>>();
+            var mockedCartProductsRepository = new Mock<IEfRepository<CartProduct>>();
+            var mockedUsersRepository = new Mock<IEfRepository<User>>();
+            var mockedProductsRepository = new Mock<IDeletableEfRepository<Product>>();
+
+            // Act and Assert
+            Assert.Throws<ArgumentNullException>(() =>
+                new FFYData(mockedDbContext.Object,
+                    mockedAddressesRepository.Object,
+                    mockedCategoriesRepository.Object,
+                    mockedContactsRepository.Object,
+                    mockedOrdersRepository.Object,
+                    mockedRoomsRepository.Object,
+                    mockedShoppingCartsRepository.Object,
+                    mockedCartProductsRepository.Object,
+                    mockedUsersRepository.Object,
+                    null,
+                    mockedProductsRepository.Object
+                ));
+        }
+
+        [Test]
+        public void ShouldThrowArgumentNullExceptionWithCorrectMessage_WhenNullChatUsersRepositoryIsPassed()
+        {
+            // Arrange
+            var expectedExMessage = "Chat users repository cannot be null.";
+
+            var mockedDbContext = new Mock<IFFYDbContext>();
+            var mockedAddressesRepository = new Mock<IEfRepository<Address>>();
+            var mockedCategoriesRepository = new Mock<IEfRepository<Category>>();
+            var mockedContactsRepository = new Mock<IEfRepository<Contact>>();
+            var mockedOrdersRepository = new Mock<IEfRepository<Order>>();
+            var mockedRoomsRepository = new Mock<IEfRepository<Room>>();
+            var mockedShoppingCartsRepository = new Mock<IEfRepository<ShoppingCart>>();
+            var mockedCartProductsRepository = new Mock<IEfRepository<CartProduct>>();
+            var mockedUsersRepository = new Mock<IEfRepository<User>>();
+            var mockedProductsRepository = new Mock<IDeletableEfRepository<Product>>();
+
+            // Act and Assert
+            var exception = Assert.Throws<ArgumentNullException>(() =>
+                new FFYData(mockedDbContext.Object,
+                    mockedAddressesRepository.Object,
+                    mockedCategoriesRepository.Object,
+                    mockedContactsRepository.Object,
+                    mockedOrdersRepository.Object,
+                    mockedRoomsRepository.Object,
+                    mockedShoppingCartsRepository.Object,
+                    mockedCartProductsRepository.Object,
+                    mockedUsersRepository.Object,
+                    null,
+                    mockedProductsRepository.Object
+                ));
             StringAssert.Contains(expectedExMessage, exception.Message);
         }
 
@@ -636,6 +741,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
             var mockedShoppingCartsRepository = new Mock<IEfRepository<ShoppingCart>>();
             var mockedCartProductsRepository = new Mock<IEfRepository<CartProduct>>();
             var mockedUsersRepository = new Mock<IEfRepository<User>>();
+            var mockedChatUsersRepository = new Mock<IEfRepository<ChatUser>>();
             var mockedProductsRepository = new Mock<IDeletableEfRepository<Product>>();
 
             // Act and Assert
@@ -649,6 +755,7 @@ namespace FFY.UnitTests.Data.FFYDataTests
                     mockedShoppingCartsRepository.Object,
                     mockedCartProductsRepository.Object,
                     mockedUsersRepository.Object,
+                    mockedChatUsersRepository.Object,
                     mockedProductsRepository.Object
                 ));
         }
