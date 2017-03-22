@@ -48,7 +48,7 @@ namespace FFY.UnitTests.Services.ChatUsersServiceTests
             // Arrange
             var mockedChatUser = new Mock<ChatUser>();
             var mockedData = new Mock<IFFYData>();
-            mockedData.Setup(d => d.ChatUsersRepository.Delete(It.IsAny<ChatUser>()))
+            mockedData.Setup(d => d.ChatUsersRepository.ConnectionDelete(It.IsAny<ChatUser>()))
                 .Verifiable();
 
             var chatUsersService = new ChatUsersService(mockedData.Object);
@@ -58,26 +58,7 @@ namespace FFY.UnitTests.Services.ChatUsersServiceTests
 
             // Assert
             mockedData.Verify(d =>
-                d.ChatUsersRepository.Delete(mockedChatUser.Object), Times.Once);
-        }
-
-        [Test]
-        public void ShouldCallSaveChangesMethodOfData()
-        {
-            // Arrange
-            var mockedChatUser = new Mock<ChatUser>();
-            var mockedData = new Mock<IFFYData>();
-            mockedData.Setup(d => d.ChatUsersRepository.Add(It.IsAny<ChatUser>()));
-            mockedData.Setup(d => d.SaveChanges()).Verifiable();
-
-            var chatUsersService = new ChatUsersService(mockedData.Object);
-
-            // Act
-            chatUsersService.RemoveChatUser(mockedChatUser.Object);
-
-            // Assert
-            mockedData.Verify(d =>
-                d.SaveChanges(), Times.Once);
+                d.ChatUsersRepository.ConnectionDelete(mockedChatUser.Object), Times.Once);
         }
     }
 }

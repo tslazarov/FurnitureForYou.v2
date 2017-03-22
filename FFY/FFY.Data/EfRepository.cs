@@ -44,6 +44,13 @@ namespace FFY.Data
             entry.State = EntityState.Deleted;
         }
 
+        public void ConnectionDelete(T entity)
+        {
+            DbEntityEntry entry = this.AttachEntry(entity);
+            entry.State = EntityState.Deleted;
+            this.dbContext.SaveChanges();
+        }
+
         public void Update(T entity)
         {
             DbEntityEntry entry = this.AttachEntry(entity);

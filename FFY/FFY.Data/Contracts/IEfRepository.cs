@@ -15,5 +15,6 @@ namespace FFY.Data.Contracts
 
         void Delete(T entity);
 
+        void ConnectionDelete(T entity);
     }
 }

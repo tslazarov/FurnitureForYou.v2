@@ -11,6 +11,7 @@ namespace FFY.Web.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using NinjectModules;
+    using Microsoft.AspNet.SignalR;
 
     public static class NinjectWebCommon 
     {
@@ -46,6 +47,7 @@ namespace FFY.Web.App_Start
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
+                RegisterSignalr(kernel);
                 RegisterServices(kernel);
                 return kernel;
             }
@@ -54,6 +56,11 @@ namespace FFY.Web.App_Start
                 kernel.Dispose();
                 throw;
             }
+        }
+
+        private static void RegisterSignalr(IKernel kernel)
+        {
+            GlobalHost.DependencyResolver = new NinjectSignalRDependencyResolver(kernel);
         }
 
         /// <summary>

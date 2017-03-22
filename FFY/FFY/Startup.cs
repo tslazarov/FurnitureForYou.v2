@@ -1,5 +1,9 @@
-﻿using Microsoft.AspNet.SignalR;
+﻿using FFY.Services;
+using FFY.Web.App_Start;
+using FFY.Web.SupportChat;
+using Microsoft.AspNet.SignalR;
 using Microsoft.Owin;
+using Ninject;
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(FFY.Web.Startup))]

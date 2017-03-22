@@ -38,8 +38,9 @@ namespace FFY.Services
                 .IsNull()
                 .Throw();
 
-            this.data.ChatUsersRepository.Delete(user);
-            this.data.SaveChanges();
+            // Save changes is not called, since it is called 
+            // directly from the dbcontext in the method 
+            this.data.ChatUsersRepository.ConnectionDelete(user);
         }
 
         public ChatUser GetChatUserByEmail(string email)

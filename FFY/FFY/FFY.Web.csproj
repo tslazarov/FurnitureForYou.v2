@@ -238,6 +238,7 @@
     <Compile Include="App_Start\DbConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\NinjectModules\DataNinjectModule.cs" />
+    <Compile Include="App_Start\NinjectSignalRDependencyResolver .cs" />
     <Compile Include="App_Start\NinjectModules\ProvidersNinjectModule.cs" />
     <Compile Include="App_Start\NinjectModules\ServicesNinjectModule.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />

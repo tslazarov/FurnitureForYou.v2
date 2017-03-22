@@ -64,8 +64,7 @@ namespace FFY.Web.Controllers
 
                 this.contactsService.AddContact(contact);
 
-                // TODO: possible better handling later
-                return RedirectToAction("Index", "Home");
+                return this.View();
             }
 
             return this.View();
