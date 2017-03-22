@@ -17,10 +17,10 @@ namespace FFY.Web
                 name: "Default",
                 url: "{language}/{controller}/{action}/{id}",
                 defaults: new {
+                    language = "en",
                     controller = "Home",
                     action = "Index",
                     id = UrlParameter.Optional,
-                    language = "en"
                 }
             );
         }
