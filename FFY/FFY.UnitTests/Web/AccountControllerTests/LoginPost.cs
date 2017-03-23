@@ -33,17 +33,17 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             var routeData = new RouteData();
             routeData.Values.Add("language", "en");
 
-            var mockedContextProvider = new Mock<IHttpContextProvider>();
+            var mockedCachingProvider = new Mock<ICachingProvider>();
             var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
             mockedRouteDataProvider.Setup(rdp => rdp.GetRouteData(It.IsAny<Controller>()))
                 .Returns(routeData);
-            var mockedAuthenticationProvider = new Mock<IHttpContextAuthenticationProvider>();
+            var mockedAuthenticationProvider = new Mock<IAuthenticationProvider>();
             var mockedUserFactory = new Mock<IUserFactory>();
             var mockedShoppingCartFactory = new Mock<IShoppingCartFactory>();
             var mockedShoppingCartsService = new Mock<IShoppingCartsService>();
             var mockedUsersService = new Mock<IUsersService>();
 
-            var accountController = new AccountController(mockedContextProvider.Object,
+            var accountController = new AccountController(mockedCachingProvider.Object,
                 mockedRouteDataProvider.Object,
                 mockedAuthenticationProvider.Object,
                 mockedUserFactory.Object,
@@ -79,15 +79,14 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             var routeData = new RouteData();
             routeData.Values.Add("language", "en");
 
-            var mockedContextProvider = new Mock<IHttpContextProvider>();
-            mockedContextProvider.Setup(c => c.InsertInCache(It.IsAny<Controller>(),
-                It.IsAny<string>(),
+            var mockedCachingProvider = new Mock<ICachingProvider>();
+            mockedCachingProvider.Setup(c => c.InsertItem(It.IsAny<string>(),
                 It.IsAny<object>()));
             var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
             mockedRouteDataProvider.Setup(rdp => rdp.GetRouteData(It.IsAny<Controller>()))
                 .Returns(routeData)
                 .Verifiable();
-            var mockedAuthenticationProvider = new Mock<IHttpContextAuthenticationProvider>();
+            var mockedAuthenticationProvider = new Mock<IAuthenticationProvider>();
             mockedAuthenticationProvider.Setup(ap => ap.SignInWithPassword(It.IsAny<string>(),
                 It.IsAny<string>(),
                 It.IsAny<bool>(),
@@ -99,7 +98,7 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             mockedUsersService.Setup(us => us.GetUserByEmail(It.IsAny<string>()))
                 .Returns(user);
 
-            var accountController = new AccountController(mockedContextProvider.Object,
+            var accountController = new AccountController(mockedCachingProvider.Object,
                 mockedRouteDataProvider.Object,
                 mockedAuthenticationProvider.Object,
                 mockedUserFactory.Object,
@@ -135,14 +134,13 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             var routeData = new RouteData();
             routeData.Values.Add("language", "en");
 
-            var mockedContextProvider = new Mock<IHttpContextProvider>();
-            mockedContextProvider.Setup(c => c.InsertInCache(It.IsAny<Controller>(),
-                It.IsAny<string>(),
+            var mockedCachingProvider = new Mock<ICachingProvider>();
+            mockedCachingProvider.Setup(c => c.InsertItem(It.IsAny<string>(),
                 It.IsAny<object>()));
             var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
             mockedRouteDataProvider.Setup(rdp => rdp.GetRouteData(It.IsAny<Controller>()))
                 .Returns(routeData);
-            var mockedAuthenticationProvider = new Mock<IHttpContextAuthenticationProvider>();
+            var mockedAuthenticationProvider = new Mock<IAuthenticationProvider>();
             mockedAuthenticationProvider.Setup(ap => ap.SignInWithPassword(It.IsAny<string>(),
                 It.IsAny<string>(),
                 It.IsAny<bool>(),
@@ -155,7 +153,7 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             mockedUsersService.Setup(us => us.GetUserByEmail(It.IsAny<string>()))
                 .Returns(user);
 
-            var accountController = new AccountController(mockedContextProvider.Object,
+            var accountController = new AccountController(mockedCachingProvider.Object,
                 mockedRouteDataProvider.Object,
                 mockedAuthenticationProvider.Object,
                 mockedUserFactory.Object,
@@ -192,14 +190,13 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             var routeData = new RouteData();
             routeData.Values.Add("language", "en");
 
-            var mockedContextProvider = new Mock<IHttpContextProvider>();
-            mockedContextProvider.Setup(c => c.InsertInCache(It.IsAny<Controller>(),
-                It.IsAny<string>(),
+            var mockedCachingProvider = new Mock<ICachingProvider>();
+            mockedCachingProvider.Setup(c => c.InsertItem(It.IsAny<string>(),
                 It.IsAny<object>()));
             var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
             mockedRouteDataProvider.Setup(rdp => rdp.GetRouteData(It.IsAny<Controller>()))
                 .Returns(routeData);
-            var mockedAuthenticationProvider = new Mock<IHttpContextAuthenticationProvider>();
+            var mockedAuthenticationProvider = new Mock<IAuthenticationProvider>();
             mockedAuthenticationProvider.Setup(ap => ap.SignInWithPassword(It.IsAny<string>(),
                 It.IsAny<string>(),
                 It.IsAny<bool>(),
@@ -212,7 +209,7 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             mockedUsersService.Setup(us => us.GetUserByEmail(It.IsAny<string>()))
                 .Returns(user);
 
-            var accountController = new AccountController(mockedContextProvider.Object,
+            var accountController = new AccountController(mockedCachingProvider.Object,
                 mockedRouteDataProvider.Object,
                 mockedAuthenticationProvider.Object,
                 mockedUserFactory.Object,
@@ -248,14 +245,13 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             var routeData = new RouteData();
             routeData.Values.Add("language", "en");
 
-            var mockedContextProvider = new Mock<IHttpContextProvider>();
-            mockedContextProvider.Setup(c => c.InsertInCache(It.IsAny<Controller>(),
-                It.IsAny<string>(),
+            var mockedCachingProvider = new Mock<ICachingProvider>();
+            mockedCachingProvider.Setup(c => c.InsertItem(It.IsAny<string>(),
                 It.IsAny<object>()));
             var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
             mockedRouteDataProvider.Setup(rdp => rdp.GetRouteData(It.IsAny<Controller>()))
                 .Returns(routeData);
-            var mockedAuthenticationProvider = new Mock<IHttpContextAuthenticationProvider>();
+            var mockedAuthenticationProvider = new Mock<IAuthenticationProvider>();
             mockedAuthenticationProvider.Setup(ap => ap.SignInWithPassword(It.IsAny<string>(),
                 It.IsAny<string>(),
                 It.IsAny<bool>(),
@@ -268,7 +264,7 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             mockedUsersService.Setup(us => us.GetUserByEmail(It.IsAny<string>()))
                 .Returns(user);
 
-            var accountController = new AccountController(mockedContextProvider.Object,
+            var accountController = new AccountController(mockedCachingProvider.Object,
                 mockedRouteDataProvider.Object,
                 mockedAuthenticationProvider.Object,
                 mockedUserFactory.Object,
@@ -303,14 +299,13 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             var routeData = new RouteData();
             routeData.Values.Add("language", "en");
 
-            var mockedContextProvider = new Mock<IHttpContextProvider>();
-            mockedContextProvider.Setup(c => c.InsertInCache(It.IsAny<Controller>(),
-                It.IsAny<string>(),
+            var mockedCachingProvider = new Mock<ICachingProvider>();
+            mockedCachingProvider.Setup(c => c.InsertItem(It.IsAny<string>(),
                 It.IsAny<object>()));
             var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
             mockedRouteDataProvider.Setup(rdp => rdp.GetRouteData(It.IsAny<Controller>()))
                 .Returns(routeData);
-            var mockedAuthenticationProvider = new Mock<IHttpContextAuthenticationProvider>();
+            var mockedAuthenticationProvider = new Mock<IAuthenticationProvider>();
             mockedAuthenticationProvider.Setup(ap => ap.SignInWithPassword(It.IsAny<string>(),
                 It.IsAny<string>(),
                 It.IsAny<bool>(),
@@ -323,7 +318,7 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             mockedUsersService.Setup(us => us.GetUserByEmail(It.IsAny<string>()))
                 .Returns(user);
 
-            var accountController = new AccountController(mockedContextProvider.Object,
+            var accountController = new AccountController(mockedCachingProvider.Object,
                 mockedRouteDataProvider.Object,
                 mockedAuthenticationProvider.Object,
                 mockedUserFactory.Object,
@@ -357,11 +352,11 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             var routeData = new RouteData();
             routeData.Values.Add("language", "en");
 
-            var mockedContextProvider = new Mock<IHttpContextProvider>();
+            var mockedCachingProvider = new Mock<ICachingProvider>();
             var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
             mockedRouteDataProvider.Setup(rdp => rdp.GetRouteData(It.IsAny<Controller>()))
                 .Returns(routeData);
-            var mockedAuthenticationProvider = new Mock<IHttpContextAuthenticationProvider>();
+            var mockedAuthenticationProvider = new Mock<IAuthenticationProvider>();
             mockedAuthenticationProvider.Setup(ap => ap.SignInWithPassword(It.IsAny<string>(),
                 It.IsAny<string>(),
                 It.IsAny<bool>(),
@@ -374,7 +369,7 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             mockedUsersService.Setup(us => us.GetUserByEmail(It.IsAny<string>()))
                 .Returns(user);
 
-            var accountController = new AccountController(mockedContextProvider.Object,
+            var accountController = new AccountController(mockedCachingProvider.Object,
                 mockedRouteDataProvider.Object,
                 mockedAuthenticationProvider.Object,
                 mockedUserFactory.Object,
@@ -408,14 +403,13 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             var routeData = new RouteData();
             routeData.Values.Add("language", "en");
 
-            var mockedContextProvider = new Mock<IHttpContextProvider>();
-            mockedContextProvider.Setup(c => c.InsertInCache(It.IsAny<Controller>(),
-                It.IsAny<string>(),
+            var mockedCachingProvider = new Mock<ICachingProvider>();
+            mockedCachingProvider.Setup(c => c.InsertItem(It.IsAny<string>(),
                 It.IsAny<object>()));
             var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
             mockedRouteDataProvider.Setup(rdp => rdp.GetRouteData(It.IsAny<Controller>()))
                 .Returns(routeData);
-            var mockedAuthenticationProvider = new Mock<IHttpContextAuthenticationProvider>();
+            var mockedAuthenticationProvider = new Mock<IAuthenticationProvider>();
             mockedAuthenticationProvider.Setup(ap => ap.SignInWithPassword(It.IsAny<string>(),
                 It.IsAny<string>(),
                 It.IsAny<bool>(),
@@ -428,7 +422,7 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             mockedUsersService.Setup(us => us.GetUserByEmail(It.IsAny<string>()))
                 .Returns(user);
 
-            var accountController = new AccountController(mockedContextProvider.Object,
+            var accountController = new AccountController(mockedCachingProvider.Object,
                 mockedRouteDataProvider.Object,
                 mockedAuthenticationProvider.Object,
                 mockedUserFactory.Object,

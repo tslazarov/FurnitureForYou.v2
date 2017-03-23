@@ -19,9 +19,9 @@ namespace FFY.Web.Controllers
     [Localize]
     public class AccountController : Controller
     {
-        private readonly IHttpContextProvider contextProvider;
+        private readonly ICachingProvider cachingProvider;
         private readonly IRouteDataProvider routeDataProvider;
-        private readonly IHttpContextAuthenticationProvider authenticationProvider;
+        private readonly IAuthenticationProvider authenticationProvider;
         private readonly IUserFactory userFactory;
         private readonly IShoppingCartFactory shoppingCartFactory;
         private readonly IShoppingCartsService shoppingCartsService;
@@ -31,15 +31,15 @@ namespace FFY.Web.Controllers
         {
         }
 
-        public AccountController(IHttpContextProvider contextProvider,
+        public AccountController(ICachingProvider cachingProvider,
             IRouteDataProvider routeDataProvider,
-            IHttpContextAuthenticationProvider authenticationProvider, 
+            IAuthenticationProvider authenticationProvider, 
             IUserFactory userFactory,
             IShoppingCartFactory shoppingCartFactory,
             IShoppingCartsService shoppingCartsService,
             IUsersService usersService)
         {
-            Guard.WhenArgument<IHttpContextProvider>(contextProvider, "Context provider cannot be null.")
+            Guard.WhenArgument<ICachingProvider>(cachingProvider, "Caching provider cannot be null.")
                 .IsNull()
                 .Throw();
 
@@ -47,7 +47,7 @@ namespace FFY.Web.Controllers
                 .IsNull()
                 .Throw();
 
-            Guard.WhenArgument<IHttpContextAuthenticationProvider>(authenticationProvider, "Authentication provider cannot be null.")
+            Guard.WhenArgument<IAuthenticationProvider>(authenticationProvider, "Authentication provider cannot be null.")
                 .IsNull()
                 .Throw();
 
@@ -67,7 +67,7 @@ namespace FFY.Web.Controllers
                 .IsNull()
                 .Throw();
 
-            this.contextProvider = contextProvider;
+            this.cachingProvider = cachingProvider;
             this.routeDataProvider = routeDataProvider;
             this.authenticationProvider = authenticationProvider;
             this.userFactory = userFactory;
@@ -107,8 +107,8 @@ namespace FFY.Web.Controllers
                 case SignInStatus.Success:
                     var user = this.usersService.GetUserByEmail(model.Email);
 
-                    this.contextProvider.InsertInCache(this, $"favorites-count-{user.Id}", user.FavoritedProducts.Count);
-                    this.contextProvider.InsertInCache(this, $"cart-count-{user.Id}", user.ShoppingCart.CartProducts.Where(p => p.IsInCart).Count());
+                    this.cachingProvider.InsertItem($"favorites-count-{user.Id}", user.FavoritedProducts.Count);
+                    this.cachingProvider.InsertItem($"cart-count-{user.Id}", user.ShoppingCart.CartProducts.Where(p => p.IsInCart).Count());
 
                     return this.Redirect(returnUrl);
                 case SignInStatus.LockedOut:

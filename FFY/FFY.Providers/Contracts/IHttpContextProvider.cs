@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.Owin;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
@@ -11,8 +13,12 @@ namespace FFY.Providers.Contracts
 {
     public interface IHttpContextProvider
     {
-        HttpContextBase GetHttpContext(Controller controller);
+        HttpContext CurrentHttpContext { get; }
 
-        void InsertInCache(Controller controller, string key, object value);
+        IIdentity CurrentIdentity { get; }
+
+        IOwinContext CurrentOwinContext { get; }
+
+        Cache CurrentCache { get; }
     }
 }

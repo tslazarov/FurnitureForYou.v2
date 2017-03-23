@@ -16,15 +16,21 @@ namespace FFY.Web.Areas.Profile.Controllers
     [Authorize]
     public class ShoppingCartController : Controller
     {
-        private readonly IHttpContextProvider contextProvider;
+        private readonly IAuthenticationProvider authenticationProvider;
+        private readonly ICachingProvider cachingProvider;
         private readonly IShoppingCartsService shoppingCartsService;
         private readonly ICartProductsService cartProductsService;
 
-        public ShoppingCartController(IHttpContextProvider contextProvider,
+        public ShoppingCartController(IAuthenticationProvider authenticationProvider,
+            ICachingProvider cachingProvider,
             IShoppingCartsService shoppingCartsService,
             ICartProductsService cartProductsService)
         {
-            Guard.WhenArgument<IHttpContextProvider>(contextProvider, "Context provider cannot be null")
+            Guard.WhenArgument<IAuthenticationProvider>(authenticationProvider, "Authentication provider cannot be null")
+                .IsNull()
+                .Throw();
+
+            Guard.WhenArgument<ICachingProvider>(cachingProvider, "Caching provider cannot be null")
                 .IsNull()
                 .Throw();
 
@@ -36,7 +42,8 @@ namespace FFY.Web.Areas.Profile.Controllers
                 .IsNull()
                 .Throw();
 
-            this.contextProvider = contextProvider;
+            this.authenticationProvider = authenticationProvider;
+            this.cachingProvider = cachingProvider;
             this.shoppingCartsService = shoppingCartsService;
             this.cartProductsService = cartProductsService;
         }
@@ -44,7 +51,7 @@ namespace FFY.Web.Areas.Profile.Controllers
         // GET: Profile/ShoppingCart
         public ViewResult Index(ShoppingCartViewModel model)
         {
-            var cartId = this.User.Identity.GetUserId();
+            var cartId = this.authenticationProvider.CurrentUserId;
 
             model.ShoppingCart = this.shoppingCartsService.GetShoppingCartById(cartId);
 
@@ -60,7 +67,7 @@ namespace FFY.Web.Areas.Profile.Controllers
 
             this.shoppingCartsService.Remove(shoppingCart, cartProduct);
 
-            this.contextProvider.InsertInCache(this, $"cart-count-{cartId}", shoppingCart.CartProducts.Where(p => p.IsInCart).Count());
+            this.cachingProvider.InsertItem($"cart-count-{cartId}", shoppingCart.CartProducts.Where(p => p.IsInCart).Count());
 
             return this.RedirectToAction("index", "shoppingCart");
         }
@@ -68,6 +75,15 @@ namespace FFY.Web.Areas.Profile.Controllers
         // GET: Profile/ShoppingCart/Order
         public ViewResult Order()
         {
+            return this.View();
+        }
+
+        // POST: Profile/ShoppingCart/Order
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Order(OrderViewModel model)
+        {
+            var test = model;
             return this.View();
         }
     }

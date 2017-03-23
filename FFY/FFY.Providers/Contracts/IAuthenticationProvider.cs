@@ -9,9 +9,11 @@ using System.Threading.Tasks;
 
 namespace FFY.Providers.Contracts
 {
-    public interface IHttpContextAuthenticationProvider
+    public interface IAuthenticationProvider
     {
         bool IsAuthenticated { get; }
+
+        string CurrentUserId { get; }
 
         IdentityResult CreateUser(User user, string password);
 

@@ -12,11 +12,11 @@ namespace FFY.UnitTests.Web.AccountControllerTests
     public class Constructor
     {
         [Test]
-        public void ShouldThrowArgumentNullException_WhenNullContextProviderIsPassed()
+        public void ShouldThrowArgumentNullException_WhenNullCachingProviderIsPassed()
         {
             // Arrange
             var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
-            var mockedAuthenticationProvider = new Mock<IHttpContextAuthenticationProvider>();
+            var mockedAuthenticationProvider = new Mock<IAuthenticationProvider>();
             var mockedUserFactory = new Mock<IUserFactory>();
             var mockedShoppingCartFactory = new Mock<IShoppingCartFactory>();
             var mockedShoppingCartsService = new Mock<IShoppingCartsService>();
@@ -34,13 +34,13 @@ namespace FFY.UnitTests.Web.AccountControllerTests
         }
 
         [Test]
-        public void ShouldThrowArgumentNullExceptionWithCorrectMessage_WhenNullContextProviderIsPassed()
+        public void ShouldThrowArgumentNullExceptionWithCorrectMessage_WhenNullCachingProviderIsPassed()
         {
             // Arrange
-            var expectedExMessage = "Context provider cannot be null.";
+            var expectedExMessage = "Caching provider cannot be null.";
 
             var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
-            var mockedAuthenticationProvider = new Mock<IHttpContextAuthenticationProvider>();
+            var mockedAuthenticationProvider = new Mock<IAuthenticationProvider>();
             var mockedUserFactory = new Mock<IUserFactory>();
             var mockedShoppingCartFactory = new Mock<IShoppingCartFactory>();
             var mockedShoppingCartsService = new Mock<IShoppingCartsService>();
@@ -62,8 +62,8 @@ namespace FFY.UnitTests.Web.AccountControllerTests
         public void ShouldThrowArgumentNullException_WhenNullRouteDataProviderIsPassed()
         {
             // Arrange
-            var mockedContextProvider = new Mock<IHttpContextProvider>();
-            var mockedAuthenticationProvider = new Mock<IHttpContextAuthenticationProvider>();
+            var mockedCachingProvider = new Mock<ICachingProvider>();
+            var mockedAuthenticationProvider = new Mock<IAuthenticationProvider>();
             var mockedUserFactory = new Mock<IUserFactory>();
             var mockedShoppingCartFactory = new Mock<IShoppingCartFactory>();
             var mockedShoppingCartsService = new Mock<IShoppingCartsService>();
@@ -71,7 +71,7 @@ namespace FFY.UnitTests.Web.AccountControllerTests
 
             // Act and Assert
             Assert.Throws<ArgumentNullException>(() =>
-                new AccountController(mockedContextProvider.Object,
+                new AccountController(mockedCachingProvider.Object,
                     null,
                     mockedAuthenticationProvider.Object,
                     mockedUserFactory.Object,
@@ -86,8 +86,8 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             // Arrange
             var expectedExMessage = "Route data provider cannot be null.";
 
-            var mockedContextProvider = new Mock<IHttpContextProvider>();
-            var mockedAuthenticationProvider = new Mock<IHttpContextAuthenticationProvider>();
+            var mockedCachingProvider = new Mock<ICachingProvider>();
+            var mockedAuthenticationProvider = new Mock<IAuthenticationProvider>();
             var mockedUserFactory = new Mock<IUserFactory>();
             var mockedShoppingCartFactory = new Mock<IShoppingCartFactory>();
             var mockedShoppingCartsService = new Mock<IShoppingCartsService>();
@@ -95,7 +95,7 @@ namespace FFY.UnitTests.Web.AccountControllerTests
 
             // Act and Assert
             var exception = Assert.Throws<ArgumentNullException>(() =>
-                new AccountController(mockedContextProvider.Object,
+                new AccountController(mockedCachingProvider.Object,
                     null,
                     mockedAuthenticationProvider.Object,
                     mockedUserFactory.Object,
@@ -109,7 +109,7 @@ namespace FFY.UnitTests.Web.AccountControllerTests
         public void ShouldThrowArgumentNullException_WhenNullAuthenticationProviderIsPassed()
         {
             // Arrange
-            var mockedContextProvider = new Mock<IHttpContextProvider>();
+            var mockedCachingProvider = new Mock<ICachingProvider>();
             var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
             var mockedUserFactory = new Mock<IUserFactory>();
             var mockedShoppingCartFactory = new Mock<IShoppingCartFactory>();
@@ -118,7 +118,7 @@ namespace FFY.UnitTests.Web.AccountControllerTests
 
             // Act and Assert
             Assert.Throws<ArgumentNullException>(() =>
-                new AccountController(mockedContextProvider.Object,
+                new AccountController(mockedCachingProvider.Object,
                     mockedRouteDataProvider.Object,
                     null,
                     mockedUserFactory.Object,
@@ -133,7 +133,7 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             // Arrange
             var expectedExMessage = "Authentication provider cannot be null.";
 
-            var mockedContextProvider = new Mock<IHttpContextProvider>();
+            var mockedCachingProvider = new Mock<ICachingProvider>();
             var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
             var mockedUserFactory = new Mock<IUserFactory>();
             var mockedShoppingCartFactory = new Mock<IShoppingCartFactory>();
@@ -142,7 +142,7 @@ namespace FFY.UnitTests.Web.AccountControllerTests
 
             // Act and Assert
             var exception = Assert.Throws<ArgumentNullException>(() =>
-                new AccountController(mockedContextProvider.Object,
+                new AccountController(mockedCachingProvider.Object,
                     mockedRouteDataProvider.Object,
                     null,
                     mockedUserFactory.Object,
@@ -156,16 +156,16 @@ namespace FFY.UnitTests.Web.AccountControllerTests
         public void ShouldThrowArgumentNullException_WhenNullUserFactoryIsPassed()
         {
             // Arrange
-            var mockedContextProvider = new Mock<IHttpContextProvider>();
+            var mockedCachingProvider = new Mock<ICachingProvider>();
             var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
-            var mockedAuthenticationProvider = new Mock<IHttpContextAuthenticationProvider>();
+            var mockedAuthenticationProvider = new Mock<IAuthenticationProvider>();
             var mockedShoppingCartFactory = new Mock<IShoppingCartFactory>();
             var mockedShoppingCartsService = new Mock<IShoppingCartsService>();
             var mockedUsersService = new Mock<IUsersService>();
 
             // Act and Assert
             Assert.Throws<ArgumentNullException>(() =>
-                new AccountController(mockedContextProvider.Object,
+                new AccountController(mockedCachingProvider.Object,
                     mockedRouteDataProvider.Object,
                     mockedAuthenticationProvider.Object,
                     null,
@@ -180,16 +180,16 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             // Arrange
             var expectedExMessage = "User factory cannot be null.";
 
-            var mockedContextProvider = new Mock<IHttpContextProvider>();
+            var mockedCachingProvider = new Mock<ICachingProvider>();
             var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
-            var mockedAuthenticationProvider = new Mock<IHttpContextAuthenticationProvider>();
+            var mockedAuthenticationProvider = new Mock<IAuthenticationProvider>();
             var mockedShoppingCartFactory = new Mock<IShoppingCartFactory>();
             var mockedShoppingCartsService = new Mock<IShoppingCartsService>();
             var mockedUsersService = new Mock<IUsersService>();
 
             // Act and Assert
             var exception = Assert.Throws<ArgumentNullException>(() =>
-                new AccountController(mockedContextProvider.Object,
+                new AccountController(mockedCachingProvider.Object,
                     mockedRouteDataProvider.Object,
                     mockedAuthenticationProvider.Object,
                     null,
@@ -203,16 +203,16 @@ namespace FFY.UnitTests.Web.AccountControllerTests
         public void ShouldThrowArgumentNullException_WhenNullShoppingCartFactoryIsPassed()
         {
             // Arrange
-            var mockedContextProvider = new Mock<IHttpContextProvider>();
+            var mockedCachingProvider = new Mock<ICachingProvider>();
             var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
-            var mockedAuthenticationProvider = new Mock<IHttpContextAuthenticationProvider>();
+            var mockedAuthenticationProvider = new Mock<IAuthenticationProvider>();
             var mockedUserFactory = new Mock<IUserFactory>();
             var mockedShoppingCartsService = new Mock<IShoppingCartsService>();
             var mockedUsersService = new Mock<IUsersService>();
 
             // Act and Assert
             Assert.Throws<ArgumentNullException>(() =>
-                new AccountController(mockedContextProvider.Object,
+                new AccountController(mockedCachingProvider.Object,
                     mockedRouteDataProvider.Object,
                     mockedAuthenticationProvider.Object,
                     mockedUserFactory.Object,
@@ -227,16 +227,16 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             // Arrange
             var expectedExMessage = "Shopping cart factory cannot be null.";
 
-            var mockedContextProvider = new Mock<IHttpContextProvider>();
+            var mockedCachingProvider = new Mock<ICachingProvider>();
             var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
-            var mockedAuthenticationProvider = new Mock<IHttpContextAuthenticationProvider>();
+            var mockedAuthenticationProvider = new Mock<IAuthenticationProvider>();
             var mockedUserFactory = new Mock<IUserFactory>();
             var mockedShoppingCartsService = new Mock<IShoppingCartsService>();
             var mockedUsersService = new Mock<IUsersService>();
 
             // Act and Assert
             var exception = Assert.Throws<ArgumentNullException>(() =>
-                new AccountController(mockedContextProvider.Object,
+                new AccountController(mockedCachingProvider.Object,
                     mockedRouteDataProvider.Object,
                     mockedAuthenticationProvider.Object,
                     mockedUserFactory.Object,
@@ -250,16 +250,16 @@ namespace FFY.UnitTests.Web.AccountControllerTests
         public void ShouldThrowArgumentNullException_WhenNullShoppingCartsServiceIsPassed()
         {
             // Arrange
-            var mockedContextProvider = new Mock<IHttpContextProvider>();
+            var mockedCachingProvider = new Mock<ICachingProvider>();
             var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
-            var mockedAuthenticationProvider = new Mock<IHttpContextAuthenticationProvider>();
+            var mockedAuthenticationProvider = new Mock<IAuthenticationProvider>();
             var mockedUserFactory = new Mock<IUserFactory>();
             var mockedShoppingCartFactory = new Mock<IShoppingCartFactory>();
             var mockedUsersService = new Mock<IUsersService>();
 
             // Act and Assert
             Assert.Throws<ArgumentNullException>(() =>
-                new AccountController(mockedContextProvider.Object,
+                new AccountController(mockedCachingProvider.Object,
                     mockedRouteDataProvider.Object,
                     mockedAuthenticationProvider.Object,
                     mockedUserFactory.Object,
@@ -274,16 +274,16 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             // Arrange
             var expectedExMessage = "Shopping carts service cannot be null.";
 
-            var mockedContextProvider = new Mock<IHttpContextProvider>();
+            var mockedCachingProvider = new Mock<ICachingProvider>();
             var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
-            var mockedAuthenticationProvider = new Mock<IHttpContextAuthenticationProvider>();
+            var mockedAuthenticationProvider = new Mock<IAuthenticationProvider>();
             var mockedUserFactory = new Mock<IUserFactory>();
             var mockedShoppingCartFactory = new Mock<IShoppingCartFactory>();
             var mockedUsersService = new Mock<IUsersService>();
 
             // Act and Assert
             var exception = Assert.Throws<ArgumentNullException>(() =>
-                new AccountController(mockedContextProvider.Object,
+                new AccountController(mockedCachingProvider.Object,
                     mockedRouteDataProvider.Object,
                     mockedAuthenticationProvider.Object,
                     mockedUserFactory.Object,
@@ -297,16 +297,16 @@ namespace FFY.UnitTests.Web.AccountControllerTests
         public void ShouldThrowArgumentNullException_WhenNullUsersServiceIsPassed()
         {
             // Arrange
-            var mockedContextProvider = new Mock<IHttpContextProvider>();
+            var mockedCachingProvider = new Mock<ICachingProvider>();
             var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
-            var mockedAuthenticationProvider = new Mock<IHttpContextAuthenticationProvider>();
+            var mockedAuthenticationProvider = new Mock<IAuthenticationProvider>();
             var mockedUserFactory = new Mock<IUserFactory>();
             var mockedShoppingCartFactory = new Mock<IShoppingCartFactory>();
             var mockedShoppingCartsService = new Mock<IShoppingCartsService>();
 
             // Act and Assert
             Assert.Throws<ArgumentNullException>(() =>
-                new AccountController(mockedContextProvider.Object,
+                new AccountController(mockedCachingProvider.Object,
                     mockedRouteDataProvider.Object,
                     mockedAuthenticationProvider.Object,
                     mockedUserFactory.Object,
@@ -321,16 +321,16 @@ namespace FFY.UnitTests.Web.AccountControllerTests
             // Arrange
             var expectedExMessage = "Users service cannot be null.";
 
-            var mockedContextProvider = new Mock<IHttpContextProvider>();
+            var mockedCachingProvider = new Mock<ICachingProvider>();
             var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
-            var mockedAuthenticationProvider = new Mock<IHttpContextAuthenticationProvider>();
+            var mockedAuthenticationProvider = new Mock<IAuthenticationProvider>();
             var mockedUserFactory = new Mock<IUserFactory>();
             var mockedShoppingCartFactory = new Mock<IShoppingCartFactory>();
             var mockedShoppingCartsService = new Mock<IShoppingCartsService>();
 
             // Act and Assert
             var exception = Assert.Throws<ArgumentNullException>(() =>
-                new AccountController(mockedContextProvider.Object,
+                new AccountController(mockedCachingProvider.Object,
                     mockedRouteDataProvider.Object,
                     mockedAuthenticationProvider.Object,
                     mockedUserFactory.Object,
@@ -344,9 +344,9 @@ namespace FFY.UnitTests.Web.AccountControllerTests
         public void ShouldNotThrow_WhenValidArgumentsArePassed()
         {
             // Arrange
-            var mockedContextProvider = new Mock<IHttpContextProvider>();
+            var mockedCachingProvider = new Mock<ICachingProvider>();
             var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
-            var mockedAuthenticationProvider = new Mock<IHttpContextAuthenticationProvider>();
+            var mockedAuthenticationProvider = new Mock<IAuthenticationProvider>();
             var mockedUserFactory = new Mock<IUserFactory>();
             var mockedShoppingCartFactory = new Mock<IShoppingCartFactory>();
             var mockedShoppingCartsService = new Mock<IShoppingCartsService>();
@@ -354,7 +354,7 @@ namespace FFY.UnitTests.Web.AccountControllerTests
 
             // Act and Assert
             Assert.DoesNotThrow(() =>
-                new AccountController(mockedContextProvider.Object,
+                new AccountController(mockedCachingProvider.Object,
                 mockedRouteDataProvider.Object,
                 mockedAuthenticationProvider.Object,
                 mockedUserFactory.Object,

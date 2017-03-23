@@ -33,7 +33,7 @@ namespace FFY.UnitTests.Web.ContactControllerTests
         public void ShouldThrowArgumentNullExceptionWithCorrectMessage_WhenNullDateTimeProviderIsPassed()
         {
             // Arrange
-            var expectedExMessage = "Date provider cannot be null.";
+            var expectedExMessage = "Date time provider cannot be null.";
 
             var mockedContactFactory = new Mock<IContactFactory>();
             var mockedContactsService = new Mock<IContactsService>();

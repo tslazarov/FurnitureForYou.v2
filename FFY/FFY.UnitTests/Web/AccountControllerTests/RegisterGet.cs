@@ -15,15 +15,15 @@ namespace FFY.UnitTests.Web.AccountControllerTests
         public void ShouldReturnViewResult()
         {
             // Arrange
-            var mockedContextProvider = new Mock<IHttpContextProvider>();
+            var mockedCachingProvider = new Mock<ICachingProvider>();
             var mockedRouteDataProvider = new Mock<IRouteDataProvider>();
-            var mockedAuthenticationProvider = new Mock<IHttpContextAuthenticationProvider>();
+            var mockedAuthenticationProvider = new Mock<IAuthenticationProvider>();
             var mockedUserFactory = new Mock<IUserFactory>();
             var mockedShoppingCartFactory = new Mock<IShoppingCartFactory>();
             var mockedShoppingCartsService = new Mock<IShoppingCartsService>();
             var mockedUsersService = new Mock<IUsersService>();
 
-            var accountController = new AccountController(mockedContextProvider.Object,
+            var accountController = new AccountController(mockedCachingProvider.Object,
                 mockedRouteDataProvider.Object,
                 mockedAuthenticationProvider.Object,
                 mockedUserFactory.Object,

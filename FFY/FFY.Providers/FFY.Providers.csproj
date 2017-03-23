@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bytes2you.Validation, Version=2.0.0.0, Culture=neutral, PublicKeyToken=a7d501dd757e0442, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bytes2you.Validation.2.0.0.0\lib\portable-win+net40+sl40+wp+Xbox40\Bytes2you.Validation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -119,14 +123,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assembly\IProvidersAssembly.cs" />
-    <Compile Include="Contracts\IHttpContextAuthenticationProvider.cs" />
+    <Compile Include="CachingProvider.cs" />
+    <Compile Include="Contracts\ICachingProvider.cs" />
+    <Compile Include="Contracts\IAuthenticationProvider.cs" />
     <Compile Include="Contracts\IHttpContextProvider.cs" />
     <Compile Include="Contracts\IRouteDataProvider.cs" />
     <Compile Include="HttpContextProvider.cs" />
     <Compile Include="RouteDataProvider.cs" />
     <Compile Include="DateTimeProvider.cs" />
     <Compile Include="Contracts\IDateTimeProvider.cs" />
-    <Compile Include="HttpContextAuthenticationProvider.cs" />
+    <Compile Include="AuthenticationProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

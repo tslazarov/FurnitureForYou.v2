@@ -16,15 +16,15 @@ namespace FFY.Web.Controllers
     [Localize]
     public class ContactController : Controller
     {
-        private readonly IDateTimeProvider dateProvider;
+        private readonly IDateTimeProvider dateTimeProvider;
         private readonly IContactFactory contactFactory;
         private readonly IContactsService contactsService;
 
-        public ContactController(IDateTimeProvider dateProvider,
+        public ContactController(IDateTimeProvider dateTimeProvider,
             IContactFactory contactFactory,
             IContactsService contactsService)
         {
-            Guard.WhenArgument<IDateTimeProvider>(dateProvider, "Date provider cannot be null.")
+            Guard.WhenArgument<IDateTimeProvider>(dateTimeProvider, "Date time provider cannot be null.")
                 .IsNull()
                 .Throw();
 
@@ -36,7 +36,7 @@ namespace FFY.Web.Controllers
                 .IsNull()
                 .Throw();
 
-            this.dateProvider = dateProvider;
+            this.dateTimeProvider = dateTimeProvider;
             this.contactFactory = contactFactory;
             this.contactsService = contactsService;
         }
@@ -52,7 +52,7 @@ namespace FFY.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index(ContactViewModel model)
         {
-            model.SendOn = this.dateProvider.GetCurrentTime();
+            model.SendOn = this.dateTimeProvider.GetCurrentTime();
             model.StatusType = ContactStatusType.NotProcessed;
 
             if (this.ModelState.IsValid)
