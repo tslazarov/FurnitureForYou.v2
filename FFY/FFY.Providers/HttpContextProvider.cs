@@ -1,4 +1,7 @@
-﻿using FFY.Providers.Contracts;
+﻿using FFY.IdentityConfig;
+using FFY.Providers.Contracts;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using System;
 using System.Collections.Generic;
@@ -30,6 +33,14 @@ namespace FFY.Providers
             }
         }
 
+        public Cache CurrentCache
+        {
+            get
+            {
+                return HttpContext.Current.Cache;
+            }
+        }
+
         public IOwinContext CurrentOwinContext
         {
             get
@@ -38,14 +49,9 @@ namespace FFY.Providers
             }
         }
 
-
-
-        public Cache CurrentCache
+        public TManager GetCurrentUserManager<TManager>()
         {
-            get
-            {
-                return HttpContext.Current.Cache;
-            }
+            return HttpContext.Current.GetOwinContext().GetUserManager<TManager>();
         }
     }
 }

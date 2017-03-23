@@ -79,6 +79,15 @@ namespace FFY.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Administrator.
+        /// </summary>
+        public static string Administrator {
+            get {
+                return ResourceManager.GetString("Administrator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Available.
         /// </summary>
         public static string Available {
@@ -138,6 +147,15 @@ namespace FFY.Web.Resources {
         public static string CategoryNameRequired {
             get {
                 return ResourceManager.GetString("CategoryNameRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change.
+        /// </summary>
+        public static string Change {
+            get {
+                return ResourceManager.GetString("Change", resourceCulture);
             }
         }
         
@@ -543,6 +561,15 @@ namespace FFY.Web.Resources {
         public static string Logout {
             get {
                 return ResourceManager.GetString("Logout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Moderator.
+        /// </summary>
+        public static string Moderator {
+            get {
+                return ResourceManager.GetString("Moderator", resourceCulture);
             }
         }
         
@@ -1033,7 +1060,7 @@ namespace FFY.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Support Management.
+        ///   Looks up a localized string similar to Support Chat.
         /// </summary>
         public static string SupportChat {
             get {
@@ -1083,6 +1110,15 @@ namespace FFY.Web.Resources {
         public static string Unavailable {
             get {
                 return ResourceManager.GetString("Unavailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User.
+        /// </summary>
+        public static string User {
+            get {
+                return ResourceManager.GetString("User", resourceCulture);
             }
         }
         

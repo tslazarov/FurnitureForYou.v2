@@ -238,6 +238,7 @@
     <Compile Include="App_Start\DbConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\NinjectModules\DataNinjectModule.cs" />
+    <Compile Include="App_Start\NinjectModules\ViewModelsNinjectModule.cs" />
     <Compile Include="App_Start\NinjectSignalRDependencyResolver .cs" />
     <Compile Include="App_Start\NinjectModules\ProvidersNinjectModule.cs" />
     <Compile Include="App_Start\NinjectModules\ServicesNinjectModule.cs" />
@@ -254,9 +255,12 @@
     <Compile Include="Areas\Administration\Models\ProductManagement\ProductAdditionViewModel.cs" />
     <Compile Include="Areas\Administration\Models\ProductManagement\ProductViewModel.cs" />
     <Compile Include="Areas\Administration\Models\SupportChat\SupportChatViewModel.cs" />
+    <Compile Include="Areas\Administration\Models\UserManagement\UserViewModel.cs" />
+    <Compile Include="Areas\Profile\Controllers\FavoritesController.cs" />
     <Compile Include="Areas\Profile\Controllers\InformationController.cs" />
     <Compile Include="Areas\Profile\Controllers\ShoppingCartController.cs" />
     <Compile Include="Areas\Profile\Controllers\SupportChatClientController.cs" />
+    <Compile Include="Areas\Profile\Models\FavoritesViewModel.cs" />
     <Compile Include="Areas\Profile\Models\OrderViewModel.cs" />
     <Compile Include="Areas\Profile\Models\ProfileViewModel.cs" />
     <Compile Include="Areas\Profile\Models\ShoppingCartViewModel.cs" />
@@ -321,6 +325,8 @@
     <Content Include="Areas\Profile\Views\ShoppingCart\Order.cshtml" />
     <Content Include="Areas\Profile\Views\ShoppingCart\OrderComplete.cshtml" />
     <Content Include="Areas\Profile\Views\Information\UserInformationPartial.cshtml" />
+    <Content Include="Areas\Profile\Views\Favorites\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\UserManagement\UserProfile.cshtml" />
     <None Include="Properties\PublishProfiles\furnitureforyou - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\furnitureforyou - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />

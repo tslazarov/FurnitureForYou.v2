@@ -1,0 +1,60 @@
+﻿@using FFY.Web.Areas.Administration.Models.UserManagement
+@using System.Collections
+@model UserViewModel
+
+
+<div class="row change-role-container">
+    @using (Html.BeginForm("updateStatus", "userManagement", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        <div class="col-md-offset-8 col-md-2">
+            @Html.HiddenFor(m => m.UserId)
+            @Html.DropDownListFor(m => m.Role, new List<SelectListItem>() {
+                new SelectListItem() { Text = FFY.Web.Resources.Language.User, Value = "User" },
+                new SelectListItem() { Text = FFY.Web.Resources.Language.Moderator, Value = "Moderator" },
+                new SelectListItem() { Text = FFY.Web.Resources.Language.Administrator, Value = "Administrator" }
+            }, new { @class="form-control" })
+        </div>
+        <div class="col-md-2">
+            <input type="submit" value="@FFY.Web.Resources.Language.Change" class="btn btn-primary btn-block" />
+        </div>
+    }
+</div>
+
+
+@Html.Partial("~/Areas/Profile/Views/Information/UserInformationPartial.cshtml", Model.ProfileModel)
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $(".order-show").click(function (e) {
+                var id = String(e.target.id);
+
+                var showId = id.substring(0, id.indexOf("-show"));
+
+                $(document.getElementById(showId + "-detailed")).slideDown();
+
+                $(document.getElementById(showId + "-show")).toggleClass("hidden");
+                $(document.getElementById(showId + "-hide")).toggleClass("hidden");
+
+                $(document.getElementById(showId + "-header")).addClass("order-header-color-shown");
+                $(document.getElementById(showId + "-header")).removeClass("order-header-color-hidden");
+            });
+
+            $(".order-hide").click(function (e) {
+                var id = String(e.target.id);
+
+                var hideId = id.substring(0, id.indexOf("-hide"));
+
+                $(document.getElementById(hideId + "-detailed")).slideUp();
+
+                $(document.getElementById(hideId + "-show")).toggleClass("hidden");
+                $(document.getElementById(hideId + "-hide")).toggleClass("hidden");
+
+                $(document.getElementById(hideId + "-header")).addClass("order-header-color-hidden");
+                $(document.getElementById(hideId + "-header")).removeClass("order-header-color-shown");
+            });
+        });
+    </script>
+}
+

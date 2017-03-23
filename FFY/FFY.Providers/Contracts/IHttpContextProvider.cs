@@ -1,4 +1,5 @@
-﻿using Microsoft.Owin;
+﻿using FFY.IdentityConfig;
+using Microsoft.Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,5 +21,8 @@ namespace FFY.Providers.Contracts
         IOwinContext CurrentOwinContext { get; }
 
         Cache CurrentCache { get; }
+
+        TManager GetCurrentUserManager<TManager>();
+
     }
 }

@@ -17,6 +17,12 @@ namespace FFY.Providers.Contracts
 
         IdentityResult CreateUser(User user, string password);
 
+        IList<string> GetUserRoles(string userId);
+
+        void ChangeUserRole(string userId, string role);
+
+        void UpdateSecurityStamp(string userId);
+
         void SignIn(User user, bool isPersistent, bool rememberBrowser);
 
         SignInStatus SignInWithPassword(string email, string password, bool rememberMe, bool shouldLockout);

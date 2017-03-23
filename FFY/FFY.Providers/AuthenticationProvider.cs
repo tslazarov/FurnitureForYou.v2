@@ -5,6 +5,9 @@ using Microsoft.AspNet.Identity.Owin;
 using FFY.Providers.Contracts;
 using FFY.IdentityConfig;
 using Bytes2you.Validation;
+using System.Collections;
+using System.Collections.Generic;
+using System.Web.Security;
 
 namespace FFY.Providers
 {
@@ -39,7 +42,7 @@ namespace FFY.Providers
 
         public IdentityResult CreateUser(User user, string password)
         {
-            var manager = this.httpContextProvider.CurrentOwinContext.GetUserManager<ApplicationUserManager>();
+            var manager = this.httpContextProvider.GetCurrentUserManager<ApplicationUserManager>();
 
             var result = manager.Create(user, password);
 
@@ -51,16 +54,38 @@ namespace FFY.Providers
             return result;
         }
 
+        public IList<string> GetUserRoles(string userId)
+        {
+            return this.httpContextProvider.GetCurrentUserManager<ApplicationUserManager>()
+                .GetRoles(userId);
+        }
+
+        public void ChangeUserRole(string userId, string role)
+        {
+            var manager = this.httpContextProvider.GetCurrentUserManager<ApplicationUserManager>();
+
+            manager.RemoveFromRoles(userId, "Administrator", "Moderator", "User");
+
+            manager.AddToRole(userId, role);
+        }
+
+        public void UpdateSecurityStamp(string userId)
+        {
+            var manager = this.httpContextProvider.GetCurrentUserManager<ApplicationUserManager>();
+
+            manager.UpdateSecurityStamp(userId);
+        }
+
         public void SignIn(User user, bool isPersistent, bool rememberBrowser)
         {
-            var manager = this.httpContextProvider.CurrentOwinContext.GetUserManager<ApplicationSignInManager>();
+            var manager = this.httpContextProvider.GetCurrentUserManager<ApplicationSignInManager>();
 
             manager.SignIn(user, isPersistent, rememberBrowser);
         }
 
         public SignInStatus SignInWithPassword(string email, string password, bool rememberMe, bool shouldLockout)
         {
-            var manager = this.httpContextProvider.CurrentOwinContext.GetUserManager<ApplicationSignInManager>();
+            var manager = this.httpContextProvider.GetCurrentUserManager<ApplicationSignInManager>();
 
             return manager.PasswordSignIn(email, password, rememberMe, shouldLockout);
         }

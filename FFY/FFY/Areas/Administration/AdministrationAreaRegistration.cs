@@ -15,6 +15,13 @@ namespace FFY.Web.Areas.Administration
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
+                "AdministrationUsers",
+                "{language}/administration/users/{id}",
+                new { controller = "UserManagement", action = "UserProfile", language = "en" }
+            );
+
+
+            context.MapRoute(
                 "AdministrationDefault",
                 "{language}/administration/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional, language = "en" }

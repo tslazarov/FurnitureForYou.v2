@@ -125,6 +125,10 @@
     <value>Administration</value>
     <comment>Navigation</comment>
   </data>
+  <data name="Administrator" xml:space="preserve">
+    <value>Administrator</value>
+    <comment>Roles</comment>
+  </data>
   <data name="Available" xml:space="preserve">
     <value>Available</value>
     <comment>ProductView</comment>
@@ -152,6 +156,10 @@
   <data name="CategoryNameRequired" xml:space="preserve">
     <value>Category name is required</value>
     <comment>CategoryViewModel</comment>
+  </data>
+  <data name="Change" xml:space="preserve">
+    <value>Change</value>
+    <comment>Roles</comment>
   </data>
   <data name="City" xml:space="preserve">
     <value>City</value>
@@ -332,6 +340,10 @@
   <data name="Logout" xml:space="preserve">
     <value>Logout</value>
     <comment>Navigation</comment>
+  </data>
+  <data name="Moderator" xml:space="preserve">
+    <value>Moderator</value>
+    <comment>Roles</comment>
   </data>
   <data name="OnDelivery" xml:space="preserve">
     <value>On delivery</value>
@@ -550,7 +562,7 @@
     <comment>SupportChatFrame</comment>
   </data>
   <data name="SupportChat" xml:space="preserve">
-    <value>Support Management</value>
+    <value>Support Chat</value>
     <comment>Navigation</comment>
   </data>
   <data name="SupportStaff" xml:space="preserve">
@@ -572,6 +584,10 @@
   <data name="Unavailable" xml:space="preserve">
     <value>Unavailable</value>
     <comment>ProductView</comment>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>User</value>
+    <comment>Roles</comment>
   </data>
   <data name="UsersManagement" xml:space="preserve">
     <value>Users Management</value>

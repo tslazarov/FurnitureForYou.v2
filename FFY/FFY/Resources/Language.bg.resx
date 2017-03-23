@@ -125,6 +125,10 @@
     <value>Администрация</value>
     <comment>Navigation</comment>
   </data>
+  <data name="Administrator" xml:space="preserve">
+    <value>Администратор</value>
+    <comment>Roles</comment>
+  </data>
   <data name="Available" xml:space="preserve">
     <value>Налично</value>
     <comment>ProductView</comment>
@@ -152,6 +156,10 @@
   <data name="CategoryNameRequired" xml:space="preserve">
     <value>Изисква се име на категория</value>
     <comment>CategoryViewModel</comment>
+  </data>
+  <data name="Change" xml:space="preserve">
+    <value>Промени</value>
+    <comment>Roles</comment>
   </data>
   <data name="City" xml:space="preserve">
     <value>Град</value>
@@ -332,6 +340,10 @@
   <data name="Logout" xml:space="preserve">
     <value>Изход</value>
     <comment>Navigation</comment>
+  </data>
+  <data name="Moderator" xml:space="preserve">
+    <value>Модератор</value>
+    <comment>Roles</comment>
   </data>
   <data name="OnDelivery" xml:space="preserve">
     <value>Наложен платеж</value>
@@ -572,6 +584,10 @@
   <data name="Unavailable" xml:space="preserve">
     <value>Неналично</value>
     <comment>ProductView</comment>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Потребител</value>
+    <comment>Roles</comment>
   </data>
   <data name="UsersManagement" xml:space="preserve">
     <value>Управление на Потребители</value>
