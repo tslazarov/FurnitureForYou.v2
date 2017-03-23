@@ -149,22 +149,13 @@ namespace FFY.Web.Areas.Profile.Controllers
                 paymentStatusType,
                 orderStatusType);
 
-            order.Products = shoppingCart.CartProducts
-                .Where(cp => cp.IsInCart)
-                .ToList();
-
-            foreach (var cartProduct in order.Products)
-            {
-                cartProduct.Product.Quantity -= cartProduct.Quantity;
-                if(cartProduct.Product.Quantity < 0)
-                {
-                    cartProduct.IsOutOfStock = true;
-                }
-            }
+            this.ordersService.TransferProducts(order, shoppingCart);
 
             this.ordersService.AddOrder(order);
 
             this.shoppingCartsService.Clear(shoppingCart);
+
+            this.cachingProvider.InsertItem($"cart-count-{user.Id}", 0);
 
             return this.View("OrderComplete");
         }

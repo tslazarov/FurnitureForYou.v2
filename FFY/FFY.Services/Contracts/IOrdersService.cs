@@ -10,5 +10,7 @@ namespace FFY.Services.Contracts
     public interface IOrdersService
     {
         void AddOrder(Order order);
+
+        void TransferProducts(Order order, ShoppingCart shoppingCart);
     }
 }

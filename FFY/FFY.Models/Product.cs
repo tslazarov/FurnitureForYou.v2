@@ -52,7 +52,6 @@ namespace FFY.Models
         [MaxLength(40)]
         public string Name { get; set; }
 
-        [Range(0, 10000)]
         public int Quantity { get; set; }
 
         [Range(0, 100000)]

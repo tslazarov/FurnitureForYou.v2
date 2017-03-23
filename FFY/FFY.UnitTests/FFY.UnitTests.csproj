@@ -89,6 +89,9 @@
     <Compile Include="Services\ChatUsersServiceTests\RemoveChatUser.cs" />
     <Compile Include="Services\ContactsServiceTests\AddContact.cs" />
     <Compile Include="Services\ContactsServiceTests\Constructor.cs" />
+    <Compile Include="Services\ContactsServiceTests\TransferProducts.cs" />
+    <Compile Include="Services\OrdersServiceTests\AddOrder.cs" />
+    <Compile Include="Services\OrdersServiceTests\Constructor.cs" />
     <Compile Include="Services\ProductsServiceTests\AddProduct.cs" />
     <Compile Include="Services\ProductsServiceTests\Constructor.cs" />
     <Compile Include="Services\ProductsServiceTests\GetProductById.cs" />
