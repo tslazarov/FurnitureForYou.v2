@@ -341,6 +341,10 @@
     <value>Поръчка</value>
     <comment>OrderView</comment>
   </data>
+  <data name="OrderComplete" xml:space="preserve">
+    <value>Благодарим за вашата поръчка. Работим върху обработката ѝ.</value>
+    <comment>OrderCompleteView</comment>
+  </data>
   <data name="OrdersManagement" xml:space="preserve">
     <value>Управление на Поръчки</value>
     <comment>Navigation</comment>

@@ -565,6 +565,15 @@ namespace FFY.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Thank you for your order. We are working on it..
+        /// </summary>
+        public static string OrderComplete {
+            get {
+                return ResourceManager.GetString("OrderComplete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Orders Management.
         /// </summary>
         public static string OrdersManagement {

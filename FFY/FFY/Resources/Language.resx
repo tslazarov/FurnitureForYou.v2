@@ -341,6 +341,10 @@
     <value>Order</value>
     <comment>OrderView</comment>
   </data>
+  <data name="OrderComplete" xml:space="preserve">
+    <value>Thank you for your order. We are working on it.</value>
+    <comment>OrderCompleteView</comment>
+  </data>
   <data name="OrdersManagement" xml:space="preserve">
     <value>Orders Management</value>
     <comment>Navigation</comment>

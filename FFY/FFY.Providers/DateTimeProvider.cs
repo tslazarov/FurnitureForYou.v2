@@ -12,7 +12,7 @@ namespace FFY.Providers
     {
         public DateTime GetCurrentTime()
         {
-            return DateTime.Parse(DateTime.Now.ToString(), CultureInfo.GetCultureInfo("en"));
+            return DateTime.Now;
         }
     }
 }
