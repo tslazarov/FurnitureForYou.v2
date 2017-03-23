@@ -56,10 +56,12 @@
     <Compile Include="Contracts\ICartProductsService.cs" />
     <Compile Include="Contracts\ICategoriesService.cs" />
     <Compile Include="Contracts\IContactsService.cs" />
+    <Compile Include="Contracts\IOrdersService.cs" />
     <Compile Include="Contracts\IProductsService.cs" />
     <Compile Include="Contracts\IRoomsService.cs" />
     <Compile Include="Contracts\IShoppingCartsService.cs" />
     <Compile Include="Contracts\IUsersService.cs" />
+    <Compile Include="OrdersService.cs" />
     <Compile Include="ProductsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoomsService.cs" />

@@ -15,7 +15,7 @@ namespace FFY.Providers
         public AuthenticationProvider(IHttpContextProvider httpContextProvider)
         {
             Guard.WhenArgument<IHttpContextProvider>(httpContextProvider, "Http context provider cannot be null.")
-                .IsNotNull()
+                .IsNull()
                 .Throw();
 
             this.httpContextProvider = httpContextProvider;

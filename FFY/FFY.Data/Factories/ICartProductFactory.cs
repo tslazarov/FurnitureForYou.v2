@@ -11,6 +11,7 @@ namespace FFY.Data.Factories
     {
         CartProduct CreateCartProduct(int quantity,
             Product product,
-            bool isInCart = true);
+            bool isInCart = true,
+            bool isOutOfStock = false);
     }
 }

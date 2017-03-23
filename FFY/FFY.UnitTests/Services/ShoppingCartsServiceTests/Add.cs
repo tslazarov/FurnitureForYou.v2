@@ -93,7 +93,8 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
             var dummyProduct = new Product();
             var cartProduct = new CartProduct() {
                 Product = dummyProduct,
-                IsInCart = true
+                IsInCart = true,
+                IsOutOfStock = false
             };
             var cartProducts = new List<CartProduct>()
             {
@@ -109,6 +110,7 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
             mockedCartProductFactory.Setup(cpf =>
                 cpf.CreateCartProduct(It.IsAny<int>(),
                     It.IsAny<Product>(),
+                    It.IsAny<bool>(),
                     It.IsAny<bool>()
                 ))
                 .Returns(cartProduct)
@@ -125,7 +127,7 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
 
             // Assert
             mockedCartProductFactory.Verify(cpf =>
-                cpf.CreateCartProduct(quantity, product, true), Times.Once);
+                cpf.CreateCartProduct(quantity, product, true, false), Times.Once);
         }
 
         [TestCase(-5)]
@@ -139,7 +141,8 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
             var cartProduct = new CartProduct()
             {
                 Product = dummyProduct,
-                IsInCart = true
+                IsInCart = true,
+                IsOutOfStock = false
             };
             var cartProducts = new List<CartProduct>()
             {
@@ -155,6 +158,7 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
             mockedCartProductFactory.Setup(cpf =>
                 cpf.CreateCartProduct(It.IsAny<int>(),
                     It.IsAny<Product>(),
+                    It.IsAny<bool>(),
                     It.IsAny<bool>()
                 ))
                 .Returns(cartProduct);
@@ -221,6 +225,7 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
             mockedCartProductFactory.Setup(cpf =>
                 cpf.CreateCartProduct(It.IsAny<int>(),
                     It.IsAny<Product>(),
+                    It.IsAny<bool>(),
                     It.IsAny<bool>()
                 ))
                 .Returns(cartProduct);
@@ -270,6 +275,7 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
             mockedCartProductFactory.Setup(cpf =>
                 cpf.CreateCartProduct(It.IsAny<int>(),
                     It.IsAny<Product>(),
+                    It.IsAny<bool>(),
                     It.IsAny<bool>()
                 ))
                 .Returns(cartProduct);
@@ -318,6 +324,7 @@ namespace FFY.UnitTests.Services.ShoppingCartsServiceTests
             mockedCartProductFactory.Setup(cpf =>
                 cpf.CreateCartProduct(It.IsAny<int>(),
                     It.IsAny<Product>(),
+                    It.IsAny<bool>(),
                     It.IsAny<bool>()
                 ))
                 .Returns(cartProduct);

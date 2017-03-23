@@ -1,4 +1,6 @@
 ﻿using Bytes2you.Validation;
+using FFY.Data.Factories;
+using FFY.Models;
 using FFY.Providers.Contracts;
 using FFY.Services.Contracts;
 using FFY.Web.Areas.Profile.Models;
@@ -18,13 +20,25 @@ namespace FFY.Web.Areas.Profile.Controllers
     {
         private readonly IAuthenticationProvider authenticationProvider;
         private readonly ICachingProvider cachingProvider;
+        private readonly IDateTimeProvider dateTimeProvider;
         private readonly IShoppingCartsService shoppingCartsService;
+        private readonly IUsersService usersService;
         private readonly ICartProductsService cartProductsService;
+        private readonly IAddressesService addressesService;
+        private readonly IOrdersService ordersService;
+        private readonly IAddressFactory addressFactory;
+        private readonly IOrderFactory orderFactory;
 
         public ShoppingCartController(IAuthenticationProvider authenticationProvider,
             ICachingProvider cachingProvider,
+            IDateTimeProvider dateTimeProvider,
             IShoppingCartsService shoppingCartsService,
-            ICartProductsService cartProductsService)
+            IUsersService usersService,
+            ICartProductsService cartProductsService,
+            IAddressesService addressesService,
+            IOrdersService ordersService,
+            IAddressFactory addressFactory,
+            IOrderFactory orderFactory)
         {
             Guard.WhenArgument<IAuthenticationProvider>(authenticationProvider, "Authentication provider cannot be null")
                 .IsNull()
@@ -34,7 +48,15 @@ namespace FFY.Web.Areas.Profile.Controllers
                 .IsNull()
                 .Throw();
 
+            Guard.WhenArgument<IDateTimeProvider>(dateTimeProvider, "Date time provider cannot be null")
+                 .IsNull()
+                 .Throw();
+
             Guard.WhenArgument<IShoppingCartsService>(shoppingCartsService, "Shopping carts service cannot be null.")
+                .IsNull()
+                .Throw();
+
+            Guard.WhenArgument<IUsersService>(usersService, "Users service cannot be null.")
                 .IsNull()
                 .Throw();
 
@@ -42,10 +64,32 @@ namespace FFY.Web.Areas.Profile.Controllers
                 .IsNull()
                 .Throw();
 
+            Guard.WhenArgument<IAddressesService>(addressesService, "Addresses service cannot be null.")
+                .IsNull()
+                .Throw();
+
+            Guard.WhenArgument<IOrdersService>(ordersService, "Orders service cannot be null.")
+                .IsNull()
+                .Throw();
+
+            Guard.WhenArgument<IAddressFactory>(addressFactory, "Address factory cannot be null.")
+                .IsNull()
+                .Throw();
+
+            Guard.WhenArgument<IOrderFactory>(orderFactory, "Order factory cannot be null.")
+                .IsNull()
+                .Throw();
+
             this.authenticationProvider = authenticationProvider;
             this.cachingProvider = cachingProvider;
+            this.dateTimeProvider = dateTimeProvider;
             this.shoppingCartsService = shoppingCartsService;
+            this.usersService = usersService;
             this.cartProductsService = cartProductsService;
+            this.addressesService = addressesService;
+            this.ordersService = ordersService;
+            this.addressFactory = addressFactory;
+            this.orderFactory = orderFactory;
         }
 
         // GET: Profile/ShoppingCart
@@ -83,8 +127,46 @@ namespace FFY.Web.Areas.Profile.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Order(OrderViewModel model)
         {
-            var test = model;
-            return this.View();
+            var paymentStatusType = model.SelectedPaymentType == "1" ?
+                OrderPaymentStatusType.PaymentOnDelivery : OrderPaymentStatusType.Payed;
+            var orderStatusType = OrderStatusType.Processing;
+
+            var user = this.usersService.GetUserById(this.authenticationProvider.CurrentUserId);
+            var shoppingCart = user.ShoppingCart;
+            var address = this.addressFactory.CreateAddress(model.Street, 
+                model.City, 
+                model.Country);
+
+            this.addressesService.AddAddress(address);
+
+            var order = this.orderFactory.CreateOrder(user.Id,
+                user,
+                this.dateTimeProvider.GetCurrentTime(),
+                shoppingCart.Total,
+                address.Id,
+                address,
+                model.PhoneNumber,
+                paymentStatusType,
+                orderStatusType);
+
+            order.Products = shoppingCart.CartProducts
+                .Where(cp => cp.IsInCart)
+                .ToList();
+
+            foreach (var cartProduct in order.Products)
+            {
+                cartProduct.Product.Quantity -= cartProduct.Quantity;
+                if(cartProduct.Product.Quantity < 0)
+                {
+                    cartProduct.IsOutOfStock = true;
+                }
+            }
+
+            this.ordersService.AddOrder(order);
+
+            this.shoppingCartsService.Clear(shoppingCart);
+
+            return this.View("OrderComplete");
         }
     }
 }

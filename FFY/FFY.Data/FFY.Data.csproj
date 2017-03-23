@@ -68,10 +68,12 @@
     <Compile Include="Contracts\IEfRepository.cs" />
     <Compile Include="DeletableEfRepository.cs" />
     <Compile Include="EfRepository.cs" />
+    <Compile Include="Factories\IAddressFactory.cs" />
     <Compile Include="Factories\ICartProductFactory.cs" />
     <Compile Include="Factories\ICategoryFactory.cs" />
     <Compile Include="Factories\IChatUserFactory.cs" />
     <Compile Include="Factories\IContactFactory.cs" />
+    <Compile Include="Factories\IOrderFactory.cs" />
     <Compile Include="Factories\IProductFactory.cs" />
     <Compile Include="Factories\IRoomFactory.cs" />
     <Compile Include="Factories\IShoppingCartFactory.cs" />

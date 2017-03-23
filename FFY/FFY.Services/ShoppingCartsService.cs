@@ -56,7 +56,7 @@ namespace FFY.Services
 
             if(cartProduct == null)
             {
-                cartProduct = this.cartProductFactory.CreateCartProduct(quantity, product, true);
+                cartProduct = this.cartProductFactory.CreateCartProduct(quantity, product, true, false);
                 shoppingCart.CartProducts.Add(cartProduct);
             }
             else

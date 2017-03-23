@@ -11,22 +11,13 @@ namespace FFY.Models
 
         public CartProduct(int quantity, 
             Product product,
-            bool isInCart = true) : this()
+            bool isInCart = true,
+            bool isOutOfStock = false) : this()
         {
             this.Quantity = quantity;
             this.Product = product;
             this.IsInCart = isInCart;
-        }
-
-        public CartProduct(int quantity,
-            int? productId,
-            Product product,
-            decimal total) : this()
-        {
-            this.Quantity = quantity;
-            this.ProductId = productId;
-            this.Product = product;
-            this.Total = total;
+            this.IsOutOfStock = isOutOfStock;
         }
 
         [Key]
@@ -41,5 +32,7 @@ namespace FFY.Models
         public virtual Product Product { get; set; }
 
         public bool IsInCart { get; set; }
+
+        public bool IsOutOfStock { get; set; }
     }
 }
