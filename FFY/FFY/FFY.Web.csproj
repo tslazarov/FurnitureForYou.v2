@@ -258,6 +258,7 @@
     <Compile Include="Areas\Profile\Controllers\ShoppingCartController.cs" />
     <Compile Include="Areas\Profile\Controllers\SupportChatClientController.cs" />
     <Compile Include="Areas\Profile\Models\OrderViewModel.cs" />
+    <Compile Include="Areas\Profile\Models\ProfileViewModel.cs" />
     <Compile Include="Areas\Profile\Models\ShoppingCartViewModel.cs" />
     <Compile Include="Areas\Profile\ProfileAreaRegistration.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -319,6 +320,7 @@
     <Content Include="Areas\Profile\Views\SupportChatClient\Index.cshtml" />
     <Content Include="Areas\Profile\Views\ShoppingCart\Order.cshtml" />
     <Content Include="Areas\Profile\Views\ShoppingCart\OrderComplete.cshtml" />
+    <Content Include="Areas\Profile\Views\Information\UserInformationPartial.cshtml" />
     <None Include="Properties\PublishProfiles\furnitureforyou - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\furnitureforyou - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />

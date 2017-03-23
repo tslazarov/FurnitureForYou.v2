@@ -1,7 +1,40 @@
-﻿
-@{
-    ViewBag.Title = "Index";
-}
+﻿@using FFY.Web.Areas.Profile.Models
+@model ProfileViewModel
 
-<h2>Information Index</h2>
+@Html.Partial("UserInformationPartial", Model)
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $(".order-show").click(function (e) {
+                var id = String(e.target.id);
+
+                var showId = id.substring(0, id.indexOf("-show"));
+
+                $(document.getElementById(showId + "-detailed")).slideDown();
+
+                $(document.getElementById(showId + "-show")).toggleClass("hidden");
+                $(document.getElementById(showId + "-hide")).toggleClass("hidden");
+
+                $(document.getElementById(showId + "-header")).addClass("order-header-color-shown");
+                $(document.getElementById(showId + "-header")).removeClass("order-header-color-hidden");
+            });
+
+            $(".order-hide").click(function (e) {
+                var id = String(e.target.id);
+
+                var hideId = id.substring(0, id.indexOf("-hide"));
+
+                $(document.getElementById(hideId + "-detailed")).slideUp();
+
+                $(document.getElementById(hideId + "-show")).toggleClass("hidden");
+                $(document.getElementById(hideId + "-hide")).toggleClass("hidden");
+
+                $(document.getElementById(hideId + "-header")).addClass("order-header-color-hidden");
+                $(document.getElementById(hideId + "-header")).removeClass("order-header-color-shown");
+            });
+        });
+    </script>
+}
 

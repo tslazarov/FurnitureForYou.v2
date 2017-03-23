@@ -1,0 +1,66 @@
+﻿@using FFY.Web.Areas.Profile.Models
+@model ProfileViewModel
+
+<div class="profile-information-container">
+    <div class="profile-information-header">
+        <h2>
+            @Model.User.FirstName @Model.User.LastName
+        </h2>
+        <h4 class="profile-email">
+            @Model.User.Email
+        </h4>
+    </div>
+    <hr />
+    <h3 class="profile-order-history">@FFY.Web.Resources.Language.OrdersHistory</h3>
+    <div class="profile-information-orders">
+        @foreach (var order in Model.User.Orders.Reverse())
+        {
+            <div id="@order.Id-header" class="row order-header order-header-color-hidden">
+                <div class="col-md-5 o-id">
+                    @FFY.Web.Resources.Language.OrderNo @order.Id
+                </div>
+                <div class="col-md-3 o-date">
+                    @order.SendOn.ToShortDateString()
+                </div>
+                <div class="col-md-3 o-status">
+                    @order.OrderStatusType
+                </div>
+                <div class="col-md-1">
+                    <img id="@order.Id-show" class="control-label order-show" src="~/Content/sources/arrow-show.png" alt="+" />
+                    <img id="@order.Id-hide" class="control-label hidden order-hide" src="~/Content/sources/arrow-hide.png" alt="+" />
+                </div>
+            </div>
+            <div id="@order.Id-detailed" class="order-content">
+                @foreach (var item in order.Products)
+                {
+                    <div class="row order-list-item">
+                        <a href="@Url.Action("product", "furniture", new { area = "", id= item.Product.Id })">
+                            <div class="col-sm-6 o-product">
+                                <div class="col-sm-4 col-md-3 col-lg-2">
+                                    <img class="img-responsive" src="~/Images/products/@item.Product.ImagePath" />
+                                </div>
+                                <div class="col-sm-8 col-md-9 col-lg-10">
+                                    @item.Product.Name
+                                </div>
+                            </div>
+                            <div class="col-sm-2 o-single-price">
+                                @item.Product.DiscountedPrice @FFY.Web.Resources.Language.Currency
+                            </div>
+                            <div class="col-sm-2 o-quantity">
+                                @item.Quantity
+                            </div>
+                            <div class="col-sm-2 o-total-price">
+                                @item.Total @FFY.Web.Resources.Language.Currency
+                            </div>
+                        </a>
+                    </div>
+                }
+                <div class="row order-list-foot">
+                    <div class="col-sm-offset-10 col-sm-2 o-total">
+                        @order.Total @FFY.Web.Resources.Language.Currency
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

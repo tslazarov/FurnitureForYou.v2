@@ -345,6 +345,14 @@
     <value>Благодарим за вашата поръчка. Работим върху обработката ѝ.</value>
     <comment>OrderCompleteView</comment>
   </data>
+  <data name="OrderNo" xml:space="preserve">
+    <value>Поръчка Номер</value>
+    <comment>UserProfileView</comment>
+  </data>
+  <data name="OrdersHistory" xml:space="preserve">
+    <value>История на поръчките</value>
+    <comment>UserProfileView</comment>
+  </data>
   <data name="OrdersManagement" xml:space="preserve">
     <value>Управление на Поръчки</value>
     <comment>Navigation</comment>
