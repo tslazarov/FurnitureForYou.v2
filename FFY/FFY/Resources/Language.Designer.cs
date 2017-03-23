@@ -142,11 +142,47 @@ namespace FFY.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to City.
+        /// </summary>
+        public static string City {
+            get {
+                return ResourceManager.GetString("City", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to City is required.
+        /// </summary>
+        public static string CityRequired {
+            get {
+                return ResourceManager.GetString("CityRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to City should be between 2 and 30 characters.
+        /// </summary>
+        public static string CityValidation {
+            get {
+                return ResourceManager.GetString("CityValidation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Clients.
         /// </summary>
         public static string Clients {
             get {
                 return ResourceManager.GetString("Clients", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Complete order.
+        /// </summary>
+        public static string CompleteOrderAction {
+            get {
+                return ResourceManager.GetString("CompleteOrderAction", resourceCulture);
             }
         }
         
@@ -241,11 +277,47 @@ namespace FFY.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Country.
+        /// </summary>
+        public static string Country {
+            get {
+                return ResourceManager.GetString("Country", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Country is required.
+        /// </summary>
+        public static string CountryRequired {
+            get {
+                return ResourceManager.GetString("CountryRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Country should be between 2 and 30 characters.
+        /// </summary>
+        public static string CountryValidation {
+            get {
+                return ResourceManager.GetString("CountryValidation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create.
         /// </summary>
         public static string Create {
             get {
                 return ResourceManager.GetString("Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Credit card.
+        /// </summary>
+        public static string CreditCard {
+            get {
+                return ResourceManager.GetString("CreditCard", resourceCulture);
             }
         }
         
@@ -475,6 +547,24 @@ namespace FFY.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to On delivery.
+        /// </summary>
+        public static string OnDelivery {
+            get {
+                return ResourceManager.GetString("OnDelivery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order.
+        /// </summary>
+        public static string Order {
+            get {
+                return ResourceManager.GetString("Order", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Orders Management.
         /// </summary>
         public static string OrdersManagement {
@@ -516,6 +606,42 @@ namespace FFY.Web.Resources {
         public static string PasswordValidation {
             get {
                 return ResourceManager.GetString("PasswordValidation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PayPal.
+        /// </summary>
+        public static string PayPal {
+            get {
+                return ResourceManager.GetString("PayPal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone number.
+        /// </summary>
+        public static string PhoneNumber {
+            get {
+                return ResourceManager.GetString("PhoneNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone number is required.
+        /// </summary>
+        public static string PhoneNumberRequired {
+            get {
+                return ResourceManager.GetString("PhoneNumberRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone number does not match the required format.
+        /// </summary>
+        public static string PhoneNumberValidation {
+            get {
+                return ResourceManager.GetString("PhoneNumberValidation", resourceCulture);
             }
         }
         
@@ -745,6 +871,24 @@ namespace FFY.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Method of payment.
+        /// </summary>
+        public static string SelectedPaymentType {
+            get {
+                return ResourceManager.GetString("SelectedPaymentType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Method of payment is required.
+        /// </summary>
+        public static string SelectedPaymentTypeRequired {
+            get {
+                return ResourceManager.GetString("SelectedPaymentTypeRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Send message.
         /// </summary>
         public static string SendMessage {
@@ -822,6 +966,33 @@ namespace FFY.Web.Resources {
         public static string ShoppingCartYour {
             get {
                 return ResourceManager.GetString("ShoppingCartYour", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Street.
+        /// </summary>
+        public static string Street {
+            get {
+                return ResourceManager.GetString("Street", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Street is required.
+        /// </summary>
+        public static string StreetRequired {
+            get {
+                return ResourceManager.GetString("StreetRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Street should be between 2 and 30 characters.
+        /// </summary>
+        public static string StreetValidation {
+            get {
+                return ResourceManager.GetString("StreetValidation", resourceCulture);
             }
         }
         

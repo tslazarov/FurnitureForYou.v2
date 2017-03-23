@@ -65,7 +65,7 @@
     <Compile Include="ContactStatusType.cs" />
     <Compile Include="Contracts\IDeletableEntity.cs" />
     <Compile Include="Order.cs" />
-    <Compile Include="OrderPaymentStatus.cs" />
+    <Compile Include="OrderPaymentStatusType.cs" />
     <Compile Include="OrderStatusType.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,0 +1,69 @@
+﻿@using FFY.Web.Areas.Profile.Models
+@model OrderViewModel
+
+<div class="order-container">
+    <h2>@FFY.Web.Resources.Language.Order</h2>
+    <div class="row">
+        <section id="order-form">
+            @using (Html.BeginForm("Order", "ShoppingCart", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <hr />
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Street, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(m => m.Street, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Street, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.City, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.City, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Country, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(m => m.Country, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Country, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.SelectedPaymentType, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-9 radio-options">
+                        <div class="radio">
+                            @Html.RadioButtonFor(m => m.SelectedPaymentType, "1", new { id = "on-delivery" })
+                            @Html.LabelFor(m => m.SelectedPaymentType, FFY.Web.Resources.Language.OnDelivery, new { @for = "on-delivery" })
+                        </div>
+                        <div class="radio">
+                            @Html.RadioButtonFor(m => m.SelectedPaymentType, "2", new { id = "paypal" })
+                            @Html.LabelFor(m => m.SelectedPaymentType, FFY.Web.Resources.Language.PayPal, new { @for = "paypal" })
+                        </div>
+                        <div class="radio">
+                            @Html.RadioButtonFor(m => m.SelectedPaymentType, "3", new { id = "credit-card" })
+                            @Html.LabelFor(m => m.SelectedPaymentType, FFY.Web.Resources.Language.CreditCard, new { @for = "credit-card" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-3 col-md-9">
+                        <input type="submit" class="btn btn-primary btn-block" value="@FFY.Web.Resources.Language.CompleteOrderAction" />
+                    </div>
+                </div>
+            }
+        </section>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

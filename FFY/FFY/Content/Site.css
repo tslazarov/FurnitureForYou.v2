@@ -93,7 +93,7 @@ footer{
     padding: 0px 30px;
 }
 
-/* Register page */
+/* Contact page */
 
 .contact-container {
     max-width: 600px;
@@ -110,6 +110,27 @@ footer{
 }
 
 #contact-form {
+    padding: 0px 30px;
+}
+
+/* Order page */
+
+.order-container {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.order-container h2 {
+    text-align: center;
+}
+
+.order-container .radio-options {
+    padding-left: 35px;
+    padding-bottom: 15px;
+}
+
+#order-form {
     padding: 0px 30px;
 }
 

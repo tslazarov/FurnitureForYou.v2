@@ -153,9 +153,25 @@
     <value>Изисква се име на категория</value>
     <comment>CategoryViewModel</comment>
   </data>
+  <data name="City" xml:space="preserve">
+    <value>Град</value>
+    <comment>OrderViewModel</comment>
+  </data>
+  <data name="CityRequired" xml:space="preserve">
+    <value>Изисква се град</value>
+    <comment>OrderViewModel</comment>
+  </data>
+  <data name="CityValidation" xml:space="preserve">
+    <value>Градът трябва да е между 2 и 30 символа</value>
+    <comment>OrderViewModel</comment>
+  </data>
   <data name="Clients" xml:space="preserve">
     <value>Клиенти</value>
     <comment>SupportChatView</comment>
+  </data>
+  <data name="CompleteOrderAction" xml:space="preserve">
+    <value>Завърши поръчка</value>
+    <comment>OrderView</comment>
   </data>
   <data name="ConfirmPassword" xml:space="preserve">
     <value>Потвърди парола</value>
@@ -197,9 +213,25 @@
     <value>Съдържанието трябва да е между 10 и 500 символа</value>
     <comment>ContactViewModel</comment>
   </data>
+  <data name="Country" xml:space="preserve">
+    <value>Държава</value>
+    <comment>OrderViewModel</comment>
+  </data>
+  <data name="CountryRequired" xml:space="preserve">
+    <value>Изисква се държава</value>
+    <comment>OrderViewModel</comment>
+  </data>
+  <data name="CountryValidation" xml:space="preserve">
+    <value>Държавата трябва да е между 2 и 30 символа</value>
+    <comment>OrderViewModel</comment>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Създай</value>
     <comment>ProductAdditionView</comment>
+  </data>
+  <data name="CreditCard" xml:space="preserve">
+    <value>Кредитна карта</value>
+    <comment>OrderView</comment>
   </data>
   <data name="Currency" xml:space="preserve">
     <value>лв</value>
@@ -301,6 +333,14 @@
     <value>Изход</value>
     <comment>Navigation</comment>
   </data>
+  <data name="OnDelivery" xml:space="preserve">
+    <value>Наложен платеж</value>
+    <comment>OrderView</comment>
+  </data>
+  <data name="Order" xml:space="preserve">
+    <value>Поръчка</value>
+    <comment>OrderView</comment>
+  </data>
   <data name="OrdersManagement" xml:space="preserve">
     <value>Управление на Поръчки</value>
     <comment>Navigation</comment>
@@ -320,6 +360,22 @@
   <data name="PasswordValidation" xml:space="preserve">
     <value>Паролата не отговаря на изисквания формат</value>
     <comment>LoginViewModel</comment>
+  </data>
+  <data name="PayPal" xml:space="preserve">
+    <value>ПейПал</value>
+    <comment>OrderView</comment>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Телефонен номер</value>
+    <comment>OrderViewModel</comment>
+  </data>
+  <data name="PhoneNumberRequired" xml:space="preserve">
+    <value>Изисва се телефонен номер</value>
+    <comment>OrderViewModel</comment>
+  </data>
+  <data name="PhoneNumberValidation" xml:space="preserve">
+    <value>Телефонният номер не отговаря на изисквания формат</value>
+    <comment>OrderViewModel</comment>
   </data>
   <data name="Price" xml:space="preserve">
     <value>Цена</value>
@@ -421,6 +477,14 @@
     <value>Изисква се име на стая</value>
     <comment>RoomViewModel</comment>
   </data>
+  <data name="SelectedPaymentType" xml:space="preserve">
+    <value>Начин на плащане</value>
+    <comment>OrderViewModel</comment>
+  </data>
+  <data name="SelectedPaymentTypeRequired" xml:space="preserve">
+    <value>Изисква се начин на плащане</value>
+    <comment>OrderViewModel</comment>
+  </data>
   <data name="SendMessage" xml:space="preserve">
     <value>Изпрати съобщение</value>
     <comment>SupportChatVIew</comment>
@@ -456,6 +520,18 @@
   <data name="ShoppingCartYour" xml:space="preserve">
     <value>Вашата пазарска количка</value>
     <comment>ShoppingCartView</comment>
+  </data>
+  <data name="Street" xml:space="preserve">
+    <value>Улица</value>
+    <comment>OrderViewModel</comment>
+  </data>
+  <data name="StreetRequired" xml:space="preserve">
+    <value>Изисква се улица</value>
+    <comment>OrderViewModel</comment>
+  </data>
+  <data name="StreetValidation" xml:space="preserve">
+    <value>Улицата трябва да е между 2 и 30 символа</value>
+    <comment>OrderViewModel</comment>
   </data>
   <data name="Support" xml:space="preserve">
     <value>Помощ</value>

@@ -64,5 +64,11 @@ namespace FFY.Web.Areas.Profile.Controllers
 
             return this.RedirectToAction("index", "shoppingCart");
         }
+
+        // GET: Profile/ShoppingCart/Order
+        public ViewResult Order()
+        {
+            return this.View();
+        }
     }
 }
