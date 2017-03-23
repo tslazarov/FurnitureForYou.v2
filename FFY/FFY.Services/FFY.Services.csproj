@@ -67,8 +67,12 @@
     <Compile Include="RoomsService.cs" />
     <Compile Include="ShoppingCartsService.cs" />
     <Compile Include="UsersService.cs" />
+    <Compile Include="Utilities\Providers\DirectoryProvider.cs" />
     <Compile Include="Utilities\IImageUploader.cs" />
     <Compile Include="Utilities\ImageUploader.cs" />
+    <Compile Include="Utilities\Providers\IDirectoryProvider.cs" />
+    <Compile Include="Utilities\Providers\IPathProvider.cs" />
+    <Compile Include="Utilities\Providers\PathProvider.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -79,6 +83,10 @@
     <ProjectReference Include="..\FFY.Models\FFY.Models.csproj">
       <Project>{4c6e1ed4-f80b-4312-b899-c78d7e70f121}</Project>
       <Name>FFY.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FFY.Providers\FFY.Providers.csproj">
+      <Project>{6885748D-93D5-410F-B746-696EBC6C5DD8}</Project>
+      <Name>FFY.Providers</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

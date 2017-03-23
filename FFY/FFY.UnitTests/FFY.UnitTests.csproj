@@ -112,6 +112,8 @@
     <Compile Include="Services\UsersServiceTests\GetUserById.cs" />
     <Compile Include="Services\UsersServiceTests\RateProduct.cs" />
     <Compile Include="Services\UsersServiceTests\RemoveProductFromFavorites.cs" />
+    <Compile Include="Services\UtilitiesTests\ImageUploaderTests\Constructor.cs" />
+    <Compile Include="Services\UtilitiesTests\ImageUploaderTests\Upload.cs" />
     <Compile Include="Web\AccountControllerTests\Constructor.cs" />
     <Compile Include="Web\AccountControllerTests\LoginGet.cs" />
     <Compile Include="Web\AccountControllerTests\LoginPost.cs" />
