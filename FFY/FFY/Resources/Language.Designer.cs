@@ -412,6 +412,15 @@ namespace FFY.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string Email {
@@ -822,6 +831,15 @@ namespace FFY.Web.Resources {
         public static string ProductsManagement {
             get {
                 return ResourceManager.GetString("ProductsManagement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Products were not found.
+        /// </summary>
+        public static string ProductsNotFound {
+            get {
+                return ResourceManager.GetString("ProductsNotFound", resourceCulture);
             }
         }
         

@@ -273,6 +273,10 @@
     <value>Discount percentage should be between 0 and 100</value>
     <comment>ProductAdditionViewModel</comment>
   </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+    <comment>ProductsManagement</comment>
+  </data>
   <data name="Email" xml:space="preserve">
     <value>Email</value>
     <comment>LoginViewModel</comment>
@@ -456,6 +460,10 @@
   <data name="ProductsManagement" xml:space="preserve">
     <value>Products Management</value>
     <comment>Navigation</comment>
+  </data>
+  <data name="ProductsNotFound" xml:space="preserve">
+    <value>Products were not found</value>
+    <comment>ProductsManagement</comment>
   </data>
   <data name="Purchase" xml:space="preserve">
     <value>Purchase</value>

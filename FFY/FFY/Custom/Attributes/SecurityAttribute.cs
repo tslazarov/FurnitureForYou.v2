@@ -39,7 +39,6 @@ namespace FFY.Web.Custom.Attributes
             {
                 if (this.RedirectUrl != null)
                 {
-                    // filterContext.Result = new RedirectResult(RedirectUrl);
                     filterContext.Result = new TransferResult(RedirectUrl);
                 }
                 else

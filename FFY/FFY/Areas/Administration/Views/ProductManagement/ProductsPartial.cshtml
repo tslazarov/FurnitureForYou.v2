@@ -1,0 +1,68 @@
+﻿@using FFY.Web.Areas.Administration.Models.ProductManagement
+@model ProductsViewModel
+<div class="col-sm-12 products-list-head">
+    <div class="col-sm-3 p-name">
+        @FFY.Web.Resources.Language.Name
+    </div>
+    <div class="col-sm-2 p-price">
+        @FFY.Web.Resources.Language.Price
+    </div>
+    <div class="col-sm-2 p-room">
+        @FFY.Web.Resources.Language.Room
+    </div>
+    <div class="col-sm-2 p-category">
+        @FFY.Web.Resources.Language.Category
+    </div>
+</div>
+@if (Model.ProductsCount == 0)
+{
+    <h2 class="empty-users-list">@FFY.Web.Resources.Language.ProductsNotFound</h2>
+}
+else
+{
+    foreach (var product in Model.Products)
+    {
+        <div class="col-sm-12 product-list-item">
+            <div class="col-sm-3 p-name">
+                @product.Name
+            </div>
+            <div class="col-sm-2 p-price">
+                @product.Price @FFY.Web.Resources.Language.Currency
+            </div>
+            <div class="col-sm-2 p-room">
+                @product.Room.Name
+            </div>
+            <div class="col-sm-2 p-category">
+                @product.Category.Name
+            </div>
+            <div class="col-sm-2 p-details">
+                @Html.ActionLink(FFY.Web.Resources.Language.Details, "product", new { controller = "furniture", area = "", id = @product.Id })
+            </div>
+            <div class="col-sm-1 p-edit">
+                @Html.ActionLink(FFY.Web.Resources.Language.Edit, "edit", new { id = @product.Id })
+            </div>
+        </div>
+    }
+    <div>
+        <ul class="pagination">
+            @for (int i = 1; i <= Model.Pages; i++)
+                {
+                <li class=@(i == Model.Page ? "active" : "")>
+                    @Ajax.ActionLink(i.ToString(), "SearchProducts",
+                new
+                {
+                    SearchWord = Model.SearchModel.SearchWord,
+                    SortBy = Model.SearchModel.SortBy,
+                    Page = i
+                },
+                new AjaxOptions()
+                {
+                    HttpMethod = "GET",
+                    UpdateTargetId = "search-results",
+                    InsertionMode = InsertionMode.Replace
+                })
+                </li>
+            }
+        </ul>
+    </div>
+}

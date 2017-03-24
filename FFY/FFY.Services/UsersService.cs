@@ -135,7 +135,7 @@ namespace FFY.Services
         {
             var users = this.data.UsersRepository.All();
 
-            if (searchWord != null)
+            if (!string.IsNullOrEmpty(searchWord))
             {
                 users = users.Where(u => u.FirstName.ToLower().Contains(searchWord.ToLower())
                     || u.LastName.ToLower().Contains(searchWord.ToLower())

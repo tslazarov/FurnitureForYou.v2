@@ -258,7 +258,9 @@
     <Compile Include="Areas\Administration\Controllers\UserManagementController.cs" />
     <Compile Include="Areas\Administration\Models\ProductManagement\CategoryPartialViewModel.cs" />
     <Compile Include="Areas\Administration\Models\ProductManagement\ProductAdditionViewModel.cs" />
+    <Compile Include="Areas\Administration\Models\ProductManagement\ProductsViewModel.cs" />
     <Compile Include="Areas\Administration\Models\ProductManagement\ProductViewModel.cs" />
+    <Compile Include="Areas\Administration\Models\ProductManagement\SingleProductViewModel.cs" />
     <Compile Include="Areas\Administration\Models\SearchModel.cs" />
     <Compile Include="Areas\Administration\Models\SupportChat\SupportChatViewModel.cs" />
     <Compile Include="Areas\Administration\Models\UserManagement\SingleUserViewModel.cs" />
@@ -340,6 +342,7 @@
     <Content Include="Areas\Profile\Views\Favorites\Index.cshtml" />
     <Content Include="Areas\Administration\Views\UserManagement\UserProfile.cshtml" />
     <Content Include="Areas\Administration\Views\UserManagement\UsersPartial.cshtml" />
+    <Content Include="Areas\Administration\Views\ProductManagement\ProductsPartial.cshtml" />
     <None Include="Properties\PublishProfiles\furnitureforyou - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\furnitureforyou - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />

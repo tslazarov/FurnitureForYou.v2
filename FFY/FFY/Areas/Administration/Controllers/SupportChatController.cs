@@ -11,7 +11,7 @@ using System.Web.Mvc;
 namespace FFY.Web.Areas.Administration.Controllers
 {
     [Localize]
-    [Security(Roles = "Administrator, Moderator", RedirectUrl = "~/error/unauthorized")]
+    [Security(Roles = "Administrator, Moderator", RedirectUrl = "~/en/error/unauthorized")]
     public class SupportChatController : Controller
     {
         private readonly IChatUsersService chatUsersService;

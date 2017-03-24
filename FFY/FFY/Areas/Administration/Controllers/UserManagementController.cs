@@ -16,7 +16,7 @@ using System.Web.Security;
 namespace FFY.Web.Areas.Administration.Controllers
 {
     [Localize]
-    [Security(Roles = "Administrator", RedirectUrl = "~/error/unauthorized")]
+    [Security(Roles = "Administrator", RedirectUrl = "~/en/error/unauthorized")]
     public class UserManagementController : Controller
     {
         private const int UsersPerPage = 10;

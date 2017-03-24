@@ -3,8 +3,10 @@ using FFY.Data.Factories;
 using FFY.Models;
 using FFY.Services.Contracts;
 using FFY.Services.Utilities;
+using FFY.Web.Areas.Administration.Models;
 using FFY.Web.Areas.Administration.Models.ProductManagement;
 using FFY.Web.Custom.Attributes;
+using FFY.Web.Mappings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +16,11 @@ using System.Web.Mvc;
 namespace FFY.Web.Areas.Administration.Controllers
 {
     [Localize]
-    [Security(Roles = "Administrator, Moderator", RedirectUrl = "~/error/unauthorized")]
+    [Security(Roles = "Administrator, Moderator", RedirectUrl = "~/en/error/unauthorized")]
     public class ProductManagementController : Controller
     {
+        private const int ProductsPerPage = 10;
+
         private const string DefaultRoomImageFileName = "default-room-image";
         private const string DefaultCategoryImageFileName = "default-category-image";
         private const string DefaultProductImageFileName = "default-product-image";
@@ -24,6 +28,7 @@ namespace FFY.Web.Areas.Administration.Controllers
         private const string DefaultCategoryFolderName = "categories";
         private const string DefaultProductFolderName = "products";
 
+        private readonly IMapperProvider mapper;
         private readonly IImageUploader imageUploader;
         private readonly IProductFactory productFactory;
         private readonly IProductsService productsService;
@@ -32,7 +37,8 @@ namespace FFY.Web.Areas.Administration.Controllers
         private readonly ICategoryFactory categoryFactory;
         private readonly ICategoriesService categoriesService;
 
-        public ProductManagementController(IImageUploader imageUploader,
+        public ProductManagementController(IMapperProvider mapper,
+            IImageUploader imageUploader,
             IProductFactory productFactory,
             IProductsService productsService,
             IRoomFactory roomFactory,
@@ -40,6 +46,11 @@ namespace FFY.Web.Areas.Administration.Controllers
             ICategoryFactory categoryFactory,
             ICategoriesService categoriesService)
         {
+
+            Guard.WhenArgument<IMapperProvider>(mapper, "Mapper provider cannot be null.")
+                .IsNull()
+                .Throw();
+
             Guard.WhenArgument<IImageUploader>(imageUploader, "Image uploader cannot be null.")
                 .IsNull()
                 .Throw();
@@ -68,6 +79,7 @@ namespace FFY.Web.Areas.Administration.Controllers
                 .IsNull()
                 .Throw();
 
+            this.mapper = mapper;
             this.imageUploader = imageUploader;
             this.productFactory = productFactory;
             this.productsService = productsService;
@@ -78,9 +90,26 @@ namespace FFY.Web.Areas.Administration.Controllers
         }
 
         // GET: Administration/ProductManagement
-        public ViewResult Index()
+        public ViewResult Index(ProductsViewModel model)
         {
-            return this.View();
+            return this.View(model);
+        }
+
+        // GET: Administration/SearchProducts
+        public PartialViewResult SearchProducts(SearchModel searchModel, ProductsViewModel productsModel, int? page)
+        {
+            int actualPage = page ?? 1;
+
+            var result = this.productsService.SearchProducts(searchModel.SearchWord, searchModel.SortBy, actualPage, ProductsPerPage);
+            var count = this.productsService.GetProductsCount(searchModel.SearchWord);
+
+            productsModel.SearchModel = searchModel;
+            productsModel.ProductsCount = count;
+            productsModel.Pages = (int)Math.Ceiling((double)count / ProductsPerPage);
+            productsModel.Page = actualPage;
+            productsModel.Products = mapper.Map<IEnumerable<SingleProductViewModel>>(result);
+
+            return this.PartialView("ProductsPartial", productsModel);
         }
 
         // GET: Administration/ProductAddition

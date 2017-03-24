@@ -37,5 +37,56 @@ namespace FFY.Services
         {
             return this.data.ProductsRepository.GetById(id);
         }
+
+        public IEnumerable<Product> SearchProducts(string searchWord, string sortBy, int page = 1, int productsPerPage = 10)
+        {
+            var skip = (page - 1) * productsPerPage;
+
+            var products = this.BuildSearchQuery(searchWord);
+
+            switch (sortBy)
+            {
+                case "name":
+                    products = products.OrderBy(p => p.Name);
+                    break;
+                case "price":
+                    products = products.OrderByDescending(p => p.Price);
+                    break;
+                case "room":
+                    products = products.OrderBy(p => p.Room.Name);
+                    break;
+                case "category":
+                    products = products.OrderBy(p => p.Category.Name);
+                    break;
+                default:
+                    products = products.OrderBy(p => p.Name);
+                    break;
+            }
+
+            var resultProducts = products
+                .Skip(skip)
+                .Take(productsPerPage)
+                .ToList();
+
+            return resultProducts;
+        }
+
+        public int GetProductsCount(string searchWord)
+        {
+            var users = this.BuildSearchQuery(searchWord);
+            return users.Count();
+        }
+
+        private IQueryable<Product> BuildSearchQuery(string searchWord)
+        {
+            var products = this.data.ProductsRepository.All();
+
+            if (!string.IsNullOrEmpty(searchWord))
+            {
+                products = products.Where(p => p.Name.ToLower().Contains(searchWord.ToLower()));
+            }
+
+            return products;
+        }
     }
 }

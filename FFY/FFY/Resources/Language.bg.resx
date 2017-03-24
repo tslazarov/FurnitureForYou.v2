@@ -273,6 +273,10 @@
     <value>Процента намаление трябва да е число между 0 и 100</value>
     <comment>ProductAdditionViewModel</comment>
   </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Промени</value>
+    <comment>ProductsManagement</comment>
+  </data>
   <data name="Email" xml:space="preserve">
     <value>Имейл</value>
     <comment>LoginViewModel</comment>
@@ -456,6 +460,10 @@
   <data name="ProductsManagement" xml:space="preserve">
     <value>Управление на Продукти</value>
     <comment>Navigation</comment>
+  </data>
+  <data name="ProductsNotFound" xml:space="preserve">
+    <value>Не бяха намерени продукти</value>
+    <comment>ProductsManagement</comment>
   </data>
   <data name="Purchase" xml:space="preserve">
     <value>Поръчай</value>
