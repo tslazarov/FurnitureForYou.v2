@@ -19,6 +19,10 @@ namespace FFY.Services.Contracts
 
         void RateProduct(User user, Product product, int rating);
 
+        IEnumerable<Product> GetFavoriteProducts(string id, int page = 1, int productsPerPage = 2);
+
+        int GetFavoriteProductsCount(string id);
+
         IEnumerable<User> SearchUsers(string searchWord, string orderBy, int page = 1, int usersPerPage = 10);
 
         int GetUsersCount(string searchWord);

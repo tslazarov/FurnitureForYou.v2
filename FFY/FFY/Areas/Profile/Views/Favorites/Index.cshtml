@@ -1,9 +1,23 @@
-﻿@using FFY.Web.Areas.Profile.Models
-@model FavoritesViewModel
-
-<div class="favorite-products-container">
-
+﻿<div class="row">
+    <div class="products-management-container">
+        @using (Ajax.BeginForm("SearchProducts", null,
+                new AjaxOptions()
+                {
+                    HttpMethod = "GET",
+                    UpdateTargetId = "products-results",
+                    InsertionMode = InsertionMode.Replace,
+                },
+                new { id = "search-form" }))
+        {
+        }
+        <div id="products-results" class="col-sm-12">
+            @Html.Action("PagingProducts")
+        </div>
+    </div>
 </div>
 
-<h2>Index</h2>
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+}
 

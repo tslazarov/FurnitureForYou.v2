@@ -1,0 +1,41 @@
+﻿@using FFY.Web.Areas.Profile.Models
+@model FavoriteProductsViewModel
+
+@if (Model.FavoriteProductsCount == 0)
+{
+    <h2 class="empty-users-list">@FFY.Web.Resources.Language.ProductsNotFound</h2>
+}
+else
+{
+    foreach (var product in Model.FavoriteProducts)
+    {
+        <div class="col-sm-12 product-list-item">
+            <div class="col-sm-6 p-name">
+                @product.Name
+            </div>
+            <div class="col-sm-6 p-details">
+                @Html.ActionLink(FFY.Web.Resources.Language.Details, "product", new { controller = "furniture", area = "", id = @product.Id })
+            </div>
+        </div>
+    }
+    <div>
+        <ul class="pagination">
+            @for (int i = 1; i <= Model.Pages; i++)
+                {
+                <li class=@(i == Model.Page ? "active" : "")>
+                    @Ajax.ActionLink(i.ToString(), "PagingProducts",
+                new
+                {
+                    Page = i
+                },
+                new AjaxOptions()
+                {
+                    HttpMethod = "GET",
+                    UpdateTargetId = "products-results",
+                    InsertionMode = InsertionMode.Replace
+                })
+                </li>
+            }
+        </ul>
+    </div>
+}

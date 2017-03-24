@@ -98,6 +98,20 @@ namespace FFY.Services
             return this.data.UsersRepository.All().FirstOrDefault(u => u.UserName == email);
         }
 
+        public IEnumerable<Product> GetFavoriteProducts(string id, int page = 1, int productsPerPage = 16)
+        {
+            var skip = (page - 1) * productsPerPage;
+
+            var products = this.data.UsersRepository.GetById(id).FavoritedProducts;
+
+            var resultProducts = products.OrderBy(p => p.Name)
+                .Skip(skip)
+                .Take(productsPerPage)
+                .ToList();
+
+            return resultProducts;
+        }
+
         public IEnumerable<User> SearchUsers(string searchWord, string sortBy, int page = 1, int usersPerPage = 10)
         {
             var skip = (page - 1) * usersPerPage;
@@ -123,6 +137,12 @@ namespace FFY.Services
                 .ToList();
 
             return resultUsers;
+        }
+
+        public int GetFavoriteProductsCount(string id)
+        {
+            var products = this.data.UsersRepository.GetById(id).FavoritedProducts;
+            return products.Count();
         }
 
         public int GetUsersCount(string searchWord)

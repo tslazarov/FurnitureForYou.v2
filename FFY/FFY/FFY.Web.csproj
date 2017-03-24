@@ -274,10 +274,11 @@
     <Compile Include="Areas\Profile\Controllers\InformationController.cs" />
     <Compile Include="Areas\Profile\Controllers\ShoppingCartController.cs" />
     <Compile Include="Areas\Profile\Controllers\SupportChatClientController.cs" />
-    <Compile Include="Areas\Profile\Models\FavoritesViewModel.cs" />
+    <Compile Include="Areas\Profile\Models\FavoriteProductsViewModel.cs" />
     <Compile Include="Areas\Profile\Models\OrderViewModel.cs" />
     <Compile Include="Areas\Profile\Models\ProfileViewModel.cs" />
     <Compile Include="Areas\Profile\Models\ShoppingCartViewModel.cs" />
+    <Compile Include="Areas\Profile\Models\SingleFavoriteProductViewModel.cs" />
     <Compile Include="Areas\Profile\ProfileAreaRegistration.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\FurnitureController.cs" />
@@ -349,6 +350,7 @@
     <Content Include="Areas\Administration\Views\ProductManagement\ProductsPartial.cshtml" />
     <Content Include="Areas\Administration\Views\ContactManagement\ContactsPartial.cshtml" />
     <Content Include="Areas\Administration\Views\OrderManagement\OrdersPartial.cshtml" />
+    <Content Include="Areas\Profile\Views\Favorites\FavoriteProductsPartial.cshtml" />
     <None Include="Properties\PublishProfiles\furnitureforyou - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\furnitureforyou - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
