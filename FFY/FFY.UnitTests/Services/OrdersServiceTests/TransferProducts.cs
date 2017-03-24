@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FFY.UnitTests.Services.ContactsServiceTests
+namespace FFY.UnitTests.Services.OrdersServiceTests
 {
     [TestFixture]
     public class TransferProducts
