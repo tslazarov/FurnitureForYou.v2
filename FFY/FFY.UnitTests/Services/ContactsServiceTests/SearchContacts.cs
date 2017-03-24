@@ -214,7 +214,6 @@ namespace FFY.UnitTests.Services.ContactsServiceTests
             // Arrange
             var searchWord = "qwerty";
 
-
             var contacts = new List<Contact>()
             {
                 new Contact() { Title = "Hello", Email="hello@mail.com" },

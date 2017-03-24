@@ -91,6 +91,8 @@
     <Compile Include="Services\ContactsServiceTests\Constructor.cs" />
     <Compile Include="Services\ContactsServiceTests\GetContactsCount.cs" />
     <Compile Include="Services\ContactsServiceTests\SearchContacts.cs" />
+    <Compile Include="Services\OrdersServiceTests\GetOrdersCount.cs" />
+    <Compile Include="Services\OrdersServiceTests\SearchOrders.cs" />
     <Compile Include="Services\OrdersServiceTests\TransferProducts.cs" />
     <Compile Include="Services\OrdersServiceTests\AddOrder.cs" />
     <Compile Include="Services\OrdersServiceTests\Constructor.cs" />
