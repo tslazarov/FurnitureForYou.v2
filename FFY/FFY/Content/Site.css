@@ -13,6 +13,18 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0px !important;
 }
 
+/* Bootstrap custom */
+.pagination>li>a, 
+.pagination>li {
+    border-radius: 0px !important;
+    border: 0px !important;
+}
+
+.pagination>.active>a {
+    background-color: #52658F !important;
+    color: #FFFFFF !important;
+}
+
 /* General */
 .body-content {
     margin-top: 20px;
@@ -243,6 +255,55 @@ footer{
 .o-total {
     text-align: center;
     font-size: 22px;
+}
+
+/* Users management page */
+
+.user-management-container {
+    margin: 15px;
+}
+
+.search-header input,
+.search-header button,
+.search-header select {
+    margin-bottom: 20px;
+}
+
+.users-list-head  {
+    background-color: #52658F;
+    color: #FFFFFF;
+    line-height: 40px;
+    font-size: 16px;
+}
+
+.user-list-item {
+    display: block;
+    line-height: 40px;
+}
+
+.user-list-item:nth-of-type(n) {
+    background-color: #FFFFFF;
+}
+
+.user-list-item:nth-of-type(2n) {
+    background-color: #FAFAFA;
+}
+
+.empty-users-list {
+    padding-top: 60px;
+    text-align: center;
+}
+
+@media (max-width: 767px) {
+    .u-name {
+        text-align: center;
+    }
+    .u-email {
+        text-align: center;
+    }
+    .u-details {
+        text-align: center;
+    }
 }
 
 /* Client chat */

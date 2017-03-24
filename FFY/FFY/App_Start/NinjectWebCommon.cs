@@ -72,7 +72,7 @@ namespace FFY.Web.App_Start
             kernel.Load(new ProvidersNinjectModule());
             kernel.Load(new DataNinjectModule());
             kernel.Load(new ServicesNinjectModule());
-            kernel.Load(new ViewModelsNinjectModule());
+            kernel.Load(new AutoMapperNinjectModule());
         }        
     }
 }

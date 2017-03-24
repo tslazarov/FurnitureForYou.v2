@@ -257,6 +257,10 @@
     <value>Описанието трябва да е между 10 и 500 символа</value>
     <comment>ProductAdditionViewModel</comment>
   </data>
+  <data name="Details" xml:space="preserve">
+    <value>Детайли</value>
+    <comment>Management</comment>
+  </data>
   <data name="DiscountPercentage" xml:space="preserve">
     <value>Процент намаление</value>
     <comment>ProductAdditionViewModel</comment>
@@ -344,6 +348,10 @@
   <data name="Moderator" xml:space="preserve">
     <value>Модератор</value>
     <comment>Roles</comment>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Име</value>
+    <comment>Management</comment>
   </data>
   <data name="OnDelivery" xml:space="preserve">
     <value>Наложен платеж</value>
@@ -501,6 +509,10 @@
     <value>Изисква се име на стая</value>
     <comment>RoomViewModel</comment>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Търси</value>
+    <comment>Management</comment>
+  </data>
   <data name="SelectedPaymentType" xml:space="preserve">
     <value>Начин на плащане</value>
     <comment>OrderViewModel</comment>
@@ -592,5 +604,9 @@
   <data name="UsersManagement" xml:space="preserve">
     <value>Управление на Потребители</value>
     <comment>Navigation</comment>
+  </data>
+  <data name="UsersNotFound" xml:space="preserve">
+    <value>Не бяха намерени потребители</value>
+    <comment>UsersManagement</comment>
   </data>
 </root>

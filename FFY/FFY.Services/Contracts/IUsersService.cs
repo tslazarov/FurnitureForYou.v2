@@ -18,5 +18,9 @@ namespace FFY.Services.Contracts
         void RemoveProductFromFavorites(User user, Product product);
 
         void RateProduct(User user, Product product, int rating);
+
+        IEnumerable<User> SearchUsers(string searchWord, string orderBy, int page = 1, int usersPerPage = 10);
+
+        int GetUsersCount(string searchWord);
     }
 }

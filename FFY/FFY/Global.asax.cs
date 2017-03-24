@@ -19,6 +19,7 @@ namespace FFY.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             DbConfig.Initialize();
+            AutoMapperConfig.Config(Assembly.GetExecutingAssembly());
         }
     }
 }

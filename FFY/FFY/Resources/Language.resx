@@ -257,6 +257,10 @@
     <value>Description should be between 10 and 500 characters</value>
     <comment>ProductAdditionViewModel</comment>
   </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+    <comment>Management</comment>
+  </data>
   <data name="DiscountPercentage" xml:space="preserve">
     <value>Discount percentage</value>
     <comment>ProductAdditionViewModel</comment>
@@ -344,6 +348,10 @@
   <data name="Moderator" xml:space="preserve">
     <value>Moderator</value>
     <comment>Roles</comment>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+    <comment>Management</comment>
   </data>
   <data name="OnDelivery" xml:space="preserve">
     <value>On delivery</value>
@@ -501,6 +509,10 @@
     <value>Room name is required</value>
     <comment>RoomViewModel</comment>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+    <comment>Management</comment>
+  </data>
   <data name="SelectedPaymentType" xml:space="preserve">
     <value>Method of payment</value>
     <comment>OrderViewModel</comment>
@@ -592,5 +604,9 @@
   <data name="UsersManagement" xml:space="preserve">
     <value>Users Management</value>
     <comment>Navigation</comment>
+  </data>
+  <data name="UsersNotFound" xml:space="preserve">
+    <value>Users were not found</value>
+    <comment>UsersManagement</comment>
   </data>
 </root>

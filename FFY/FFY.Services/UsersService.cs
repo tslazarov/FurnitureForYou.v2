@@ -97,5 +97,52 @@ namespace FFY.Services
 
             return this.data.UsersRepository.All().FirstOrDefault(u => u.UserName == email);
         }
+
+        public IEnumerable<User> SearchUsers(string searchWord, string sortBy, int page = 1, int usersPerPage = 10)
+        {
+            var skip = (page - 1) * usersPerPage;
+
+            var users = this.BuildSearchQuery(searchWord);
+
+            switch (sortBy)
+            {
+                case "name":
+                    users = users.OrderBy(u => u.FirstName);
+                    break;
+                case "email":
+                    users = users.OrderBy(x => x.UserName);
+                    break;
+                default:
+                    users = users.OrderBy(x => x.FirstName);
+                    break;
+            }
+
+            var resultUsers = users
+                .Skip(skip)
+                .Take(usersPerPage)
+                .ToList();
+
+            return resultUsers;
+        }
+
+        public int GetUsersCount(string searchWord)
+        {
+            var users = this.BuildSearchQuery(searchWord);
+            return users.Count();
+        }
+
+        private IQueryable<User> BuildSearchQuery(string searchWord)
+        {
+            var users = this.data.UsersRepository.All();
+
+            if (searchWord != null)
+            {
+                users = users.Where(u => u.FirstName.Contains(searchWord)
+                    || u.LastName.Contains(searchWord)
+                    || u.UserName.Contains(searchWord));
+            }
+
+            return users;
+        }
     }
 }

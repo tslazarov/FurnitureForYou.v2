@@ -1,9 +1,11 @@
 ﻿using Bytes2you.Validation;
 using FFY.Providers.Contracts;
 using FFY.Services.Contracts;
+using FFY.Web.Areas.Administration.Models;
 using FFY.Web.Areas.Administration.Models.UserManagement;
 using FFY.Web.Areas.Profile.Models;
 using FFY.Web.Custom.Attributes;
+using FFY.Web.Mappings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,13 +19,21 @@ namespace FFY.Web.Areas.Administration.Controllers
     [Security(Roles = "Administrator", RedirectUrl = "~/error/unauthorized")]
     public class UserManagementController : Controller
     {
+        private const int UsersPerPage = 10;
+
         private readonly IAuthenticationProvider authenticationProvider;
+        private readonly IMapperProvider mapper;
         private readonly IUsersService usersService;
 
         public UserManagementController(IAuthenticationProvider authenticationProvider,
+            IMapperProvider mapper,
             IUsersService usersService)
         {
             Guard.WhenArgument<IAuthenticationProvider>(authenticationProvider, "Authentication provider cannot be null.")
+               .IsNull()
+               .Throw();
+
+            Guard.WhenArgument<IMapperProvider>(mapper, "Mapper provider cannot be null.")
                .IsNull()
                .Throw();
 
@@ -32,13 +42,32 @@ namespace FFY.Web.Areas.Administration.Controllers
                 .Throw();
 
             this.authenticationProvider = authenticationProvider;
+            this.mapper = mapper;
             this.usersService = usersService;
         }
 
         // GET: Administration/UserManagement
-        public ViewResult Index()
+        public ViewResult Index(UsersViewModel model)
         {
-            return this.View();
+            return this.View(model);
+        }
+
+
+        // GET: Administration/SearchUsers
+        public PartialViewResult SearchUsers(SearchModel searchModel, UsersViewModel usersModel, int? page)
+        {
+            int actualPage = page ?? 1;
+
+            var result = this.usersService.SearchUsers(searchModel.SearchWord, searchModel.SortBy, actualPage, UsersPerPage);
+            var count = this.usersService.GetUsersCount(searchModel.SearchWord);
+
+            usersModel.SearchModel = searchModel;
+            usersModel.UsersCount = count;
+            usersModel.Pages = (int)Math.Ceiling((double)count / UsersPerPage);
+            usersModel.Page = actualPage;
+            usersModel.Users = mapper.Map<IEnumerable<SingleUserViewModel>>(result);
+
+            return this.PartialView("UsersPartial", usersModel);
         }
 
         // GET: Administration/Users/Id
@@ -54,6 +83,7 @@ namespace FFY.Web.Areas.Administration.Controllers
         }
 
         // POST: Administration/UserManagement/UpdateStatus
+        [HttpPost]
         public ActionResult UpdateStatus(UserViewModel model)
         {
             var user = this.usersService.GetUserById(model.UserId);
