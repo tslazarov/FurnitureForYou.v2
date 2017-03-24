@@ -389,6 +389,48 @@ footer{
     }
 }
 
+/* Orders management page */
+
+.order-management-container {
+    margin: 15px;
+}
+
+.orders-list-head  {
+    background-color: #52658F;
+    color: #FFFFFF;
+    line-height: 40px;
+    font-size: 16px;
+}
+
+.order-list-item {
+    display: block;
+    line-height: 40px;
+}
+
+.order-list-item:nth-of-type(n) {
+    background-color: #FFFFFF;
+}
+
+.order-list-item:nth-of-type(2n) {
+    background-color: #FAFAFA;
+}
+
+.empty-order-list {
+    padding-top: 60px;
+    text-align: center;
+}
+
+@media (max-width: 767px) {
+    .or-id,
+    .or-sender,
+    .or-address,
+    .or-send-on,
+    .or-status,
+    .or-details {
+        text-align: center;
+    }
+}
+
 /* Client chat */
 
 #support-chat-link,

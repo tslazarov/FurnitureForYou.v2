@@ -121,6 +121,10 @@
     <value>Добави нов продукт</value>
     <comment>ProductManagementIndexView</comment>
   </data>
+  <data name="Address" xml:space="preserve">
+    <value>Адрес</value>
+    <comment>OrdersManagement</comment>
+  </data>
   <data name="Administration" xml:space="preserve">
     <value>Администрация</value>
     <comment>Navigation</comment>
@@ -253,6 +257,10 @@
     <value>лв</value>
     <comment>ProductView</comment>
   </data>
+  <data name="Delivered" xml:space="preserve">
+    <value>Доставена</value>
+    <comment>OrdersManagement</comment>
+  </data>
   <data name="Description" xml:space="preserve">
     <value>Описание</value>
     <comment>ProductAdditionViewModel</comment>
@@ -329,6 +337,10 @@
     <value>Начало</value>
     <comment>Navigation</comment>
   </data>
+  <data name="Id" xml:space="preserve">
+    <value>Номер</value>
+    <comment>OrdersManagement</comment>
+  </data>
   <data name="InvalidLogin" xml:space="preserve">
     <value>Невалиден имейл или парола</value>
     <comment>LoginViewModel</comment>
@@ -392,6 +404,10 @@
   <data name="OrdersManagement" xml:space="preserve">
     <value>Управление на Поръчки</value>
     <comment>Navigation</comment>
+  </data>
+  <data name="OrdersNotFound" xml:space="preserve">
+    <value>Не бяха намерени поръчки</value>
+    <comment>OrdersManagement</comment>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Парола</value>
@@ -517,6 +533,10 @@
     <value>Регистрирай се като нов потребител</value>
     <comment>LoginView</comment>
   </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Отказана</value>
+    <comment>OrdersManagement</comment>
+  </data>
   <data name="RememberMe" xml:space="preserve">
     <value>Запомни ме</value>
     <comment>LoginViewModel</comment>
@@ -549,6 +569,10 @@
     <value>Изисква се начин на плащане</value>
     <comment>OrderViewModel</comment>
   </data>
+  <data name="Sender" xml:space="preserve">
+    <value>Подател</value>
+    <comment>OrdersManagement</comment>
+  </data>
   <data name="SendMessage" xml:space="preserve">
     <value>Изпрати съобщение</value>
     <comment>SupportChatVIew</comment>
@@ -560,6 +584,10 @@
   <data name="SendTo" xml:space="preserve">
     <value>Изпрати до</value>
     <comment>SupportChatView</comment>
+  </data>
+  <data name="Sent" xml:space="preserve">
+    <value>Изпратена</value>
+    <comment>OrdersManagement</comment>
   </data>
   <data name="ShoppingCartAdd" xml:space="preserve">
     <value>Добави в количката</value>

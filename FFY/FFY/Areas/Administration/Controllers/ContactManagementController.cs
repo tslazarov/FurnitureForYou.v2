@@ -44,20 +44,20 @@ namespace FFY.Web.Areas.Administration.Controllers
 
 
         // GET: Administration/SearchContacts
-        public PartialViewResult SearchContacts(SearchModel searchModel, ContactsViewModel usersModel, int? page)
+        public PartialViewResult SearchContacts(SearchModel searchModel, ContactsViewModel contactsModel, int? page)
         {
             int actualPage = page ?? 1;
 
             var result = this.contactsService.SearchContacts(searchModel.SearchWord, searchModel.SortBy, searchModel.FilterBy, actualPage, ContactsPerPage);
             var count = this.contactsService.GetContactsCount(searchModel.SearchWord, searchModel.FilterBy);
 
-            usersModel.SearchModel = searchModel;
-            usersModel.ContactsCount = count;
-            usersModel.Pages = (int)Math.Ceiling((double)count / ContactsPerPage);
-            usersModel.Page = actualPage;
-            usersModel.Contacts = mapper.Map<IEnumerable<SingleContactViewModel>>(result);
+            contactsModel.SearchModel = searchModel;
+            contactsModel.ContactsCount = count;
+            contactsModel.Pages = (int)Math.Ceiling((double)count / ContactsPerPage);
+            contactsModel.Page = actualPage;
+            contactsModel.Contacts = mapper.Map<IEnumerable<SingleContactViewModel>>(result);
 
-            return this.PartialView("ContactsPartial", usersModel);
+            return this.PartialView("ContactsPartial", contactsModel);
         }
     }
 }

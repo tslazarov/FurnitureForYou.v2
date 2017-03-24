@@ -56,5 +56,64 @@ namespace FFY.Services
                 }
             }
         }
+
+        public IEnumerable<Order> SearchOrders(string searchWord, string sortBy, string filterBy, int page = 1, int ordersPerPage = 10)
+        {
+            var skip = (page - 1) * ordersPerPage;
+
+            var orders = this.BuildSearchAndFilterQuery(searchWord, filterBy);
+
+            switch (sortBy)
+            {
+                case "address":
+                    orders = orders.OrderBy(o => o.Address.Street);
+                    break;
+                case "date":
+                    orders = orders.OrderByDescending(o => o.SendOn);
+                    break;
+                case "sender":
+                    orders = orders.OrderBy(o => o.User.FirstName);
+                    break;
+                default:
+                    orders = orders.OrderByDescending(o => o.SendOn);
+                    break;
+            }
+
+            var resultOrders = orders
+                .Skip(skip)
+                .Take(ordersPerPage)
+                .ToList();
+
+            return resultOrders;
+        }
+
+        public int GetOrdersCount(string searchWord, string filterBy)
+        {
+            var orders = this.BuildSearchAndFilterQuery(searchWord, filterBy);
+            return orders.Count();
+        }
+
+        private IQueryable<Order> BuildSearchAndFilterQuery(string searchWord, string filterBy)
+        {
+            var orders = this.data.OrdersRepository.All();
+
+            if (!string.IsNullOrEmpty(filterBy))
+            {
+                var status = int.Parse(filterBy);
+
+                if (status > 0)
+                {
+                    orders = orders.Where(o => (int)o.OrderStatusType == status);
+                }
+            }
+
+            if (!string.IsNullOrEmpty(searchWord))
+            {
+                orders = orders.Where(o => o.User.FirstName.ToLower().Contains(searchWord.ToLower())
+                    || o.Address.Street.ToLower().Contains(searchWord.ToLower()));
+            }
+
+            return orders;
+        }
     }
 }

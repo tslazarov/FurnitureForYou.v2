@@ -1,0 +1,74 @@
+﻿@using FFY.Web.Areas.Administration.Models.OrderManagement
+@model OrdersViewModel
+<div class="col-sm-12 orders-list-head">
+    <div class="col-sm-1 or-id">
+        @FFY.Web.Resources.Language.Id
+    </div>
+    <div class="col-sm-3 or-sender">
+        @FFY.Web.Resources.Language.Sender
+    </div>
+    <div class="col-sm-3 or-address">
+        @FFY.Web.Resources.Language.Address
+    </div>
+    <div class="col-sm-2 or-send-on">
+        @FFY.Web.Resources.Language.SendOn
+    </div>
+    <div class="col-sm-1 or-status">
+        @FFY.Web.Resources.Language.Status
+    </div>
+</div>
+@if (Model.OrdersCount == 0)
+{
+    <h2 class="empty-order-list">@FFY.Web.Resources.Language.OrdersNotFound</h2>
+}
+else
+{
+    foreach (var order in Model.Orders)
+    {
+        <div class="col-sm-12 order-list-item">
+            <div class="col-sm-1 or-id">
+                @order.Id
+            </div>
+            <div class="col-sm-3 or-sender">
+                @order.User.FirstName @order.User.LastName
+            </div>
+            <div class="col-sm-3 or-address">
+                @order.Address.Street, @order.Address.City
+            </div>
+            <div class="col-sm-2 or-send-on">
+                @order.SendOn.ToString()
+            </div>
+            <div class="col-sm-2 or-status">
+                @order.OrderStatusType
+            </div>
+            <div class="col-sm-1 or-details">
+                @Html.ActionLink(FFY.Web.Resources.Language.Details, "order", new { controller = "furniture", area = "", id = @order.Id })
+            </div>
+        </div>
+    }
+    <div>
+        <ul class="pagination">
+            @for (int i = 1; i <= Model.Pages; i++)
+                {
+                <li class=@(i == Model.Page ? "active" : "")>
+                    @Ajax.ActionLink(i.ToString(), "SearchOrders",
+                new
+                {
+                    SearchWord = Model.SearchModel.SearchWord,
+                    SortBy = Model.SearchModel.SortBy,
+                    FilterBy = Model.SearchModel.FilterBy,
+                    Page = i
+                },
+                new AjaxOptions()
+                {
+                    HttpMethod = "GET",
+                    UpdateTargetId = "search-results",
+                    InsertionMode = InsertionMode.Replace
+                })
+                </li>
+            }
+        </ul>
+    </div>
+}
+
+

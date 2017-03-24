@@ -12,5 +12,9 @@ namespace FFY.Services.Contracts
         void AddOrder(Order order);
 
         void TransferProducts(Order order, ShoppingCart shoppingCart);
+
+        IEnumerable<Order> SearchOrders(string searchWord, string sortBy, string filterBy, int page = 1, int ordersPerPage = 10);
+
+        int GetOrdersCount(string searchWord, string filterBy);
     }
 }

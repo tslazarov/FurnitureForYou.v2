@@ -121,6 +121,10 @@
     <value>Add new product</value>
     <comment>ProductManagementIndexView</comment>
   </data>
+  <data name="Address" xml:space="preserve">
+    <value>Address</value>
+    <comment>OrdersManagement</comment>
+  </data>
   <data name="Administration" xml:space="preserve">
     <value>Administration</value>
     <comment>Navigation</comment>
@@ -253,6 +257,10 @@
     <value>lv</value>
     <comment>ProductView</comment>
   </data>
+  <data name="Delivered" xml:space="preserve">
+    <value>Delivered</value>
+    <comment>OrdersManagement</comment>
+  </data>
   <data name="Description" xml:space="preserve">
     <value>Description</value>
     <comment>ProductAdditionViewModel</comment>
@@ -329,6 +337,10 @@
     <value>Home</value>
     <comment>Navigation</comment>
   </data>
+  <data name="Id" xml:space="preserve">
+    <value>Id</value>
+    <comment>OrdersManagement</comment>
+  </data>
   <data name="InvalidLogin" xml:space="preserve">
     <value>Invalid email or password</value>
     <comment>LoginViewModel</comment>
@@ -392,6 +404,10 @@
   <data name="OrdersManagement" xml:space="preserve">
     <value>Orders Management</value>
     <comment>Navigation</comment>
+  </data>
+  <data name="OrdersNotFound" xml:space="preserve">
+    <value>Orders were not found</value>
+    <comment>OrdersManagement</comment>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
@@ -517,6 +533,10 @@
     <value>Register as a new user</value>
     <comment>LoginView</comment>
   </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Rejected</value>
+    <comment>OrdersManagement</comment>
+  </data>
   <data name="RememberMe" xml:space="preserve">
     <value>Remember me</value>
     <comment>LoginViewModel</comment>
@@ -549,6 +569,10 @@
     <value>Method of payment is required</value>
     <comment>OrderViewModel</comment>
   </data>
+  <data name="Sender" xml:space="preserve">
+    <value>Sender</value>
+    <comment>OrdersManagement</comment>
+  </data>
   <data name="SendMessage" xml:space="preserve">
     <value>Send message</value>
     <comment>SupportChatVIew</comment>
@@ -560,6 +584,10 @@
   <data name="SendTo" xml:space="preserve">
     <value>Send to</value>
     <comment>SupportChatView</comment>
+  </data>
+  <data name="Sent" xml:space="preserve">
+    <value>Sent</value>
+    <comment>OrdersManagement</comment>
   </data>
   <data name="ShoppingCartAdd" xml:space="preserve">
     <value>Add to shopping cart</value>
