@@ -10,5 +10,7 @@ namespace FFY.Web.Areas.Administration.Models
         public string SearchWord { get; set; }
 
         public string SortBy { get; set; }
+
+        public string FilterBy { get; set; }
     }
 }

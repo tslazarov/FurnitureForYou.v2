@@ -10,5 +10,9 @@ namespace FFY.Services.Contracts
     public interface IContactsService
     {
         void AddContact(Contact contact);
+
+        IEnumerable<Contact> SearchContacts(string searchWord, string sortBy, string filterBy, int page = 1, int contactsPerPage = 10);
+
+        int GetContactsCount(string searchWord, string filterBy);
     }
 }

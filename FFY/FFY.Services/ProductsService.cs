@@ -73,8 +73,8 @@ namespace FFY.Services
 
         public int GetProductsCount(string searchWord)
         {
-            var users = this.BuildSearchQuery(searchWord);
-            return users.Count();
+            var products = this.BuildSearchQuery(searchWord);
+            return products.Count();
         }
 
         private IQueryable<Product> BuildSearchQuery(string searchWord)

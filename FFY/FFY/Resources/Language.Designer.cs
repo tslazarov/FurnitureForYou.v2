@@ -88,6 +88,15 @@ namespace FFY.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All.
+        /// </summary>
+        public static string All {
+            get {
+                return ResourceManager.GetString("All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Available.
         /// </summary>
         public static string Available {
@@ -264,6 +273,15 @@ namespace FFY.Web.Resources {
         public static string ContactsManagement {
             get {
                 return ResourceManager.GetString("ContactsManagement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contacts were not found.
+        /// </summary>
+        public static string ContactsNotFound {
+            get {
+                return ResourceManager.GetString("ContactsNotFound", resourceCulture);
             }
         }
         
@@ -601,6 +619,15 @@ namespace FFY.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Not processed.
+        /// </summary>
+        public static string NotProcessed {
+            get {
+                return ResourceManager.GetString("NotProcessed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to On delivery.
         /// </summary>
         public static string OnDelivery {
@@ -759,6 +786,24 @@ namespace FFY.Web.Resources {
         public static string PriceValidation {
             get {
                 return ResourceManager.GetString("PriceValidation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Processed.
+        /// </summary>
+        public static string Processed {
+            get {
+                return ResourceManager.GetString("Processed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Processing.
+        /// </summary>
+        public static string Processing {
+            get {
+                return ResourceManager.GetString("Processing", resourceCulture);
             }
         }
         
@@ -997,6 +1042,15 @@ namespace FFY.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Send on.
+        /// </summary>
+        public static string SendOn {
+            get {
+                return ResourceManager.GetString("SendOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Send to.
         /// </summary>
         public static string SendTo {
@@ -1065,6 +1119,15 @@ namespace FFY.Web.Resources {
         public static string ShoppingCartYour {
             get {
                 return ResourceManager.GetString("ShoppingCartYour", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status.
+        /// </summary>
+        public static string Status {
+            get {
+                return ResourceManager.GetString("Status", resourceCulture);
             }
         }
         

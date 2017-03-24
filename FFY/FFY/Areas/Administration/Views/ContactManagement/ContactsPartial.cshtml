@@ -1,0 +1,67 @@
+﻿@using FFY.Web.Areas.Administration.Models.ContactManagement
+@model ContactsViewModel
+<div class="col-sm-12 contacts-list-head">
+    <div class="col-sm-3 c-title">
+        @FFY.Web.Resources.Language.Title
+    </div>
+    <div class="col-sm-3 c-email">
+        @FFY.Web.Resources.Language.Email
+    </div>
+    <div class="col-sm-2 c-send-on">
+        @FFY.Web.Resources.Language.SendOn
+    </div>
+    <div class="col-sm-2 c-status">
+        @FFY.Web.Resources.Language.Status
+    </div>
+</div>
+@if (Model.ContactsCount == 0)
+{
+    <h2 class="empty-contact-list">@FFY.Web.Resources.Language.ContactsNotFound</h2>
+}
+else
+{
+    foreach (var contact in Model.Contacts)
+    {
+        <div class="col-sm-12 contact-list-item">
+            <div class="col-sm-3 c-title">
+                @contact.Title
+            </div>
+            <div class="col-sm-3 c-email">
+                @contact.Email
+            </div>
+            <div class="col-sm-2 c-send-on">
+                @contact.SendOn.ToString()
+            </div>
+            <div class="col-sm-2 c-status">
+                @contact.ContactStatusType
+            </div>
+            <div class="col-sm-2 c-details">
+                @Html.ActionLink(FFY.Web.Resources.Language.Details, "contact", new { controller = "furniture", area = "", id = @contact.Id })
+            </div>
+        </div>
+    }
+    <div>
+        <ul class="pagination">
+            @for (int i = 1; i <= Model.Pages; i++)
+                {
+                <li class=@(i == Model.Page ? "active" : "")>
+                    @Ajax.ActionLink(i.ToString(), "SearchContacts",
+                new
+                {
+                    SearchWord = Model.SearchModel.SearchWord,
+                    SortBy = Model.SearchModel.SortBy,
+                    FilterBy = Model.SearchModel.FilterBy,
+                    Page = i
+                },
+                new AjaxOptions()
+                {
+                    HttpMethod = "GET",
+                    UpdateTargetId = "search-results",
+                    InsertionMode = InsertionMode.Replace
+                })
+                </li>
+            }
+        </ul>
+    </div>
+}
+
