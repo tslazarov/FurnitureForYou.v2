@@ -137,9 +137,9 @@ namespace FFY.Services
 
             if (searchWord != null)
             {
-                users = users.Where(u => u.FirstName.Contains(searchWord)
-                    || u.LastName.Contains(searchWord)
-                    || u.UserName.Contains(searchWord));
+                users = users.Where(u => u.FirstName.ToLower().Contains(searchWord.ToLower())
+                    || u.LastName.ToLower().Contains(searchWord.ToLower())
+                    || u.UserName.ToLower().Contains(searchWord.ToLower()));
             }
 
             return users;

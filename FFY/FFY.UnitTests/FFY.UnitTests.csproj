@@ -110,8 +110,10 @@
     <Compile Include="Services\UsersServiceTests\Constructor.cs" />
     <Compile Include="Services\UsersServiceTests\GetUserByEmail.cs" />
     <Compile Include="Services\UsersServiceTests\GetUserById.cs" />
+    <Compile Include="Services\UsersServiceTests\GetUsersCount.cs" />
     <Compile Include="Services\UsersServiceTests\RateProduct.cs" />
     <Compile Include="Services\UsersServiceTests\RemoveProductFromFavorites.cs" />
+    <Compile Include="Services\UsersServiceTests\SearchUsers.cs" />
     <Compile Include="Services\UtilitiesTests\ImageUploaderTests\Constructor.cs" />
     <Compile Include="Services\UtilitiesTests\ImageUploaderTests\Upload.cs" />
     <Compile Include="Web\AccountControllerTests\Constructor.cs" />
