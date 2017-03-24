@@ -186,7 +186,7 @@ namespace FFY.UnitTests.Services.UsersServiceTests
             var usersService = new UsersService(mockedData.Object);
 
             // Act
-            var result = usersService.SearchUsers(searchWord, "", 2, 1);
+            var result = usersService.SearchUsers(searchWord, "", 1, 10);
 
             // Assert
             Assert.AreEqual(0, result.Count());
