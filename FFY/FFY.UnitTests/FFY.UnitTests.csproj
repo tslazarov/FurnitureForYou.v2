@@ -172,6 +172,11 @@
     <Compile Include="Web\ContactManagementControllerTests\Index.cs" />
     <Compile Include="Web\ContactManagementControllerTests\SearchContacts.cs" />
     <Compile Include="Web\ContactManagementControllerTests\UpdateStatus.cs" />
+    <Compile Include="Web\OrderManagementControllerTests\Constructor.cs" />
+    <Compile Include="Web\OrderManagementControllerTests\Index.cs" />
+    <Compile Include="Web\OrderManagementControllerTests\OrderDetailed.cs" />
+    <Compile Include="Web\OrderManagementControllerTests\SearchOrders.cs" />
+    <Compile Include="Web\OrderManagementControllerTests\UpdateStatus.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

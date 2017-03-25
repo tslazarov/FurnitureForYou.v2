@@ -66,8 +66,6 @@ namespace FFY.UnitTests.Web.ContactManagementControllerTests
         public void ShouldCallGetContactsCountMethodOfContactsService()
         {
             // Arrange
-            var page = 1;
-
             var searchModel = new SearchModel();
             var contactsViewModel = new ContactsViewModel();
 
@@ -96,7 +94,7 @@ namespace FFY.UnitTests.Web.ContactManagementControllerTests
                    mockedUsersService.Object);
 
             // Act 
-            contactManagementController.SearchContacts(searchModel, contactsViewModel, page);
+            contactManagementController.SearchContacts(searchModel, contactsViewModel, null);
 
             // Assert
             mockedContactsService.Verify(cs =>
@@ -337,7 +335,7 @@ namespace FFY.UnitTests.Web.ContactManagementControllerTests
                    mockedContactsService.Object,
                    mockedUsersService.Object);
 
-            // Act 
+            // Act and Assert
             contactManagementController.WithCallTo(cmc => cmc.SearchContacts(searchModel,
                 contactsViewModel,
                 page))

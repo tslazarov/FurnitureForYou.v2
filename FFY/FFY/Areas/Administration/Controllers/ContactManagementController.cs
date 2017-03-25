@@ -86,8 +86,7 @@ namespace FFY.Web.Areas.Administration.Controllers
             return this.RedirectToAction("ContactDetailed", new { id = model.Contact.Id });
         }
 
-
-        // GET: Administration/SearchContacts
+        // GET: Administration/ContactManagement/SearchContacts
         public PartialViewResult SearchContacts(SearchModel searchModel, ContactsViewModel contactsModel, int? page)
         {
             int actualPage = page ?? 1;

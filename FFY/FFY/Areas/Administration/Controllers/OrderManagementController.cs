@@ -46,11 +46,17 @@ namespace FFY.Web.Areas.Administration.Controllers
         {
             model.Order = this.ordersService.GetOrderById(id);
 
+            if (model.Order == null)
+            {
+                return this.View("PageNotFound");
+            }
+
             return this.View(model);
         }
 
         // POST: Administration/OrderManagement/UpdateStatus
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult UpdateStatus(OrderViewModel model)
         {
             var order = this.ordersService.GetOrderById(model.Order.Id);
