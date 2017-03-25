@@ -167,6 +167,11 @@
     <Compile Include="Web\AccountControllerTests\RegisterGet.cs" />
     <Compile Include="Web\AccountControllerTests\RegisterPost.cs" />
     <Compile Include="Web\ContactControllerTests\Constructor.cs" />
+    <Compile Include="Web\ContactManagementControllerTests\Constructor.cs" />
+    <Compile Include="Web\ContactManagementControllerTests\ContactDetailed.cs" />
+    <Compile Include="Web\ContactManagementControllerTests\Index.cs" />
+    <Compile Include="Web\ContactManagementControllerTests\SearchContacts.cs" />
+    <Compile Include="Web\ContactManagementControllerTests\UpdateStatus.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

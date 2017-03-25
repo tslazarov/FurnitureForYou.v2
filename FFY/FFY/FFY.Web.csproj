@@ -388,6 +388,7 @@
     <Content Include="Views\Furniture\RatingPartial.cshtml" />
     <Content Include="Views\Furniture\ShoppingCartPartial.cshtml" />
     <Content Include="Views\Shared\ClientChatLayout.cshtml" />
+    <Content Include="Views\Shared\PageNotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

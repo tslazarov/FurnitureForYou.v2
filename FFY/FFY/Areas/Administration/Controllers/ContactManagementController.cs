@@ -17,21 +17,21 @@ namespace FFY.Web.Areas.Administration.Controllers
     {
         private const int ContactsPerPage = 10;
 
-        private readonly IMapperProvider mapper;
         private readonly IAuthenticationProvider authenticationProvider;
+        private readonly IMapperProvider mapper;
         private readonly IContactsService contactsService;
         private readonly IUsersService usersService;
 
-        public ContactManagementController(IMapperProvider mapper,
-            IAuthenticationProvider authenticationProvider,
+        public ContactManagementController(IAuthenticationProvider authenticationProvider, 
+            IMapperProvider mapper,
             IContactsService contactsService,
             IUsersService usersService)
         {
-            Guard.WhenArgument<IMapperProvider>(mapper, "Mapper provider cannot be null.")
+            Guard.WhenArgument<IAuthenticationProvider>(authenticationProvider, "Authentication provider cannot be null.")
                .IsNull()
                .Throw();
 
-            Guard.WhenArgument<IAuthenticationProvider>(authenticationProvider, "Authentication provider cannot be null.")
+            Guard.WhenArgument<IMapperProvider>(mapper, "Mapper provider cannot be null.")
                .IsNull()
                .Throw();
 
@@ -43,8 +43,8 @@ namespace FFY.Web.Areas.Administration.Controllers
                 .IsNull()
                 .Throw();
 
-            this.mapper = mapper;
             this.authenticationProvider = authenticationProvider;
+            this.mapper = mapper;
             this.contactsService = contactsService;
             this.usersService = usersService;
         }
@@ -59,12 +59,18 @@ namespace FFY.Web.Areas.Administration.Controllers
         public ViewResult ContactDetailed(ContactViewModel model, int id)
         {
             model.Contact = this.contactsService.GetContactById(id);
+            
+            if(model.Contact == null)
+            {
+                return this.View("PageNotFound");
+            }
 
             return this.View(model);
         }
 
         // POST: Administration/ContactManagement/UpdateStatus
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult UpdateStatus(ContactViewModel model)
         {
             var id = this.authenticationProvider.CurrentUserId;
