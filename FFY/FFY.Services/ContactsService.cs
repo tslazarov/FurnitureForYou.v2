@@ -1,12 +1,9 @@
-﻿using FFY.Services.Contracts;
-using System;
+﻿using Bytes2you.Validation;
+using FFY.Data.Contracts;
+using FFY.Models;
+using FFY.Services.Contracts;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FFY.Models;
-using FFY.Data.Contracts;
-using Bytes2you.Validation;
 
 namespace FFY.Services
 {

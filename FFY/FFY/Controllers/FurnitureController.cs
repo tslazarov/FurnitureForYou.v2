@@ -1,14 +1,8 @@
 ﻿using Bytes2you.Validation;
-using FFY.Models;
 using FFY.Providers.Contracts;
 using FFY.Services.Contracts;
 using FFY.Web.Custom.Attributes;
 using FFY.Web.Models.Furniture;
-using Microsoft.AspNet.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace FFY.Web.Controllers

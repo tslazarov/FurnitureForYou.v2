@@ -1,9 +1,4 @@
-﻿using FFY.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using FFY.Data.Contracts;
 using FFY.Models.Contracts;
 
@@ -23,7 +18,6 @@ namespace FFY.Data
 
         public void SoftDelete(T entity)
         {
-            //TODO: Check if behaves properly
             entity.IsDeleted = true;
             base.Update(entity);
         }

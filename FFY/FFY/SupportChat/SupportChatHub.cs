@@ -1,13 +1,9 @@
-﻿using Microsoft.AspNet.SignalR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Threading.Tasks;
-using Microsoft.AspNet.SignalR.Hubs;
-using FFY.Services.Contracts;
+﻿using Bytes2you.Validation;
 using FFY.Data.Factories;
-using Bytes2you.Validation;
+using FFY.Services.Contracts;
+using Microsoft.AspNet.SignalR;
+using Microsoft.AspNet.SignalR.Hubs;
+using System.Threading.Tasks;
 
 namespace FFY.Web.SupportChat
 {

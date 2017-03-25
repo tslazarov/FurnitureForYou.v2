@@ -1,6 +1,6 @@
-﻿using Ninject.Modules;
+﻿using FFY.Providers.Assembly;
 using Ninject.Extensions.Conventions;
-using FFY.Providers.Assembly;
+using Ninject.Modules;
 
 namespace FFY.Web.App_Start.NinjectModules
 {

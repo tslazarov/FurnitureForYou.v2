@@ -1,10 +1,6 @@
 ﻿using FFY.Models;
 using FFY.Resources;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace FFY.Web.Models.Furniture
 {

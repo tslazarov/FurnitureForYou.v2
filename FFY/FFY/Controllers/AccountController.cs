@@ -1,17 +1,14 @@
-﻿using System.Web;
-using System.Web.Mvc;
-using System.Linq;
+﻿using Bytes2you.Validation;
+using FFY.Data.Factories;
+using FFY.Providers.Contracts;
+using FFY.Resources;
+using FFY.Services.Contracts;
+using FFY.Web.Custom.Attributes;
+using FFY.Web.Models.Account;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
-using FFY.Data.Factories;
-using Bytes2you.Validation;
-using FFY.Web.Models.Account;
-using FFY.Data.Contracts;
-using FFY.Services.Contracts;
-using FFY.Providers.Contracts;
-using FFY.Web.Custom.Attributes;
-using FFY.Resources;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace FFY.Web.Controllers
 {

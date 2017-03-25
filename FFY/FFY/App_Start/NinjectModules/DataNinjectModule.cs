@@ -1,12 +1,11 @@
-﻿using Ninject.Modules;
-using Ninject.Extensions.Conventions;
-
+﻿using FFY.Data;
 using FFY.Data.Assembly;
 using FFY.Data.Contracts;
-using FFY.Data;
-using Ninject.Web.Common;
 using FFY.Data.Factories;
+using Ninject.Extensions.Conventions;
 using Ninject.Extensions.Factory;
+using Ninject.Modules;
+using Ninject.Web.Common;
 
 namespace FFY.Web.App_Start.NinjectModules
 {

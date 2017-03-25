@@ -1,12 +1,6 @@
 ﻿using Bytes2you.Validation;
 using FFY.Providers.Contracts;
 using FFY.Services.Utilities.Providers;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web;
 
 namespace FFY.Services.Utilities

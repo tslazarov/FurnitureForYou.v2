@@ -1,13 +1,10 @@
-﻿using System.Web;
+﻿using Bytes2you.Validation;
+using FFY.IdentityConfig;
 using FFY.Models;
+using FFY.Providers.Contracts;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
-using FFY.Providers.Contracts;
-using FFY.IdentityConfig;
-using Bytes2you.Validation;
-using System.Collections;
 using System.Collections.Generic;
-using System.Web.Security;
 
 namespace FFY.Providers
 {
