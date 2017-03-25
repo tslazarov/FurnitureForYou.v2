@@ -8,14 +8,14 @@
                 <ul id="discussion"></ul>
             </div>
             <div class="admin-message-inputs">
-                <input type="text" placeholder="@FFY.Web.Resources.Language.SendTo" id="receiver" />
-                <input type="text" placeholder="@FFY.Web.Resources.Language.SendMessage" id="message" />
+                <input type="text" placeholder="@FFY.Resources.Language.SendTo" id="receiver" />
+                <input type="text" placeholder="@FFY.Resources.Language.SendMessage" id="message" />
                 <input type="hidden" id="sender" />
             </div>
         </div>
         <div class="col-md-4">
             <div class="admin-support-container">
-                <h4>@FFY.Web.Resources.Language.SupportStaff</h4>
+                <h4>@FFY.Resources.Language.SupportStaff</h4>
                 <div class="admin-support-list">
                     <ul id="support-staff">
                         @foreach(var user in Model.ConnectedUsers)
@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="admin-client-container">
-                <h4>@FFY.Web.Resources.Language.Clients</h4>
+                <h4>@FFY.Resources.Language.Clients</h4>
                 <div class="admin-client-list">
                     <ul id="clients">
                         @foreach (var user in Model.ConnectedUsers)

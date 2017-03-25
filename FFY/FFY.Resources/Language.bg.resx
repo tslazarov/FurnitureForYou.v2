@@ -118,563 +118,563 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AddProduct" xml:space="preserve">
-    <value>Add new product</value>
+    <value>Добави нов продукт</value>
     <comment>ProductManagementIndexView</comment>
   </data>
   <data name="Address" xml:space="preserve">
-    <value>Address</value>
+    <value>Адрес</value>
     <comment>OrdersManagement</comment>
   </data>
   <data name="Administration" xml:space="preserve">
-    <value>Administration</value>
+    <value>Администрация</value>
     <comment>Navigation</comment>
   </data>
   <data name="Administrator" xml:space="preserve">
-    <value>Administrator</value>
+    <value>Администратор</value>
     <comment>Roles</comment>
   </data>
   <data name="All" xml:space="preserve">
-    <value>All</value>
+    <value>Всички</value>
     <comment>ProductsManagement</comment>
   </data>
   <data name="Available" xml:space="preserve">
-    <value>Available</value>
+    <value>Налично</value>
     <comment>ProductView</comment>
   </data>
   <data name="Bg" xml:space="preserve">
-    <value>BG</value>
+    <value>БГ</value>
     <comment>Language</comment>
   </data>
   <data name="Browse" xml:space="preserve">
-    <value>Browse</value>
+    <value>Търси</value>
     <comment>ProductAdditionView</comment>
   </data>
   <data name="Category" xml:space="preserve">
-    <value>Category</value>
+    <value>Категория</value>
     <comment>ProductAdditionViewModel</comment>
   </data>
   <data name="CategoryImage" xml:space="preserve">
-    <value>Image</value>
+    <value>Изображение</value>
     <comment>CategoryViewModel</comment>
   </data>
   <data name="CategoryName" xml:space="preserve">
-    <value>Category name</value>
+    <value>Име на категория</value>
     <comment>CategoryViewModel</comment>
   </data>
   <data name="CategoryNameRequired" xml:space="preserve">
-    <value>Category name is required</value>
+    <value>Изисква се име на категория</value>
     <comment>CategoryViewModel</comment>
   </data>
   <data name="Change" xml:space="preserve">
-    <value>Change</value>
+    <value>Промени</value>
     <comment>Roles</comment>
   </data>
   <data name="City" xml:space="preserve">
-    <value>City</value>
+    <value>Град</value>
     <comment>OrderViewModel</comment>
   </data>
   <data name="CityRequired" xml:space="preserve">
-    <value>City is required</value>
+    <value>Изисква се град</value>
     <comment>OrderViewModel</comment>
   </data>
   <data name="CityValidation" xml:space="preserve">
-    <value>City should be between 2 and 30 characters</value>
+    <value>Градът трябва да е между 2 и 30 символа</value>
     <comment>OrderViewModel</comment>
   </data>
   <data name="Clients" xml:space="preserve">
-    <value>Clients</value>
+    <value>Клиенти</value>
     <comment>SupportChatView</comment>
   </data>
   <data name="CompleteOrderAction" xml:space="preserve">
-    <value>Complete order</value>
+    <value>Завърши поръчка</value>
     <comment>OrderView</comment>
   </data>
   <data name="ConfirmPassword" xml:space="preserve">
-    <value>Confirm password</value>
+    <value>Потвърди парола</value>
     <comment>RegisterViewModel</comment>
   </data>
   <data name="ConfirmPasswordCompare" xml:space="preserve">
-    <value>Confirm password does not match the password</value>
+    <value>Потвърдената парола не съвпада</value>
     <comment>RegisterViewModel</comment>
   </data>
   <data name="ConfirmPasswordRequired" xml:space="preserve">
-    <value>Confirm password is required</value>
+    <value>Изисква се потвърждаване на паролата</value>
     <comment>RegisterViewModel</comment>
   </data>
   <data name="ConfirmPasswordValidation" xml:space="preserve">
-    <value>Confirm password does not match the required format</value>
+    <value>Потвърдената парола не отговаря на изисквания формат</value>
     <comment>RegisterViewModel</comment>
   </data>
   <data name="Contact" xml:space="preserve">
-    <value>Contact</value>
+    <value>Контакт</value>
     <comment>Navigation</comment>
   </data>
   <data name="ContactAction" xml:space="preserve">
-    <value>Send</value>
+    <value>Изпрати</value>
     <comment>ContactView</comment>
   </data>
   <data name="ContactsManagement" xml:space="preserve">
-    <value>Contacts Management</value>
+    <value>Управление на Контакти</value>
     <comment>Navigation</comment>
   </data>
   <data name="ContactsNotFound" xml:space="preserve">
-    <value>Contacts were not found</value>
+    <value>Не бяха намерени контакти</value>
     <comment>ContactsManagement</comment>
   </data>
   <data name="Content" xml:space="preserve">
-    <value>Content</value>
+    <value>Съдържание</value>
     <comment>ContactViewModel</comment>
   </data>
   <data name="ContentRequired" xml:space="preserve">
-    <value>Content is required</value>
+    <value>Изисква се съдържание</value>
     <comment>ContactViewModel</comment>
   </data>
   <data name="ContentValidation" xml:space="preserve">
-    <value>Content should be between 10 and 500 characters</value>
+    <value>Съдържанието трябва да е между 10 и 500 символа</value>
     <comment>ContactViewModel</comment>
   </data>
   <data name="Country" xml:space="preserve">
-    <value>Country</value>
+    <value>Държава</value>
     <comment>OrderViewModel</comment>
   </data>
   <data name="CountryRequired" xml:space="preserve">
-    <value>Country is required</value>
+    <value>Изисква се държава</value>
     <comment>OrderViewModel</comment>
   </data>
   <data name="CountryValidation" xml:space="preserve">
-    <value>Country should be between 2 and 30 characters</value>
+    <value>Държавата трябва да е между 2 и 30 символа</value>
     <comment>OrderViewModel</comment>
   </data>
   <data name="Create" xml:space="preserve">
-    <value>Create</value>
+    <value>Създай</value>
     <comment>ProductAdditionView</comment>
   </data>
   <data name="CreditCard" xml:space="preserve">
-    <value>Credit card</value>
+    <value>Кредитна карта</value>
     <comment>OrderView</comment>
   </data>
   <data name="Currency" xml:space="preserve">
-    <value>lv</value>
+    <value>лв</value>
     <comment>ProductView</comment>
   </data>
   <data name="Delivered" xml:space="preserve">
-    <value>Delivered</value>
+    <value>Доставена</value>
     <comment>OrdersManagement</comment>
   </data>
   <data name="Description" xml:space="preserve">
-    <value>Description</value>
+    <value>Описание</value>
     <comment>ProductAdditionViewModel</comment>
   </data>
   <data name="DescriptionRequired" xml:space="preserve">
-    <value>Description is required</value>
+    <value>Изисква се описание на продукта</value>
     <comment>ProductAdditionViewModel</comment>
   </data>
   <data name="DescriptionValidation" xml:space="preserve">
-    <value>Description should be between 10 and 500 characters</value>
+    <value>Описанието трябва да е между 10 и 500 символа</value>
     <comment>ProductAdditionViewModel</comment>
   </data>
   <data name="Details" xml:space="preserve">
-    <value>Details</value>
+    <value>Детайли</value>
     <comment>Management</comment>
   </data>
   <data name="DiscountPercentage" xml:space="preserve">
-    <value>Discount percentage</value>
+    <value>Процент намаление</value>
     <comment>ProductAdditionViewModel</comment>
   </data>
   <data name="DiscountPercentageRequired" xml:space="preserve">
-    <value>Discount percentage is required</value>
+    <value>Изисква се процент намаление</value>
     <comment>ProductAdditionViewModel</comment>
   </data>
   <data name="DiscountPercentageValidation" xml:space="preserve">
-    <value>Discount percentage should be between 0 and 100</value>
+    <value>Процента намаление трябва да е число между 0 и 100</value>
     <comment>ProductAdditionViewModel</comment>
   </data>
   <data name="Edit" xml:space="preserve">
-    <value>Edit</value>
+    <value>Промени</value>
     <comment>ProductsManagement</comment>
   </data>
   <data name="Email" xml:space="preserve">
-    <value>Email</value>
+    <value>Имейл</value>
     <comment>LoginViewModel</comment>
   </data>
   <data name="EmailRequired" xml:space="preserve">
-    <value>Email is required</value>
+    <value>Изисква се имейл</value>
     <comment>LoginViewModel</comment>
   </data>
   <data name="EmailValidation" xml:space="preserve">
-    <value>Email does not match the required format</value>
+    <value>Имейлът не отговаря на изисквания формат</value>
     <comment>LoginViewModel</comment>
   </data>
   <data name="En" xml:space="preserve">
-    <value>EN</value>
+    <value>АНГЛ</value>
     <comment>Language</comment>
   </data>
   <data name="FavoritesAdd" xml:space="preserve">
-    <value>Add to favorites</value>
+    <value>Добави в любими</value>
     <comment>ProductView</comment>
   </data>
   <data name="FavoritesRemove" xml:space="preserve">
-    <value>Remove from favorites</value>
+    <value>Премахни от любими</value>
     <comment>ProductView</comment>
   </data>
   <data name="FirstName" xml:space="preserve">
-    <value>First name</value>
+    <value>Име</value>
     <comment>RegisterViewModel</comment>
   </data>
   <data name="FirstNameRequired" xml:space="preserve">
-    <value>First name is requried</value>
+    <value>Изисква се име</value>
     <comment>RegisterViewModel</comment>
   </data>
   <data name="FirstNameValidation" xml:space="preserve">
-    <value>First name should be between 2 and 30 characters</value>
+    <value>Името трябва да е между 2 и 30 символа</value>
     <comment>RegisterViewModel</comment>
   </data>
   <data name="Furniture" xml:space="preserve">
-    <value>Furniture</value>
+    <value>Мебели</value>
     <comment>Navigation</comment>
   </data>
   <data name="Home" xml:space="preserve">
-    <value>Home</value>
+    <value>Начало</value>
     <comment>Navigation</comment>
   </data>
   <data name="Id" xml:space="preserve">
-    <value>Id</value>
+    <value>Номер</value>
     <comment>OrdersManagement</comment>
   </data>
   <data name="InvalidLogin" xml:space="preserve">
-    <value>Invalid email or password</value>
+    <value>Невалиден имейл или парола</value>
     <comment>LoginViewModel</comment>
   </data>
   <data name="LastName" xml:space="preserve">
-    <value>Last name</value>
+    <value>Фамилия</value>
     <comment>RegisterViewModel</comment>
   </data>
   <data name="LastNameRequired" xml:space="preserve">
-    <value>Last name is required</value>
+    <value>Изисква се фамилия</value>
     <comment>RegisterViewModel</comment>
   </data>
   <data name="LastNameValidation" xml:space="preserve">
-    <value>Last name should be between 2 and 30 characters</value>
+    <value>Фамилията трябва да е между 2 и 30 символа</value>
     <comment>RegisterViewModel</comment>
   </data>
   <data name="Login" xml:space="preserve">
-    <value>Login</value>
+    <value>Вход</value>
     <comment>LoginVIew</comment>
   </data>
   <data name="LoginAction" xml:space="preserve">
-    <value>Log in</value>
+    <value>Влез</value>
     <comment>LoginView</comment>
   </data>
   <data name="Logout" xml:space="preserve">
-    <value>Logout</value>
+    <value>Изход</value>
     <comment>Navigation</comment>
   </data>
   <data name="Moderator" xml:space="preserve">
-    <value>Moderator</value>
+    <value>Модератор</value>
     <comment>Roles</comment>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>Name</value>
+    <value>Име</value>
     <comment>Management</comment>
   </data>
+  <data name="NoFavoriteProducts" xml:space="preserve">
+    <value>Няма добавени любими продукти</value>
+    <comment>FavoriteProductsView</comment>
+  </data>
   <data name="NotProcessed" xml:space="preserve">
-    <value>Not processed</value>
+    <value>Необработени</value>
     <comment>ProductsManagement</comment>
   </data>
   <data name="OnDelivery" xml:space="preserve">
-    <value>On delivery</value>
+    <value>Наложен платеж</value>
     <comment>OrderView</comment>
   </data>
   <data name="Order" xml:space="preserve">
-    <value>Order</value>
+    <value>Поръчка</value>
     <comment>OrderView</comment>
   </data>
   <data name="OrderComplete" xml:space="preserve">
-    <value>Thank you for your order. We are working on it.</value>
+    <value>Благодарим за вашата поръчка. Работим върху обработката ѝ.</value>
     <comment>OrderCompleteView</comment>
   </data>
   <data name="OrderNo" xml:space="preserve">
-    <value>Order Number</value>
+    <value>Поръчка Номер</value>
     <comment>UserProfileView</comment>
   </data>
   <data name="OrdersHistory" xml:space="preserve">
-    <value>Orders history</value>
+    <value>История на поръчките</value>
     <comment>UserProfileView</comment>
   </data>
   <data name="OrdersManagement" xml:space="preserve">
-    <value>Orders Management</value>
+    <value>Управление на Поръчки</value>
     <comment>Navigation</comment>
   </data>
   <data name="OrdersNotFound" xml:space="preserve">
-    <value>Orders were not found</value>
+    <value>Не бяха намерени поръчки</value>
     <comment>OrdersManagement</comment>
   </data>
   <data name="Password" xml:space="preserve">
-    <value>Password</value>
+    <value>Парола</value>
     <comment>LoginViewModel</comment>
   </data>
   <data name="PasswordLengthValidation" xml:space="preserve">
-    <value>Password should be between 6 and 30 characters</value>
+    <value>Паролата трябва да е между 6 и 30 символа</value>
     <comment>RegisterViewModel</comment>
   </data>
   <data name="PasswordRequired" xml:space="preserve">
-    <value>Password is required</value>
+    <value>Изисква се парола</value>
     <comment>LoginViewModel</comment>
   </data>
   <data name="PasswordValidation" xml:space="preserve">
-    <value>Password does not match the required format</value>
+    <value>Паролата не отговаря на изисквания формат</value>
     <comment>LoginViewModel</comment>
   </data>
   <data name="PayPal" xml:space="preserve">
-    <value>PayPal</value>
+    <value>ПейПал</value>
     <comment>OrderView</comment>
   </data>
   <data name="PhoneNumber" xml:space="preserve">
-    <value>Phone number</value>
+    <value>Телефонен номер</value>
     <comment>OrderViewModel</comment>
   </data>
   <data name="PhoneNumberRequired" xml:space="preserve">
-    <value>Phone number is required</value>
+    <value>Изисва се телефонен номер</value>
     <comment>OrderViewModel</comment>
   </data>
   <data name="PhoneNumberValidation" xml:space="preserve">
-    <value>Phone number does not match the required format</value>
+    <value>Телефонният номер не отговаря на изисквания формат</value>
     <comment>OrderViewModel</comment>
   </data>
   <data name="Price" xml:space="preserve">
-    <value>Price</value>
+    <value>Цена</value>
     <comment>ProductAdditionViewModel</comment>
   </data>
   <data name="PriceRangeValidation" xml:space="preserve">
-    <value>Price should be between 0 and 100000</value>
+    <value>Цената трябва да е число между 0 и 100000</value>
     <comment>ProductAdditionViewModel</comment>
   </data>
   <data name="PriceRequired" xml:space="preserve">
-    <value>Price is required</value>
+    <value>Изисква се цена</value>
     <comment>ProductAdditionViewModel</comment>
   </data>
   <data name="PriceValidation" xml:space="preserve">
-    <value>Price does not match the required currency format</value>
+    <value>Цената не отговаря на формата за валута</value>
     <comment>ProductAdditionViewModel</comment>
   </data>
   <data name="Processed" xml:space="preserve">
-    <value>Processed</value>
+    <value>Обработени</value>
     <comment>ProductsManagement</comment>
   </data>
   <data name="Processing" xml:space="preserve">
-    <value>Processing</value>
+    <value>В процес на обработка</value>
     <comment>ProductsManagement</comment>
   </data>
   <data name="ProductImage" xml:space="preserve">
-    <value>Image</value>
+    <value>Изображение</value>
     <comment>ProductAdditionViewModel</comment>
   </data>
   <data name="ProductName" xml:space="preserve">
-    <value>Name</value>
+    <value>Име</value>
     <comment>ProductAdditionViewModel</comment>
   </data>
   <data name="ProductNameRequired" xml:space="preserve">
-    <value>Product name is required</value>
+    <value>Изисква се име на продукта</value>
     <comment>ProductAdditionViewModel</comment>
   </data>
   <data name="ProductNameValidation" xml:space="preserve">
-    <value>Product name should be between 2 and 30 characters</value>
+    <value>Името на продукта трябва да е между 2 и 30 символа</value>
     <comment>ProductAdditionViewModel</comment>
   </data>
   <data name="ProductQuantity" xml:space="preserve">
-    <value>Quantity should be a number between 1 and 100</value>
+    <value>Количеството трябва да е число между 1 и 100</value>
     <comment>ProductViewModel</comment>
   </data>
   <data name="ProductQuantityRequired" xml:space="preserve">
-    <value>Quantity is required</value>
+    <value>Изисква се количество</value>
     <comment>ProductViewModel</comment>
   </data>
   <data name="ProductRating" xml:space="preserve">
-    <value>Rating should be a number between 1 and 5</value>
+    <value>Рейтинга трябва да е число между 1 и 5</value>
     <comment>ProductViewModel</comment>
   </data>
   <data name="ProductsManagement" xml:space="preserve">
-    <value>Products Management</value>
+    <value>Управление на Продукти</value>
     <comment>Navigation</comment>
   </data>
   <data name="ProductsNotFound" xml:space="preserve">
-    <value>Products were not found</value>
+    <value>Не бяха намерени продукти</value>
     <comment>ProductsManagement</comment>
   </data>
   <data name="Purchase" xml:space="preserve">
-    <value>Purchase</value>
+    <value>Поръчай</value>
     <comment>ShoppingCartView</comment>
   </data>
   <data name="Quantity" xml:space="preserve">
-    <value>Quantity</value>
+    <value>Количество</value>
     <comment>ProductAdditionViewModel</comment>
   </data>
   <data name="QuantityRequired" xml:space="preserve">
-    <value>Quantity is required</value>
+    <value>Изисква се количество</value>
     <comment>ProductAdditionViewModel</comment>
   </data>
   <data name="QuantityValidation" xml:space="preserve">
-    <value>Quantity should be between 0 and 10000</value>
+    <value>Количеството трябва да е число между 0 и 10000</value>
     <comment>ProductAdditionViewModel</comment>
   </data>
   <data name="Rate" xml:space="preserve">
-    <value>Rate</value>
+    <value>Оцени</value>
     <comment>ProductView</comment>
   </data>
   <data name="Register" xml:space="preserve">
-    <value>Register</value>
+    <value>Регистрация</value>
     <comment>RegisterView</comment>
   </data>
   <data name="RegisterAction" xml:space="preserve">
-    <value>Register</value>
+    <value>Регистрирай се</value>
     <comment>RegisterView</comment>
   </data>
   <data name="RegisterNewUser" xml:space="preserve">
-    <value>Register as a new user</value>
+    <value>Регистрирай се като нов потребител</value>
     <comment>LoginView</comment>
   </data>
   <data name="Rejected" xml:space="preserve">
-    <value>Rejected</value>
+    <value>Отказана</value>
     <comment>OrdersManagement</comment>
   </data>
   <data name="RememberMe" xml:space="preserve">
-    <value>Remember me</value>
+    <value>Запомни ме</value>
     <comment>LoginViewModel</comment>
   </data>
   <data name="Room" xml:space="preserve">
-    <value>Room</value>
+    <value>Стая</value>
     <comment>ProductAdditionViewModel</comment>
   </data>
   <data name="RoomImage" xml:space="preserve">
-    <value>Image</value>
+    <value>Изображение</value>
     <comment>RoomViewModel</comment>
   </data>
   <data name="RoomName" xml:space="preserve">
-    <value>Room name</value>
+    <value>Име на стая</value>
     <comment>RoomViewModel</comment>
   </data>
   <data name="RoomNameRequired" xml:space="preserve">
-    <value>Room name is required</value>
+    <value>Изисква се име на стая</value>
     <comment>RoomViewModel</comment>
   </data>
   <data name="Search" xml:space="preserve">
-    <value>Search</value>
+    <value>Търси</value>
     <comment>Management</comment>
   </data>
   <data name="SelectedPaymentType" xml:space="preserve">
-    <value>Method of payment</value>
+    <value>Начин на плащане</value>
     <comment>OrderViewModel</comment>
   </data>
   <data name="SelectedPaymentTypeRequired" xml:space="preserve">
-    <value>Method of payment is required</value>
+    <value>Изисква се начин на плащане</value>
     <comment>OrderViewModel</comment>
   </data>
   <data name="Sender" xml:space="preserve">
-    <value>Sender</value>
+    <value>Подател</value>
     <comment>OrdersManagement</comment>
   </data>
   <data name="SendMessage" xml:space="preserve">
-    <value>Send message</value>
+    <value>Изпрати съобщение</value>
     <comment>SupportChatVIew</comment>
   </data>
   <data name="SendOn" xml:space="preserve">
-    <value>Send on</value>
+    <value>Изпратено на</value>
     <comment>ProductsManagement</comment>
   </data>
   <data name="SendTo" xml:space="preserve">
-    <value>Send to</value>
+    <value>Изпрати до</value>
     <comment>SupportChatView</comment>
   </data>
   <data name="Sent" xml:space="preserve">
-    <value>Sent</value>
+    <value>Изпратена</value>
     <comment>OrdersManagement</comment>
   </data>
   <data name="ShoppingCartAdd" xml:space="preserve">
-    <value>Add to shopping cart</value>
+    <value>Добави в количката</value>
     <comment>ProductView</comment>
   </data>
   <data name="ShoppingCartEmpty" xml:space="preserve">
-    <value>Your shopping cart is empty</value>
+    <value>Вашата пазарска количка е празна</value>
     <comment>ShoppingCartView</comment>
   </data>
   <data name="ShoppingCartProduct" xml:space="preserve">
-    <value>Product</value>
+    <value>Артикул</value>
     <comment>ShoppingCartView</comment>
   </data>
   <data name="ShoppingCartQuantity" xml:space="preserve">
-    <value>Quantity</value>
+    <value>Количество</value>
     <comment>ShoppingCartView</comment>
   </data>
   <data name="ShoppingCartSinglePrice" xml:space="preserve">
-    <value>Single price</value>
+    <value>Единична цена</value>
     <comment>ShoppingCartView</comment>
   </data>
   <data name="ShoppingCartTotalPrice" xml:space="preserve">
-    <value>Total price</value>
+    <value>Крайна цена</value>
     <comment>ShoppingCartView</comment>
   </data>
   <data name="ShoppingCartYour" xml:space="preserve">
-    <value>Your shopping cart</value>
+    <value>Вашата пазарска количка</value>
     <comment>ShoppingCartView</comment>
   </data>
   <data name="Status" xml:space="preserve">
-    <value>Status</value>
+    <value>Статус</value>
     <comment>ProductsManagement</comment>
   </data>
   <data name="Street" xml:space="preserve">
-    <value>Street</value>
+    <value>Улица</value>
     <comment>OrderViewModel</comment>
   </data>
   <data name="StreetRequired" xml:space="preserve">
-    <value>Street is required</value>
+    <value>Изисква се улица</value>
     <comment>OrderViewModel</comment>
   </data>
   <data name="StreetValidation" xml:space="preserve">
-    <value>Street should be between 2 and 30 characters</value>
+    <value>Улицата трябва да е между 2 и 30 символа</value>
     <comment>OrderViewModel</comment>
   </data>
   <data name="Support" xml:space="preserve">
-    <value>Support</value>
+    <value>Помощ</value>
     <comment>SupportChatFrame</comment>
   </data>
   <data name="SupportChat" xml:space="preserve">
-    <value>Support Chat</value>
+    <value>Помощен Чат</value>
     <comment>Navigation</comment>
   </data>
   <data name="SupportStaff" xml:space="preserve">
-    <value>Support staff</value>
+    <value>Помощен екип</value>
     <comment>SupportChatView</comment>
   </data>
   <data name="Title" xml:space="preserve">
-    <value>Title</value>
+    <value>Заглавие</value>
     <comment>ContactViewModel</comment>
   </data>
   <data name="TitleRequired" xml:space="preserve">
-    <value>Title is required</value>
+    <value>Изисква се заглавие</value>
     <comment>ContactViewModel</comment>
   </data>
   <data name="TitleValidation" xml:space="preserve">
-    <value>Title should be between 2 and 30 characters</value>
+    <value>Заглавието трябва да е межу 2 и 30 символа</value>
     <comment>ContactViewModel</comment>
   </data>
   <data name="Unavailable" xml:space="preserve">
-    <value>Unavailable</value>
+    <value>Неналично</value>
     <comment>ProductView</comment>
   </data>
   <data name="User" xml:space="preserve">
-    <value>User</value>
+    <value>Потребител</value>
     <comment>Roles</comment>
   </data>
   <data name="UsersManagement" xml:space="preserve">
-    <value>Users Management</value>
+    <value>Управление на Потребители</value>
     <comment>Navigation</comment>
   </data>
   <data name="UsersNotFound" xml:space="preserve">
-    <value>Users were not found</value>
+    <value>Не бяха намерени потребители</value>
     <comment>UsersManagement</comment>
-  </data>
-  <data name="NoFavoriteProducts" xml:space="preserve">
-    <value>No favorite products added</value>
-    <comment>FavoriteProductsView</comment>
   </data>
 </root>

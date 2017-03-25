@@ -1,5 +1,5 @@
 ﻿using FFY.Models;
-using FFY.Web.Resources;
+using FFY.Resources;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

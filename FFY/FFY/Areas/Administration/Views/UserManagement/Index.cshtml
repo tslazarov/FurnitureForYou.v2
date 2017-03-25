@@ -14,13 +14,13 @@
                 <input type="text" name="SearchWord" class="form-control" />
             </div>
             <div class="col-sm-2">
-                <button class="btn btn-primary btn-block" type="submit">@FFY.Web.Resources.Language.Search</button>
+                <button class="btn btn-primary btn-block" type="submit">@FFY.Resources.Language.Search</button>
             </div>
             <div class="col-sm-offset-5 col-sm-2">
                 @Html.DropDownList("SortBy", new List<SelectListItem>()
                     {
-                        new SelectListItem() { Text=FFY.Web.Resources.Language.Name, Value="name" },
-                        new SelectListItem() { Text=FFY.Web.Resources.Language.Email, Value="email" }
+                        new SelectListItem() { Text=FFY.Resources.Language.Name, Value="name" },
+                        new SelectListItem() { Text=FFY.Resources.Language.Email, Value="email" }
                     }, new
                     {
                         id = "sort-options",

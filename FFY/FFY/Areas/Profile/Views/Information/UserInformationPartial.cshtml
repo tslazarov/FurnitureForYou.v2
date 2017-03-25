@@ -11,13 +11,13 @@
         </h4>
     </div>
     <hr />
-    <h3 class="profile-order-history">@FFY.Web.Resources.Language.OrdersHistory</h3>
+    <h3 class="profile-order-history">@FFY.Resources.Language.OrdersHistory</h3>
     <div class="profile-information-orders">
         @foreach (var order in Model.User.Orders.Reverse())
         {
             <div id="@order.Id-header" class="row order-header order-header-color-hidden">
                 <div class="col-md-5 o-id">
-                    @FFY.Web.Resources.Language.OrderNo @order.Id
+                    @FFY.Resources.Language.OrderNo @order.Id
                 </div>
                 <div class="col-md-3 o-date">
                     @order.SendOn.ToShortDateString()
@@ -44,20 +44,20 @@
                                 </div>
                             </div>
                             <div class="col-sm-2 o-single-price">
-                                @item.Product.DiscountedPrice @FFY.Web.Resources.Language.Currency
+                                @item.Product.DiscountedPrice @FFY.Resources.Language.Currency
                             </div>
                             <div class="col-sm-2 o-quantity">
                                 @item.Quantity
                             </div>
                             <div class="col-sm-2 o-total-price">
-                                @item.Total @FFY.Web.Resources.Language.Currency
+                                @item.Total @FFY.Resources.Language.Currency
                             </div>
                         </a>
                     </div>
                 }
                 <div class="row order-list-foot">
                     <div class="col-sm-offset-10 col-sm-2 o-total">
-                        @order.Total @FFY.Web.Resources.Language.Currency
+                        @order.Total @FFY.Resources.Language.Currency
                     </div>
                 </div>
             </div>

@@ -10,7 +10,7 @@
             <h1 class="product-detail-title">@Model.Product.Name</h1>
             <h2 class="product-detail-title-sub">@Model.Product.Category.Name.ToUpper()</h2>
             <div class="product-detail-price">
-                @Model.Product.DiscountedPrice @FFY.Web.Resources.Language.Currency
+                @Model.Product.DiscountedPrice @FFY.Resources.Language.Currency
             </div>
             <div class="product-detail-description">
                 @Html.Raw(Model.Product.Description)
@@ -25,13 +25,13 @@
                     @if (Model.Product.Quantity > 0)
                     {
                         <span class="available">
-                            <img src="~/Content/sources/available-icon.png" /> @FFY.Web.Resources.Language.Available
+                            <img src="~/Content/sources/available-icon.png" /> @FFY.Resources.Language.Available
                         </span>
                     }
                     else
                     {
                         <span class="unavailable">
-                            <img src="~/Content/sources/unavailable-icon.png" /> @FFY.Web.Resources.Language.Unavailable
+                            <img src="~/Content/sources/unavailable-icon.png" /> @FFY.Resources.Language.Unavailable
                         </span>
                     }
                 </div>

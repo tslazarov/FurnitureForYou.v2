@@ -2,7 +2,7 @@
 @model ContactViewModel
 
 <div class="contact-container">
-    <h2>@FFY.Web.Resources.Language.Contact</h2>
+    <h2>@FFY.Resources.Language.Contact</h2>
     <div class="row">
         <section id="contact-form">
             @using (Html.BeginForm("Index", "Contact", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
@@ -30,7 +30,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-offset-3 col-md-9">
-                        <input type="submit" class="btn btn-primary btn-block" value="@FFY.Web.Resources.Language.ContactAction" />
+                        <input type="submit" class="btn btn-primary btn-block" value="@FFY.Resources.Language.ContactAction" />
                     </div>
                 </div>
             }

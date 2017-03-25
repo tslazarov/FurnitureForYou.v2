@@ -8,13 +8,13 @@
         <div class="col-md-offset-8 col-md-2">
             @Html.HiddenFor(m => m.UserId)
             @Html.DropDownListFor(m => m.Role, new List<SelectListItem>() {
-                new SelectListItem() { Text = FFY.Web.Resources.Language.User, Value = "User" },
-                new SelectListItem() { Text = FFY.Web.Resources.Language.Moderator, Value = "Moderator" },
-                new SelectListItem() { Text = FFY.Web.Resources.Language.Administrator, Value = "Administrator" }
+                new SelectListItem() { Text = FFY.Resources.Language.User, Value = "User" },
+                new SelectListItem() { Text = FFY.Resources.Language.Moderator, Value = "Moderator" },
+                new SelectListItem() { Text = FFY.Resources.Language.Administrator, Value = "Administrator" }
             }, new { @class="form-control" })
         </div>
         <div class="col-md-2">
-            <input type="submit" value="@FFY.Web.Resources.Language.Change" class="btn btn-primary btn-block" />
+            <input type="submit" value="@FFY.Resources.Language.Change" class="btn btn-primary btn-block" />
         </div>
     }
 </div>

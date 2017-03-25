@@ -2,7 +2,7 @@
 @model OrderViewModel
 
 <div class="order-container">
-    <h2>@FFY.Web.Resources.Language.Order</h2>
+    <h2>@FFY.Resources.Language.Order</h2>
     <div class="row">
         <section id="order-form">
             @using (Html.BeginForm("Order", "ShoppingCart", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
@@ -43,21 +43,21 @@
                     <div class="col-md-9 radio-options">
                         <div class="radio">
                             @Html.RadioButtonFor(m => m.SelectedPaymentType, "1", new { id = "on-delivery" })
-                            @Html.LabelFor(m => m.SelectedPaymentType, FFY.Web.Resources.Language.OnDelivery, new { @for = "on-delivery" })
+                            @Html.LabelFor(m => m.SelectedPaymentType, FFY.Resources.Language.OnDelivery, new { @for = "on-delivery" })
                         </div>
                         <div class="radio">
                             @Html.RadioButtonFor(m => m.SelectedPaymentType, "2", new { id = "paypal" })
-                            @Html.LabelFor(m => m.SelectedPaymentType, FFY.Web.Resources.Language.PayPal, new { @for = "paypal" })
+                            @Html.LabelFor(m => m.SelectedPaymentType, FFY.Resources.Language.PayPal, new { @for = "paypal" })
                         </div>
                         <div class="radio">
                             @Html.RadioButtonFor(m => m.SelectedPaymentType, "3", new { id = "credit-card" })
-                            @Html.LabelFor(m => m.SelectedPaymentType, FFY.Web.Resources.Language.CreditCard, new { @for = "credit-card" })
+                            @Html.LabelFor(m => m.SelectedPaymentType, FFY.Resources.Language.CreditCard, new { @for = "credit-card" })
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-md-offset-3 col-md-9">
-                        <input type="submit" class="btn btn-primary btn-block" value="@FFY.Web.Resources.Language.CompleteOrderAction" />
+                        <input type="submit" class="btn btn-primary btn-block" value="@FFY.Resources.Language.CompleteOrderAction" />
                     </div>
                 </div>
             }

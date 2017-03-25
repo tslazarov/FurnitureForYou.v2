@@ -11,7 +11,7 @@ using FFY.Data.Contracts;
 using FFY.Services.Contracts;
 using FFY.Providers.Contracts;
 using FFY.Web.Custom.Attributes;
-using FFY.Web.Resources;
+using FFY.Resources;
 
 namespace FFY.Web.Controllers
 {

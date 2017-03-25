@@ -2,15 +2,15 @@
 @model UsersViewModel
     <div class="col-sm-12 users-list-head">
         <div class="col-sm-5 u-name">
-            @FFY.Web.Resources.Language.Name
+            @FFY.Resources.Language.Name
         </div>
         <div class="col-sm-5 u-email">
-            @FFY.Web.Resources.Language.Email
+            @FFY.Resources.Language.Email
         </div>
     </div>
     @if (Model.UsersCount == 0)
     {
-        <h2 class="empty-users-list">@FFY.Web.Resources.Language.UsersNotFound</h2>
+        <h2 class="empty-users-list">@FFY.Resources.Language.UsersNotFound</h2>
     }
     else
     {
@@ -24,7 +24,7 @@
                     @user.Email
                 </div>
                 <div class="col-sm-2 u-details">
-                    @Html.ActionLink(FFY.Web.Resources.Language.Details, "UserProfile", new { id = @user.Id })
+                    @Html.ActionLink(FFY.Resources.Language.Details, "UserProfile", new { id = @user.Id })
                 </div>
             </div>
         }

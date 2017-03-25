@@ -20,13 +20,13 @@
             </a>
         </li>  
         <li>@Html.ActionLink(User.Identity.GetUserName(), "index", "information", new { area = "profile" }, null)</li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">@FFY.Web.Resources.Language.Logout</a></li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">@FFY.Resources.Language.Logout</a></li>
      </ul>
      }
 }
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink(FFY.Web.Resources.Language.Login, "login", "account", new { area= "" }, new { id = "loginLink" })</li>
+        <li>@Html.ActionLink(FFY.Resources.Language.Login, "login", "account", new { area= "" }, new { id = "loginLink" })</li>
     </ul>
 }

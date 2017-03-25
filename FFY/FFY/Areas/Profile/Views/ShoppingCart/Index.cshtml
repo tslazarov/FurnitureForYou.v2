@@ -1,20 +1,20 @@
 ﻿@using FFY.Web.Areas.Profile.Models
 @model ShoppingCartViewModel
 
-<h2>@FFY.Web.Resources.Language.ShoppingCartYour</h2>
+<h2>@FFY.Resources.Language.ShoppingCartYour</h2>
 <div class="shopping-cart-list">
     <div class="row shopping-cart-list-head">
         <div class="col-sm-5 sc-product">
-            @FFY.Web.Resources.Language.ShoppingCartProduct
+            @FFY.Resources.Language.ShoppingCartProduct
         </div>
         <div class="col-sm-2 sc-single-price">
-            @FFY.Web.Resources.Language.ShoppingCartSinglePrice
+            @FFY.Resources.Language.ShoppingCartSinglePrice
         </div>
         <div class="col-sm-2 sc-quantity">
-            @FFY.Web.Resources.Language.ShoppingCartQuantity
+            @FFY.Resources.Language.ShoppingCartQuantity
         </div>
         <div class="col-sm-2 sc-total-price">
-            @FFY.Web.Resources.Language.ShoppingCartTotalPrice
+            @FFY.Resources.Language.ShoppingCartTotalPrice
         </div>
     </div>
     <div class="shopping-cart-list-items">
@@ -32,13 +32,13 @@
                         </div>
                     </div>
                     <div class="col-sm-2 sc-single-price">
-                        @product.Product.DiscountedPrice @FFY.Web.Resources.Language.Currency
+                        @product.Product.DiscountedPrice @FFY.Resources.Language.Currency
                     </div>
                     <div class="col-sm-2 sc-quantity">
                         @product.Quantity
                     </div>
                     <div class="col-sm-2 sc-total-price">
-                        @product.Total @FFY.Web.Resources.Language.Currency
+                        @product.Total @FFY.Resources.Language.Currency
                     </div>
                     <div class="col-sm-1">
                         <img id="@product.Id" src="~/Content/sources/remove-icon.png" alt="X" class="shopping-cart-remove-item" />
@@ -47,15 +47,15 @@
             }
             <div class="row shopping-cart-list-foot">
                 <div class="col-sm-offset-9 col-sm-2 sc-total">
-                    @Model.ShoppingCart.Total @FFY.Web.Resources.Language.Currency
+                    @Model.ShoppingCart.Total @FFY.Resources.Language.Currency
                 </div>
             </div>
-            @Html.ActionLink(FFY.Web.Resources.Language.Purchase, "Order", "shoppingCart", new { cartId = Model.ShoppingCart.UserId }, new { @class="btn btn-primary purchase-button" });
+            @Html.ActionLink(FFY.Resources.Language.Purchase, "Order", "shoppingCart", new { cartId = Model.ShoppingCart.UserId }, new { @class="btn btn-primary purchase-button" });
         }
 
         else
         {
-            <h2 class="empty-shopping-cart">@FFY.Web.Resources.Language.ShoppingCartEmpty</h2>
+            <h2 class="empty-shopping-cart">@FFY.Resources.Language.ShoppingCartEmpty</h2>
         }
     </div>
     @using (Html.BeginForm("removeCartItem", "shoppingCart", new { CartId = Model.ShoppingCart.UserId }, FormMethod.Post, new { id= "remove-cart-item-form" }))

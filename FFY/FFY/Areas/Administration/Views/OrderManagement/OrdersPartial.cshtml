@@ -2,24 +2,24 @@
 @model OrdersViewModel
 <div class="col-sm-12 orders-list-head">
     <div class="col-sm-1 or-id">
-        @FFY.Web.Resources.Language.Id
+        @FFY.Resources.Language.Id
     </div>
     <div class="col-sm-3 or-sender">
-        @FFY.Web.Resources.Language.Sender
+        @FFY.Resources.Language.Sender
     </div>
     <div class="col-sm-3 or-address">
-        @FFY.Web.Resources.Language.Address
+        @FFY.Resources.Language.Address
     </div>
     <div class="col-sm-2 or-send-on">
-        @FFY.Web.Resources.Language.SendOn
+        @FFY.Resources.Language.SendOn
     </div>
     <div class="col-sm-1 or-status">
-        @FFY.Web.Resources.Language.Status
+        @FFY.Resources.Language.Status
     </div>
 </div>
 @if (Model.OrdersCount == 0)
 {
-    <h2 class="empty-order-list">@FFY.Web.Resources.Language.OrdersNotFound</h2>
+    <h2 class="empty-order-list">@FFY.Resources.Language.OrdersNotFound</h2>
 }
 else
 {
@@ -42,7 +42,7 @@ else
                 @order.OrderStatusType
             </div>
             <div class="col-sm-1 or-details">
-                @Html.ActionLink(FFY.Web.Resources.Language.Details, "order", new { controller = "furniture", area = "", id = @order.Id })
+                @Html.ActionLink(FFY.Resources.Language.Details, "order", new { controller = "furniture", area = "", id = @order.Id })
             </div>
         </div>
     }

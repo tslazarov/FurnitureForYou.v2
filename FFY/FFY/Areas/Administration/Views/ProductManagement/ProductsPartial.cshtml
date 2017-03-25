@@ -2,21 +2,21 @@
 @model ProductsViewModel
 <div class="col-sm-12 products-list-head">
     <div class="col-sm-3 p-name">
-        @FFY.Web.Resources.Language.Name
+        @FFY.Resources.Language.Name
     </div>
     <div class="col-sm-2 p-price">
-        @FFY.Web.Resources.Language.Price
+        @FFY.Resources.Language.Price
     </div>
     <div class="col-sm-2 p-room">
-        @FFY.Web.Resources.Language.Room
+        @FFY.Resources.Language.Room
     </div>
     <div class="col-sm-2 p-category">
-        @FFY.Web.Resources.Language.Category
+        @FFY.Resources.Language.Category
     </div>
 </div>
 @if (Model.ProductsCount == 0)
 {
-    <h2 class="empty-users-list">@FFY.Web.Resources.Language.ProductsNotFound</h2>
+    <h2 class="empty-users-list">@FFY.Resources.Language.ProductsNotFound</h2>
 }
 else
 {
@@ -27,7 +27,7 @@ else
                 @product.Name
             </div>
             <div class="col-sm-2 p-price">
-                @product.Price @FFY.Web.Resources.Language.Currency
+                @product.Price @FFY.Resources.Language.Currency
             </div>
             <div class="col-sm-2 p-room">
                 @product.Room.Name
@@ -36,10 +36,10 @@ else
                 @product.Category.Name
             </div>
             <div class="col-sm-2 p-details">
-                @Html.ActionLink(FFY.Web.Resources.Language.Details, "product", new { controller = "furniture", area = "", id = @product.Id })
+                @Html.ActionLink(FFY.Resources.Language.Details, "product", new { controller = "furniture", area = "", id = @product.Id })
             </div>
             <div class="col-sm-1 p-edit">
-                @Html.ActionLink(FFY.Web.Resources.Language.Edit, "edit", new { id = @product.Id })
+                @Html.ActionLink(FFY.Resources.Language.Edit, "edit", new { id = @product.Id })
             </div>
         </div>
     }
