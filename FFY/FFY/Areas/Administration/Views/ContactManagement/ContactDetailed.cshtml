@@ -1,0 +1,29 @@
+﻿@using FFY.Web.Areas.Administration.Models.ContactManagement
+@model ContactViewModel
+
+
+<div class="row change-role-container">
+    @using (Html.BeginForm("updateStatus", "contactManagement", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        <div class="col-md-offset-8 col-md-2">
+            @Html.HiddenFor(m => m.Contact.Id)
+            @Html.EnumDropDownListFor(m => m.Contact.ContactStatusType)
+            @*@Html.DropDownListFor(m => m.Role, new List<SelectListItem>() {
+                new SelectListItem() { Text = FFY.Web.Resources.Language.User, Value = "User" },
+                new SelectListItem() { Text = FFY.Web.Resources.Language.Moderator, Value = "Moderator" },
+                new SelectListItem() { Text = FFY.Web.Resources.Language.Administrator, Value = "Administrator" }
+            }, new { @class = "form-control" })
+            *@  
+        </div>
+        <div class="col-md-2">
+            <input type="submit" value="@FFY.Web.Resources.Language.Change" class="btn btn-primary btn-block" />
+        </div>
+    }
+</div>
+<div>
+    @Model.Contact.Email
+    @Model.Contact.Title
+</div>
+
+
+

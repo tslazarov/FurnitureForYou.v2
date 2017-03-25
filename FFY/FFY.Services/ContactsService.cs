@@ -33,6 +33,11 @@ namespace FFY.Services
             this.data.SaveChanges();
         }
 
+        public Contact GetContactById(int id)
+        {
+            return this.data.ContactsRepository.GetById(id);
+        }
+
         public IEnumerable<Contact> SearchContacts(string searchWord, string sortBy, string filterBy, int page = 1, int contactsPerPage = 10)
         {
             var skip = (page - 1) * contactsPerPage;

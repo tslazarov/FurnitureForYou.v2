@@ -64,8 +64,11 @@ namespace FFY.UnitTests.Services.UtilitiesTests.ImageUploaderTests
             Assert.AreEqual(imageDefaultName, imageName);
         }
 
-        [TestCase("image-123", "folder")]
-        public void ShouldCallIsDirectoryExistingMethodOfDirectoryProvider(string imageDefaultName, string folder)
+        [TestCase("image-123", "folder", "image/jpeg")]
+        [TestCase("image-123", "folder", "image/png")]
+        public void ShouldCallIsDirectoryExistingMethodOfDirectoryProvider(string imageDefaultName, 
+            string folder,
+            string imageContentType)
         {
             // Arrange
             var mockedDateTimeProvider = new Mock<IDateTimeProvider>();
@@ -81,7 +84,7 @@ namespace FFY.UnitTests.Services.UtilitiesTests.ImageUploaderTests
 
             var mockedImage = new Mock<HttpPostedFileBase>();
             mockedImage.SetupGet(i => i.ContentLength).Returns(10);
-            mockedImage.SetupGet(i => i.ContentType).Returns("image/jpeg");
+            mockedImage.SetupGet(i => i.ContentType).Returns(imageContentType);
             mockedImage.Setup(i => i.SaveAs(It.IsAny<string>()));
 
             var mockedServer = new Mock<HttpServerUtilityBase>();
@@ -99,8 +102,11 @@ namespace FFY.UnitTests.Services.UtilitiesTests.ImageUploaderTests
             mockedDirectoryProvider.Verify(dp => dp.IsDirectoryExisting(@"~\Images\" + folder), Times.Once);
         }
 
-        [TestCase("image-123", "folder")]
-        public void ShouldCallCreateDirectoryMethodOfDirectoryProvider_WhenDirectoryIsNotExisting(string imageDefaultName, string folder)
+        [TestCase("image-123", "folder", "image/jpeg")]
+        [TestCase("image-123", "folder", "image/png")]
+        public void ShouldCallCreateDirectoryMethodOfDirectoryProvider_WhenDirectoryIsNotExisting(string imageDefaultName, 
+            string folder,
+            string imageContentType)
         {
             // Arrange
             var mockedDateTimeProvider = new Mock<IDateTimeProvider>();
@@ -116,7 +122,7 @@ namespace FFY.UnitTests.Services.UtilitiesTests.ImageUploaderTests
 
             var mockedImage = new Mock<HttpPostedFileBase>();
             mockedImage.SetupGet(i => i.ContentLength).Returns(10);
-            mockedImage.SetupGet(i => i.ContentType).Returns("image/jpeg");
+            mockedImage.SetupGet(i => i.ContentType).Returns(imageContentType);
             mockedImage.Setup(i => i.SaveAs(It.IsAny<string>()));
 
             var mockedServer = new Mock<HttpServerUtilityBase>();
@@ -134,8 +140,11 @@ namespace FFY.UnitTests.Services.UtilitiesTests.ImageUploaderTests
             mockedDirectoryProvider.Verify(dp => dp.IsDirectoryExisting(@"~\Images\" + folder), Times.Once);
         }
 
-        [TestCase("image-123", "folder")]
-        public void ShouldCallMapPathMethodOfServerTwice_WhenDirectoryIsExisting(string imageDefaultName, string folder)
+        [TestCase("image-123", "folder", "image/jpeg")]
+        [TestCase("image-123", "folder", "image/png")]
+        public void ShouldCallMapPathMethodOfServerTwice_WhenDirectoryIsExisting(string imageDefaultName, 
+            string folder,
+            string imageContentType)
         {
             // Arrange
             var mockedDateTimeProvider = new Mock<IDateTimeProvider>();
@@ -151,7 +160,7 @@ namespace FFY.UnitTests.Services.UtilitiesTests.ImageUploaderTests
 
             var mockedImage = new Mock<HttpPostedFileBase>();
             mockedImage.SetupGet(i => i.ContentLength).Returns(10);
-            mockedImage.SetupGet(i => i.ContentType).Returns("image/jpeg");
+            mockedImage.SetupGet(i => i.ContentType).Returns(imageContentType);
             mockedImage.Setup(i => i.SaveAs(It.IsAny<string>()));
 
             var mockedServer = new Mock<HttpServerUtilityBase>();
@@ -170,8 +179,11 @@ namespace FFY.UnitTests.Services.UtilitiesTests.ImageUploaderTests
             mockedServer.Verify(s => s.MapPath(It.IsAny<string>()), Times.Exactly(2));
         }
 
-        [TestCase("image-123", "folder")]
-        public void ShouldCallMapPathMethodOfServerThreeTimes_WhenDirectoryIsNotExisting(string imageDefaultName, string folder)
+        [TestCase("image-123", "folder", "image/jpeg")]
+        [TestCase("image-123", "folder", "image/png")]
+        public void ShouldCallMapPathMethodOfServerThreeTimes_WhenDirectoryIsNotExisting(string imageDefaultName, 
+            string folder,
+            string imageContentType)
         {
             // Arrange
             var mockedDateTimeProvider = new Mock<IDateTimeProvider>();
@@ -187,7 +199,7 @@ namespace FFY.UnitTests.Services.UtilitiesTests.ImageUploaderTests
 
             var mockedImage = new Mock<HttpPostedFileBase>();
             mockedImage.SetupGet(i => i.ContentLength).Returns(10);
-            mockedImage.SetupGet(i => i.ContentType).Returns("image/jpeg");
+            mockedImage.SetupGet(i => i.ContentType).Returns(imageContentType);
             mockedImage.Setup(i => i.SaveAs(It.IsAny<string>()));
 
             var mockedServer = new Mock<HttpServerUtilityBase>();
@@ -206,8 +218,12 @@ namespace FFY.UnitTests.Services.UtilitiesTests.ImageUploaderTests
             mockedServer.Verify(s => s.MapPath(It.IsAny<string>()), Times.Exactly(3));
         }
 
-        [TestCase("image-123", "folder", "cool-image.jpg")]
-        public void ShouldCallSaveAsMethodOfOfImage(string imageDefaultName, string folder, string imageFileName)
+        [TestCase("image-123", "folder", "cool-image.jpg", "image/jpeg")]
+        [TestCase("image-123", "folder", "cool-image.jpg", "image/png")]
+        public void ShouldCallSaveAsMethodOfOfImage(string imageDefaultName, 
+            string folder, 
+            string imageFileName,
+            string imageContentType)
         {
             // Arrange
             var currentDate = new DateTime(2017, 3, 23);
@@ -227,7 +243,7 @@ namespace FFY.UnitTests.Services.UtilitiesTests.ImageUploaderTests
 
             var mockedImage = new Mock<HttpPostedFileBase>();
             mockedImage.SetupGet(i => i.ContentLength).Returns(10);
-            mockedImage.SetupGet(i => i.ContentType).Returns("image/jpeg");
+            mockedImage.SetupGet(i => i.ContentType).Returns(imageContentType);
             mockedImage.SetupGet(i => i.FileName).Returns(imageFileName);
             mockedImage.Setup(i => i.SaveAs(It.IsAny<string>())).Verifiable();
 
@@ -246,8 +262,12 @@ namespace FFY.UnitTests.Services.UtilitiesTests.ImageUploaderTests
             mockedImage.Verify(i => i.SaveAs(@"~\Images\" + folder + @"\" + expectedRandomDate + imageFileName), Times.Once);
         }
 
-        [TestCase("image-123", "folder", "cool-image.jpg")]
-        public void ShouldReturnNewlyFormedImageName(string imageDefaultName, string folder, string imageFileName)
+        [TestCase("image-123", "folder", "cool-image.jpg", "image/jpeg")]
+        [TestCase("image-123", "folder", "cool-image.jpg", "image/png")]
+        public void ShouldReturnNewlyFormedImageName(string imageDefaultName, 
+            string folder, 
+            string imageFileName,
+            string imageContentType)
         {
             // Arrange
             var currentDate = new DateTime(2017, 3, 23);
@@ -267,7 +287,7 @@ namespace FFY.UnitTests.Services.UtilitiesTests.ImageUploaderTests
 
             var mockedImage = new Mock<HttpPostedFileBase>();
             mockedImage.SetupGet(i => i.ContentLength).Returns(10);
-            mockedImage.SetupGet(i => i.ContentType).Returns("image/jpeg");
+            mockedImage.SetupGet(i => i.ContentType).Returns(imageContentType);
             mockedImage.SetupGet(i => i.FileName).Returns(imageFileName);
             mockedImage.Setup(i => i.SaveAs(It.IsAny<string>()));
 

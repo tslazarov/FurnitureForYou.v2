@@ -11,6 +11,8 @@ namespace FFY.Services.Contracts
     {
         void AddContact(Contact contact);
 
+        Contact GetContactById(int id);
+
         IEnumerable<Contact> SearchContacts(string searchWord, string sortBy, string filterBy, int page = 1, int contactsPerPage = 10);
 
         int GetContactsCount(string searchWord, string filterBy);

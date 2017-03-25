@@ -42,6 +42,25 @@ namespace FFY.Web.Areas.Administration.Controllers
             return this.View(model);
         }
 
+        // GET: Administration/Contacts/Id
+        public ViewResult ContactDetailed(ContactViewModel model, int id)
+        {
+            model.Contact = this.contactsService.GetContactById(id);
+
+            return this.View(model);
+        }
+
+        // POST: Administration/UserManagement/UpdateStatus
+        [HttpPost]
+        public ActionResult UpdateStatus(ContactViewModel model)
+        {
+            var contact = this.contactsService.GetContactById(model.Contact.Id);
+
+            // UPDATE STUFF
+
+            return this.RedirectToAction("ContactDetailed", new { id = model.Contact.Id });
+        }
+
 
         // GET: Administration/SearchContacts
         public PartialViewResult SearchContacts(SearchModel searchModel, ContactsViewModel contactsModel, int? page)

@@ -257,6 +257,7 @@
     <Compile Include="Areas\Administration\Controllers\SupportChatController.cs" />
     <Compile Include="Areas\Administration\Controllers\UserManagementController.cs" />
     <Compile Include="Areas\Administration\Models\ContactManagement\ContactsViewModel.cs" />
+    <Compile Include="Areas\Administration\Models\ContactManagement\ContactViewModel.cs" />
     <Compile Include="Areas\Administration\Models\ContactManagement\SingleContactViewModel.cs" />
     <Compile Include="Areas\Administration\Models\OrderManagement\OrdersViewModel.cs" />
     <Compile Include="Areas\Administration\Models\OrderManagement\SingleOrderViewModel.cs" />
@@ -351,6 +352,7 @@
     <Content Include="Areas\Administration\Views\ContactManagement\ContactsPartial.cshtml" />
     <Content Include="Areas\Administration\Views\OrderManagement\OrdersPartial.cshtml" />
     <Content Include="Areas\Profile\Views\Favorites\FavoriteProductsPartial.cshtml" />
+    <Content Include="Areas\Administration\Views\ContactManagement\ContactDetailed.cshtml" />
     <None Include="Properties\PublishProfiles\furnitureforyou - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\furnitureforyou - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />

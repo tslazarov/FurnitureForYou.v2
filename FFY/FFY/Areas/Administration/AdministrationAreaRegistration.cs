@@ -20,6 +20,11 @@ namespace FFY.Web.Areas.Administration
                 new { controller = "UserManagement", action = "UserProfile", language = "en" }
             );
 
+            context.MapRoute(
+                "AdministrationContacts",
+                "{language}/administration/contacts/{id}",
+                new { controller = "ContactManagement", action = "ContactDetailed", language = "en" }
+            );
 
             context.MapRoute(
                 "AdministrationDefault",
