@@ -259,7 +259,7 @@
   </data>
   <data name="Delivered" xml:space="preserve">
     <value>Доставена</value>
-    <comment>OrdersManagement</comment>
+    <comment>Enum</comment>
   </data>
   <data name="Description" xml:space="preserve">
     <value>Описание</value>
@@ -382,8 +382,8 @@
     <comment>FavoriteProductsView</comment>
   </data>
   <data name="NotProcessed" xml:space="preserve">
-    <value>Необработени</value>
-    <comment>ProductsManagement</comment>
+    <value>Необработенa</value>
+    <comment>Enum</comment>
   </data>
   <data name="OnDelivery" xml:space="preserve">
     <value>Наложен платеж</value>
@@ -462,12 +462,12 @@
     <comment>ProductAdditionViewModel</comment>
   </data>
   <data name="Processed" xml:space="preserve">
-    <value>Обработени</value>
-    <comment>ProductsManagement</comment>
+    <value>Обработенa</value>
+    <comment>Enum</comment>
   </data>
   <data name="Processing" xml:space="preserve">
     <value>В процес на обработка</value>
-    <comment>ProductsManagement</comment>
+    <comment>Enum</comment>
   </data>
   <data name="ProductImage" xml:space="preserve">
     <value>Изображение</value>
@@ -539,7 +539,7 @@
   </data>
   <data name="Rejected" xml:space="preserve">
     <value>Отказана</value>
-    <comment>OrdersManagement</comment>
+    <comment>Enum</comment>
   </data>
   <data name="RememberMe" xml:space="preserve">
     <value>Запомни ме</value>
@@ -591,7 +591,7 @@
   </data>
   <data name="Sent" xml:space="preserve">
     <value>Изпратена</value>
-    <comment>OrdersManagement</comment>
+    <comment>Enum</comment>
   </data>
   <data name="ShoppingCartAdd" xml:space="preserve">
     <value>Добави в количката</value>
@@ -676,5 +676,16 @@
   <data name="UsersNotFound" xml:space="preserve">
     <value>Не бяха намерени потребители</value>
     <comment>UsersManagement</comment>
+  </data>
+  <data name="Payed" xml:space="preserve">
+    <value>Платена</value>
+    <comment>Enum</comment>
+  </data>
+  <data name="PaymentOnDelivery" xml:space="preserve">
+    <value>Наложен платеж</value>
+    <comment>Enum</comment>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
   </data>
 </root>

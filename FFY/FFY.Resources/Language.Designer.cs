@@ -763,6 +763,24 @@ namespace FFY.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Payed.
+        /// </summary>
+        public static string Payed {
+            get {
+                return ResourceManager.GetString("Payed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Payment on delivery.
+        /// </summary>
+        public static string PaymentOnDelivery {
+            get {
+                return ResourceManager.GetString("PaymentOnDelivery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PayPal.
         /// </summary>
         public static string PayPal {

@@ -39,7 +39,7 @@ else
                 @order.SendOn.ToString()
             </div>
             <div class="col-sm-2 or-status">
-                @order.OrderStatusType
+                @Html.EnumDisplayNameFor(order.OrderStatusType)
             </div>
             <div class="col-sm-1 or-details">
                 @Html.ActionLink(FFY.Resources.Language.Details, "order", new { controller = "furniture", area = "", id = @order.Id })

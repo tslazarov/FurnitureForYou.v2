@@ -78,6 +78,12 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FFY.Resources\FFY.Resources.csproj">
+      <Project>{a1ee2fe0-9019-4a2b-94ce-7e5e8a7ed291}</Project>
+      <Name>FFY.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

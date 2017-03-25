@@ -33,7 +33,7 @@ else
                 @contact.SendOn.ToString()
             </div>
             <div class="col-sm-2 c-status">
-                @contact.ContactStatusType
+                @Html.EnumDisplayNameFor(contact.ContactStatusType)
             </div>
             <div class="col-sm-2 c-details">
                 @Html.ActionLink(FFY.Resources.Language.Details, "contact", new { controller = "furniture", area = "", id = @contact.Id })
