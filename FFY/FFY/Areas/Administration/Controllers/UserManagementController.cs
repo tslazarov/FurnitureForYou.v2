@@ -50,24 +50,6 @@ namespace FFY.Web.Areas.Administration.Controllers
             return this.View(model);
         }
 
-
-        // GET: Administration/SearchUsers
-        public PartialViewResult SearchUsers(SearchModel searchModel, UsersViewModel usersModel, int? page)
-        {
-            int actualPage = page ?? 1;
-
-            var result = this.usersService.SearchUsers(searchModel.SearchWord, searchModel.SortBy, actualPage, UsersPerPage);
-            var count = this.usersService.GetUsersCount(searchModel.SearchWord);
-
-            usersModel.SearchModel = searchModel;
-            usersModel.UsersCount = count;
-            usersModel.Pages = (int)Math.Ceiling((double)count / UsersPerPage);
-            usersModel.Page = actualPage;
-            usersModel.Users = mapper.Map<IEnumerable<SingleUserViewModel>>(result);
-
-            return this.PartialView("UsersPartial", usersModel);
-        }
-
         // GET: Administration/Users/Id
         public ViewResult UserProfile(UserViewModel model, ProfileViewModel profileModel, string id)
         {
@@ -91,6 +73,23 @@ namespace FFY.Web.Areas.Administration.Controllers
             this.authenticationProvider.UpdateSecurityStamp(user.Id);
 
             return this.RedirectToAction("UserProfile", new { id = model.UserId });
+        }
+
+        // GET: Administration/SearchUsers
+        public PartialViewResult SearchUsers(SearchModel searchModel, UsersViewModel usersModel, int? page)
+        {
+            int actualPage = page ?? 1;
+
+            var result = this.usersService.SearchUsers(searchModel.SearchWord, searchModel.SortBy, actualPage, UsersPerPage);
+            var count = this.usersService.GetUsersCount(searchModel.SearchWord);
+
+            usersModel.SearchModel = searchModel;
+            usersModel.UsersCount = count;
+            usersModel.Pages = (int)Math.Ceiling((double)count / UsersPerPage);
+            usersModel.Page = actualPage;
+            usersModel.Users = mapper.Map<IEnumerable<SingleUserViewModel>>(result);
+
+            return this.PartialView("UsersPartial", usersModel);
         }
     }
 }

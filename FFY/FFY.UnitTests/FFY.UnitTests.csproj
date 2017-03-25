@@ -177,6 +177,8 @@
     <Compile Include="Web\OrderManagementControllerTests\OrderDetailed.cs" />
     <Compile Include="Web\OrderManagementControllerTests\SearchOrders.cs" />
     <Compile Include="Web\OrderManagementControllerTests\UpdateStatus.cs" />
+    <Compile Include="Web\SupportChatControllerTests\Constructor.cs" />
+    <Compile Include="Web\SupportChatControllerTests\Index.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
