@@ -49,7 +49,7 @@ namespace FFY.Web.Areas.Profile.Controllers
         }
 
         // GET: Administration/SearchProducts
-        public PartialViewResult PagingProducts(FavoriteProductsViewModel productsModel, int? page)
+        public PartialViewResult PagingProducts(FavoriteProductsViewModel favoriteProductsViewModel, int? page)
         {
             int actualPage = page ?? 1;
 
@@ -57,12 +57,12 @@ namespace FFY.Web.Areas.Profile.Controllers
             var result = this.usersService.GetFavoriteProducts(userId, actualPage, ProductsPerPage);
             var count = this.usersService.GetFavoriteProductsCount(userId);
 
-            productsModel.FavoriteProductsCount = count;
-            productsModel.Pages = (int)Math.Ceiling((double)count / ProductsPerPage);
-            productsModel.Page = actualPage;
-            productsModel.FavoriteProducts = mapper.Map<IEnumerable<SingleFavoriteProductViewModel>>(result);
+            favoriteProductsViewModel.FavoriteProductsCount = count;
+            favoriteProductsViewModel.Pages = (int)Math.Ceiling((double)count / ProductsPerPage);
+            favoriteProductsViewModel.Page = actualPage;
+            favoriteProductsViewModel.FavoriteProducts = mapper.Map<IEnumerable<SingleFavoriteProductViewModel>>(result);
 
-            return this.PartialView("FavoriteProductsPartial", productsModel);
+            return this.PartialView("FavoriteProductsPartial", favoriteProductsViewModel);
         }
     }
 }

@@ -93,20 +93,20 @@ namespace FFY.Web.Areas.Administration.Controllers
         }
 
         // GET: Administration/SearchProducts
-        public PartialViewResult SearchProducts(SearchModel searchModel, ProductsViewModel productsModel, int? page)
+        public PartialViewResult SearchProducts(SearchModel searchModel, ProductsViewModel favoriteProductsViewModel, int? page)
         {
             int actualPage = page ?? 1;
 
             var result = this.productsService.SearchProducts(searchModel.SearchWord, searchModel.SortBy, actualPage, ProductsPerPage);
             var count = this.productsService.GetProductsCount(searchModel.SearchWord);
 
-            productsModel.SearchModel = searchModel;
-            productsModel.ProductsCount = count;
-            productsModel.Pages = (int)Math.Ceiling((double)count / ProductsPerPage);
-            productsModel.Page = actualPage;
-            productsModel.Products = mapper.Map<IEnumerable<SingleProductViewModel>>(result);
+            favoriteProductsViewModel.SearchModel = searchModel;
+            favoriteProductsViewModel.ProductsCount = count;
+            favoriteProductsViewModel.Pages = (int)Math.Ceiling((double)count / ProductsPerPage);
+            favoriteProductsViewModel.Page = actualPage;
+            favoriteProductsViewModel.Products = mapper.Map<IEnumerable<SingleProductViewModel>>(result);
 
-            return this.PartialView("ProductsPartial", productsModel);
+            return this.PartialView("ProductsPartial", favoriteProductsViewModel);
         }
 
         // GET: Administration/ProductAddition
