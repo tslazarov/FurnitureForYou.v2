@@ -431,6 +431,53 @@ footer{
     }
 }
 
+/* Favorite products page */
+.favorite-products-container {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+}
+
+.empty-favorites-list{
+    padding-top: 20px;
+    text-align: center;
+}
+
+
+.favorite-product-list-item {
+    margin-bottom: 30px;
+}
+
+.favorite-product-wrapper {
+    border: 1px solid #EEEEEE;
+    min-height: 250px;
+    padding: 20px;
+}
+
+.favorite-product-wrapper:hover a{
+    text-decoration: none;
+    background-color: #EEEEEE;
+}
+
+.favorite-product-name {
+    padding-top: 10px;
+    font-size: 20px;
+    text-align: center;
+}
+
+@media (max-width:767px) {
+    .favorite-product-wrapper {
+        min-height: 250px;
+    }
+}
+
+@media (max-width:310px) {
+    .favorite-product-wrapper {
+        min-height: 210px;
+    }
+}
+
 /* Client chat */
 
 #support-chat-link,

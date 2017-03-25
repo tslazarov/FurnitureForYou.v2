@@ -673,4 +673,8 @@
     <value>Не бяха намерени потребители</value>
     <comment>UsersManagement</comment>
   </data>
+  <data name="NoFavoriteProducts" xml:space="preserve">
+    <value>Няма добавени любими продукти</value>
+    <comment>FavoriteProductsView</comment>
+  </data>
 </root>

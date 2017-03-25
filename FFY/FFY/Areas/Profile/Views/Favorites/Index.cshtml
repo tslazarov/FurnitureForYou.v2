@@ -1,18 +1,6 @@
 ﻿<div class="row">
-    <div class="products-management-container">
-        @using (Ajax.BeginForm("SearchProducts", null,
-                new AjaxOptions()
-                {
-                    HttpMethod = "GET",
-                    UpdateTargetId = "products-results",
-                    InsertionMode = InsertionMode.Replace,
-                },
-                new { id = "search-form" }))
-        {
-        }
-        <div id="products-results" class="col-sm-12">
+    <div class="favorite-products-container">
             @Html.Action("PagingProducts")
-        </div>
     </div>
 </div>
 

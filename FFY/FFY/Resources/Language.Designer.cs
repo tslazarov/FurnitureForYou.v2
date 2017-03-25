@@ -646,6 +646,15 @@ namespace FFY.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No favorite products added.
+        /// </summary>
+        public static string NoFavoriteProducts {
+            get {
+                return ResourceManager.GetString("NoFavoriteProducts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Not processed.
         /// </summary>
         public static string NotProcessed {

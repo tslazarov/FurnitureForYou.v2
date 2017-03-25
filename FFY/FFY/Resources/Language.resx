@@ -673,4 +673,8 @@
     <value>Users were not found</value>
     <comment>UsersManagement</comment>
   </data>
+  <data name="NoFavoriteProducts" xml:space="preserve">
+    <value>No favorite products added</value>
+    <comment>FavoriteProductsView</comment>
+  </data>
 </root>

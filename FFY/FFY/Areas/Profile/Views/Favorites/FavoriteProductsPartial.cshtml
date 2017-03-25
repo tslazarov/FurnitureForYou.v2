@@ -3,22 +3,26 @@
 
 @if (Model.FavoriteProductsCount == 0)
 {
-    <h2 class="empty-users-list">@FFY.Web.Resources.Language.ProductsNotFound</h2>
+    <h2 class="empty-favorites-list">@FFY.Web.Resources.Language.NoFavoriteProducts</h2>
 }
 else
 {
-    foreach (var product in Model.FavoriteProducts)
-    {
-        <div class="col-sm-12 product-list-item">
-            <div class="col-sm-6 p-name">
-                @product.Name
-            </div>
-            <div class="col-sm-6 p-details">
-                @Html.ActionLink(FFY.Web.Resources.Language.Details, "product", new { controller = "furniture", area = "", id = @product.Id })
+    <div class="row">
+        @foreach (var product in Model.FavoriteProducts)
+        {
+        <div class="col-xs-6 col-sm-3 favorite-product-list-item">
+            <div class="favorite-product-wrapper">
+                <a href="@Url.Action("product", "furniture", new { area = "", id= product.Id })">
+                    <img src="~/Images/products/@product.ImagePath" class="img-responsive" />
+                    <div class="favorite-product-name">
+                        @product.Name
+                    </div>
+                </a>
             </div>
         </div>
-    }
-    <div>
+        }
+    </div>
+    <div class="row col-xs-12">
         <ul class="pagination">
             @for (int i = 1; i <= Model.Pages; i++)
                 {
