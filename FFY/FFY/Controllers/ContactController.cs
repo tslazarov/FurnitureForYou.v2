@@ -51,18 +51,13 @@ namespace FFY.Web.Controllers
             model.SendOn = this.dateTimeProvider.GetCurrentTime();
             model.StatusType = ContactStatusType.NotProcessed;
 
-            if (this.ModelState.IsValid)
-            {
-                var contact = this.contactFactory.CreateContact(model.Title,
-                    model.Email,
-                    model.Content,
-                    model.SendOn,
-                    model.StatusType);
+            var contact = this.contactFactory.CreateContact(model.Title,
+                model.Email,
+                model.Content,
+                model.SendOn,
+                model.StatusType);
 
-                this.contactsService.AddContact(contact);
-
-                return this.View();
-            }
+            this.contactsService.AddContact(contact);
 
             return this.View();
         }

@@ -167,6 +167,8 @@
     <Compile Include="Web\AccountControllerTests\RegisterGet.cs" />
     <Compile Include="Web\AccountControllerTests\RegisterPost.cs" />
     <Compile Include="Web\ContactControllerTests\Constructor.cs" />
+    <Compile Include="Web\ContactControllerTests\IndexGet.cs" />
+    <Compile Include="Web\ContactControllerTests\IndexPost.cs" />
     <Compile Include="Web\ContactManagementControllerTests\Constructor.cs" />
     <Compile Include="Web\ContactManagementControllerTests\ContactDetailed.cs" />
     <Compile Include="Web\ContactManagementControllerTests\Index.cs" />
