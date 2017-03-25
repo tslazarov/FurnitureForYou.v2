@@ -105,6 +105,7 @@
     <Compile Include="Services\ProductsServiceTests\GetProductById.cs" />
     <Compile Include="Services\ProductsServiceTests\GetProductsCount.cs" />
     <Compile Include="Services\ProductsServiceTests\SearchProducts.cs" />
+    <Compile Include="Services\ProductsServiceTests\UpdateProduct.cs" />
     <Compile Include="Services\RoomsServiceTests\AddRoom.cs" />
     <Compile Include="Services\RoomsServiceTests\Constructor.cs" />
     <Compile Include="Services\RoomsServiceTests\GetRoomById.cs" />
