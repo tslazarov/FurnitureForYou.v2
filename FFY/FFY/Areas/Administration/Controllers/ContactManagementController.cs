@@ -1,4 +1,5 @@
 ﻿using Bytes2you.Validation;
+using FFY.Providers.Contracts;
 using FFY.Services.Contracts;
 using FFY.Web.Areas.Administration.Models;
 using FFY.Web.Areas.Administration.Models.ContactManagement;
@@ -19,12 +20,20 @@ namespace FFY.Web.Areas.Administration.Controllers
         private const int ContactsPerPage = 10;
 
         private readonly IMapperProvider mapper;
+        private readonly IAuthenticationProvider authenticationProvider;
         private readonly IContactsService contactsService;
+        private readonly IUsersService usersService;
 
         public ContactManagementController(IMapperProvider mapper,
-            IContactsService contactsService)
+            IAuthenticationProvider authenticationProvider,
+            IContactsService contactsService,
+            IUsersService usersService)
         {
             Guard.WhenArgument<IMapperProvider>(mapper, "Mapper provider cannot be null.")
+               .IsNull()
+               .Throw();
+
+            Guard.WhenArgument<IAuthenticationProvider>(authenticationProvider, "Authentication provider cannot be null.")
                .IsNull()
                .Throw();
 
@@ -32,8 +41,14 @@ namespace FFY.Web.Areas.Administration.Controllers
                 .IsNull()
                 .Throw();
 
+            Guard.WhenArgument<IUsersService>(usersService, "Users service cannot be null.")
+                .IsNull()
+                .Throw();
+
             this.mapper = mapper;
+            this.authenticationProvider = authenticationProvider;
             this.contactsService = contactsService;
+            this.usersService = usersService;
         }
 
         // GET: Administration/ContactManagement
@@ -54,9 +69,15 @@ namespace FFY.Web.Areas.Administration.Controllers
         [HttpPost]
         public ActionResult UpdateStatus(ContactViewModel model)
         {
-            var contact = this.contactsService.GetContactById(model.Contact.Id);
+            var id = this.authenticationProvider.CurrentUserId;
 
-            // UPDATE STUFF
+            var contact = this.contactsService.GetContactById(model.Contact.Id);
+            var user = this.usersService.GetUserById(id);
+
+            this.contactsService.UpdateContactStatus(contact, 
+                user, 
+                model.Contact.ContactStatusType, 
+                id);
 
             return this.RedirectToAction("ContactDetailed", new { id = model.Contact.Id });
         }

@@ -34,7 +34,12 @@
 <hr />
 <div class="row">
     <div class="col-sm-offset-8 col-sm-2">
-        @FFY.Resources.Language.ProcessedBy:  @Model.Contact.UserProcessedBy
+        @if (@Model.Contact.UserProcessedBy != null)
+        {
+            <div>
+                @FFY.Resources.Language.ProcessedBy:  @Model.Contact.UserProcessedBy.Email
+            </div>
+        }
     </div>
 </div>
 

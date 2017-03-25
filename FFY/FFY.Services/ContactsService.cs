@@ -33,6 +33,24 @@ namespace FFY.Services
             this.data.SaveChanges();
         }
 
+        public void UpdateContactStatus(Contact contact, User user, ContactStatusType status, string userId)
+        {
+            Guard.WhenArgument<Contact>(contact, "Contact cannot be null.")
+                .IsNull()
+                .Throw();
+
+            Guard.WhenArgument<User>(user, "User cannot be null.")
+                .IsNull()
+                .Throw();
+
+            contact.ContactStatusType = status;
+            contact.UserProcessedBy = status == ContactStatusType.NotProcessed ? null : user;
+            contact.UserProccessedById = status == ContactStatusType.NotProcessed ? null : userId;
+
+            this.data.ContactsRepository.Update(contact);
+            this.data.SaveChanges();
+        }
+
         public Contact GetContactById(int id)
         {
             return this.data.ContactsRepository.GetById(id);
