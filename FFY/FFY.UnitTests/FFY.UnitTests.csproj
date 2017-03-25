@@ -179,6 +179,11 @@
     <Compile Include="Web\OrderManagementControllerTests\UpdateStatus.cs" />
     <Compile Include="Web\SupportChatControllerTests\Constructor.cs" />
     <Compile Include="Web\SupportChatControllerTests\Index.cs" />
+    <Compile Include="Web\UserManagementControllerTests\Constructor.cs" />
+    <Compile Include="Web\UserManagementControllerTests\Index.cs" />
+    <Compile Include="Web\UserManagementControllerTests\SearchUsers.cs" />
+    <Compile Include="Web\UserManagementControllerTests\UpdateStatus.cs" />
+    <Compile Include="Web\UserManagementControllerTests\UserProfile.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

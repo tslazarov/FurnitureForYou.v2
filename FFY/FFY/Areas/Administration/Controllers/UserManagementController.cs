@@ -64,6 +64,7 @@ namespace FFY.Web.Areas.Administration.Controllers
 
         // POST: Administration/UserManagement/UpdateStatus
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult UpdateStatus(UserViewModel model)
         {
             var user = this.usersService.GetUserById(model.UserId);

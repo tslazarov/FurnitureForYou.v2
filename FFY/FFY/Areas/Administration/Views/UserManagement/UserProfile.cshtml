@@ -5,6 +5,7 @@
 <div class="row change-role-container">
     @using (Html.BeginForm("updateStatus", "userManagement", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
+        @Html.AntiForgeryToken()
         <div class="col-md-offset-8 col-md-2">
             @Html.HiddenFor(m => m.UserId)
             @Html.DropDownListFor(m => m.Role, new List<SelectListItem>() {
