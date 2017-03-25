@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace FFY.UnitTests.Services.UsersServiceTests
 {
     [TestFixture]
-    public class GetUserById
+    public class GetFavoriteProducts
     {
         [Test]
         public void ShouldThrowArgumentException_WhenEmptyUserIdIsPassed()
@@ -25,7 +25,7 @@ namespace FFY.UnitTests.Services.UsersServiceTests
 
             // Act and Assert
             Assert.Throws<ArgumentException>(() =>
-                usersService.GetUserById(id));
+                usersService.GetFavoriteProducts(id, 1, 16));
         }
 
         [Test]
@@ -40,7 +40,7 @@ namespace FFY.UnitTests.Services.UsersServiceTests
 
             // Act and Assert
             var exception = Assert.Throws<ArgumentException>(() =>
-                usersService.GetUserById(id));
+                usersService.GetFavoriteProducts(id, 1, 16));
             StringAssert.Contains(expectedExMessage, exception.Message);
         }
 
@@ -55,7 +55,7 @@ namespace FFY.UnitTests.Services.UsersServiceTests
 
             // Act and Assert
             Assert.Throws<ArgumentNullException>(() =>
-                usersService.GetUserById(id));
+                usersService.GetFavoriteProducts(id, 1, 16));
         }
 
         [Test]
@@ -70,15 +70,16 @@ namespace FFY.UnitTests.Services.UsersServiceTests
 
             // Act and Assert
             var exception = Assert.Throws<ArgumentNullException>(() =>
-                usersService.GetUserById(id));
+                usersService.GetFavoriteProducts(id, 1, 16));
             StringAssert.Contains(expectedExMessage, exception.Message);
         }
 
-        [TestCase("1")]
-        [TestCase("2")]
-        public void ShouldCallGetByIdMethodOfDataUsersRepository(string id)
+        [Test]
+        public void ShouldCallGetByIdMethodOfDataUsersRepository()
         {
             // Arrange
+            var id = "42";
+
             var user = new User() { Id = id };
             var mockedData = new Mock<IFFYData>();
             mockedData.Setup(d => d.UsersRepository.GetById(It.IsAny<string>()))
@@ -88,18 +89,28 @@ namespace FFY.UnitTests.Services.UsersServiceTests
             var usersService = new UsersService(mockedData.Object);
 
             // Act
-            usersService.GetUserById(id);
+            usersService.GetFavoriteProducts(id, 1, 16);
 
             // Assert
             mockedData.Verify(d => d.UsersRepository.GetById(id), Times.Once);
         }
 
-        [TestCase("1")]
-        [TestCase("2")]
-        public void ShouldReturnCorrectUser(string id)
+        [Test]
+        public void ShouldReturnFavoriteProducts()
         {
             // Arrange
-            var user = new User() { Id = id };
+            var id = "42";
+            var favoritedProducts = new List<Product>() {
+                    new Product() { Name = "Bed" },
+                    new Product() { Name = "Chair" },
+                    new Product() { Name = "Table" }
+                };
+
+            var user = new User()
+            {
+                Id = id,
+                FavoritedProducts = favoritedProducts
+            };
             var mockedData = new Mock<IFFYData>();
             mockedData.Setup(d => d.UsersRepository.GetById(It.IsAny<string>()))
                 .Returns(user)
@@ -108,10 +119,42 @@ namespace FFY.UnitTests.Services.UsersServiceTests
             var usersService = new UsersService(mockedData.Object);
 
             // Act
-            var result = usersService.GetUserById(id);
+            var result = usersService.GetFavoriteProducts(id, 1, 16);
 
             // Assert
-            Assert.AreEqual(user, result);
+            CollectionAssert.AreEquivalent(favoritedProducts, result);
+        }
+
+        [Test]
+        public void ShouldReturnFavoriteProductsBaseOnPage()
+        {
+            // Arrange
+            var id = "42";
+            var favoritedProducts = new List<Product>() {
+                    new Product() { Name = "Bed" },
+                    new Product() { Name = "Chair" },
+                    new Product() { Name = "Table" },
+                    new Product() { Name = "Wardrobe" }
+                };
+
+            var user = new User()
+            {
+                Id = id,
+                FavoritedProducts = favoritedProducts
+            };
+            var mockedData = new Mock<IFFYData>();
+            mockedData.Setup(d => d.UsersRepository.GetById(It.IsAny<string>()))
+                .Returns(user)
+                .Verifiable();
+
+            var usersService = new UsersService(mockedData.Object);
+
+            // Act
+            var result = usersService.GetFavoriteProducts(id, 2, 2);
+
+            // Assert
+            Assert.AreSame(favoritedProducts[2], result.First());
+            Assert.AreSame(favoritedProducts[3], result.Last());
         }
     }
 }

@@ -100,6 +100,10 @@ namespace FFY.Services
 
         public IEnumerable<Product> GetFavoriteProducts(string id, int page = 1, int productsPerPage = 16)
         {
+            Guard.WhenArgument<string>(id, "User id cannot be null or empty.")
+                .IsNullOrEmpty()
+                .Throw();
+
             var skip = (page - 1) * productsPerPage;
 
             var products = this.data.UsersRepository.GetById(id).FavoritedProducts;
@@ -141,6 +145,10 @@ namespace FFY.Services
 
         public int GetFavoriteProductsCount(string id)
         {
+            Guard.WhenArgument<string>(id, "User id cannot be null or empty.")
+                .IsNullOrEmpty()
+                .Throw();
+
             var products = this.data.UsersRepository.GetById(id).FavoritedProducts;
             return products.Count();
         }

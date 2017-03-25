@@ -183,6 +183,46 @@ namespace FFY.UnitTests.Services.ContactsServiceTests
         }
 
         [Test]
+        public void ShouldReturnCorrectContactsSortedByDate_WhenNoSortParameterIsProvided()
+        {
+            // Arrange
+            var searchWord = "mail";
+
+            var contacts = new List<Contact>()
+            {
+                new Contact() {
+                    Title = "Hello",
+                    Email ="hello@mail.com",
+                    SendOn = new DateTime(2017, 1, 1)
+                },
+                new Contact()
+                {
+                    Title = "Zero",
+                    Email ="alphabet@mail.com",
+                    SendOn = new DateTime(2016, 12, 1)
+                },
+                new Contact() {
+                    Title = "Click",
+                    Email ="click@mail.com",
+                    SendOn = new DateTime(2017, 3, 1)
+                }
+            };
+
+            var mockedData = new Mock<IFFYData>();
+            mockedData.Setup(d => d.ContactsRepository.All())
+                .Returns(contacts.AsQueryable);
+
+            var contactsService = new ContactsService(mockedData.Object);
+
+            // Act
+            var result = contactsService.SearchContacts(searchWord, "", "", 1, 10);
+
+            // Assert
+            Assert.AreSame(contacts[2], result.First());
+            Assert.AreSame(contacts[1], result.Last());
+        }
+
+        [Test]
         public void ShouldReturnCorrectContactsPerPage_WhenSearchWordAndPageAreProvided()
         {
             // Arrange

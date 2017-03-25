@@ -217,6 +217,46 @@ namespace FFY.UnitTests.Services.OrdersServiceTests
         }
 
         [Test]
+        public void ShouldReturnCorrectOrdersSortedByDate_WhenNoSortParameterIsProvided()
+        {
+            // Arrange
+            var searchWord = "street";
+
+            var orders = new List<Order>()
+            {
+                new Order() {
+                    User = new User() { FirstName = "Patrick" },
+                    Address = new Address() { Street = "Street 1" },
+                    SendOn = new DateTime(2017, 1, 1)
+                },
+                new Order() {
+                    User = new User() { FirstName = "Abraham" },
+                    Address = new Address() { Street = "Street 2" },
+                    SendOn = new DateTime(2017, 1, 3)
+                },
+                new Order() {
+                    User = new User() { FirstName = "Neil" },
+                    Address = new Address() { Street = "Street 3" },
+                    SendOn = new DateTime(2016, 12, 2)
+
+                }
+            };
+
+            var mockedData = new Mock<IFFYData>();
+            mockedData.Setup(d => d.OrdersRepository.All())
+                .Returns(orders.AsQueryable);
+
+            var ordersService = new OrdersService(mockedData.Object);
+
+            // Act
+            var result = ordersService.SearchOrders(searchWord, "", "", 1, 10);
+
+            // Assert
+            Assert.AreSame(orders[1], result.First());
+            Assert.AreSame(orders[2], result.Last());
+        }
+
+        [Test]
         public void ShouldReturnCorrectOrdersPerPage_WhenSearchWordAndPageAreProvided()
         {
             // Arrange
