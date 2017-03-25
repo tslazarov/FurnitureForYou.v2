@@ -432,6 +432,7 @@ footer{
 }
 
 /* Favorite products page */
+
 .favorite-products-container {
     max-width: 800px;
     margin-left: auto;
@@ -504,6 +505,59 @@ footer{
     margin-bottom: 10px;
 }
 
+/* Order detailed page */
+.order-detailed-header {
+    color: #FFFFFF;
+    background-color: #52658F;
+    line-height: 40px;
+    font-size: 16px;
+    margin: 10px 0px;
+}
+
+.order-detailed-list-item {
+    display: block;
+    line-height: 50px;
+    padding: 10px 0px;
+}
+
+.order-detailed-list-item:nth-of-type(n) {
+    background-color: #FFFFFF;
+}
+
+.order-detailed-list-item:nth-of-type(2n) {
+    background-color: #FAFAFA;
+}
+
+@media (max-width: 767px) {
+    .o-d-product,
+    .o-d-id,
+    .o-d-sender,
+    .o-d-address,
+    .o-d-send-on {
+        text-align: center;
+    }
+}
+
+.o-d-product img {
+    max-height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.o-d-single-price,
+.o-d-quantity,
+.o-d-total-price {
+    text-align: center;
+}
+
+.order-detailed-list-foot {
+    margin-bottom: 15px;
+}
+
+.o-d-total {
+    text-align: center;
+    font-size: 22px;
+}
 
 /* Client chat */
 
@@ -684,6 +738,7 @@ footer{
 }
 
 /* Detailed product */
+
 .img-center{
     margin-left: auto;
     margin-right: auto;

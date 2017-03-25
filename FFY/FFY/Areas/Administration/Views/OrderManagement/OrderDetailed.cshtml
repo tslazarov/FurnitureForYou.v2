@@ -1,0 +1,72 @@
+﻿@using FFY.Web.Areas.Administration.Models.OrderManagement
+@model OrderViewModel
+
+<div class="row change-status-container">
+    @using (Html.BeginForm("updateStatus", "orderManagement", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        <div class="col-md-offset-6 col-md-2">
+            @Html.HiddenFor(m => m.Order.Id)
+            @Html.EnumDropDownListFor(m => m.Order.OrderPaymentStatusType, new { @class = "form-control" })
+        </div>
+        <div class="col-md-2">
+            @Html.EnumDropDownListFor(m => m.Order.OrderStatusType, new { @class = "form-control" })
+        </div>
+        <div class="col-md-2">
+            <input type="submit" value="@FFY.Resources.Language.Change" class="btn btn-primary btn-block" />
+        </div>
+    }
+</div>
+<div id="order-header" class="col-md-12 order-detailed-header">
+    <div class="col-md-2 o-d-id">
+        @FFY.Resources.Language.OrderNo @Model.Order.Id
+    </div>
+    <div class="col-md-4 o-d-sender">
+        @Model.Order.User.FirstName @Model.Order.User.LastName ( @Model.Order.User.UserName )
+    </div>
+    <div class="col-md-3 o-d-address">
+        @Model.Order.Address.Street, @Model.Order.Address.City
+    </div>
+    <div class="col-md-3 o-d-send-on">
+        @Model.Order.SendOn.ToShortDateString()
+    </div>
+</div>
+<div id="order-detailed">
+    @foreach (var item in Model.Order.Products)
+    {
+        <div class="row order-detailed-list-item">
+            <a href="@Url.Action("product", "furniture", new { area = "", id= item.Product.Id })">
+                <div class="col-sm-6 o-d-product">
+                    <div class="col-sm-4 col-md-3 col-lg-2">
+                        <img class="img-responsive" src="~/Images/products/@item.Product.ImagePath" />
+                    </div>
+                    <div class="col-sm-8 col-md-9 col-lg-10">
+                        @item.Product.Name
+                    </div>
+                </div>
+                <div class="col-sm-2 o-d-single-price">
+                    @item.Product.DiscountedPrice @FFY.Resources.Language.Currency
+                </div>
+                <div class="col-sm-2 o-d-quantity">
+                    @item.Quantity
+                </div>
+                <div class="col-sm-2 o-d-total-price">
+                    @item.Total @FFY.Resources.Language.Currency
+                </div>
+            </a>
+        </div>
+    }
+    <div class="row order-detailed-list-foot">
+        <div class="col-sm-offset-10 col-sm-2 o-d-total">
+            @Model.Order.Total @FFY.Resources.Language.Currency
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+

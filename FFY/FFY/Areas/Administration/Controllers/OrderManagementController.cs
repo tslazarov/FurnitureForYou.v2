@@ -43,6 +43,27 @@ namespace FFY.Web.Areas.Administration.Controllers
             return this.View(model);
         }
 
+        // GET: Administration/Orders/Id
+        public ViewResult OrderDetailed(OrderViewModel model, int id)
+        {
+            model.Order = this.ordersService.GetOrderById(id);
+
+            return this.View(model);
+        }
+
+        // POST: Administration/OrderManagement/UpdateStatus
+        [HttpPost]
+        public ActionResult UpdateStatus(OrderViewModel model)
+        {
+            var order = this.ordersService.GetOrderById(model.Order.Id);
+
+            this.ordersService.UpdateOrderStatuses(order,
+                model.Order.OrderStatusType,
+                model.Order.OrderPaymentStatusType);
+
+            return this.RedirectToAction("OrderDetailed", new { id = model.Order.Id });
+        }
+
         // GET: Administration/SearchOrders
         public PartialViewResult SearchOrders(SearchModel searchModel, OrdersViewModel ordersModel, int? page)
         {

@@ -33,6 +33,24 @@ namespace FFY.Services
             this.data.SaveChanges();
         }
 
+        public void UpdateOrderStatuses(Order order, OrderStatusType orderStatus, OrderPaymentStatusType orderPaymentStatus)
+        {
+            Guard.WhenArgument<Order>(order, "Order cannot be null.")
+                .IsNull()
+                .Throw();
+
+            order.OrderStatusType = orderStatus;
+            order.OrderPaymentStatusType = orderPaymentStatus;
+
+            this.data.OrdersRepository.Update(order);
+            this.data.SaveChanges();
+        }
+
+        public Order GetOrderById(int id)
+        {
+            return this.data.OrdersRepository.GetById(id);
+        }
+
         public void TransferProducts(Order order, ShoppingCart shoppingCart)
         {
             Guard.WhenArgument<Order>(order, "Order cannot be null.")

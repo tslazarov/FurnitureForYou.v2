@@ -27,6 +27,12 @@ namespace FFY.Web.Areas.Administration
             );
 
             context.MapRoute(
+                "AdministrationOrders",
+                "{language}/administration/orders/{id}",
+                new { controller = "OrderManagement", action = "OrderDetailed", language = "en" }
+            );
+
+            context.MapRoute(
                 "AdministrationDefault",
                 "{language}/administration/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional, language = "en" }

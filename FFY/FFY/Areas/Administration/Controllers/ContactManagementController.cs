@@ -65,7 +65,7 @@ namespace FFY.Web.Areas.Administration.Controllers
             return this.View(model);
         }
 
-        // POST: Administration/UserManagement/UpdateStatus
+        // POST: Administration/ContactManagement/UpdateStatus
         [HttpPost]
         public ActionResult UpdateStatus(ContactViewModel model)
         {
