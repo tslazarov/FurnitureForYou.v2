@@ -263,9 +263,8 @@
     <Compile Include="Areas\Administration\Models\OrderManagement\OrderViewModel.cs" />
     <Compile Include="Areas\Administration\Models\OrderManagement\SingleOrderViewModel.cs" />
     <Compile Include="Areas\Administration\Models\ProductManagement\CategoryPartialViewModel.cs" />
-    <Compile Include="Areas\Administration\Models\ProductManagement\ProductAdditionViewModel.cs" />
+    <Compile Include="Areas\Administration\Models\ProductManagement\ProductOperationViewModel.cs" />
     <Compile Include="Areas\Administration\Models\ProductManagement\ProductsViewModel.cs" />
-    <Compile Include="Areas\Administration\Models\ProductManagement\ProductViewModel.cs" />
     <Compile Include="Areas\Administration\Models\ProductManagement\SingleProductViewModel.cs" />
     <Compile Include="Areas\Administration\Models\SearchModel.cs" />
     <Compile Include="Areas\Administration\Models\SupportChat\SupportChatViewModel.cs" />
@@ -331,7 +330,7 @@
     <Content Include="Areas\Profile\Views\Information\Index.cshtml" />
     <Content Include="Areas\Administration\Views\ProductManagement\RoomPartial.cshtml" />
     <Content Include="Areas\Administration\Views\ProductManagement\CategoryPartial.cshtml" />
-    <Content Include="Areas\Administration\Views\ProductManagement\ProductAddition.cshtml" />
+    <Content Include="Areas\Administration\Views\ProductManagement\ProductOperation.cshtml" />
     <Content Include="Areas\Administration\Views\SupportChat\Index.cshtml" />
     <Content Include="Areas\Profile\Views\SupportChatClient\Index.cshtml" />
     <Content Include="Areas\Profile\Views\ShoppingCart\Order.cshtml" />

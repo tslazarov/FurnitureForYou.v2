@@ -33,6 +33,18 @@ namespace FFY.Web.Areas.Administration
             );
 
             context.MapRoute(
+                "AdministrationAddProduct",
+                "{language}/administration/productManagement/add",
+                new { controller = "ProductManagement", action = "ProductAddition", language = "en" }
+            );
+
+            context.MapRoute(
+                "AdministrationEditProduct",
+                "{language}/administration/productManagement/edit/{id}",
+                new { controller = "ProductManagement", action = "ProductEditing", language = "en" }
+            );
+
+            context.MapRoute(
                 "AdministrationDefault",
                 "{language}/administration/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional, language = "en" }

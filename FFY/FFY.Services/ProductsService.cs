@@ -33,6 +33,16 @@ namespace FFY.Services
             this.data.SaveChanges();
         }
 
+        public void UpdateProduct(Product product)
+        {
+            Guard.WhenArgument<Product>(product, "Product cannot be null.")
+                .IsNull()
+                .Throw();
+
+            this.data.ProductsRepository.Update(product);
+            this.data.SaveChanges();
+        }
+
         public Product GetProductById(int id)
         {
             return this.data.ProductsRepository.GetById(id);

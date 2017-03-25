@@ -11,6 +11,8 @@ namespace FFY.Services.Contracts
     {
         void AddProduct(Product product);
 
+        void UpdateProduct(Product product);
+
         Product GetProductById(int id);
 
         IEnumerable<Product> SearchProducts(string searchWord, string sortBy, int page = 1, int productsPerPage = 10);

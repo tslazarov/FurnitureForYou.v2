@@ -9,8 +9,10 @@ using System.Web.Mvc;
 
 namespace FFY.Web.Areas.Administration.Models.ProductManagement
 {
-    public class ProductAdditionViewModel
+    public class ProductOperationViewModel
     {
+        public int Id { get; set; }
+
         [Required(ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "ProductNameRequired")]
         [StringLength(30, ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "ProductNameValidation", MinimumLength = 2)]
         [Display(Name = "ProductName", ResourceType = typeof(Language))]
@@ -20,7 +22,7 @@ namespace FFY.Web.Areas.Administration.Models.ProductManagement
         [DataType(DataType.Currency, ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "PriceValidation")]
         [Range(0, 100000, ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "PriceRangeValidation")]
         [Display(Name = "Price", ResourceType = typeof(Language))]
-        public int Price { get; set; }
+        public decimal Price { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "DiscountPercentageRequired")]
         [Range(0, 100, ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "DiscountPercentageValidation")]

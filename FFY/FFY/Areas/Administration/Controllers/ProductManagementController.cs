@@ -1,6 +1,5 @@
 ﻿using Bytes2you.Validation;
 using FFY.Data.Factories;
-using FFY.Models;
 using FFY.Services.Contracts;
 using FFY.Services.Utilities;
 using FFY.Web.Areas.Administration.Models;
@@ -9,8 +8,6 @@ using FFY.Web.Custom.Attributes;
 using FFY.Web.Mappings;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace FFY.Web.Areas.Administration.Controllers
@@ -21,9 +18,9 @@ namespace FFY.Web.Areas.Administration.Controllers
     {
         private const int ProductsPerPage = 10;
 
-        private const string DefaultRoomImageFileName = "default-room-image";
-        private const string DefaultCategoryImageFileName = "default-category-image";
-        private const string DefaultProductImageFileName = "default-product-image";
+        private const string DefaultRoomImageFileName = "default-room-image.jpg";
+        private const string DefaultCategoryImageFileName = "default-category-image.jpg";
+        private const string DefaultProductImageFileName = "default-product-image.jpg";
         private const string DefaultRoomFolderName = "rooms";
         private const string DefaultCategoryFolderName = "categories";
         private const string DefaultProductFolderName = "products";
@@ -117,14 +114,15 @@ namespace FFY.Web.Areas.Administration.Controllers
         {
             this.ViewBag.Rooms = this.roomsService.GetRooms();
             this.ViewBag.Categories = this.categoriesService.GetCategories();
+            this.ViewBag.Operation = "AddProduct";
 
-            return this.View();
+            return this.View("ProductOperation");
         }
 
         // POST: Administration/AddProduct
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddProduct(ProductAdditionViewModel model)
+        public ActionResult AddProduct(ProductOperationViewModel model)
         {
             var file = Request.Files[0];
 
@@ -154,12 +152,84 @@ namespace FFY.Web.Areas.Administration.Controllers
             {
                 this.productsService.AddProduct(product);
 
-                return this.RedirectToAction("productAddition", "productManagement", new { area = "administration" });
+                return this.RedirectToAction("index", "productManagement", new { area = "administration" });
             }
             catch (Exception)
             {
                 this.ModelState.AddModelError("", "Problem occured during product addition.");
-                return this.View("productAddition", model);
+                return this.View("productOperation", model);
+            }
+        }
+
+        // GET: Administration/ProductAddition
+        public ViewResult ProductEditing(int? id, ProductOperationViewModel model)
+        {
+            if(id == null)
+            {
+                // 404
+            }
+
+            this.ViewBag.Rooms = this.roomsService.GetRooms();
+            this.ViewBag.Categories = this.categoriesService.GetCategories();
+            this.ViewBag.Operation = "EditProduct";
+
+            var product = this.productsService.GetProductById(id.Value);
+
+            if(product == null)
+            {
+                // 404
+            }
+
+            model.Id = product.Id;
+            model.Name = product.Name;
+            model.Price = product.Price;
+            model.DiscountPercentage = product.DiscountPercentage;
+            model.Quantity = product.Quantity;
+            model.Description = product.Description;
+            model.RoomId = product.RoomId.Value;
+            model.CategoryId = product.CategoryId.Value;
+            model.ImagePath = product.ImagePath;
+
+            ModelState.Clear();
+
+            return this.View("ProductOperation", model);
+        }
+
+        // POST: Administration/UpdateProduct
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditProduct(ProductOperationViewModel model)
+        {
+            var product = this.productsService.GetProductById(model.Id);
+            var file = Request.Files[0];
+
+            string imageFileName = model.ImagePath;
+            string folderName = DefaultProductFolderName;
+
+            product.Name = model.Name;
+            product.Price = model.Price;
+            product.DiscountPercentage = model.DiscountPercentage;
+            product.DiscountedPrice = model.DiscountedPrice;
+            product.Quantity = model.Quantity;
+            product.Description = model.Description;
+
+            product.ImagePath = this.imageUploader.Upload(file, Server, imageFileName, folderName);
+
+            product.Room = this.roomsService.GetRoomById(model.RoomId);
+            product.Category = this.categoriesService.GetCategoryById(model.CategoryId);
+
+            product.HasDiscount = model.DiscountPercentage > 0 ? true : false;
+
+            try
+            {
+                this.productsService.UpdateProduct(product);
+
+                return this.RedirectToAction("index", "productManagement", new { area = "administration" });
+            }
+            catch (Exception)
+            {
+                this.ModelState.AddModelError("", "Problem occured during product editing.");
+                return this.View("productOperation", model);
             }
         }
 
@@ -181,13 +251,13 @@ namespace FFY.Web.Areas.Administration.Controllers
             {
                 this.roomsService.AddRoom(room);
 
-                return this.RedirectToAction("productAddition", "productManagement", new { area = "administration" });
+                return this.RedirectToAction("productOperation", "productManagement", new { area = "administration" });
             }
             catch (Exception)
             {
             }
 
-            return this.RedirectToAction("productAddition", "productManagement", new { area = "administration" });
+            return this.RedirectToAction("productOperation", "productManagement", new { area = "administration" });
         }
 
         // POST: Administration/AddCategory
@@ -208,13 +278,13 @@ namespace FFY.Web.Areas.Administration.Controllers
             {
                 this.categoriesService.AddCategory(category);
 
-                this.RedirectToAction("productAddition", "productManagement", new { area = "administration" });
+                this.RedirectToAction("productOperation", "productManagement", new { area = "administration" });
             }
             catch (Exception)
             {
             }
 
-            return this.RedirectToAction("productAddition", "productManagement", new { area = "administration" });
+            return this.RedirectToAction("productOperation", "productManagement", new { area = "administration" });
         }
     }
 }
