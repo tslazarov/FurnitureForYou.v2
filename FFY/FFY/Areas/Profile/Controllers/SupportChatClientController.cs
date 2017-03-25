@@ -10,7 +10,7 @@ namespace FFY.Web.Areas.Profile.Controllers
         // GET: Profile/SupportChatClient
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
     }
 }
