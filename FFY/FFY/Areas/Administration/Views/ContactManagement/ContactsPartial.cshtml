@@ -36,7 +36,7 @@ else
                 @Html.EnumDisplayNameFor(contact.ContactStatusType)
             </div>
             <div class="col-sm-2 c-details">
-                @Html.ActionLink(FFY.Resources.Language.Details, "contact", new { controller = "furniture", area = "", id = @contact.Id })
+                @Html.ActionLink(FFY.Resources.Language.Details, "contactDetailed", new { area = "administration", id = @contact.Id })
             </div>
         </div>
     }
