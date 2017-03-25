@@ -10,6 +10,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using System.Web.Routing;
+using TestStack.FluentMVCTesting;
 
 namespace FFY.UnitTests.Web.AccountControllerTests
 {
@@ -47,13 +48,12 @@ namespace FFY.UnitTests.Web.AccountControllerTests
                 mockedShoppingCartFactory.Object,
                 mockedShoppingCartsService.Object,
                 mockedUsersService.Object);
-            accountController.ModelState.AddModelError("key", "message"); 
+            accountController.ModelState.AddModelError("key", "message");
 
-            // Act
-            var result = accountController.Login(loginModel, "") as ViewResult;
-
-            // Assert
-            Assert.AreSame(loginModel, result.Model);
+            // Act and Assert
+            accountController.WithCallTo(ac => ac.Login(loginModel, ""))
+                .ShouldRenderDefaultView()
+                .WithModel<LoginViewModel>(model => Assert.AreSame(loginModel, model));
         }
 
         [TestCase("elon@tesla.com", "password", "home")]
@@ -214,11 +214,9 @@ namespace FFY.UnitTests.Web.AccountControllerTests
                 mockedShoppingCartsService.Object,
                 mockedUsersService.Object);
 
-            // Act
-            var result = accountController.Login(loginModel, returnUrl) as RedirectResult;
-
-            // Assert
-            Assert.AreEqual(expectedUrl, result.Url);
+            // Act and Assert
+            accountController.WithCallTo(ac => ac.Login(loginModel, returnUrl))
+                .ShouldRedirectTo(expectedUrl);
         }
 
         [TestCase("elon@tesla.com", "password", null)]
@@ -269,11 +267,9 @@ namespace FFY.UnitTests.Web.AccountControllerTests
                 mockedShoppingCartsService.Object,
                 mockedUsersService.Object);
 
-            // Act
-            var result = accountController.Login(loginModel, returnUrl) as RedirectResult;
-
-            // Assert
-            Assert.AreEqual(expectedUrl, result.Url);
+            // Act and Assert
+            accountController.WithCallTo(ac => ac.Login(loginModel, returnUrl))
+                .ShouldRedirectTo(expectedUrl);
         }
 
         [TestCase("elon@tesla.com", "password", "home")]
@@ -323,11 +319,9 @@ namespace FFY.UnitTests.Web.AccountControllerTests
                 mockedShoppingCartsService.Object,
                 mockedUsersService.Object);
 
-            // Act
-            var result = accountController.Login(loginModel, returnUrl) as ViewResult;
-
-            // Assert
-            Assert.AreEqual(expectedLockOutName, result.ViewName);
+            // Act and Assert
+            accountController.WithCallTo(ac => ac.Login(loginModel, returnUrl))
+                .ShouldRenderView(expectedLockOutName);
         }
 
         [TestCase("elon@tesla.com", "password", "home")]
@@ -427,11 +421,10 @@ namespace FFY.UnitTests.Web.AccountControllerTests
                 mockedShoppingCartsService.Object,
                 mockedUsersService.Object);
 
-            // Act
-            var result = accountController.Login(loginModel, returnUrl) as ViewResult;
-
-            // Assert
-            Assert.AreSame(loginModel, result.Model);
+            // Act and Assert
+            accountController.WithCallTo(ac => ac.Login(loginModel, ""))
+                         .ShouldRenderDefaultView()
+                         .WithModel<LoginViewModel>(model => Assert.AreSame(loginModel, model));
         }
     }
 }

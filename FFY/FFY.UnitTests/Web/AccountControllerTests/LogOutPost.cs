@@ -6,6 +6,7 @@ using Moq;
 using NUnit.Framework;
 using System.Web.Mvc;
 using System.Web.Routing;
+using TestStack.FluentMVCTesting;
 
 namespace FFY.UnitTests.Web.AccountControllerTests
 {
@@ -81,7 +82,7 @@ namespace FFY.UnitTests.Web.AccountControllerTests
         }
 
         [Test]
-        public void ShouldReturnRedirectToRouteResultWithDefaultControllerAndAction()
+        public void ShouldReturnRedirectToHomeControllerAndIndexAction()
         {
             // Arrange
             var routeData = new RouteData();
@@ -105,12 +106,9 @@ namespace FFY.UnitTests.Web.AccountControllerTests
                 mockedShoppingCartsService.Object,
                 mockedUsersService.Object);
 
-            // Act
-            var result = accountController.LogOut() as RedirectToRouteResult;
-
-            // Assert
-            Assert.AreEqual("Home", result.RouteValues["controller"]);
-            Assert.AreEqual("Index", result.RouteValues["action"]);
+            // Act and Assert
+            accountController.WithCallTo(ac => ac.LogOut())
+                .ShouldRedirectTo((HomeController hc) => hc.Index());
         }
     }
 }

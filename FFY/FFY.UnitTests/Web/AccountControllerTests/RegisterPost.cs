@@ -10,6 +10,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using System.Web.Routing;
+using TestStack.FluentMVCTesting;
 
 namespace FFY.UnitTests.Web.AccountControllerTests
 {
@@ -49,11 +50,10 @@ namespace FFY.UnitTests.Web.AccountControllerTests
                 mockedUsersService.Object);
             accountController.ModelState.AddModelError("key", "message");
 
-            // Act
-            var result = accountController.Register(registerModel) as ViewResult;
-
-            // Assert
-            Assert.AreSame(registerModel, result.Model);
+            // Act and Assert
+            accountController.WithCallTo(ac => ac.Register(registerModel))
+                .ShouldRenderDefaultView()
+                .WithModel<RegisterViewModel>(model => Assert.AreEqual(registerModel, model));
         }
 
         [TestCase("elon@tesla.com", "Elon", "Musk", "password")]
@@ -503,12 +503,9 @@ namespace FFY.UnitTests.Web.AccountControllerTests
                 mockedShoppingCartsService.Object,
                 mockedUsersService.Object);
 
-            // Act
-            var result = accountController.Register(registerModel) as RedirectToRouteResult;
-
-            // Assert
-            Assert.AreEqual("Home", result.RouteValues["controller"]);
-            Assert.AreEqual("Index", result.RouteValues["action"]);
+            // Act and Assert
+            accountController.WithCallTo(ac => ac.Register(registerModel))
+                .ShouldRedirectTo((HomeController hc) => hc.Index());
         }
     }
 }

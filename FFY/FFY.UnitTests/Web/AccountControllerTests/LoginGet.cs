@@ -5,6 +5,7 @@ using FFY.Web.Controllers;
 using Moq;
 using NUnit.Framework;
 using System.Web.Mvc;
+using TestStack.FluentMVCTesting;
 
 namespace FFY.UnitTests.Web.AccountControllerTests
 {
@@ -60,11 +61,9 @@ namespace FFY.UnitTests.Web.AccountControllerTests
                 mockedShoppingCartsService.Object,
                 mockedUsersService.Object);
 
-            // Act
-            var result = accountController.Login(returnUrl);
-
-            // Assert
-            Assert.IsInstanceOf<ViewResult>(result);
+            // Act and Assert
+            accountController.WithCallTo(ac => ac.Login(returnUrl))
+                .ShouldRenderDefaultView();
         }
     }
 }
