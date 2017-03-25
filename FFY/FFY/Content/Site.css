@@ -478,6 +478,33 @@ footer{
     }
 }
 
+/* Contact detailed page */
+.contact-title {
+    margin: 10px 0px;
+}
+
+.contact-send-on {
+    text-align: right;
+}
+
+@media (max-width: 767px) {
+    .contact-send-on {
+        text-align: initial;
+    }
+}
+
+.change-status-container input,
+.change-status-container select {
+    margin-bottom: 10px;
+}
+
+
+.change-role-container input,
+.change-role-container select {
+    margin-bottom: 10px;
+}
+
+
 /* Client chat */
 
 #support-chat-link,

@@ -685,4 +685,16 @@
     <value>Payment on delivery</value>
     <comment>Enum</comment>
   </data>
+  <data name="Date" xml:space="preserve">
+    <value>date</value>
+    <comment>ContactDetailedView</comment>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>from</value>
+    <comment>ContactDetailedView</comment>
+  </data>
+  <data name="ProcessedBy" xml:space="preserve">
+    <value>Processed by</value>
+    <comment>COntactDetailedView</comment>
+  </data>
 </root>

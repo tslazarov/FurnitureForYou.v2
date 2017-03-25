@@ -376,6 +376,15 @@ namespace FFY.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to date.
+        /// </summary>
+        public static string Date {
+            get {
+                return ResourceManager.GetString("Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delivered.
         /// </summary>
         public static string Delivered {
@@ -534,6 +543,15 @@ namespace FFY.Resources {
         public static string FirstNameValidation {
             get {
                 return ResourceManager.GetString("FirstNameValidation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to from.
+        /// </summary>
+        public static string From {
+            get {
+                return ResourceManager.GetString("From", resourceCulture);
             }
         }
         
@@ -858,6 +876,15 @@ namespace FFY.Resources {
         public static string Processed {
             get {
                 return ResourceManager.GetString("Processed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Processed by.
+        /// </summary>
+        public static string ProcessedBy {
+            get {
+                return ResourceManager.GetString("ProcessedBy", resourceCulture);
             }
         }
         

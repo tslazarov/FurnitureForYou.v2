@@ -2,27 +2,40 @@
 @model ContactViewModel
 
 
-<div class="row change-role-container">
+<div class="row change-status-container">
     @using (Html.BeginForm("updateStatus", "contactManagement", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         <div class="col-md-offset-8 col-md-2">
             @Html.HiddenFor(m => m.Contact.Id)
-            @Html.EnumDropDownListFor(m => m.Contact.ContactStatusType)
-            @*@Html.DropDownListFor(m => m.Role, new List<SelectListItem>() {
-                new SelectListItem() { Text = FFY.Resources.Language.User, Value = "User" },
-                new SelectListItem() { Text = FFY.Resources.Language.Moderator, Value = "Moderator" },
-                new SelectListItem() { Text = FFY.Resources.Language.Administrator, Value = "Administrator" }
-            }, new { @class = "form-control" })
-            *@  
+            @Html.EnumDropDownListFor(m => m.Contact.ContactStatusType, new { @class = "form-control" })
         </div>
-        <div class="col-md-2">
+        <div class="col-sm-2">
             <input type="submit" value="@FFY.Resources.Language.Change" class="btn btn-primary btn-block" />
         </div>
     }
 </div>
-<div>
-    @Model.Contact.Email
-    @Model.Contact.Title
+<div class="contact-header row">
+    <div class="col-sm-12 contact-title">
+        <h3>@Model.Contact.Title</h3>
+    </div>
+    <div class="col-sm-6 contact-from">
+        @FFY.Resources.Language.From:  @Model.Contact.Email
+    </div>
+    <div class="col-sm-6 contact-send-on">
+        @FFY.Resources.Language.Date:  @Model.Contact.SendOn
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-sm-12">
+        @Model.Contact.EmailContent
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-sm-offset-8 col-sm-2">
+        @FFY.Resources.Language.ProcessedBy:  @Model.Contact.UserProcessedBy
+    </div>
 </div>
 
 
