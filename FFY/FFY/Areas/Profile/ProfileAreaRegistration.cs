@@ -15,12 +15,6 @@ namespace FFY.Web.Areas.Profile
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                "ProfileDefault",
-                "profile/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional, language = "en" }
-            );
-
-            context.MapRoute(
                 "ProfileDefaultWithLanguage",
                 "{language}/profile/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional, language = "en" }

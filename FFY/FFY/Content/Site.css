@@ -105,6 +105,85 @@ footer{
     padding: 0px 30px;
 }
 
+/* Furniture page*/
+
+.furniture-container {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+}
+
+.empty-furniture-list{
+    padding-top: 20px;
+    text-align: center;
+}
+
+
+.furniture-list-item {
+    margin-bottom: 30px;
+}
+
+.furniture-wrapper {
+    border: 1px solid #EEEEEE;
+    min-height: 300px;
+    padding: 20px;
+}
+
+
+.furniture-wrapper-discount {
+    border: 1px solid #EEEEEE;
+    min-height: 360px;
+    padding: 20px;
+}
+
+.furniture-wrapper:hover a,
+.furniture-wrapper-discount:hover a{
+    text-decoration: none;
+    background-color: #EEEEEE;
+}
+
+.furniture-name {
+    padding: 10px 0px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.furniture-price {
+    font-size: 14px;
+    color: #999999;
+}
+
+.furniture-discounted-price {
+    font-size: 16px;
+    color: #000000;
+}
+
+.furniture-discounted-percentage {
+    padding: 10px 0px;
+    font-size: 24px;
+    text-align: center;
+    color: #000000;
+}
+
+@media (max-width:767px) {
+    .furniture-wrapper {
+        min-height: 250px;
+    }
+    .furniture-wrapper-discount {
+        min-height: 370px;
+    }
+}
+
+@media (max-width:310px) {
+    .furniture-wrapper {
+        min-height: 210px;
+    }
+    .furniture-wrapper-discount {
+        min-height: 400px;
+    }
+}
+
 /* Contact page */
 
 .contact-container {

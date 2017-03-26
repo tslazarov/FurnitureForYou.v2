@@ -1,12 +1,10 @@
 ﻿using Bytes2you.Validation;
 using FFY.Providers.Contracts;
 using FFY.Services.Contracts;
-using FFY.Web.Areas.Administration.Models.ProductManagement;
 using FFY.Web.Custom.Attributes;
 using FFY.Web.Mappings;
 using FFY.Web.Models.Furniture;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Web.Mvc;
 

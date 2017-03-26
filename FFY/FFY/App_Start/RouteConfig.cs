@@ -70,30 +70,6 @@ namespace FFY.Web
             );
 
             routes.MapRoute(
-                name: "LanguageHomePage",
-                url: "{language}",
-                defaults: new
-                {
-                    language = "en",
-                    controller = "Home",
-                    action = "Index",
-                    id = UrlParameter.Optional,
-                }
-            );
-
-            routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new
-                {
-                    language = "en",
-                    controller = "Home",
-                    action = "Index",
-                    id = UrlParameter.Optional,
-                }
-            );
-
-            routes.MapRoute(
                 name: "DefaultWithLanguage",
                 url: "{language}/{controller}/{action}/{id}",
                 defaults: new

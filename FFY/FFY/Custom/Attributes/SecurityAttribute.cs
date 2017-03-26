@@ -1,4 +1,5 @@
-﻿using FFY.Web.Custom.Results;
+﻿using Bytes2you.Validation;
+using FFY.Web.Custom.Results;
 using System;
 using System.Web;
 using System.Web.Mvc;
@@ -24,10 +25,9 @@ namespace FFY.Web.Custom.Attributes
 
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
-            if (filterContext == null)
-            {
-                throw new ArgumentNullException("filterContext");
-            }
+            Guard.WhenArgument<AuthorizationContext>(filterContext, "Filter context cannot be null")
+                .IsNull()
+                .Throw();
 
             if (AuthorizeCore(filterContext.HttpContext))
             {
