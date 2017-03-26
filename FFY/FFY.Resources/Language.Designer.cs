@@ -664,6 +664,15 @@ namespace FFY.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New price.
+        /// </summary>
+        public static string NewPrice {
+            get {
+                return ResourceManager.GetString("NewPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No favorite products added.
         /// </summary>
         public static string NoFavoriteProducts {
@@ -673,11 +682,29 @@ namespace FFY.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Products were not found.
+        /// </summary>
+        public static string NoProducts {
+            get {
+                return ResourceManager.GetString("NoProducts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Not processed.
         /// </summary>
         public static string NotProcessed {
             get {
                 return ResourceManager.GetString("NotProcessed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to off.
+        /// </summary>
+        public static string Off {
+            get {
+                return ResourceManager.GetString("Off", resourceCulture);
             }
         }
         
@@ -1326,6 +1353,15 @@ namespace FFY.Resources {
         public static string TitleValidation {
             get {
                 return ResourceManager.GetString("TitleValidation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to to.
+        /// </summary>
+        public static string To {
+            get {
+                return ResourceManager.GetString("To", resourceCulture);
             }
         }
         

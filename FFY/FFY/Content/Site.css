@@ -105,6 +105,47 @@ footer{
     padding: 0px 30px;
 }
 
+/* Rooms page */
+.rooms-container {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+}
+
+.room-list-item {
+    margin-bottom: 30px;
+}
+
+.room-wrapper {
+    border: 1px solid #EEEEEE;
+    min-height: 240px;
+    padding: 20px;
+}
+
+.room-wrapper:hover a{
+    text-decoration: none;
+    background-color: #EEEEEE;
+}
+
+.room-name {
+    padding-top: 15px;
+    font-size: 20px;
+    text-align: center;
+}
+
+@media (max-width: 960px) {
+    .room-wrapper {
+        min-height: 200px;
+    }
+}
+
+@media (max-width: 310px) {
+    .room-wrapper {
+        min-height: 160px;
+    }
+}
+
 /* Furniture page*/
 
 .furniture-container {
@@ -119,7 +160,6 @@ footer{
     text-align: center;
 }
 
-
 .furniture-list-item {
     margin-bottom: 30px;
 }
@@ -130,10 +170,9 @@ footer{
     padding: 20px;
 }
 
-
 .furniture-wrapper-discount {
     border: 1px solid #EEEEEE;
-    min-height: 360px;
+    min-height: 390px;
     padding: 20px;
 }
 
@@ -171,7 +210,7 @@ footer{
         min-height: 250px;
     }
     .furniture-wrapper-discount {
-        min-height: 370px;
+        min-height: 390px;
     }
 }
 
@@ -180,7 +219,7 @@ footer{
         min-height: 210px;
     }
     .furniture-wrapper-discount {
-        min-height: 400px;
+        min-height: 410px;
     }
 }
 

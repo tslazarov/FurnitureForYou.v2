@@ -11,13 +11,13 @@
         {
             <div class="search-header row">
                 <div class="col-sm-4">
-                    <input type="text" name="search" class="form-control" placeholder="Search" value="@Model.Search" />
+                    <input type="text" name="search" class="form-control" placeholder="@FFY.Resources.Language.Search" value="@Model.Search" />
                 </div>
                 <div class="col-sm-2 form-group">
-                    <input type="number" name="from" class="form-control" placeholder="From" value="@Model.From" />
+                    <input type="number" name="from" class="form-control" placeholder="@FFY.Resources.Language.From" value="@Model.From" />
                 </div>
                 <div class="col-sm-2 form-group">
-                    <input type="number" name="to" class="form-control" placeholder="To" value="@Model.To" />
+                    <input type="number" name="to" class="form-control" placeholder="@FFY.Resources.Language.To" value="@Model.To" />
                 </div>
                 <div class="col-sm-3">
                     <button class="btn btn-primary btn-block" type="submit">@FFY.Resources.Language.Search</button>
@@ -26,7 +26,7 @@
         }
         @if (Model.ProductsCount == 0)
         {
-            <h2 class="empty-furniture-list">@FFY.Resources.Language.NoFavoriteProducts</h2>
+            <h2 class="empty-furniture-list">@FFY.Resources.Language.NoProducts</h2>
         }
         else
         {
@@ -41,15 +41,15 @@
                                     @product.Name
                                 </div>
                                 <div class="furniture-price">
-                                    price: @product.Price
+                                    @FFY.Resources.Language.Price: @product.Price
                                 </div>
                                 <div class="furniture-discounted-price">
-                                    New price: @product.DiscountedPrice
+                                    @FFY.Resources.Language.NewPrice: @product.DiscountedPrice
                                 </div>
                                 @if (Model.FilterBy == "discount")
                                 {
                                     <div class="furniture-discounted-percentage">
-                                        @product.DiscountPercentage% off
+                                        @product.DiscountPercentage% @FFY.Resources.Language.Off
                                     </div>
                                 }
                             </a>

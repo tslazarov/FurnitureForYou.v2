@@ -697,4 +697,20 @@
     <value>Processed by</value>
     <comment>COntactDetailedView</comment>
   </data>
+  <data name="NewPrice" xml:space="preserve">
+    <value>New price</value>
+    <comment>ProductsView</comment>
+  </data>
+  <data name="NoProducts" xml:space="preserve">
+    <value>Products were not found</value>
+    <comment>ProductsView</comment>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>off</value>
+    <comment>ProductsView</comment>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>to</value>
+    <comment>ProductsView</comment>
+  </data>
 </root>

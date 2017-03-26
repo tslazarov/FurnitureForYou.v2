@@ -157,11 +157,11 @@ namespace FFY.Web.Areas.Administration.Controllers
             catch (Exception)
             {
                 this.ModelState.AddModelError("", "Problem occured during product addition.");
-                return this.View("ProductOperation", model);
+                return this.View("productOperation", model);
             }
         }
 
-        // GET: Administration/ProductAddition
+        // GET: Administration/ProductEditing
         public ViewResult ProductEditing(int? id, ProductOperationViewModel model)
         {
             if(id == null)
@@ -229,7 +229,7 @@ namespace FFY.Web.Areas.Administration.Controllers
             catch (Exception)
             {
                 this.ModelState.AddModelError("", "Problem occured during product editing.");
-                return this.View("ProductOperation", model);
+                return this.View("productOperation", model);
             }
         }
 
@@ -251,13 +251,13 @@ namespace FFY.Web.Areas.Administration.Controllers
             {
                 this.roomsService.AddRoom(room);
 
-                return this.View("ProductOperation", "productManagement", new { area = "administration" });
+                return this.RedirectToAction("ProductAddition", "productManagement", new { area = "administration" });
             }
             catch (Exception)
             {
             }
 
-            return this.View("ProductOperation", "productManagement", new { area = "administration" });
+            return this.RedirectToAction("ProductAddition", "productManagement", new { area = "administration" });
         }
 
         // POST: Administration/AddCategory
@@ -278,13 +278,13 @@ namespace FFY.Web.Areas.Administration.Controllers
             {
                 this.categoriesService.AddCategory(category);
 
-                this.View("ProductOperation", "productManagement", new { area = "administration" });
+                this.RedirectToAction("ProductAddition", "productManagement", new { area = "administration" });
             }
             catch (Exception)
             {
             }
 
-            return this.View("ProductOperation", "productManagement", new { area = "administration" });
+            return this.RedirectToAction("ProductAddition", "productManagement", new { area = "administration" });
         }
     }
 }

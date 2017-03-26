@@ -1,0 +1,22 @@
+﻿@using FFY.Web.Models.Furniture
+@model RoomsViewModel
+
+<div class="row">
+    <div class="rooms-container">
+        <div class="row">
+            @foreach (var room in Model.Rooms)
+            {
+                <div class="col-xs-6 col-sm-3 room-list-item">
+                    <div class="room-wrapper">
+                        <a href="@Url.Action("products", "furniture", new { area = "", filterBy = room.Name })">
+                            <img src="~/Images/rooms/@room.ImagePath" class="img-responsive" />
+                            <div class="room-name">
+                                @room.Name
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -700,4 +700,20 @@
     <value>Обработена от</value>
     <comment>ContactDetailedView</comment>
   </data>
+  <data name="NewPrice" xml:space="preserve">
+    <value>Нова цена</value>
+    <comment>ProductsView</comment>
+  </data>
+  <data name="NoProducts" xml:space="preserve">
+    <value>Не бяха намерени продукти</value>
+    <comment>ProductsView</comment>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>намаление</value>
+    <comment>ProductsView</comment>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>до</value>
+    <comment>ProductsView</comment>
+  </data>
 </root>
