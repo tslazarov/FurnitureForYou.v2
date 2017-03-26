@@ -150,8 +150,7 @@ namespace FFY.UnitTests.Web.OrderManagementControllerTests
                 .Returns(orders);
             mockedOrdersService.Setup(os => os.GetOrdersCount(It.IsAny<string>(),
                 It.IsAny<string>()))
-                .Returns(orders.Count)
-                .Verifiable();
+                .Returns(orders.Count);
 
             var orderManagementController = new OrderManagementController(mockedMapperProvider.Object,
                    mockedOrdersService.Object);
@@ -189,8 +188,7 @@ namespace FFY.UnitTests.Web.OrderManagementControllerTests
                 .Returns(orders);
             mockedOrdersService.Setup(os => os.GetOrdersCount(It.IsAny<string>(),
                 It.IsAny<string>()))
-                .Returns(orders.Count)
-                .Verifiable();
+                .Returns(orders.Count);
 
             var orderManagementController = new OrderManagementController(mockedMapperProvider.Object,
                    mockedOrdersService.Object);
@@ -225,8 +223,7 @@ namespace FFY.UnitTests.Web.OrderManagementControllerTests
                 .Returns(orders);
             mockedOrdersService.Setup(os => os.GetOrdersCount(It.IsAny<string>(),
                 It.IsAny<string>()))
-                .Returns(orders.Count)
-                .Verifiable();
+                .Returns(orders.Count);
 
             var orderManagementController = new OrderManagementController(mockedMapperProvider.Object,
                    mockedOrdersService.Object);
@@ -265,8 +262,7 @@ namespace FFY.UnitTests.Web.OrderManagementControllerTests
                 .Returns(orders);
             mockedOrdersService.Setup(os => os.GetOrdersCount(It.IsAny<string>(),
                 It.IsAny<string>()))
-                .Returns(orders.Count)
-                .Verifiable();
+                .Returns(orders.Count);
 
             var orderManagementController = new OrderManagementController(mockedMapperProvider.Object,
                    mockedOrdersService.Object);
@@ -301,8 +297,7 @@ namespace FFY.UnitTests.Web.OrderManagementControllerTests
                 .Returns(orders);
             mockedOrdersService.Setup(os => os.GetOrdersCount(It.IsAny<string>(),
                 It.IsAny<string>()))
-                .Returns(orders.Count)
-                .Verifiable();
+                .Returns(orders.Count);
 
             var orderManagementController = new OrderManagementController(mockedMapperProvider.Object,
                    mockedOrdersService.Object);

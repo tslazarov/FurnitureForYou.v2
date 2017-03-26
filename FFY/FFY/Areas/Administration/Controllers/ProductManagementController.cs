@@ -1,5 +1,6 @@
 ﻿using Bytes2you.Validation;
 using FFY.Data.Factories;
+using FFY.Providers.Contracts;
 using FFY.Services.Contracts;
 using FFY.Services.Utilities;
 using FFY.Web.Areas.Administration.Models;
@@ -25,6 +26,7 @@ namespace FFY.Web.Areas.Administration.Controllers
         private const string DefaultCategoryFolderName = "categories";
         private const string DefaultProductFolderName = "products";
 
+        private readonly IHttpRequestProvider requestProvider;
         private readonly IMapperProvider mapper;
         private readonly IImageUploader imageUploader;
         private readonly IProductFactory productFactory;
@@ -34,7 +36,8 @@ namespace FFY.Web.Areas.Administration.Controllers
         private readonly ICategoryFactory categoryFactory;
         private readonly ICategoriesService categoriesService;
 
-        public ProductManagementController(IMapperProvider mapper,
+        public ProductManagementController(IHttpRequestProvider requestProvider,
+            IMapperProvider mapper,
             IImageUploader imageUploader,
             IProductFactory productFactory,
             IProductsService productsService,
@@ -43,6 +46,9 @@ namespace FFY.Web.Areas.Administration.Controllers
             ICategoryFactory categoryFactory,
             ICategoriesService categoriesService)
         {
+            Guard.WhenArgument<IHttpRequestProvider>(requestProvider, "Request provider cannot be null.")
+                .IsNull()
+                .Throw();
 
             Guard.WhenArgument<IMapperProvider>(mapper, "Mapper provider cannot be null.")
                 .IsNull()
@@ -68,14 +74,15 @@ namespace FFY.Web.Areas.Administration.Controllers
                 .IsNull()
                 .Throw();
 
-            Guard.WhenArgument<ICategoryFactory>(categoryFactory, "Room factory cannot be null.")
+            Guard.WhenArgument<ICategoryFactory>(categoryFactory, "Category factory cannot be null.")
                 .IsNull()
                 .Throw();
 
-            Guard.WhenArgument<ICategoriesService>(categoriesService, "Rooms service cannot be null.")
+            Guard.WhenArgument<ICategoriesService>(categoriesService, "Categories service cannot be null.")
                 .IsNull()
                 .Throw();
 
+            this.requestProvider = requestProvider;
             this.mapper = mapper;
             this.imageUploader = imageUploader;
             this.productFactory = productFactory;
@@ -124,7 +131,7 @@ namespace FFY.Web.Areas.Administration.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AddProduct(ProductOperationViewModel model)
         {
-            var file = Request.Files[0];
+            var file = this.requestProvider.RequestFiles[0];
 
             string imageFileName = DefaultProductImageFileName;
             string folderName = DefaultProductFolderName;

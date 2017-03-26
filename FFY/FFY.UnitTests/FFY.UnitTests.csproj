@@ -186,6 +186,13 @@
     <Compile Include="Web\OrderManagementControllerTests\OrderDetailed.cs" />
     <Compile Include="Web\OrderManagementControllerTests\SearchOrders.cs" />
     <Compile Include="Web\OrderManagementControllerTests\UpdateStatus.cs" />
+    <Compile Include="Web\ProductManagementControllerTests\AddProduct.cs" />
+    <Compile Include="Web\ProductManagementControllerTests\Constructor.cs" />
+    <Compile Include="Web\ProductManagementControllerTests\Index.cs" />
+    <Compile Include="Web\ProductManagementControllerTests\Mocks\MockedHttpFileCollectionBase.cs" />
+    <Compile Include="Web\ProductManagementControllerTests\Mocks\MockedHttpPostedFileBase.cs" />
+    <Compile Include="Web\ProductManagementControllerTests\ProductAddition.cs" />
+    <Compile Include="Web\ProductManagementControllerTests\SearchProducts.cs" />
     <Compile Include="Web\SupportChatClientControllerTests\Index.cs" />
     <Compile Include="Web\SupportChatControllerTests\Constructor.cs" />
     <Compile Include="Web\SupportChatControllerTests\Index.cs" />

@@ -127,8 +127,10 @@
     <Compile Include="Contracts\ICachingProvider.cs" />
     <Compile Include="Contracts\IAuthenticationProvider.cs" />
     <Compile Include="Contracts\IHttpContextProvider.cs" />
+    <Compile Include="Contracts\IHttpRequestProvider.cs" />
     <Compile Include="Contracts\IRouteDataProvider.cs" />
     <Compile Include="HttpContextProvider.cs" />
+    <Compile Include="HttpRequestProvider.cs" />
     <Compile Include="RouteDataProvider.cs" />
     <Compile Include="DateTimeProvider.cs" />
     <Compile Include="Contracts\IDateTimeProvider.cs" />
