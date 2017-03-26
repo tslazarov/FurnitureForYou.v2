@@ -713,4 +713,24 @@
     <value>to</value>
     <comment>ProductsView</comment>
   </data>
+  <data name="Discounted" xml:space="preserve">
+    <value>Discounted</value>
+    <comment>HomeVIew</comment>
+  </data>
+  <data name="HighestRated" xml:space="preserve">
+    <value>Highest rated</value>
+    <comment>HomeView</comment>
+  </data>
+  <data name="Latest" xml:space="preserve">
+    <value>Latest</value>
+    <comment>HomeView</comment>
+  </data>
+  <data name="Rating" xml:space="preserve">
+    <value>Rating</value>
+    <comment>HomeView</comment>
+  </data>
+  <data name="ViewMore" xml:space="preserve">
+    <value>View more</value>
+    <comment>HomeView</comment>
+  </data>
 </root>

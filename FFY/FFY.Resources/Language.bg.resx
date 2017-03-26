@@ -716,4 +716,24 @@
     <value>до</value>
     <comment>ProductsView</comment>
   </data>
+  <data name="Discounted" xml:space="preserve">
+    <value>Намалени</value>
+    <comment>HomeVIew</comment>
+  </data>
+  <data name="HighestRated" xml:space="preserve">
+    <value>Най-оценявани</value>
+    <comment>HomeView</comment>
+  </data>
+  <data name="Latest" xml:space="preserve">
+    <value>Най-нови</value>
+    <comment>HomeView</comment>
+  </data>
+  <data name="Rating" xml:space="preserve">
+    <value>Рейтинг</value>
+    <comment>HomeView</comment>
+  </data>
+  <data name="ViewMore" xml:space="preserve">
+    <value>Виж повече</value>
+    <comment>HomeView</comment>
+  </data>
 </root>

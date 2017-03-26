@@ -430,6 +430,15 @@ namespace FFY.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Discounted.
+        /// </summary>
+        public static string Discounted {
+            get {
+                return ResourceManager.GetString("Discounted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Discount percentage.
         /// </summary>
         public static string DiscountPercentage {
@@ -565,6 +574,15 @@ namespace FFY.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Highest rated.
+        /// </summary>
+        public static string HighestRated {
+            get {
+                return ResourceManager.GetString("HighestRated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
         public static string Home {
@@ -615,6 +633,15 @@ namespace FFY.Resources {
         public static string LastNameValidation {
             get {
                 return ResourceManager.GetString("LastNameValidation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Latest.
+        /// </summary>
+        public static string Latest {
+            get {
+                return ResourceManager.GetString("Latest", resourceCulture);
             }
         }
         
@@ -1051,6 +1078,15 @@ namespace FFY.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rating.
+        /// </summary>
+        public static string Rating {
+            get {
+                return ResourceManager.GetString("Rating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Register.
         /// </summary>
         public static string Register {
@@ -1398,6 +1434,15 @@ namespace FFY.Resources {
         public static string UsersNotFound {
             get {
                 return ResourceManager.GetString("UsersNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View more.
+        /// </summary>
+        public static string ViewMore {
+            get {
+                return ResourceManager.GetString("ViewMore", resourceCulture);
             }
         }
     }

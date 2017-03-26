@@ -16,5 +16,7 @@ namespace FFY.Web.Models.Furniture
         public int DiscountPercentage { get; set; }
 
         public string ImagePath { get; set; }
+
+        public decimal Rating { get; set; }
     }
 }

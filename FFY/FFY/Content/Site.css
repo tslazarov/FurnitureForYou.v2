@@ -26,6 +26,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* General */
+
 .body-content {
     margin-top: 20px;
     padding-top: 20px;
@@ -70,7 +71,33 @@ footer{
     padding-top: 5px !important;
 }
 
+/* Home */
+.furniture-container .nav-pills {
+    margin-top: 20px;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#latest,
+#discount,
+#rating {
+    margin-top: 30px;
+}
+
+.see-more {
+    text-align: right;
+    font-size: 22px;
+}
+
+@media (max-width: 960px){
+    .see-more {
+        text-align: center;
+    }
+}
+
 /* Login page */
+
 .login-container {
     max-width: 600px;
     margin-left: auto;
@@ -644,6 +671,14 @@ footer{
 
 .order-detailed-list-item:nth-of-type(2n) {
     background-color: #FAFAFA;
+}
+
+.order-detailed-list-item.problem:nth-of-type(n) {
+    background-color: #FFCDD2;
+}
+
+.order-detailed-list-item.problem:nth-of-type(2n) {
+    background-color: #FFCDD2;
 }
 
 @media (max-width: 767px) {

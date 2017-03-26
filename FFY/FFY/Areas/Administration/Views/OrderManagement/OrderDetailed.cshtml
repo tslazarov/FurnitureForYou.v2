@@ -34,7 +34,7 @@
 <div id="order-detailed">
     @foreach (var item in Model.Order.Products)
     {
-        <div class="row order-detailed-list-item">
+        <div class="col-sm-12 order-detailed-list-item @(item.IsOutOfStock ? "problem" : "")">
             <a href="@Url.Action("product", "furniture", new { area = "", id= item.Product.Id })">
                 <div class="col-sm-6 o-d-product">
                     <div class="col-sm-4 col-md-3 col-lg-2">

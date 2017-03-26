@@ -23,5 +23,11 @@ namespace FFY.Services.Contracts
         IEnumerable<Product> SearchProducts(string searchWord, string sortBy, int page = 1, int productsPerPage = 10);
 
         int GetProductsCount(string searchWord);
+
+        IEnumerable<Product> GetLatestProducts(int count);
+
+        IEnumerable<Product> GetHighestRatedProducts(int count);
+
+        IEnumerable<Product> GetDiscountProducts(int count);
     }
 }

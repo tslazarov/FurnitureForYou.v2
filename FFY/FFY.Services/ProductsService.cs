@@ -4,6 +4,7 @@ using FFY.Models;
 using FFY.Services.Contracts;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace FFY.Services
 {
@@ -179,6 +180,21 @@ namespace FFY.Services
             }
 
             return products;
+        }
+
+        public IEnumerable<Product> GetLatestProducts(int count)
+        {
+            return this.data.ProductsRepository.All().OrderByDescending(p => p.Id).Take(count);
+        }
+
+        public IEnumerable<Product> GetHighestRatedProducts(int count)
+        {
+            return this.data.ProductsRepository.All().OrderByDescending(p => p.Rating).Take(count);
+        }
+
+        public IEnumerable<Product> GetDiscountProducts(int count)
+        {
+            return this.data.ProductsRepository.All().OrderByDescending(p => p.DiscountPercentage).Take(count);
         }
     }
 }

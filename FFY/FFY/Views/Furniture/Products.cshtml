@@ -34,7 +34,7 @@
                 @foreach (var product in Model.Products)
                 {
                     <div class="col-xs-6 col-sm-3 furniture-list-item">
-                        <div class="@(Model.FilterBy == "discount" ? "furniture-wrapper-discount" : "furniture-wrapper")">
+                        <div class="@(Model.FilterBy == "discount" || Model.FilterBy == "rating" ? "furniture-wrapper-discount" : "furniture-wrapper")">
                             <a href="@Url.Action("product", "furniture", new { area = "", id= product.Id })">
                                 <img src="~/Images/products/@product.ImagePath" class="img-responsive" />
                                 <div class="furniture-name">
@@ -50,6 +50,12 @@
                                 {
                                     <div class="furniture-discounted-percentage">
                                         @product.DiscountPercentage% @FFY.Resources.Language.Off
+                                    </div>
+                                }
+                                else if (Model.FilterBy == "rating")
+                                {
+                                    <div class="furniture-discounted-percentage">
+                                        @FFY.Resources.Language.Rating @product.Rating
                                     </div>
                                 }
                             </a>

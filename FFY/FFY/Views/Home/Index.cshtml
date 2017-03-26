@@ -1,10 +1,91 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
-
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <h1>@DateTime.Now</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+﻿@using FFY.Web.Models.Home
+@model HomeViewModel
+<div class="row">
+    <div class="furniture-container">
+        <ul class="nav nav-pills">
+            <li class="active"><a href="#latest" data-toggle="tab" aria-expanded="true">Latest</a></li>
+            <li class=""><a href="#discount" data-toggle="tab" aria-expanded="false">Discounted</a></li>
+            <li class=""><a href="#rating" data-toggle="tab" aria-expanded="false">Highest rated</a></li>
+        </ul>
+        <div id="myPillContent" class="tab-content">
+            <div class="tab-pane fade active in" id="latest">
+                @foreach (var product in Model.LatestProducts)
+                {
+                    <div class="col-xs-6 col-sm-3 furniture-list-item">
+                        <div class="furniture-wrapper">
+                            <a href="@Url.Action("product", "furniture", new { area = "", id = product.Id })">
+                                <img src="~/Images/products/@product.ImagePath" class="img-responsive" />
+                                <div class="furniture-name">
+                                    @product.Name
+                                </div>
+                                <div class="furniture-price">
+                                    @FFY.Resources.Language.Price: @product.Price
+                                </div>
+                                <div class="furniture-discounted-price">
+                                    @FFY.Resources.Language.NewPrice: @product.DiscountedPrice
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                }
+                <div class="see-more col-xs-12">
+                    @Html.ActionLink(FFY.Resources.Language.ViewMore, "products", new { controller = "furniture", filterBy = "latest" })
+                </div>
+            </div>
+            <div class="tab-pane fade" id="discount">
+                @foreach (var product in Model.DiscountProducts)
+                {
+                    <div class="col-xs-6 col-sm-3 furniture-list-item">
+                        <div class="furniture-wrapper-discount">
+                            <a href="@Url.Action("product", "furniture", new { area = "", id = product.Id })">
+                                <img src="~/Images/products/@product.ImagePath" class="img-responsive" />
+                                <div class="furniture-name">
+                                    @product.Name
+                                </div>
+                                <div class="furniture-price">
+                                    @FFY.Resources.Language.Price: @product.Price
+                                </div>
+                                <div class="furniture-discounted-price">
+                                    @FFY.Resources.Language.NewPrice: @product.DiscountedPrice
+                                </div>
+                                <div class="furniture-discounted-percentage">
+                                    @product.DiscountPercentage% @FFY.Resources.Language.Off
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                }
+                <div class="see-more">
+                    @Html.ActionLink(FFY.Resources.Language.ViewMore, "products", new { controller = "furniture", filterBy = "discount" })
+                </div>
+            </div>
+            <div class="tab-pane fade" id="rating">
+                @foreach (var product in Model.HighestRatedProducts)
+                {
+                    <div class="col-xs-6 col-sm-3 furniture-list-item">
+                        <div class="furniture-wrapper-discount">
+                            <a href="@Url.Action("product", "furniture", new { area = "", id = product.Id })">
+                                <img src="~/Images/products/@product.ImagePath" class="img-responsive" />
+                                <div class="furniture-name">
+                                    @product.Name
+                                </div>
+                                <div class="furniture-price">
+                                    @FFY.Resources.Language.Price: @product.Price
+                                </div>
+                                <div class="furniture-discounted-price">
+                                    @FFY.Resources.Language.NewPrice: @product.DiscountedPrice
+                                </div>
+                                <div class="furniture-discounted-percentage">
+                                    @FFY.Resources.Language.Rating @product.Rating
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                }
+                <div class="see-more">
+                    @Html.ActionLink(FFY.Resources.Language.ViewMore, "products", new { controller = "furniture", filterBy = "rating" })
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
