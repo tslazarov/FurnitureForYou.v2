@@ -83,7 +83,7 @@ namespace FFY.UnitTests.Web.ProductManagementControllerTests
 
             // Act and Assert
             Assert.Throws<ArgumentNullException>(() =>
-                    new ProductManagementController(mockedRequestProvider.Object, 
+                    new ProductManagementController(mockedRequestProvider.Object,
                         null,
                         mockedImageUploader.Object,
                         mockedProductFactory.Object,
@@ -111,7 +111,7 @@ namespace FFY.UnitTests.Web.ProductManagementControllerTests
 
             // Act and Assert
             var exception = Assert.Throws<ArgumentNullException>(() =>
-                new ProductManagementController(mockedRequestProvider.Object, 
+                new ProductManagementController(mockedRequestProvider.Object,
                     null,
                     mockedImageUploader.Object,
                     mockedProductFactory.Object,
@@ -138,7 +138,7 @@ namespace FFY.UnitTests.Web.ProductManagementControllerTests
 
             // Act and Assert
             Assert.Throws<ArgumentNullException>(() =>
-                    new ProductManagementController(mockedRequestProvider.Object, 
+                    new ProductManagementController(mockedRequestProvider.Object,
                         mockedMapperProvider.Object,
                         null,
                         mockedProductFactory.Object,
@@ -166,7 +166,7 @@ namespace FFY.UnitTests.Web.ProductManagementControllerTests
 
             // Act and Assert
             var exception = Assert.Throws<ArgumentNullException>(() =>
-                new ProductManagementController(mockedRequestProvider.Object, 
+                new ProductManagementController(mockedRequestProvider.Object,
                     mockedMapperProvider.Object,
                     null,
                     mockedProductFactory.Object,
@@ -193,7 +193,7 @@ namespace FFY.UnitTests.Web.ProductManagementControllerTests
 
             // Act and Assert
             Assert.Throws<ArgumentNullException>(() =>
-                    new ProductManagementController(mockedRequestProvider.Object, 
+                    new ProductManagementController(mockedRequestProvider.Object,
                         mockedMapperProvider.Object,
                         mockedImageUploader.Object,
                         null,
@@ -248,7 +248,7 @@ namespace FFY.UnitTests.Web.ProductManagementControllerTests
 
             // Act and Assert
             Assert.Throws<ArgumentNullException>(() =>
-                    new ProductManagementController(mockedRequestProvider.Object, 
+                    new ProductManagementController(mockedRequestProvider.Object,
                         mockedMapperProvider.Object,
                         mockedImageUploader.Object,
                         mockedProductFactory.Object,
@@ -276,7 +276,7 @@ namespace FFY.UnitTests.Web.ProductManagementControllerTests
 
             // Act and Assert
             var exception = Assert.Throws<ArgumentNullException>(() =>
-                new ProductManagementController(mockedRequestProvider.Object, 
+                new ProductManagementController(mockedRequestProvider.Object,
                     mockedMapperProvider.Object,
                     mockedImageUploader.Object,
                     mockedProductFactory.Object,
@@ -304,7 +304,7 @@ namespace FFY.UnitTests.Web.ProductManagementControllerTests
 
             // Act and Assert
             Assert.Throws<ArgumentNullException>(() =>
-                    new ProductManagementController(mockedRequestProvider.Object, 
+                    new ProductManagementController(mockedRequestProvider.Object,
                         mockedMapperProvider.Object,
                         mockedImageUploader.Object,
                         mockedProductFactory.Object,
@@ -332,7 +332,7 @@ namespace FFY.UnitTests.Web.ProductManagementControllerTests
 
             // Act and Assert
             var exception = Assert.Throws<ArgumentNullException>(() =>
-                new ProductManagementController(mockedRequestProvider.Object, 
+                new ProductManagementController(mockedRequestProvider.Object,
                     mockedMapperProvider.Object,
                     mockedImageUploader.Object,
                     mockedProductFactory.Object,
@@ -359,7 +359,7 @@ namespace FFY.UnitTests.Web.ProductManagementControllerTests
 
             // Act and Assert
             Assert.Throws<ArgumentNullException>(() =>
-                    new ProductManagementController(mockedRequestProvider.Object, 
+                    new ProductManagementController(mockedRequestProvider.Object,
                         mockedMapperProvider.Object,
                         mockedImageUploader.Object,
                         mockedProductFactory.Object,
@@ -387,7 +387,7 @@ namespace FFY.UnitTests.Web.ProductManagementControllerTests
 
             // Act and Assert
             var exception = Assert.Throws<ArgumentNullException>(() =>
-                new ProductManagementController(mockedRequestProvider.Object, 
+                new ProductManagementController(mockedRequestProvider.Object,
                     mockedMapperProvider.Object,
                     mockedImageUploader.Object,
                     mockedProductFactory.Object,
@@ -414,7 +414,7 @@ namespace FFY.UnitTests.Web.ProductManagementControllerTests
 
             // Act and Assert
             Assert.Throws<ArgumentNullException>(() =>
-                    new ProductManagementController(mockedRequestProvider.Object, 
+                    new ProductManagementController(mockedRequestProvider.Object,
                         mockedMapperProvider.Object,
                         mockedImageUploader.Object,
                         mockedProductFactory.Object,
@@ -442,7 +442,7 @@ namespace FFY.UnitTests.Web.ProductManagementControllerTests
 
             // Act and Assert
             var exception = Assert.Throws<ArgumentNullException>(() =>
-                new ProductManagementController(mockedRequestProvider.Object, 
+                new ProductManagementController(mockedRequestProvider.Object,
                     mockedMapperProvider.Object,
                     mockedImageUploader.Object,
                     mockedProductFactory.Object,
@@ -469,7 +469,7 @@ namespace FFY.UnitTests.Web.ProductManagementControllerTests
 
             // Act and Assert
             Assert.Throws<ArgumentNullException>(() =>
-                    new ProductManagementController(mockedRequestProvider.Object, 
+                    new ProductManagementController(mockedRequestProvider.Object,
                         mockedMapperProvider.Object,
                         mockedImageUploader.Object,
                         mockedProductFactory.Object,

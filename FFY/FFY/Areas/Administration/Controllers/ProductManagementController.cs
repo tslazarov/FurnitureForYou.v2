@@ -136,7 +136,7 @@ namespace FFY.Web.Areas.Administration.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AddProduct(ProductOperationViewModel model)
         {
-            var file = this.requestProvider.RequestFiles[0];
+            var file = this.requestProvider.GetRequestFiles(this)[0];
 
             string imageFileName = DefaultProductImageFileName;
             string folderName = DefaultProductFolderName;
@@ -200,7 +200,7 @@ namespace FFY.Web.Areas.Administration.Controllers
         public ActionResult EditProduct(ProductOperationViewModel model)
         {
             var product = this.productsService.GetProductById(model.Id);
-            var file = this.requestProvider.RequestFiles[0];
+            var file = this.requestProvider.GetRequestFiles(this)[0];
 
             string imageFileName = model.ImagePath;
             string folderName = DefaultProductFolderName;
@@ -229,7 +229,7 @@ namespace FFY.Web.Areas.Administration.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AddRoom(RoomPartialViewModel model)
         {
-            var file = this.requestProvider.RequestFiles[0];
+            var file = this.requestProvider.GetRequestFiles(this)[0];
 
             string imageFileName = DefaultRoomImageFileName;
             string folderName = DefaultRoomFolderName;
@@ -248,7 +248,7 @@ namespace FFY.Web.Areas.Administration.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AddCategory(CategoryPartialViewModel model)
         {
-            var file = this.requestProvider.RequestFiles[0];
+            var file = this.requestProvider.GetRequestFiles(this)[0];
 
             string imageFileName = DefaultCategoryImageFileName;
             string folderName = DefaultCategoryFolderName;

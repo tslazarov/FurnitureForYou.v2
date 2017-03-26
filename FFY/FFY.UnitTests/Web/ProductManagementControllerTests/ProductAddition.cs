@@ -72,7 +72,7 @@ namespace FFY.UnitTests.Web.ProductManagementControllerTests
                     mockedRoomsService.Object,
                     mockedCategoryFactory.Object,
                     mockedCategoriesService.Object);
-            
+
             // Act
             productManagementController.ProductAddition();
 

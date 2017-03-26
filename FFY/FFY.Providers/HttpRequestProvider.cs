@@ -5,25 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Mvc;
 
 namespace FFY.Providers
 {
     public class HttpRequestProvider : IHttpRequestProvider
     {
-        public HttpRequestBase Request
+        public HttpFileCollectionBase GetRequestFiles(Controller controller)
         {
-            get
-            {
-                return Request;
-            }
-        }
-
-        public HttpFileCollectionBase RequestFiles
-        {
-            get
-            {
-                return Request.Files;
-            }
+            return controller.Request.Files;
         }
     }
 }

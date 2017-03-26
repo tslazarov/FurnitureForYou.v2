@@ -10,6 +10,7 @@ using FFY.Web.Mappings;
 using Moq;
 using NUnit.Framework;
 using System.Web;
+using System.Web.Mvc;
 using TestStack.FluentMVCTesting;
 
 namespace FFY.UnitTests.Web.ProductManagementControllerTests
@@ -29,7 +30,7 @@ namespace FFY.UnitTests.Web.ProductManagementControllerTests
             };
 
             var mockedRequestProvider = new Mock<IHttpRequestProvider>();
-            mockedRequestProvider.SetupGet(rp => rp.RequestFiles)
+            mockedRequestProvider.Setup(rp => rp.GetRequestFiles(It.IsAny<Controller>()))
                 .Returns(new MockedHttpFileCollectionBase());
             var mockedMapperProvider = new Mock<IMapperProvider>();
             var mockedImageUploader = new Mock<IImageUploader>();
@@ -71,12 +72,13 @@ namespace FFY.UnitTests.Web.ProductManagementControllerTests
             var imageFileName = "default-product-image.jpg";
             var folderName = "products";
 
-            var productsOperationViewModel = new ProductOperationViewModel() {
+            var productsOperationViewModel = new ProductOperationViewModel()
+            {
                 ImagePath = imageFileName
             };
 
             var mockedRequestProvider = new Mock<IHttpRequestProvider>();
-            mockedRequestProvider.SetupGet(rp => rp.RequestFiles)
+            mockedRequestProvider.Setup(rp => rp.GetRequestFiles(It.IsAny<Controller>()))
                 .Returns(new MockedHttpFileCollectionBase());
             var mockedMapperProvider = new Mock<IMapperProvider>();
             var mockedImageUploader = new Mock<IImageUploader>();
@@ -130,7 +132,7 @@ namespace FFY.UnitTests.Web.ProductManagementControllerTests
             };
 
             var mockedRequestProvider = new Mock<IHttpRequestProvider>();
-            mockedRequestProvider.SetupGet(rp => rp.RequestFiles)
+            mockedRequestProvider.Setup(rp => rp.GetRequestFiles(It.IsAny<Controller>()))
                 .Returns(new MockedHttpFileCollectionBase());
             var mockedMapperProvider = new Mock<IMapperProvider>();
             var mockedImageUploader = new Mock<IImageUploader>();
@@ -177,7 +179,7 @@ namespace FFY.UnitTests.Web.ProductManagementControllerTests
             };
 
             var mockedRequestProvider = new Mock<IHttpRequestProvider>();
-            mockedRequestProvider.SetupGet(rp => rp.RequestFiles)
+            mockedRequestProvider.Setup(rp => rp.GetRequestFiles(It.IsAny<Controller>()))
                 .Returns(new MockedHttpFileCollectionBase());
             var mockedMapperProvider = new Mock<IMapperProvider>();
             var mockedImageUploader = new Mock<IImageUploader>();
@@ -221,7 +223,8 @@ namespace FFY.UnitTests.Web.ProductManagementControllerTests
             var room = new Room();
             var category = new Category();
             var product = new Product();
-            var productsOperationViewModel = new ProductOperationViewModel() {
+            var productsOperationViewModel = new ProductOperationViewModel()
+            {
                 Name = "Product",
                 Price = 10,
                 DiscountPercentage = 10,
@@ -230,7 +233,7 @@ namespace FFY.UnitTests.Web.ProductManagementControllerTests
             };
 
             var mockedRequestProvider = new Mock<IHttpRequestProvider>();
-            mockedRequestProvider.SetupGet(rp => rp.RequestFiles)
+            mockedRequestProvider.Setup(rp => rp.GetRequestFiles(It.IsAny<Controller>()))
                 .Returns(new MockedHttpFileCollectionBase());
             var mockedMapperProvider = new Mock<IMapperProvider>();
             var mockedImageUploader = new Mock<IImageUploader>();
@@ -287,7 +290,7 @@ namespace FFY.UnitTests.Web.ProductManagementControllerTests
             var productsOperationViewModel = new ProductOperationViewModel();
 
             var mockedRequestProvider = new Mock<IHttpRequestProvider>();
-            mockedRequestProvider.SetupGet(rp => rp.RequestFiles)
+            mockedRequestProvider.Setup(rp => rp.GetRequestFiles(It.IsAny<Controller>()))
                 .Returns(new MockedHttpFileCollectionBase());
             var mockedMapperProvider = new Mock<IMapperProvider>();
             var mockedImageUploader = new Mock<IImageUploader>();
@@ -330,7 +333,7 @@ namespace FFY.UnitTests.Web.ProductManagementControllerTests
             var productsOperationViewModel = new ProductOperationViewModel();
 
             var mockedRequestProvider = new Mock<IHttpRequestProvider>();
-            mockedRequestProvider.SetupGet(rp => rp.RequestFiles)
+            mockedRequestProvider.Setup(rp => rp.GetRequestFiles(It.IsAny<Controller>()))
                 .Returns(new MockedHttpFileCollectionBase());
             var mockedMapperProvider = new Mock<IMapperProvider>();
             var mockedImageUploader = new Mock<IImageUploader>();
