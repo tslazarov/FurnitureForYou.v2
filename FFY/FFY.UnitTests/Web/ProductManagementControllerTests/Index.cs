@@ -7,11 +7,6 @@ using FFY.Web.Areas.Administration.Models.ProductManagement;
 using FFY.Web.Mappings;
 using Moq;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TestStack.FluentMVCTesting;
 
 namespace FFY.UnitTests.Web.ProductManagementControllerTests

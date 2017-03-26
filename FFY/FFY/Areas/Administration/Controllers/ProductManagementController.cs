@@ -93,6 +93,11 @@ namespace FFY.Web.Areas.Administration.Controllers
             this.categoriesService = categoriesService;
         }
 
+        public void AddRoom(CategoryPartialViewModel categoryPartialViewModel)
+        {
+            throw new NotImplementedException();
+        }
+
         // GET: Administration/ProductManagement
         public ViewResult Index(ProductsViewModel model)
         {
@@ -155,36 +160,23 @@ namespace FFY.Web.Areas.Administration.Controllers
                 model.ImagePath,
                 false);
 
-            try
-            {
                 this.productsService.AddProduct(product);
 
-                return this.RedirectToAction("index", "productManagement", new { area = "administration" });
-            }
-            catch (Exception)
-            {
-                this.ModelState.AddModelError("", "Problem occured during product addition.");
-                return this.View("productOperation", model);
-            }
+                return this.RedirectToAction("Index", "ProductManagement", new { area = "administration" });
         }
 
         // GET: Administration/ProductEditing
-        public ViewResult ProductEditing(int? id, ProductOperationViewModel model)
+        public ViewResult ProductEditing(int id, ProductOperationViewModel model)
         {
-            if(id == null)
-            {
-                // 404
-            }
-
             this.ViewBag.Rooms = this.roomsService.GetRooms();
             this.ViewBag.Categories = this.categoriesService.GetCategories();
             this.ViewBag.Operation = "EditProduct";
 
-            var product = this.productsService.GetProductById(id.Value);
+            var product = this.productsService.GetProductById(id);
 
             if(product == null)
             {
-                // 404
+                return this.View("PageNotFound");
             }
 
             model.Id = product.Id;
@@ -208,7 +200,7 @@ namespace FFY.Web.Areas.Administration.Controllers
         public ActionResult EditProduct(ProductOperationViewModel model)
         {
             var product = this.productsService.GetProductById(model.Id);
-            var file = Request.Files[0];
+            var file = this.requestProvider.RequestFiles[0];
 
             string imageFileName = model.ImagePath;
             string folderName = DefaultProductFolderName;
@@ -227,17 +219,9 @@ namespace FFY.Web.Areas.Administration.Controllers
 
             product.HasDiscount = model.DiscountPercentage > 0 ? true : false;
 
-            try
-            {
-                this.productsService.UpdateProduct(product);
+            this.productsService.UpdateProduct(product);
 
-                return this.RedirectToAction("index", "productManagement", new { area = "administration" });
-            }
-            catch (Exception)
-            {
-                this.ModelState.AddModelError("", "Problem occured during product editing.");
-                return this.View("productOperation", model);
-            }
+            return this.RedirectToAction("Index", "ProductManagement", new { area = "administration" });
         }
 
         // POST: Administration/AddRoom
@@ -245,7 +229,7 @@ namespace FFY.Web.Areas.Administration.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AddRoom(RoomPartialViewModel model)
         {
-            var file = Request.Files[0];
+            var file = this.requestProvider.RequestFiles[0];
 
             string imageFileName = DefaultRoomImageFileName;
             string folderName = DefaultRoomFolderName;
@@ -254,17 +238,9 @@ namespace FFY.Web.Areas.Administration.Controllers
 
             var room = this.roomFactory.CreateRoom(model.Name, model.ImagePath);
 
-            try
-            {
-                this.roomsService.AddRoom(room);
+            this.roomsService.AddRoom(room);
 
-                return this.RedirectToAction("ProductAddition", "productManagement", new { area = "administration" });
-            }
-            catch (Exception)
-            {
-            }
-
-            return this.RedirectToAction("ProductAddition", "productManagement", new { area = "administration" });
+            return this.RedirectToAction("ProductAddition", "ProductManagement", new { area = "administration" });
         }
 
         // POST: Administration/AddCategory
@@ -272,7 +248,7 @@ namespace FFY.Web.Areas.Administration.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AddCategory(CategoryPartialViewModel model)
         {
-            var file = Request.Files[0];
+            var file = this.requestProvider.RequestFiles[0];
 
             string imageFileName = DefaultCategoryImageFileName;
             string folderName = DefaultCategoryFolderName;
@@ -281,17 +257,9 @@ namespace FFY.Web.Areas.Administration.Controllers
 
             var category = this.categoryFactory.CreateCategory(model.Name, model.ImagePath);
 
-            try
-            {
-                this.categoriesService.AddCategory(category);
+            this.categoriesService.AddCategory(category);
 
-                this.RedirectToAction("ProductAddition", "productManagement", new { area = "administration" });
-            }
-            catch (Exception)
-            {
-            }
-
-            return this.RedirectToAction("ProductAddition", "productManagement", new { area = "administration" });
+            return this.RedirectToAction("ProductAddition", "ProductManagement", new { area = "administration" });
         }
     }
 }
