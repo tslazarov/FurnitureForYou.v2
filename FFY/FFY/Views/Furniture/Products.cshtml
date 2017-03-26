@@ -1,0 +1,69 @@
+﻿@using FFY.Web.Models.Furniture
+@model ProductsSelectionViewModel
+
+<div class="row">
+    <div class="products-management-container">
+        @using (Html.BeginForm("products", "furniture", new {
+                filterBy = Model.FilterBy
+            }, FormMethod.Get,
+                    new { id = "search-form" }))
+        {
+            <div class="search-header">
+                <div class="col-sm-3">
+                    <input type="text" name="search" class="form-control" value="@Model.Search" />
+                </div>
+                <div class="col-sm-2">
+                    <input type="text" name="from" class="form-control" value="@Model.From" />
+                </div>
+                <div class="col-sm-2">
+                    <input type="text" name="to" class="form-control" value="@Model.To" />
+                </div>
+                <div class="col-sm-2">
+                    <button class="btn btn-primary btn-block" type="submit">@FFY.Resources.Language.Search</button>
+                </div>
+                <div class="col-sm-offset-5 col-sm-2">
+                </div>
+            </div>
+        }
+    </div>
+</div>
+@if (Model.ProductsCount == 0)
+{
+    <h2 class="empty-favorites-list">@FFY.Resources.Language.NoFavoriteProducts</h2>
+}
+else
+{
+    <div class="row">
+        @foreach (var product in Model.Products)
+        {
+            <div class="col-xs-6 col-sm-3 favorite-product-list-item">
+                <div class="favorite-product-wrapper">
+                    <a href="@Url.Action("product", "furniture", new { area = "", id= product.Id })">
+                        <img src="~/Images/products/@product.ImagePath" class="img-responsive" />
+                        <div class="favorite-product-name">
+                            @product.Name
+                        </div>
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="row col-xs-12">
+        <ul class="pagination">
+            @for (int i = 1; i <= Model.Pages; i++)
+                {
+                <li class=@(i == Model.Page ? "active" : "")>
+                    @Html.ActionLink(i.ToString(), "products",
+                new
+                {
+                    filterBy = Model.FilterBy,
+                    search = Model.Search,
+                    from = Model.From,
+                    to = Model.To,
+                    page = i
+                })
+                </li>
+            }
+        </ul>
+    </div>
+}

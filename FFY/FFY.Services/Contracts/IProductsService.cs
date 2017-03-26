@@ -11,6 +11,15 @@ namespace FFY.Services.Contracts
 
         Product GetProductById(int id);
 
+        IEnumerable<Product> GetProductsSelection(string filterBy,
+            string searchWord,
+            int? from,
+            int? to,
+            int page,
+            int productsPerPage = 16);
+
+        int GetProductsSelectionCount(string filterBy, string searchWord, int? from, int? to);
+
         IEnumerable<Product> SearchProducts(string searchWord, string sortBy, int page = 1, int productsPerPage = 10);
 
         int GetProductsCount(string searchWord);

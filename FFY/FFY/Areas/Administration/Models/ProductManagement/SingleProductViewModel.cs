@@ -9,7 +9,7 @@ namespace FFY.Web.Areas.Administration.Models.ProductManagement
 
         public string Name { get; set; }
 
-        public string Price { get; set; }
+        public decimal Price { get; set; }
 
         public Room Room { get; set; }
 
