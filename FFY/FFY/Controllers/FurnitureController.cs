@@ -21,13 +21,15 @@ namespace FFY.Web.Controllers
         private readonly IUsersService usersService;
         private readonly IShoppingCartsService shoppingCartsService;
         private readonly IProductsService productsService;
+        private readonly IRoomsService roomsService;
 
         public FurnitureController(IAuthenticationProvider authenticationProvider,
             ICachingProvider cachingProvider,
             IMapperProvider mapper,
             IUsersService usersService,
             IShoppingCartsService shoppingCartsService,
-            IProductsService productsService)
+            IProductsService productsService,
+            IRoomsService roomsService)
         {
             Guard.WhenArgument<IAuthenticationProvider>(authenticationProvider, "Authentication provider cannot be null.")
                 .IsNull()
@@ -53,13 +55,26 @@ namespace FFY.Web.Controllers
                 .IsNull()
                 .Throw();
 
+            Guard.WhenArgument<IRoomsService>(roomsService, "Rooms service cannot be null.")
+                .IsNull()
+                .Throw();
+
             this.authenticationProvider = authenticationProvider;
             this.cachingProvider = cachingProvider;
             this.mapper = mapper;
             this.usersService = usersService;
             this.shoppingCartsService = shoppingCartsService;
             this.productsService = productsService;
+            this.roomsService = roomsService;
         }
+
+        public ActionResult Index(RoomsViewModel roomsViewModel)
+        {
+            roomsViewModel.Rooms = this.roomsService.GetRooms();
+
+            return this.View(roomsViewModel);
+        }
+
 
         // GET: Furniture/FilterParamameter
         public ActionResult Products(ProductsSelectionViewModel productsSelectionViewModel,
@@ -101,7 +116,6 @@ namespace FFY.Web.Controllers
 
             return this.View(productsSelectionViewModel);
         }
-
 
         // GET: Furniture/Product
         public ActionResult Product(int? id, DetailedProductViewModel model)

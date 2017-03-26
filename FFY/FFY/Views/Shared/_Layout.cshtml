@@ -22,7 +22,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink(FFY.Resources.Language.Home, "index", "home", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink(FFY.Resources.Language.Furniture, "about", "home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink(FFY.Resources.Language.Furniture, "index", "furniture", new { area = "" }, null)</li>
                     <li>@Html.ActionLink(FFY.Resources.Language.Contact, "index", "contact", new { area = "" }, null)</li>
                     <li>@Html.ActionLink(FFY.Resources.Language.En, ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), 
                        new { language = "en", id = ViewContext.RouteData.Values["id"] == null ? "" : ViewContext.RouteData.Values["id"].ToString() }, null)</li>

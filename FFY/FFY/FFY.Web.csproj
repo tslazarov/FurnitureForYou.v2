@@ -266,6 +266,7 @@
     <Compile Include="Areas\Administration\Models\ProductManagement\ProductOperationViewModel.cs" />
     <Compile Include="Models\Furniture\ProductsSelectionViewModel.cs" />
     <Compile Include="Areas\Administration\Models\ProductManagement\ProductsViewModel.cs" />
+    <Compile Include="Models\Furniture\RoomsViewModel.cs" />
     <Compile Include="Models\Furniture\SingleProductSelectionViewModel.cs" />
     <Compile Include="Areas\Administration\Models\ProductManagement\SingleProductViewModel.cs" />
     <Compile Include="Areas\Administration\Models\SearchModel.cs" />
@@ -392,6 +393,7 @@
     <Content Include="Views\Shared\ClientChatLayout.cshtml" />
     <Content Include="Views\Shared\PageNotFound.cshtml" />
     <Content Include="Views\Furniture\Products.cshtml" />
+    <Content Include="Views\Furniture\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

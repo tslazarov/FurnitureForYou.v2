@@ -157,7 +157,7 @@ namespace FFY.Web.Areas.Administration.Controllers
             catch (Exception)
             {
                 this.ModelState.AddModelError("", "Problem occured during product addition.");
-                return this.View("productOperation", model);
+                return this.View("ProductOperation", model);
             }
         }
 
@@ -229,7 +229,7 @@ namespace FFY.Web.Areas.Administration.Controllers
             catch (Exception)
             {
                 this.ModelState.AddModelError("", "Problem occured during product editing.");
-                return this.View("productOperation", model);
+                return this.View("ProductOperation", model);
             }
         }
 
@@ -251,13 +251,13 @@ namespace FFY.Web.Areas.Administration.Controllers
             {
                 this.roomsService.AddRoom(room);
 
-                return this.RedirectToAction("productOperation", "productManagement", new { area = "administration" });
+                return this.View("ProductOperation", "productManagement", new { area = "administration" });
             }
             catch (Exception)
             {
             }
 
-            return this.RedirectToAction("productOperation", "productManagement", new { area = "administration" });
+            return this.View("ProductOperation", "productManagement", new { area = "administration" });
         }
 
         // POST: Administration/AddCategory
@@ -278,13 +278,13 @@ namespace FFY.Web.Areas.Administration.Controllers
             {
                 this.categoriesService.AddCategory(category);
 
-                this.RedirectToAction("productOperation", "productManagement", new { area = "administration" });
+                this.View("ProductOperation", "productManagement", new { area = "administration" });
             }
             catch (Exception)
             {
             }
 
-            return this.RedirectToAction("productOperation", "productManagement", new { area = "administration" });
+            return this.View("ProductOperation", "productManagement", new { area = "administration" });
         }
     }
 }
