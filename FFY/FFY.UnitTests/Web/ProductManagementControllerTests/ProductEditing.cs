@@ -169,7 +169,7 @@ namespace FFY.UnitTests.Web.ProductManagementControllerTests
 
             // Act and Assert
             productManagementController.WithCallTo(pmc => pmc.ProductEditing(1, productOperationViewModel))
-                .ShouldRenderView("PageNotFound");
+                .ShouldRenderView("NotFound");
         }
 
         [Test]

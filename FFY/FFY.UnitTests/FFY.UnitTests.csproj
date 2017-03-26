@@ -133,6 +133,9 @@
     <Compile Include="Services\OrdersServiceTests\UpdateOrderStatuses.cs" />
     <Compile Include="Services\ProductsServiceTests\AddProduct.cs" />
     <Compile Include="Services\ProductsServiceTests\Constructor.cs" />
+    <Compile Include="Services\ProductsServiceTests\GetDiscountProducts.cs" />
+    <Compile Include="Services\ProductsServiceTests\GetHighestRated.cs" />
+    <Compile Include="Services\ProductsServiceTests\GetLatestProducts.cs" />
     <Compile Include="Services\ProductsServiceTests\GetProductById.cs" />
     <Compile Include="Services\ProductsServiceTests\GetProductsCount.cs" />
     <Compile Include="Services\ProductsServiceTests\GetProductsSelection.cs" />

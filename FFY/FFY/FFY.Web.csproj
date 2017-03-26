@@ -284,7 +284,6 @@
     <Compile Include="Areas\Profile\Models\ShoppingCartViewModel.cs" />
     <Compile Include="Areas\Profile\Models\SingleFavoriteProductViewModel.cs" />
     <Compile Include="Areas\Profile\ProfileAreaRegistration.cs" />
-    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\FurnitureController.cs" />
     <Compile Include="Custom\Attributes\LocalizeAttribute.cs" />
     <Compile Include="Custom\Attributes\SecurityAttribute.cs" />
@@ -343,7 +342,6 @@
     <Content Include="Areas\Profile\Views\Favorites\Index.cshtml" />
     <Content Include="Areas\Administration\Views\UserManagement\UserProfile.cshtml" />
     <Content Include="Areas\Administration\Views\UserManagement\UsersPartial.cshtml" />
-    <Content Include="Areas\Administration\Views\ProductManagement\ProductsPartial.cshtml" />
     <Content Include="Areas\Administration\Views\ContactManagement\ContactsPartial.cshtml" />
     <Content Include="Areas\Administration\Views\OrderManagement\OrdersPartial.cshtml" />
     <Content Include="Areas\Profile\Views\Favorites\FavoriteProductsPartial.cshtml" />
@@ -377,7 +375,6 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
@@ -386,15 +383,16 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Shared\_AdministrationPartial.cshtml" />
-    <Content Include="Views\Error\Unauthorized.cshtml" />
+    <Content Include="Views\Shared\Unauthorized.cshtml" />
     <Content Include="Views\Furniture\Product.cshtml" />
     <Content Include="Views\Furniture\FavoritePartial.cshtml" />
     <Content Include="Views\Furniture\RatingPartial.cshtml" />
     <Content Include="Views\Furniture\ShoppingCartPartial.cshtml" />
     <Content Include="Views\Shared\ClientChatLayout.cshtml" />
-    <Content Include="Views\Shared\PageNotFound.cshtml" />
     <Content Include="Views\Furniture\Products.cshtml" />
     <Content Include="Views\Furniture\Index.cshtml" />
+    <Content Include="Views\Shared\NotFound.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

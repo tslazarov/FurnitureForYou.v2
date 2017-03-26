@@ -69,7 +69,7 @@ namespace FFY.UnitTests.Web.ContactManagementControllerTests
         }
 
         [Test]
-        public void ShouldReturnPageNotFoundView_WhenContactIsNotFound()
+        public void ShouldReturnNotFoundView_WhenContactIsNotFound()
         {
             // Arrange
             var id = 10;
@@ -87,7 +87,7 @@ namespace FFY.UnitTests.Web.ContactManagementControllerTests
 
             // Act and Assert
             contactManagementController.WithCallTo(cmc => cmc.ContactDetailed(contactViewModel, id))
-                .ShouldRenderView("PageNotFound");
+                .ShouldRenderView("NotFound");
         }
 
         [Test]

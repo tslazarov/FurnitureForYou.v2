@@ -176,7 +176,7 @@ namespace FFY.Web.Areas.Administration.Controllers
 
             if(product == null)
             {
-                return this.View("PageNotFound");
+                return this.View("NotFound");
             }
 
             model.Id = product.Id;

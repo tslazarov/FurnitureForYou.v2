@@ -4,6 +4,7 @@ using FFY.Providers.Contracts;
 using FFY.Services.Contracts;
 using FFY.Web.Controllers;
 using FFY.Web.Models.Account;
+using FFY.Web.Models.Home;
 using Microsoft.AspNet.Identity;
 using Moq;
 using NUnit.Framework;
@@ -505,7 +506,7 @@ namespace FFY.UnitTests.Web.AccountControllerTests
 
             // Act and Assert
             accountController.WithCallTo(ac => ac.Register(registerModel))
-                .ShouldRedirectTo((HomeController hc) => hc.Index());
+                .ShouldRedirectTo((HomeController hc) => hc.Index(It.IsAny<HomeViewModel>()));
         }
     }
 }

@@ -48,7 +48,7 @@ namespace FFY.Web.Areas.Administration.Controllers
 
             if (model.Order == null)
             {
-                return this.View("PageNotFound");
+                return this.View("NotFound");
             }
 
             return this.View(model);

@@ -13,6 +13,12 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0px !important;
 }
 
+.error {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Bootstrap custom */
 .pagination>li>a, 
 .pagination>li {

@@ -2,6 +2,7 @@
 using FFY.Providers.Contracts;
 using FFY.Services.Contracts;
 using FFY.Web.Controllers;
+using FFY.Web.Models.Home;
 using Moq;
 using NUnit.Framework;
 using System.Web.Mvc;
@@ -108,7 +109,7 @@ namespace FFY.UnitTests.Web.AccountControllerTests
 
             // Act and Assert
             accountController.WithCallTo(ac => ac.LogOut())
-                .ShouldRedirectTo((HomeController hc) => hc.Index());
+                .ShouldRedirectTo((HomeController hc) => hc.Index(It.IsAny<HomeViewModel>()));
         }
     }
 }

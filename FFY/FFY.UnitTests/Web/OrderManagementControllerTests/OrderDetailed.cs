@@ -75,7 +75,7 @@ namespace FFY.UnitTests.Web.OrderManagementControllerTests
 
             // Act and Assert
             orderManagementController.WithCallTo(cmc => cmc.OrderDetailed(orderViewModel, id))
-                .ShouldRenderView("PageNotFound");
+                .ShouldRenderView("NotFound");
         }
 
         [Test]
