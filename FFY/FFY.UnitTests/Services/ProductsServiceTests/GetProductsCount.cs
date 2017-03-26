@@ -37,7 +37,7 @@ namespace FFY.UnitTests.Services.ProductsServiceTests
         [TestCase("bed", 1)]
         [TestCase("e", 3)]
         [TestCase("x", 0)]
-        public void ShouldReturnCorrectUsersCount_WhenSearchWordIsProvided(string searchWord,
+        public void ShouldReturnCorrectProductsCount_WhenSearchWordIsProvided(string searchWord,
             int expectedCount)
         {
             // Arrange

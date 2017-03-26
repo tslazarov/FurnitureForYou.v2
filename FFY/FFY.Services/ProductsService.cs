@@ -99,7 +99,7 @@ namespace FFY.Services
                     products = products.Where(p => p.HasDiscount);
                     break;
                 default:
-                    products = products.Where(p => p.Room.Name == filterBy);
+                    products = products.Where(p => p.Room.Name.ToLower() == filterBy.ToLower());
                     break;
             }
 
