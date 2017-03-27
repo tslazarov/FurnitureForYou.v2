@@ -93,11 +93,6 @@ namespace FFY.Web.Areas.Administration.Controllers
             this.categoriesService = categoriesService;
         }
 
-        public void AddRoom(CategoryPartialViewModel categoryPartialViewModel)
-        {
-            throw new NotImplementedException();
-        }
-
         // GET: Administration/ProductManagement
         public ViewResult Index(ProductsViewModel model)
         {

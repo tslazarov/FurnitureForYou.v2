@@ -4,7 +4,6 @@ using FFY.Web.Custom.Attributes;
 using FFY.Web.Mappings;
 using FFY.Web.Models.Furniture;
 using FFY.Web.Models.Home;
-using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
@@ -48,8 +47,6 @@ namespace FFY.Web.Controllers
 
             model.DiscountProducts =
                 this.mapper.Map<IEnumerable<SingleProductSelectionViewModel>>(discountProducts);
-
-            ViewBag.Time = DateTime.Now;
 
             return this.View(model);
         }

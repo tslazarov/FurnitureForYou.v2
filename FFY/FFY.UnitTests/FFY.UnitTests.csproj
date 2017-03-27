@@ -182,6 +182,8 @@
     <Compile Include="Web\FavoritesControllerTests\Constructor.cs" />
     <Compile Include="Web\FavoritesControllerTests\Index.cs" />
     <Compile Include="Web\FavoritesControllerTests\PagingProducts.cs" />
+    <Compile Include="Web\HomeControllerTests\Constructor.cs" />
+    <Compile Include="Web\HomeControllerTests\Index.cs" />
     <Compile Include="Web\InformationControllerTests\Constructor.cs" />
     <Compile Include="Web\InformationControllerTests\Index.cs" />
     <Compile Include="Web\OrderManagementControllerTests\Constructor.cs" />
