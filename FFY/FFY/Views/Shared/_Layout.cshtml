@@ -24,10 +24,6 @@
                     <li>@Html.ActionLink(FFY.Resources.Language.Home, "index", "home", new { area = "" }, null)</li>
                     <li>@Html.ActionLink(FFY.Resources.Language.Furniture, "index", "furniture", new { area = "" }, null)</li>
                     <li>@Html.ActionLink(FFY.Resources.Language.Contact, "index", "contact", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink(FFY.Resources.Language.En, ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), 
-                       new { language = "en", id = ViewContext.RouteData.Values["id"] == null ? "" : ViewContext.RouteData.Values["id"].ToString() }, null)</li>
-                    <li>@Html.ActionLink(FFY.Resources.Language.Bg, ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), 
-                       new { language = "bg", id = ViewContext.RouteData.Values["id"] == null ? "" : ViewContext.RouteData.Values["id"].ToString() }, null)</li>
                 </ul>
                 @Html.Partial("_AdministrationPartial")
                 @Html.Partial("_LoginPartial")
@@ -54,7 +50,13 @@
         }
         <hr />
         <footer>
-            <p>&copy; Telerik Academy 2016/2017 ASP.NET MVC Project</p>
+            <p>
+                @Html.ActionLink(FFY.Resources.Language.En, ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(),
+                       new { language = "en", id = ViewContext.RouteData.Values["id"] == null ? "" : ViewContext.RouteData.Values["id"].ToString() }, null) | 
+                @Html.ActionLink(FFY.Resources.Language.Bg, ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(),
+                       new { language = "bg", id = ViewContext.RouteData.Values["id"] == null ? "" : ViewContext.RouteData.Values["id"].ToString() }, null)
+                &copy; Telerik Academy 2016/2017 ASP.NET MVC Project
+            </p>
         </footer>
     </div>
 
