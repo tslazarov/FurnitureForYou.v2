@@ -108,24 +108,13 @@ namespace FFY.Web.Controllers
             productsSelectionViewModel.Products =
                 this.mapper.Map<IEnumerable<SingleProductSelectionViewModel>>(result);
 
-            ViewBag.FilterBy = filterBy;
-            ViewBag.Search = search;
-            ViewBag.From = from;
-            ViewBag.To = to;
-            ViewBag.Page = actualPage;
-
             return this.View(productsSelectionViewModel);
         }
 
         // GET: Furniture/Product
-        public ActionResult Product(int? id, DetailedProductViewModel model)
+        public ActionResult Product(int id, DetailedProductViewModel model)
         {
-            if (id == null)
-            {
-                // 404
-            }
-
-            model.Product = this.productsService.GetProductById(id.Value);
+            model.Product = this.productsService.GetProductById(id);
             model.Quantity = 1;
             model.GivenRating = 1;
 
@@ -133,7 +122,7 @@ namespace FFY.Web.Controllers
 
             if (model.Product == null)
             {
-                // 404
+                return this.View("NotFound");
             }
 
             return this.View(model);
@@ -146,7 +135,7 @@ namespace FFY.Web.Controllers
         {
             if (!this.authenticationProvider.IsAuthenticated)
             {
-                return this.RedirectToAction("login", "account", new { returnUrl = $"/furniture/product/{model.Product.Id}" });
+                return this.RedirectToAction("Login", "Account", new { returnUrl = $"/furniture/product/{model.Product.Id}" });
             }
 
             var user = this.usersService.GetUserById(this.authenticationProvider.CurrentUserId);
@@ -158,7 +147,7 @@ namespace FFY.Web.Controllers
 
             this.cachingProvider.InsertItem($"cart-count-{user.Id}", cartCount);
 
-            return this.RedirectToAction("product", "furniture", new { id = model.Product.Id });
+            return this.RedirectToAction("Product", "Furniture", new { id = model.Product.Id });
 
         }
 
@@ -169,7 +158,7 @@ namespace FFY.Web.Controllers
         {
             if (!this.authenticationProvider.IsAuthenticated)
             {
-                return this.RedirectToAction("login", "account", new { returnUrl = $"/furniture/product/{model.Product.Id}" });
+                return this.RedirectToAction("Login", "Account", new { returnUrl = $"/furniture/product/{model.Product.Id}" });
             }
 
             var user = this.usersService.GetUserById(this.authenticationProvider.CurrentUserId);
@@ -177,7 +166,7 @@ namespace FFY.Web.Controllers
 
             this.usersService.RateProduct(user, product, model.GivenRating);
 
-            return this.RedirectToAction("product", "furniture", new { id = model.Product.Id });
+            return this.RedirectToAction("Product", "Furniture", new { id = model.Product.Id });
         }
 
         // POST: Furniture/AddFavorites
@@ -187,7 +176,7 @@ namespace FFY.Web.Controllers
         {
             if (!this.authenticationProvider.IsAuthenticated)
             {
-                return this.RedirectToAction("login", "account", new { returnUrl = $"/furniture/product/{model.Product.Id}" });
+                return this.RedirectToAction("Login", "Account", new { returnUrl = $"/furniture/product/{model.Product.Id}" });
             }
 
             var user = this.usersService.GetUserById(this.authenticationProvider.CurrentUserId);
@@ -197,7 +186,7 @@ namespace FFY.Web.Controllers
 
             this.cachingProvider.InsertItem($"favorites-count-{user.Id}", user.FavoritedProducts.Count);
 
-            return this.RedirectToAction("product", "furniture", new { id = model.Product.Id });
+            return this.RedirectToAction("Product", "Furniture", new { id = model.Product.Id });
         }
 
         // POST: Furniture/RemoveFavorites
@@ -208,7 +197,7 @@ namespace FFY.Web.Controllers
 
             if (!this.authenticationProvider.IsAuthenticated)
             {
-                return this.RedirectToAction("login", "account", new { returnUrl = $"/furniture/product/{model.Product.Id}" });
+                return this.RedirectToAction("Login", "Account", new { returnUrl = $"/furniture/product/{model.Product.Id}" });
             }
 
             var user = this.usersService.GetUserById(this.authenticationProvider.CurrentUserId);
@@ -218,7 +207,7 @@ namespace FFY.Web.Controllers
 
             this.cachingProvider.InsertItem($"favorites-count-{user.Id}", user.FavoritedProducts.Count);
 
-            return this.RedirectToAction("product", "furniture", new { id = model.Product.Id });
+            return this.RedirectToAction("Product", "Furniture", new { id = model.Product.Id });
         }
     }
 }

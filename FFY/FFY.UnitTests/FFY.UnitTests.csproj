@@ -182,6 +182,14 @@
     <Compile Include="Web\FavoritesControllerTests\Constructor.cs" />
     <Compile Include="Web\FavoritesControllerTests\Index.cs" />
     <Compile Include="Web\FavoritesControllerTests\PagingProducts.cs" />
+    <Compile Include="Web\FurnitureControllerTests\AddFavorites.cs" />
+    <Compile Include="Web\FurnitureControllerTests\AddShoppingCart.cs" />
+    <Compile Include="Web\FurnitureControllerTests\Constructor.cs" />
+    <Compile Include="Web\FurnitureControllerTests\Index.cs" />
+    <Compile Include="Web\FurnitureControllerTests\Product.cs" />
+    <Compile Include="Web\FurnitureControllerTests\Products.cs" />
+    <Compile Include="Web\FurnitureControllerTests\Rate.cs" />
+    <Compile Include="Web\FurnitureControllerTests\RemoveFavorites.cs" />
     <Compile Include="Web\HomeControllerTests\Constructor.cs" />
     <Compile Include="Web\HomeControllerTests\Index.cs" />
     <Compile Include="Web\InformationControllerTests\Constructor.cs" />
