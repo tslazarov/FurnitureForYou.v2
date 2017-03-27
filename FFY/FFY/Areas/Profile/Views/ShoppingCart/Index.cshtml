@@ -60,6 +60,7 @@
     </div>
     @using (Html.BeginForm("removeCartItem", "shoppingCart", new { CartId = Model.ShoppingCart.UserId }, FormMethod.Post, new { id= "remove-cart-item-form" }))
     {
+        @Html.AntiForgeryToken()
         @Html.Hidden("cartProductId", "", new { id = "removed-cart-product-id" })
     }
 </div>

@@ -36,15 +36,15 @@ namespace FFY.Web.Areas.Profile.Controllers
             IAddressFactory addressFactory,
             IOrderFactory orderFactory)
         {
-            Guard.WhenArgument<IAuthenticationProvider>(authenticationProvider, "Authentication provider cannot be null")
+            Guard.WhenArgument<IAuthenticationProvider>(authenticationProvider, "Authentication provider cannot be null.")
                 .IsNull()
                 .Throw();
 
-            Guard.WhenArgument<ICachingProvider>(cachingProvider, "Caching provider cannot be null")
+            Guard.WhenArgument<ICachingProvider>(cachingProvider, "Caching provider cannot be null.")
                 .IsNull()
                 .Throw();
 
-            Guard.WhenArgument<IDateTimeProvider>(dateTimeProvider, "Date time provider cannot be null")
+            Guard.WhenArgument<IDateTimeProvider>(dateTimeProvider, "Date time provider cannot be null.")
                  .IsNull()
                  .Throw();
 
@@ -100,6 +100,7 @@ namespace FFY.Web.Areas.Profile.Controllers
 
         // POST: Profile/RemoveCartItem
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult RemoveCartItem(string cartId, int cartProductId)
         {
             var shoppingCart = this.shoppingCartsService.GetShoppingCartById(cartId);
@@ -109,7 +110,7 @@ namespace FFY.Web.Areas.Profile.Controllers
 
             this.cachingProvider.InsertItem($"cart-count-{cartId}", shoppingCart.CartProducts.Where(p => p.IsInCart).Count());
 
-            return this.RedirectToAction("index", "shoppingCart");
+            return this.RedirectToAction("Index", "ShoppingCart");
         }
 
         // GET: Profile/ShoppingCart/Order

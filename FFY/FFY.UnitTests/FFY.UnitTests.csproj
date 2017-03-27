@@ -210,6 +210,11 @@
     <Compile Include="Web\ProductManagementControllerTests\ProductAddition.cs" />
     <Compile Include="Web\ProductManagementControllerTests\ProductEditing.cs" />
     <Compile Include="Web\ProductManagementControllerTests\SearchProducts.cs" />
+    <Compile Include="Web\ShoppingCartControllerTests\Constructor.cs" />
+    <Compile Include="Web\ShoppingCartControllerTests\Index.cs" />
+    <Compile Include="Web\ShoppingCartControllerTests\OrderGet.cs" />
+    <Compile Include="Web\ShoppingCartControllerTests\OrderPost.cs" />
+    <Compile Include="Web\ShoppingCartControllerTests\RemoveCartItem.cs" />
     <Compile Include="Web\SupportChatClientControllerTests\Index.cs" />
     <Compile Include="Web\SupportChatControllerTests\Constructor.cs" />
     <Compile Include="Web\SupportChatControllerTests\Index.cs" />
