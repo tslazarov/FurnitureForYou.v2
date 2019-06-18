@@ -19,7 +19,7 @@ namespace FFY.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Language {
@@ -507,6 +507,15 @@ namespace FFY.Resources {
         public static string En {
             get {
                 return ResourceManager.GetString("En", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The desired quantity exceeds the current stock quantity.
+        /// </summary>
+        public static string ExceedMessage {
+            get {
+                return ResourceManager.GetString("ExceedMessage", resourceCulture);
             }
         }
         
@@ -1119,6 +1128,15 @@ namespace FFY.Resources {
         public static string Rejected {
             get {
                 return ResourceManager.GetString("Rejected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to remaining.
+        /// </summary>
+        public static string Remaining {
+            get {
+                return ResourceManager.GetString("Remaining", resourceCulture);
             }
         }
         

@@ -5,8 +5,10 @@ using FFY.Providers.Contracts;
 using FFY.Services.Contracts;
 using FFY.Web.Areas.Profile.Models;
 using FFY.Web.Custom.Attributes;
+using FFY.Services.Utilities.Exceptions;
 using System.Linq;
 using System.Web.Mvc;
+
 
 namespace FFY.Web.Areas.Profile.Controllers
 {
@@ -130,13 +132,13 @@ namespace FFY.Web.Areas.Profile.Controllers
 
             var user = this.usersService.GetUserById(this.authenticationProvider.CurrentUserId);
             var shoppingCart = user.ShoppingCart;
-            var address = this.addressFactory.CreateAddress(model.Street, 
-                model.City, 
-                model.Country);
 
-            this.addressesService.AddAddress(address);
+            try
+            {
+                var address = this.addressFactory.CreateAddress(model.Street, model.City, model.Country);
+                this.addressesService.AddAddress(address);
 
-            var order = this.orderFactory.CreateOrder(user.Id,
+                var order = this.orderFactory.CreateOrder(user.Id,
                 user,
                 this.dateTimeProvider.GetCurrentTime(),
                 shoppingCart.Total,
@@ -146,13 +148,20 @@ namespace FFY.Web.Areas.Profile.Controllers
                 paymentStatusType,
                 orderStatusType);
 
-            this.ordersService.TransferProducts(order, shoppingCart);
+                //this.ordersService.VerifyQuantity(shoppingCart);
+                this.ordersService.TransferProducts(order, shoppingCart);
 
-            this.ordersService.AddOrder(order);
+                this.ordersService.AddOrder(order);
 
-            this.shoppingCartsService.Clear(shoppingCart);
+                this.shoppingCartsService.Clear(shoppingCart);
+                this.cachingProvider.InsertItem($"cart-count-{user.Id}", 0);
 
-            this.cachingProvider.InsertItem($"cart-count-{user.Id}", 0);
+            }
+            catch(OutOfStockException ex)
+            {
+                var message = ex.Message;
+                return this.View();
+            }
 
             return this.View("OrderComplete");
         }

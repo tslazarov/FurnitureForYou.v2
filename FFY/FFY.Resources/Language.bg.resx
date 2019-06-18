@@ -736,4 +736,12 @@
     <value>Виж повече</value>
     <comment>HomeView</comment>
   </data>
+  <data name="ExceedMessage" xml:space="preserve">
+    <value>Желаното количество надвишава текущото количество</value>
+    <comment>ProductView</comment>
+  </data>
+  <data name="Remaining" xml:space="preserve">
+    <value>оставащи</value>
+    <comment>ProductView</comment>
+  </data>
 </root>

@@ -19,5 +19,7 @@ namespace FFY.Web.Models.Furniture
 
         [Range(1, 5, ErrorMessageResourceType = typeof(Language), ErrorMessageResourceName = "ProductRating")]
         public int GivenRating { get; set; }
+
+        public bool QuantityExceeded { get; set; }
     }
 }

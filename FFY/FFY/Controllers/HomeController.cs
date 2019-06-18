@@ -32,7 +32,6 @@ namespace FFY.Web.Controllers
             this.productsService = productsService;
         }
 
-        [OutputCache(Duration = (10 * 60), VaryByParam = "none")]
         public ActionResult Index(HomeViewModel model)
         {
             var latestProducts = this.productsService.GetLatestProducts(DefaultProductsCount);

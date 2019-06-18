@@ -2,6 +2,7 @@
 using FFY.Data.Contracts;
 using FFY.Models;
 using FFY.Services.Contracts;
+using FFY.Services.Utilities.Exceptions;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -25,6 +26,13 @@ namespace FFY.Services
             Guard.WhenArgument<Order>(order, "Order cannot be null.")
                 .IsNull()
                 .Throw();
+
+            foreach (var orderP in order.Products)
+            {
+                var test = orderP;
+            }
+
+            var orderProductIds = order.Products.Select(p => p.ProductId).ToList();
 
             this.data.OrdersRepository.Add(order);
             this.data.SaveChanges();
@@ -65,7 +73,12 @@ namespace FFY.Services
             foreach (var cartProduct in order.Products)
             {
                 cartProduct.Product.Quantity -= cartProduct.Quantity;
+
                 if (cartProduct.Product.Quantity < 0)
+                {
+                    throw new OutOfStockException(cartProduct.Product.Name);
+                }
+                else if(cartProduct.Product.Quantity == 0)
                 {
                     cartProduct.IsOutOfStock = true;
                 }

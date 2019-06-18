@@ -7,6 +7,10 @@
             <img src="~/Images/products/@Model.Product.ImagePath" class="img-center img-responsive" />
         </div>
         <div class="col-md-5">
+            @if (Model.QuantityExceeded)
+            {
+            <div class="error-message">@FFY.Resources.Language.ExceedMessage</div>
+            }
             <h1 class="product-detail-title">@Model.Product.Name</h1>
             <h2 class="product-detail-title-sub">@Model.Product.Category.Name.ToUpper()</h2>
             <div class="product-detail-price">
@@ -25,7 +29,7 @@
                     @if (Model.Product.Quantity > 0)
                     {
                         <span class="available">
-                            <img src="~/Content/sources/available-icon.png" /> @FFY.Resources.Language.Available
+                            <img src="~/Content/sources/available-icon.png" /> @FFY.Resources.Language.Available ( @Model.Product.Quantity )
                         </span>
                     }
                     else

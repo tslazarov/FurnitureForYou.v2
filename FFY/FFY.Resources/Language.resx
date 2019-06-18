@@ -733,4 +733,12 @@
     <value>View more</value>
     <comment>HomeView</comment>
   </data>
+  <data name="ExceedMessage" xml:space="preserve">
+    <value>The desired quantity exceeds the current stock quantity</value>
+    <comment>ProductView</comment>
+  </data>
+  <data name="Remaining" xml:space="preserve">
+    <value>remaining</value>
+    <comment>ProductView</comment>
+  </data>
 </root>

@@ -70,6 +70,10 @@ footer{
     padding: 0px;
 }
 
+.error-message {
+    color: #DF382C;
+}
+
 /* Navigation */
 
 .cart-container {
@@ -80,7 +84,7 @@ footer{
 /* Home */
 .furniture-container .nav-pills {
     margin-top: 20px;
-    max-width: 300px;
+    max-width: 350px;
     margin-left: auto;
     margin-right: auto;
 }

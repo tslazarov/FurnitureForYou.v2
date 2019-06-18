@@ -67,6 +67,7 @@
     <Compile Include="RoomsService.cs" />
     <Compile Include="ShoppingCartsService.cs" />
     <Compile Include="UsersService.cs" />
+    <Compile Include="Utilities\Exceptions\OutOfStockException.cs" />
     <Compile Include="Utilities\Providers\DirectoryProvider.cs" />
     <Compile Include="Utilities\IImageUploader.cs" />
     <Compile Include="Utilities\ImageUploader.cs" />

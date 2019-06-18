@@ -117,6 +117,7 @@ namespace FFY.Web.Controllers
             model.Product = this.productsService.GetProductById(id);
             model.Quantity = 1;
             model.GivenRating = 1;
+            model.QuantityExceeded = false;
 
             this.ModelState.Clear();
 
@@ -140,6 +141,15 @@ namespace FFY.Web.Controllers
 
             var user = this.usersService.GetUserById(this.authenticationProvider.CurrentUserId);
             var product = this.productsService.GetProductById(model.Product.Id);
+
+            if (product.Quantity < model.Quantity)
+            {
+                model.Product = product;
+                model.QuantityExceeded = true;
+
+                return this.View("Product", model);
+            }
+
             var shoppingCart = user.ShoppingCart;
 
             this.shoppingCartsService.Add(shoppingCart, product, model.Quantity);
