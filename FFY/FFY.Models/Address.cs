@@ -23,11 +23,17 @@ namespace FFY.Models
 
         [Required]
         [MinLength(3)]
-        [MaxLength(20)]
+        [MaxLength(50)]
         public string Street { get; set; }
 
+        [Required]
+        [MinLength(3)]
+        [MaxLength(50)]
         public string City { get; set; }
 
+        [Required]
+        [MinLength(3)]
+        [MaxLength(50)]
         public string Country { get; set; }
 
         public virtual ICollection<Order> Orders

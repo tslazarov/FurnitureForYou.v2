@@ -18,5 +18,7 @@ namespace FFY.Data.Contracts
         void Delete(T entity);
 
         void SoftDelete(T entity);
+
+        void DetachEntry(T entity);
     }
 }

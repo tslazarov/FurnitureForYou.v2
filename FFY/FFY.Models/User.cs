@@ -31,17 +31,17 @@ namespace FFY.Models
 
         [Required]
         [MinLength(3)]
-        [MaxLength(30)]
+        [MaxLength(128)]
         public override string UserName { get; set; }
 
         [Required]
         [MinLength(2)]
-        [MaxLength(30)]
+        [MaxLength(128)]
         public string FirstName { get; set; }
 
         [Required]
         [MinLength(2)]
-        [MaxLength(30)]
+        [MaxLength(128)]
         public string LastName { get; set; }
 
         public virtual ICollection<Order> Orders

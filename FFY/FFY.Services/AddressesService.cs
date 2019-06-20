@@ -18,6 +18,11 @@ namespace FFY.Services
             this.data = data;
         }
 
+        public Address GetAddressById(int id)
+        {
+            return this.data.AddressesRepository.GetById(id);
+        }
+
         public void AddAddress(Address address)
         {
             Guard.WhenArgument<Address>(address, "Address cannot be null.")
@@ -25,6 +30,16 @@ namespace FFY.Services
                 .Throw();
 
             this.data.AddressesRepository.Add(address);
+            this.data.SaveChanges();
+        }
+
+        public void DeleteAddress(Address address)
+        {
+            Guard.WhenArgument<Address>(address, "Address cannot be null.")
+                .IsNull()
+                .Throw();
+
+            this.data.AddressesRepository.Delete(address);
             this.data.SaveChanges();
         }
     }

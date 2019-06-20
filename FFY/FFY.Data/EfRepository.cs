@@ -68,5 +68,11 @@ namespace FFY.Data
 
             return entry;
         }
+
+        public void DetachEntry(T entity)
+        {
+            DbEntityEntry entry = this.dbContext.Entry(entity);
+            entry.State = EntityState.Detached;
+        }
     }
 }

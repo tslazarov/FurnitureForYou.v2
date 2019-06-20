@@ -2,7 +2,6 @@
 using FFY.Data.Contracts;
 using FFY.Models;
 using FFY.Services.Contracts;
-using FFY.Services.Utilities.Exceptions;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -26,13 +25,6 @@ namespace FFY.Services
             Guard.WhenArgument<Order>(order, "Order cannot be null.")
                 .IsNull()
                 .Throw();
-
-            foreach (var orderP in order.Products)
-            {
-                var test = orderP;
-            }
-
-            var orderProductIds = order.Products.Select(p => p.ProductId).ToList();
 
             this.data.OrdersRepository.Add(order);
             this.data.SaveChanges();
@@ -74,11 +66,7 @@ namespace FFY.Services
             {
                 cartProduct.Product.Quantity -= cartProduct.Quantity;
 
-                if (cartProduct.Product.Quantity < 0)
-                {
-                    throw new OutOfStockException(cartProduct.Product.Name);
-                }
-                else if(cartProduct.Product.Quantity == 0)
+                if(cartProduct.Product.Quantity == 0)
                 {
                     cartProduct.IsOutOfStock = true;
                 }
@@ -142,6 +130,17 @@ namespace FFY.Services
             }
 
             return orders;
+        }
+
+
+        public void DeleteOrder(Order order)
+        {
+            Guard.WhenArgument<Order>(order, "Order cannot be null.")
+                .IsNull()
+                .Throw();
+
+            this.data.OrdersRepository.Delete(order);
+            this.data.SaveChanges();
         }
     }
 }

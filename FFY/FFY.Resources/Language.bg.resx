@@ -740,8 +740,16 @@
     <value>Желаното количество надвишава текущото количество</value>
     <comment>ProductView</comment>
   </data>
+  <data name="OutOfStockProducts" xml:space="preserve">
+    <value>Следните продукти не са налични:</value>
+    <comment>OutOfStockView</comment>
+  </data>
   <data name="Remaining" xml:space="preserve">
     <value>оставащи</value>
     <comment>ProductView</comment>
+  </data>
+  <data name="ShoppingCart" xml:space="preserve">
+    <value>Пазарска количка</value>
+    <comment>OutOfStockView</comment>
   </data>
 </root>

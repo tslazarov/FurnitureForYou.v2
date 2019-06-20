@@ -196,5 +196,10 @@ namespace FFY.Services
         {
             return this.data.ProductsRepository.All().OrderByDescending(p => p.DiscountPercentage).Take(count);
         }
+
+        public void DetachProduct(Product product)
+        {
+            this.data.ProductsRepository.DetachEntry(product);
+        }
     }
 }

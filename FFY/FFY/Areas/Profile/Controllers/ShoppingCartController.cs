@@ -5,10 +5,10 @@ using FFY.Providers.Contracts;
 using FFY.Services.Contracts;
 using FFY.Web.Areas.Profile.Models;
 using FFY.Web.Custom.Attributes;
-using FFY.Services.Utilities.Exceptions;
 using System.Linq;
 using System.Web.Mvc;
-
+using System.Data.Entity.Validation;
+using System.Collections.Generic;
 
 namespace FFY.Web.Areas.Profile.Controllers
 {
@@ -22,6 +22,7 @@ namespace FFY.Web.Areas.Profile.Controllers
         private readonly IShoppingCartsService shoppingCartsService;
         private readonly IUsersService usersService;
         private readonly ICartProductsService cartProductsService;
+        private readonly IProductsService productsService;
         private readonly IAddressesService addressesService;
         private readonly IOrdersService ordersService;
         private readonly IAddressFactory addressFactory;
@@ -33,6 +34,7 @@ namespace FFY.Web.Areas.Profile.Controllers
             IShoppingCartsService shoppingCartsService,
             IUsersService usersService,
             ICartProductsService cartProductsService,
+            IProductsService productsService,
             IAddressesService addressesService,
             IOrdersService ordersService,
             IAddressFactory addressFactory,
@@ -62,6 +64,10 @@ namespace FFY.Web.Areas.Profile.Controllers
                 .IsNull()
                 .Throw();
 
+            Guard.WhenArgument<IProductsService>(productsService, "Products service cannot be null.")
+                .IsNull()
+                .Throw();
+
             Guard.WhenArgument<IAddressesService>(addressesService, "Addresses service cannot be null.")
                 .IsNull()
                 .Throw();
@@ -84,6 +90,7 @@ namespace FFY.Web.Areas.Profile.Controllers
             this.shoppingCartsService = shoppingCartsService;
             this.usersService = usersService;
             this.cartProductsService = cartProductsService;
+            this.productsService = productsService;
             this.addressesService = addressesService;
             this.ordersService = ordersService;
             this.addressFactory = addressFactory;
@@ -133,34 +140,62 @@ namespace FFY.Web.Areas.Profile.Controllers
             var user = this.usersService.GetUserById(this.authenticationProvider.CurrentUserId);
             var shoppingCart = user.ShoppingCart;
 
+            var address = this.addressFactory.CreateAddress(model.Street, model.City, model.Country);
+            this.addressesService.AddAddress(address);
+
+            var order = this.orderFactory.CreateOrder(user.Id,
+            user,
+            this.dateTimeProvider.GetCurrentTime(),
+            shoppingCart.Total,
+            address.Id,
+            address,
+            model.PhoneNumber,
+            paymentStatusType,
+            orderStatusType);
+
             try
             {
-                var address = this.addressFactory.CreateAddress(model.Street, model.City, model.Country);
-                this.addressesService.AddAddress(address);
-
-                var order = this.orderFactory.CreateOrder(user.Id,
-                user,
-                this.dateTimeProvider.GetCurrentTime(),
-                shoppingCart.Total,
-                address.Id,
-                address,
-                model.PhoneNumber,
-                paymentStatusType,
-                orderStatusType);
-
-                //this.ordersService.VerifyQuantity(shoppingCart);
                 this.ordersService.TransferProducts(order, shoppingCart);
 
                 this.ordersService.AddOrder(order);
 
                 this.shoppingCartsService.Clear(shoppingCart);
                 this.cachingProvider.InsertItem($"cart-count-{user.Id}", 0);
-
             }
-            catch(OutOfStockException ex)
+            catch (DbEntityValidationException dbException)
             {
-                var message = ex.Message;
-                return this.View();
+                var oosViewModel = new OutOfStockViewModel();
+                oosViewModel.OutOfStockProducts = new List<string>();
+                bool outOfStockError = false; 
+
+                foreach (var eve in dbException.EntityValidationErrors)
+                {
+                    if(eve.Entry != null && eve.Entry.Entity != null)
+                    {
+                        var outOfStockProduct = eve.Entry.Entity as Product;
+
+                        if(outOfStockProduct != null)
+                        {
+                            foreach (var validationError in eve.ValidationErrors)
+                            {
+                                if (validationError.PropertyName == "Quantity")
+                                {
+                                    this.productsService.DetachProduct(outOfStockProduct);
+
+                                    oosViewModel.OutOfStockProducts.Add(outOfStockProduct.Name);
+                                    outOfStockError = true;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if (outOfStockError)
+                {
+                    this.addressesService.DeleteAddress(address);
+                    this.ordersService.DeleteOrder(order);
+                    return this.View("OutOfStock", oosViewModel);
+                }
             }
 
             return this.View("OrderComplete");

@@ -16,5 +16,7 @@ namespace FFY.Services.Contracts
         IEnumerable<Order> SearchOrders(string searchWord, string sortBy, string filterBy, int page = 1, int ordersPerPage = 10);
 
         int GetOrdersCount(string searchWord, string filterBy);
+
+        void DeleteOrder(Order order);
     }
 }

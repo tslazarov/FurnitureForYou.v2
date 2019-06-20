@@ -16,6 +16,11 @@ namespace FFY.Data
             return base.All().Where(e => !e.IsDeleted);
         }
 
+        public void DetachEntry(T entity)
+        {
+            base.DetachEntry(entity);
+        }
+
         public void SoftDelete(T entity)
         {
             entity.IsDeleted = true;

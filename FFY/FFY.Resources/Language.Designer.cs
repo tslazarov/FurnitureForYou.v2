@@ -808,6 +808,15 @@ namespace FFY.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The following products are out of stock:.
+        /// </summary>
+        public static string OutOfStockProducts {
+            get {
+                return ResourceManager.GetString("OutOfStockProducts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string Password {
@@ -1254,6 +1263,15 @@ namespace FFY.Resources {
         public static string Sent {
             get {
                 return ResourceManager.GetString("Sent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shopping cart.
+        /// </summary>
+        public static string ShoppingCart {
+            get {
+                return ResourceManager.GetString("ShoppingCart", resourceCulture);
             }
         }
         

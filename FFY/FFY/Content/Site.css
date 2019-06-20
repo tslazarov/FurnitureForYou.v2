@@ -317,8 +317,26 @@ footer{
     min-width: 150px 0px;
 }
 
-/* Profile page */
+/* Out of stock page */
+.out-of-stock-container {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
 
+.out-of-stock-container h2 {
+    padding: 10px 0px;
+}
+
+.out-of-stock-container h3 {
+    padding: 5px 0px;
+}
+
+.out-of-stock-button{
+    margin-top: 30px;
+}
+/* Profile page */
 .profile-email {
     color: #AAAAAA;
 }

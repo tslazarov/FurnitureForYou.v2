@@ -29,5 +29,7 @@ namespace FFY.Services.Contracts
         IEnumerable<Product> GetHighestRatedProducts(int count);
 
         IEnumerable<Product> GetDiscountProducts(int count);
+
+        void DetachProduct(Product product);
     }
 }

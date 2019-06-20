@@ -1,0 +1,14 @@
+﻿@using FFY.Web.Areas.Profile.Models
+@model OutOfStockViewModel
+
+<div class="out-of-stock-container">
+    <h2>@FFY.Resources.Language.OutOfStockProducts</h2>
+    @foreach (var product in Model.OutOfStockProducts)
+    {
+        <h3>@product</h3>
+    }
+        <div class="out-of-stock-button">
+            @Html.ActionLink(FFY.Resources.Language.ShoppingCart, "index", "shoppingCart", new { area = "profile" }, new { @class = "btn btn-primary" })
+        </div>
+</div>
+

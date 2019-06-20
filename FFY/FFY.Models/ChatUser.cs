@@ -23,12 +23,12 @@ namespace FFY.Models
 
         [Required]
         [MinLength(2)]
-        [MaxLength(30)]
+        [MaxLength(128)]
         public string Email { get; set; }
 
         [Required]
         [MinLength(2)]
-        [MaxLength(30)]
+        [MaxLength(128)]
         public string Role { get; set; }
     }
 }
